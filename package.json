@@ -47,6 +47,8 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"framer-motion": "^12.5.0",
+		"gsap": "^3.12.7",
 		"svelte-icons": "^2.1.0"
 	}
 }
