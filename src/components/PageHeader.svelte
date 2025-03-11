@@ -44,7 +44,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 50vh;
+        width: 40vh;
         height: 100vh;
         background: #0a0a1c;
         box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
@@ -57,7 +57,7 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.7);
         z-index: 40;
     }
 
@@ -76,6 +76,11 @@
         animation-duration: 1s;
         animation-iteration-count: infinite;
     }
+
+		a {
+				text-decoration: none;
+				color: inherit;
+		}
 </style>
 
 
@@ -98,8 +103,11 @@
 
 
 <nav bind:this={menu} on:click={toggleMenu} class="sidebar flex flex-col p-5 text-white">
-	<h2 class="text-xl mb-5">Klimson</h2>
-	<a href="/" class="mb-3 text-xl font-bold">Strona główna</a>
+	<div class="flex gap-1 mb-4">
+		<span class="text-green-500 text-2xl">{">"}</span>
+		<h1>Klimson <span class="code">_</span></h1>
+	</div>
+	<a href="/" class="mb-3 text-xl font-bold">Index</a>
 	<a href="/about-me" class="mb-3 text-xl font-bold">O mnie</a>
 	<a href="/projects" class="mb-3 text-xl font-bold">Projekt</a>
 	<a href="/quotes" class="mb-3 text-xl font-bold">Cytaty</a>
