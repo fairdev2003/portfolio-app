@@ -12,7 +12,7 @@
 		<p class="text-gray-500 font-[500]">Na przestrzeni lat ten stack technologiczny cały czas się rozwijał. Moje pierwsza styczność z programowaniem miała miejsce gdy dołączyłem do projektu gry na Roblox. Nigdy nie sądziłem ze zaczne tworzyć tak prężnie strony internetowe.</p>
 	</div>
 	<!--Stack items-->
-	<div class="flex flex-wrap gap-3">
+	<div class="flex flex-wrap lg:justify-start md:justify-start justify-center gap-3">
 		<TechnologyStackItem src="Lua.svg" stack_name="Lua"/>
 		<TechnologyStackItem src="Java.svg" stack_name="Java"/>
 		<TechnologyStackItem src="Python.svg" stack_name="Python"/>
