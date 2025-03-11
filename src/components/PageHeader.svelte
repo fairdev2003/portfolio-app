@@ -29,10 +29,12 @@
 
 
 	onMount(() => {
+		window.addEventListener("keydown", handleResize);
 		window.addEventListener('resize', handleResize);
 
 		return () => {
 			window.removeEventListener('resize', handleResize);
+			window.addEventListener("keydown", handleResize);
 		}
 	})
 </script>
@@ -58,7 +60,25 @@
         background: rgba(0, 0, 0, 0.5);
         z-index: 40;
     }
+
+    @keyframes code_animation {
+        25% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+
+    }
+
+    .code {
+        animation-name: code_animation;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+    }
 </style>
+
+
 
 <header class="sticky lg:relative z-10 top-0 py-5 bg-[#0a0a1c] lg:bg-transparent flex pb-5 items-center gap-1 select-none">
 	<div class="flex gap-1">
