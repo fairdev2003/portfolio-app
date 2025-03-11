@@ -7,7 +7,7 @@
 
 
 
-	<div class="absolute flex justify-center z-100 left-1/2 -translate-x-1/2 bottom-full mt-2 p-2 text-sm text-white bg-[#131333] rounded-lg shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+	<div class="absolute hidden justify-center z-100 left-1/2 -translate-x-1/2 bottom-full mt-2 p-2 text-sm text-white bg-[#131333] rounded-lg shadow-lg opacity-0 transition-opacity duration-300 group-hover:flex group-hover:opacity-100">
 		{stack_name}
 	</div>
 

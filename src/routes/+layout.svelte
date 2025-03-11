@@ -11,7 +11,7 @@
 
 	</div>
 
-	<div class="max-w-6xl mx-auto py-10 px-10">
+	<div class="max-w-6xl mx-auto py-10 lg:px-10 px-5">
 
 	<header class="flex pb-10 items-center gap-1 select-none">
 		<span class="text-green-500 text-2xl">{">"}</span><h1>Klimson <span class="code">_</span></h1>
