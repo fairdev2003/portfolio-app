@@ -13,7 +13,7 @@
 	async function handleSubmit(event: InputEvent) {
 		event.preventDefault()
 		if (email == "" && message == "" && subject == "") {
-			error = "Cannot send empty form"
+			error = "Nie można wysłać pustego formularza."
 		} else {
 			try {
 				const response = await fetch("https://formspree.io/f/xblgjpyr", {
