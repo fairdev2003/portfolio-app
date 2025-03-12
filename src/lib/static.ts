@@ -1,4 +1,4 @@
-	type TechStackType = {
+type TechStackType = {
 	src: string,
 	stack_name: string,
 	imageStyle?: string,
@@ -39,4 +39,12 @@ const websiteStack: TechStackType[] = [
 	{ src: "Tailwind-CSS.svg", stack_name: "TailwindCSS" }
 ];
 
-export { techStackItems, websiteStack };
+const pageSections = [
+	{ name: "Index", description: "", path: "/" },
+	{ name: "O mnie", description: "Trochę informacji o mnie", path: "/about-me" },
+	{ name: "Projekty", description: "Lista moich projektów", path: "/projects" },
+	{ name: "Cytaty", description: "Moje życiowe cytaty", path: "/quotes" },
+	{ name: "Contact", description: "Dostępne metody kontaktu", path: "/contact" }
+];
+
+export { websiteStack, techStackItems, pageSections };

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { gsap } from "gsap";
 	import { onMount } from 'svelte';
+	import { pageSections } from '$lib/static';
 
 	let menu: HTMLElement | null = null;
 	let isOpen = false;
@@ -107,9 +108,7 @@
 		<span class="text-green-500 text-2xl">{">"}</span>
 		<h1>Klimson <span class="code">_</span></h1>
 	</div>
-	<a href="/" class="mb-3 text-xl font-bold">Index</a>
-	<a href="/about-me" class="mb-3 text-xl font-bold">O mnie</a>
-	<a href="/projects" class="mb-3 text-xl font-bold">Projekt</a>
-	<a href="/quotes" class="mb-3 text-xl font-bold">Cytaty</a>
-	<a href="/contact" class="mb-3 text-xl font-bold">Kontakt</a>
+	{#each pageSections as {name, path}}
+		<a href={path} class="mb-3 text-xl font-bold">{name}</a>
+	{/each}
 </nav>

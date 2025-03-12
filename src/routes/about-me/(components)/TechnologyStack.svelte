@@ -1,6 +1,6 @@
 <script>
 	import TechnologyStackItem from '../../../components/TechnologyStackItem.svelte';
-	import { techStackItems, websiteStack } from './stack.js';
+	import { techStackItems, websiteStack } from '$lib/static.js';
 </script>
 
 <div class="flex flex-col gap-5 justify-center">
