@@ -1,3 +1,8 @@
+<script>
+	import ContactForm from '../../components/ContactForm.svelte';
+	import Heading from '../../components/Heading.svelte';
+</script>
+
 <div class="lg:col-span-2 flex flex-col gap-10 px-5">
 
 	<div class="flex flex-col">
@@ -6,11 +11,8 @@
 		<p class="text-gray-500 font-[500]">Najbardziej aktywny jestem na discordzie ale jeżeli chcesz skontaktować sie drogą emailową to nie mam żadnego problemu. Możesz również wypełnic formularz poniżej.</p>
 	</div>
 
-	<div class="flex flex-col gap-4">
-		<div class="flex items-center gap-4">
-			<h2>Połącz sie ze mną</h2>
-			<div class="bg-gray-500 h-0.5 flex-1"></div>
-		</div>
+	<div class="flex flex-col gap-10">
+		<Heading>Połącz się ze mną</Heading>
 		<div class="bg-[#131333] h-20 rounded-lg flex gap-4 items-center px-5">
 			<img alt="discord" src="https://img.icons8.com/?size=100&id=g5CM6rE39mwI&format=png&color=FFFFFF" class="w-15 h-15">
 			<div class="flex flex-col">
@@ -25,14 +27,9 @@
 				<p class="text-gray-500 font-[500]">Dołącz do serwera społeczności developerów</p>
 			</div>
 		</div>
-		<div class="flex items-center gap-4">
-			<h2>Dane kontakowe</h2>
-			<div class="bg-gray-500 h-0.5 flex-1"></div>
-		</div>
-		<div class="flex items-center gap-4">
-			<h2>Formularz kontakowy</h2>
-			<div class="bg-gray-500 h-0.5 flex-1"></div>
-		</div>
+<!--		<Heading>Dane kontaktowe</Heading>-->
+		<Heading>Formualarz kontaktowy</Heading>
+		<ContactForm/>
 		<p class="font-[500] text-gray-500 flex justify-center">Słyszymy sie później?</p>
 
 	</div>

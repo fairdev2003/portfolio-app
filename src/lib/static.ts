@@ -44,7 +44,7 @@ const pageSections = [
 	{ name: "O mnie", description: "Trochę informacji o mnie", path: "/about-me" },
 	{ name: "Projekty", description: "Lista moich projektów", path: "/projects" },
 	{ name: "Cytaty", description: "Moje życiowe cytaty", path: "/quotes" },
-	{ name: "Contact", description: "Dostępne metody kontaktu", path: "/contact" }
+	{ name: "Kontakt", description: "Dostępne metody kontaktu", path: "/contact" }
 ];
 
 export { websiteStack, techStackItems, pageSections };
