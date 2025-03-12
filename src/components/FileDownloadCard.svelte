@@ -3,7 +3,7 @@
 </script>
 
 <div>
-	<div class="flex gap-4 items-center px-5 bg-[#131333] h-18 rounded-2xl py-2">
+	<div class="flex gap-4 items-center px-5 bg-[#131333] h-auto rounded-2xl py-2">
 
 
 			<div class="bg-[#27275b] rounded-full w-10 h-10 p-2">
@@ -16,7 +16,8 @@
 			</div>
 			{/if}
 			{#if path.length == 0}
-				<div class="flex flex-col">
+				<div class="flex flex-col p-1">
+					<p class="text-white font-[500]">{filename}</p>
 					<p class="text-red-500 font-[500]">Ten plik jest niedostępny do pobrania</p>
 				</div>
 			{/if}
