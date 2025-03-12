@@ -8,5 +8,5 @@
 		<div class="bg-gray-500 h-0.5 flex-1"></div>
 	</div>
 
-	<FileDownloadCard size="65,5 kB" path="/Jakub-Klimkiewicz-CV.pdf" filename="Jakub-Klimkiewicz-CV.pdf"/>
+	<FileDownloadCard size="65,5 kB" path="" filename="Jakub-Klimkiewicz-CV.pdf"/>
 </div>
