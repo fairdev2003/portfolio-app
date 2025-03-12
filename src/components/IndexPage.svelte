@@ -1,6 +1,5 @@
 <script>
-import BoxOutline from './BoxOutline.svelte';
-import Box from './Box.svelte';
+
 </script>
 
 <div class="lg:col-span-2 flex flex-col gap-6">
@@ -10,5 +9,9 @@ import Box from './Box.svelte';
 		<div class="bg-gray-500 h-0.5 flex-1"></div>
 	</div>
 
+	<div class="font-[500] text-gray-400 flex flex-col gap-3">
+		<p>Miło mi Cię tu gościć.</p>
+		<p>Serdeczne pozdrowienia dla Pana Krzysztofa. Dziękuję, że pozwolił mi Pan zrealizować ten projekt w wybranym frameworku. Zdecydowałem się na Svelte. Miłego przeglądania! :)</p>
+	</div>
 
 </div>

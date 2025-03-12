@@ -3,6 +3,7 @@
 	import Navigation from '../components/Navigation.svelte';
 	import Footer from '../components/Footer.svelte';
 	import PageHeader from '../components/PageHeader.svelte';
+	import "../scrollbar.css"
 	let { children } = $props();
 </script>
 

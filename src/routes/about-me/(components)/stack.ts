@@ -1,4 +1,10 @@
-const techStackItems = [
+	type TechStackType = {
+	src: string,
+	stack_name: string,
+	imageStyle?: string,
+}
+
+const techStackItems: TechStackType[] = [
 	{ src: "Lua.svg", stack_name: "Lua" },
 	{ src: "Java.svg", stack_name: "Java" },
 	{ src: "Python.svg", stack_name: "Python" },
@@ -25,7 +31,7 @@ const techStackItems = [
 	{ src: "Svelte.svg", stack_name: "Svelte" }
 ];
 
-const websiteStack = [
+const websiteStack: TechStackType[] = [
 	{ src: "Svelte.svg", stack_name: "SvelteKit" },
 	{ src: "HTML5.svg", stack_name: "HTML5" },
 	{ src: "CSS3.svg", stack_name: "CSS3" },

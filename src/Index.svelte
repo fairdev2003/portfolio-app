@@ -1,6 +1,7 @@
 <script>
 	import IndexPage from './components/IndexPage.svelte';
 	import InfoSnippet from './components/InfoSnippet.svelte';
+
 </script>
 
 
