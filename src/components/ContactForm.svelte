@@ -11,6 +11,8 @@
 	}
 
 	async function handleSubmit(event: InputEvent) {
+		error = ""
+		sucess = ""
 		event.preventDefault()
 		if (email == "" && message == "" && subject == "") {
 			error = "Nie można wysłać pustego formularza."

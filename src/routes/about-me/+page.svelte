@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Box from '../../components/Box.svelte';
 	import TechnologyStack from './(components)/TechnologyStack.svelte';
 	import Education from './(components)/Education.svelte';

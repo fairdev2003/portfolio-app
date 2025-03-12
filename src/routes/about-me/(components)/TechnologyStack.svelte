@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import TechnologyStackItem from '../../../components/TechnologyStackItem.svelte';
 	import { techStackItems, websiteStack } from '$lib/static.js';
 </script>
@@ -14,14 +14,14 @@
 	</div>
 	<!--Stack items-->
 	<div class="flex flex-wrap lg:justify-start md:justify-start justify-center gap-3">
-		{#each techStackItems as { src, stack_name, imageStyle }}
-			<TechnologyStackItem {src} {stack_name} {imageStyle} />
+		{#each techStackItems as { src, stack_name, imageStyle, href }}
+			<TechnologyStackItem {href} {src} {stack_name} {imageStyle} />
 		{/each}
 	</div>
 	<h3>Technologie wykorzystane do stworzenia tej strony</h3>
 	<div class="flex flex-wrap gap-3">
-		{#each websiteStack as { src, stack_name }}
-			<TechnologyStackItem {src} {stack_name} />
+		{#each websiteStack as { src, stack_name, href }}
+			<TechnologyStackItem {href} {src} {stack_name} />
 		{/each}
 	</div>
 	<p class="font-[500]">Zobacz także <a href="/projects">Projekty</a></p>

@@ -25,8 +25,8 @@ function onLeave() {
 
 	<Box className="font-[500] text-gray-400 bg-[#131333] p-10 flex flex-col gap-3">
 		<p>Miło mi Cię tu gościć.</p>
-		<p>Serdeczne pozdrowienia dla Pana Krzysztofa. Dziękuję, że pozwolił mi Pan zrealizować ten projekt w wybranym frameworku. Zdecydowałem się na Svelte. Miłego przeglądania! :)</p>
-
+		<p>Serdeczne pozdrowienia dla Pana Krzysztofa. Dziękuję, że pozwolił mi Pan zrealizować ten projekt w wybranym frameworku. Zdecydowałem się na <span class="text-orange-500">Svelte</span></p>
+		<p>Miłego przeglądania! :)</p>
 		<div class="flex justify-end">
 			<a bind:this={box} class="text-white flex gap-2 items-center" href="/about-me" on:mouseleave={onLeave} on:mouseenter={onHover}>
 				<p>O mnie</p>
