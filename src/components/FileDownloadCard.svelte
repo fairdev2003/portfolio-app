@@ -3,7 +3,7 @@
 </script>
 
 <div>
-	<div class="flex gap-4 items-center px-5 bg-[#131333] h-18 rounded-2xl">
+	<div class="flex gap-4 items-center px-5 bg-[#131333] h-18 rounded-2xl py-2">
 
 
 			<div class="bg-[#27275b] rounded-full w-10 h-10 p-2">
