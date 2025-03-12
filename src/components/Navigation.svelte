@@ -8,7 +8,7 @@ import NavButton from './NavButton.svelte';
 	<NavButton name="Index" description="" path="/"/>
 	<NavButton name="O mnie" description='Trochę informacji o mnie' path="/about-me"/>
 	<NavButton name="Projekty" description="Lista moich projektów" path="/projects"/>
-	<NavButton name="Quotes" description='Moje życiowe cytaty' path="/quotes"/>
+	<NavButton name="Cytaty" description='Moje życiowe cytaty' path="/quotes"/>
 	<NavButton name="Contact" description='Dostępne metody kontaktu' path="/contact"/>
 </div>
 
