@@ -2,9 +2,10 @@
 	import Github from '../assets/github.png';
 	import Linkedin from '../assets/linkedin.png';
 </script>
+<div class="md:hidden h-0.5 w-full bg-gray-500 mt-10"/>
+<div class="col-span-1 lg:mt-0 lg:flex-col p-5 gap-5 relative sticky top-0 md:flex md:flex-row flex flex-col justify-center items-center mt-10">
 
-<div class="col-span-1 lg:flex hidden flex-col p-5 gap-5 relative sticky top-0">
-	<img src="https://avatars.githubusercontent.com/u/151926872?v=4" alt="Example" class="w-full rounded-full" />
+	<img src="https://avatars.githubusercontent.com/u/151926872?v=4" alt="Example" class="rounded-full lg:w-auto lg:h-auto h-20 w-20" />
 	<h2 class="font-[500] text-gray-400 text-xl">fairdev2003</h2>
 	<div class="flex flex-col gap-3">
 		<div class="flex items-center gap-2">
