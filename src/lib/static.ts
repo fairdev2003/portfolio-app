@@ -72,7 +72,9 @@ type QuoteProps = {
 }
 
 const quotes: QuoteProps[] = [
-	{quote: "Kirwa juz brzuch mnie boli od tego jarania", author: "joe363", path: "cytat-o-brzuchu"}
+	{quote: "Kirwa juz brzuch mnie boli od tego jarania", author: "joe363", path: "cytat-o-brzuchu"},
+	{quote: "Obsrane gacie jak zaweze troche powyzywa dadz jakis chuhowy powod zeby nie grac 1v1 i skleja pizde", author: "joe363", path: "chuhowy_powod"},
+	{quote: "To ktos chetny na rozjebanie ja ttlko konta pptrzebuje do rozjebania was a mam wiec zapraszam", author: "joe363", path: "cytat_0_koncie"},
 ]
 
 export { websiteStack, techStackItems, pageSections, projects, quotes };
