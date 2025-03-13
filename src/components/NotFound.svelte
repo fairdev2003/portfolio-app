@@ -1,4 +1,4 @@
-<div class="flex justify-center flex-col items-center bg-red-500 w-full h-full p-5">
+<div class="flex justify-center flex-col items-center w-full h-full p-5">
 	<img alt="error" src="https://img.icons8.com/?size=100&id=8122&format=png&color=FFFFFF"/>
 	<h1>
 		Oops. Błąd!

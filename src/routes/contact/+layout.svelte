@@ -1,8 +1,10 @@
 <script lang="ts">
+	import ResponsiveWrapper from '../../components/ResponsiveWrapper.svelte';
+
 	let { children } = $props();
 </script>
 
 
-<div class="lg:grid grid-cols-3">
+<ResponsiveWrapper>
 	{@render children()}
-</div>
+</ResponsiveWrapper>

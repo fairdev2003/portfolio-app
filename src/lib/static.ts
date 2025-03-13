@@ -48,4 +48,17 @@ const pageSections = [
 	{ name: "Kontakt", description: "Dostępne metody kontaktu", path: "/contact" },
 ];
 
-export { websiteStack, techStackItems, pageSections };
+type ProjectsProps = {
+	project_name: string;
+	description: string;
+	blog_link: string;
+	status: "active" | "inactive" | "done";
+}
+
+const projects = [
+	{project_name: "Modopedia", description: "Projekt zacząłem od stworzenia modyfikacji, która integruje ze soba stronę internetową i serwer minecraft. Jednak od jakiegoś czasu skupiłem sie tylko na części o wiki, gdyż zawsze brakowało mi tego o modach minecraft. Projekt jest pisany w Next.js (jako frontend) i w ekstremalnie szybkim Golangu (jako backend)", blog_link: "/blog/modopedia", status: "active"},
+	{project_name: "Modopedia", description: "Projekt zacząłem od stworzenia modyfikacji, która integruje ze soba stronę internetową i serwer minecraft. Jednak od jakiegoś czasu skupiłem sie tylko na części o wiki, gdyż zawsze brakowało mi tego o modach minecraft. Projekt jest pisany w Next.js (jako frontend) i w ekstremalnie szybkim Golangu (jako backend)", blog_link: "/blog/modopedia", status: "inactive"},
+	{project_name: "Modopedia", description: "Projekt zacząłem od stworzenia modyfikacji, która integruje ze soba stronę internetową i serwer minecraft. Jednak od jakiegoś czasu skupiłem sie tylko na części o wiki, gdyż zawsze brakowało mi tego o modach minecraft. Projekt jest pisany w Next.js (jako frontend) i w ekstremalnie szybkim Golangu (jako backend)", blog_link: "/blog/modopedia", status: "done"},
+]
+
+export { websiteStack, techStackItems, pageSections, projects };
