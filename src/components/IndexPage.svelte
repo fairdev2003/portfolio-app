@@ -15,7 +15,7 @@ import AnimatedLink from './AnimatedLink.svelte';
 		<p>Miło mi Cię tu gościć.</p>
 		<p>Serdeczne pozdrowienia dla Pana Krzysztofa. Dziękuję, że pozwolił mi Pan zrealizować ten projekt w wybranym frameworku. Zdecydowałem się na <span class="text-orange-500">Svelte</span></p>
 		<p>Miłego przeglądania! :)</p>
-		<AnimatedLink text="O mnie"/>
+		<AnimatedLink text="O mnie" href="/about-me"/>
 	</Box>
 
 </div>
