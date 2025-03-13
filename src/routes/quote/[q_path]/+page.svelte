@@ -3,6 +3,7 @@
 	import type { QuoteProps } from "$lib/static"
 	import { onMount } from 'svelte';
 	import QuoteBox from '../../quotes/(components)/QuoteBox.svelte';
+	import NotFound from '../../../components/NotFound.svelte';
 	export let data : {
 		q_path: string;
 	};
@@ -27,6 +28,6 @@
 
 
 	{#if !validPath}
-		Not valid path
+		<NotFound/>
 	{/if}
 </div>
