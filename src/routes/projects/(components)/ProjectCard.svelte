@@ -31,8 +31,8 @@
 	<div class="bg-gray-500 w-0.5 h-full lg:relative col-span-2 hidden lg:flex">
 		<div class={`${getActiveStatusColor(status)} rounded-full w-5 h-5 absolute top-10 right-[-10px]`}></div>
 	</div>
-	<div class="col-span-8 flex flex-col">
-		<img src={image} alt="project_name" class="object-cover" loading="lazy" />
+	<div class="col-span-8 flex flex-col bg-[#131333]">
+<!--		<img src={image} alt="project_name" class="object-cover" loading="lazy" />-->
 		<div class="bg-[#131333] min-h-2xl p-10">
 			<Heading>{project_name}</Heading>
 			<p class="text-gray-500 font-[500]">{description}</p>

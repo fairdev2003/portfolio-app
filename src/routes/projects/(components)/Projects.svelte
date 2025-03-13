@@ -10,8 +10,8 @@ import ProjectCard from './ProjectCard.svelte';
 
 	</div>
 	<div class="flex flex-col col-span-8 gap-10">
-		{#each projects as { project_name, blog_link, description, status }}
-			<ProjectCard {status} {project_name} {description} {blog_link} image="https://camo.githubusercontent.com/aa1a88f9ef020e38f3e1bc9ed1416d7930041cb907c6e920e6094faa299e254e/68747470733a2f2f692e696d6775722e636f6d2f6a67495a65496b2e706e67"/>
+		{#each projects as { project_name, blog_link, description, status, image }}
+			<ProjectCard {status} {project_name} {description} {blog_link} {image}/>
 		{/each}
 	</div>
 </div>

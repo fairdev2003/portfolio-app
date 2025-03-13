@@ -1,3 +1,6 @@
+
+import Modopedia from '../assets/modopedia.webp'
+
 type TechStackType = {
 	src: string,
 	stack_name: string,
@@ -53,12 +56,24 @@ type ProjectsProps = {
 	description: string;
 	blog_link: string;
 	status: "active" | "inactive" | "done";
+	image: string
 }
 
-const projects = [
-	{project_name: "Modopedia", description: "Projekt zacząłem od stworzenia modyfikacji, która integruje ze soba stronę internetową i serwer minecraft. Jednak od jakiegoś czasu skupiłem sie tylko na części o wiki, gdyż zawsze brakowało mi tego o modach minecraft. Projekt jest pisany w Next.js (jako frontend) i w ekstremalnie szybkim Golangu (jako backend)", blog_link: "/blog/modopedia", status: "active"},
-	{project_name: "Modopedia", description: "Projekt zacząłem od stworzenia modyfikacji, która integruje ze soba stronę internetową i serwer minecraft. Jednak od jakiegoś czasu skupiłem sie tylko na części o wiki, gdyż zawsze brakowało mi tego o modach minecraft. Projekt jest pisany w Next.js (jako frontend) i w ekstremalnie szybkim Golangu (jako backend)", blog_link: "/blog/modopedia", status: "inactive"},
-	{project_name: "Modopedia", description: "Projekt zacząłem od stworzenia modyfikacji, która integruje ze soba stronę internetową i serwer minecraft. Jednak od jakiegoś czasu skupiłem sie tylko na części o wiki, gdyż zawsze brakowało mi tego o modach minecraft. Projekt jest pisany w Next.js (jako frontend) i w ekstremalnie szybkim Golangu (jako backend)", blog_link: "/blog/modopedia", status: "done"},
+const projects: ProjectsProps[] = [
+	{project_name: "Modopedia", description: "Projekt zacząłem od stworzenia modyfikacji, która integruje ze soba stronę internetową i serwer minecraft. Jednak od jakiegoś czasu skupiłem sie tylko na części o wiki, gdyż zawsze brakowało mi tego o modach minecraft. Projekt jest pisany w Next.js (jako frontend) i w ekstremalnie szybkim Golangu (jako backend)", blog_link: "/blog/modopedia", status: "active", image: Modopedia},
+	{project_name: "Modopedia", description: "Projekt zacząłem od stworzenia modyfikacji, która integruje ze soba stronę internetową i serwer minecraft. Jednak od jakiegoś czasu skupiłem sie tylko na części o wiki, gdyż zawsze brakowało mi tego o modach minecraft. Projekt jest pisany w Next.js (jako frontend) i w ekstremalnie szybkim Golangu (jako backend)", blog_link: "/blog/modopedia", status: "inactive", image: Modopedia},
+	{project_name: "Modopedia", description: "Projekt zacząłem od stworzenia modyfikacji, która integruje ze soba stronę internetową i serwer minecraft. Jednak od jakiegoś czasu skupiłem sie tylko na części o wiki, gdyż zawsze brakowało mi tego o modach minecraft. Projekt jest pisany w Next.js (jako frontend) i w ekstremalnie szybkim Golangu (jako backend)", blog_link: "/blog/modopedia", status: "done", image: Modopedia},
 ]
 
-export { websiteStack, techStackItems, pageSections, projects };
+type QuoteProps = {
+	quote: string;
+	author: string;
+	path: string;
+}
+
+const quotes: QuoteProps[] = [
+	{quote: "Kirwa juz brzuch mnie boli od tego jarania", author: "joe363", path: "cytat-o-brzuchu"}
+]
+
+export { websiteStack, techStackItems, pageSections, projects, quotes };
+export type { QuoteProps };
