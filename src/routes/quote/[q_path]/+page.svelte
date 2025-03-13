@@ -10,7 +10,6 @@
 	let quote : QuoteProps;
 
 	onMount(() => {
-		console.log(data.q_path);
 		quotes.map((q) => {
 			if (q.path === data.q_path) {
 				validPath = true;

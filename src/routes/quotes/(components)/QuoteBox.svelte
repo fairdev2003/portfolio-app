@@ -2,7 +2,13 @@
 	import Box from '../../../components/Box.svelte';
 	import AnimatedLink from '../../../components/AnimatedLink.svelte';
 
-	let { quote, author, path } = $props()
+	type QuoteBoxProps = {
+		quote: string;
+		author: string;
+		path?: string;
+	}
+
+	let { quote, author, path } : QuoteBoxProps = $props()
 </script>
 
 
@@ -11,7 +17,11 @@
 	<div class="flex justify-end">
 		<p>~~ {author}</p>
 	</div>
+
 	{#if path}
-		<AnimatedLink href={`/quote/${path}`} text="Zobacz"/>
+		<div class="mt-5">
+			<AnimatedLink href={`/quote/${path}`} text="Zobacz"/>
+		</div>
 	{/if}
+
 </Box>
