@@ -72,9 +72,9 @@ type QuoteProps = {
 }
 
 const quotes: QuoteProps[] = [
-	{quote: "Kirwa juz brzuch mnie boli od tego jarania", author: "joe363", path: "cytat-o-brzuchu"},
-	{quote: "Obsrane gacie jak zaweze troche powyzywa dadz jakis chuhowy powod zeby nie grac 1v1 i skleja pizde", author: "joe363", path: "chuhowy_powod"},
-	{quote: "To ktos chetny na rozjebanie ja ttlko konta pptrzebuje do rozjebania was a mam wiec zapraszam", author: "joe363", path: "cytat_0_koncie"},
+	{quote: "To, że milczę, nie znaczy, że nie mam nic do powiedzenia.", author: "Jonathan Carroll", path: "cytat-o-milczeniu"},
+	{quote: "Lepiej zaliczać się do niektórych, niż do wszystkich.", author: "Andrzej Sapkowski", path: "lepiej-zaliczac-sie-do-niektórych"},
+	{quote: "Dlaczego nie mogę pokochać samego siebie? Dlatego, że nie mogę pokochać nikogo innego. Kochając kogoś i będąc kochanym, ludzie dowaiadują się, jak kochać samych siebie. Rozumie tata, co mówię? Ktoś, kto nikogo nie kocha nie potrafi jak należy pokochać siebie.", author: "Haruki Murakami", path: "cytat-o-milosci-do-siebie"},
 ]
 
 export { websiteStack, techStackItems, pageSections, projects, quotes };
