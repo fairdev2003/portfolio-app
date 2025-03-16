@@ -75,6 +75,7 @@ const quotes: QuoteProps[] = [
 	{quote: "To, że milczę, nie znaczy, że nie mam nic do powiedzenia.", author: "Jonathan Carroll", path: "cytat-o-milczeniu"},
 	{quote: "Lepiej zaliczać się do niektórych, niż do wszystkich.", author: "Andrzej Sapkowski", path: "lepiej-zaliczac-sie-do-niektórych"},
 	{quote: "Dlaczego nie mogę pokochać samego siebie? Dlatego, że nie mogę pokochać nikogo innego. Kochając kogoś i będąc kochanym, ludzie dowaiadują się, jak kochać samych siebie. Rozumie tata, co mówię? Ktoś, kto nikogo nie kocha nie potrafi jak należy pokochać siebie.", author: "Haruki Murakami", path: "cytat-o-milosci-do-siebie"},
+	{quote: "Nie cel jest najważniejszy, lecz podróż.", author: "Ralph Waldo Emerson", path: "podroz_nie_cel"},
 ]
 
 export { websiteStack, techStackItems, pageSections, projects, quotes };
