@@ -24,10 +24,7 @@
 <div class="col-span-2">
 	{#if validPath}
 		<QuoteBox quote={quote.quote} author={quote.author}></QuoteBox>
-	{/if}
-
-
-	{#if !validPath}
+	{:else}
 		<NotFound/>
 	{/if}
 </div>
