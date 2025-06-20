@@ -4,7 +4,8 @@ import { json } from '@sveltejs/kit';
 
 const clientId = '5243d8d316cd4f46b80bd3df84f21dd6';
 const clientSecret = '8218146b2dce46ddb5545d3728f9a06b';
-const refreshToken = 'TWÓJ_REFRESH_TOKEN'; // uzyskany raz i zapisany na stałe
+const refreshToken =
+	'eyJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjM4ODE1MywidmVyIjoidjMuMC43NzIiLCJpYXQiOjE3NTAzMzc0MDYsImlzcyI6IlNraWxleSJ9.xIG0e88bJHzTtAXSk_V0X8iclnfI090mRer0rvCuegBrSjbVSy05za-o9P-aZxyIJ5C2QVVAlM117zmdfDh4Hw'; // uzyskany raz i zapisany na stałe
 
 export const GET: RequestHandler = async () => {
 	const basic = btoa(`${clientId}:${clientSecret}`);

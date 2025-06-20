@@ -14,3 +14,8 @@
     background: #303068;
     border-radius: 10px;
 }
+
+::-webkit-scrollbar-thumb:hover {
+    background: #191945;
+    border-radius: 10px;
+}
