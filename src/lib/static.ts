@@ -132,5 +132,7 @@ const quotes: QuoteProps[] = [
 	}
 ];
 
+const favmusic = [];
+
 export { websiteStack, techStackItems, pageSections, projects, quotes };
 export type { QuoteProps };
