@@ -1,7 +1,7 @@
 <script lang="ts">
 	import axios from 'axios';
 	import Card from './Card.svelte';
-	import { onDestroy } from 'svelte';
+	import { onDestroy, tick } from 'svelte';
 	import type {
 		DiscordPresenceResponse,
 		DiscordUser,
@@ -10,6 +10,7 @@
 
 	let spotify: SpotifyActivity | null = null;
 	let discord: DiscordUser | null = null;
+	let retryTimeout: ReturnType<typeof setTimeout>;
 	let isLoading = true;
 	let progress = 0;
 	let duration = 0;
@@ -32,6 +33,8 @@
 			} else {
 				spotify = null;
 			}
+
+			await tick();
 		} catch (error) {
 			console.error('Error fetching Discord presence:', error);
 			spotify = null;
@@ -41,6 +44,10 @@
 	}
 
 	getCurrentPlayingMusic();
+
+	const seconds = (seconds: number): number => {
+		return seconds * 1000;
+	};
 
 	const interval = setInterval(() => {
 		if (spotify?.timestamps) {
@@ -52,17 +59,19 @@
 				getCurrentPlayingMusic();
 			}
 		}
-	}, 1000);
+	}, seconds(1));
 
-	const intervalRefresh = setInterval(() => {
-		if (spotify) {
-			getCurrentPlayingMusic();
-		}
-	}, 5000);
+	function startPolling() {
+		retryTimeout = setTimeout(async () => {
+			await getCurrentPlayingMusic();
+			startPolling();
+		}, seconds(5));
+	}
+
+	getCurrentPlayingMusic().then(() => startPolling());
 
 	onDestroy(() => {
 		clearInterval(interval);
-		clearInterval(intervalRefresh);
 	});
 
 	function formatMs(ms: number): string {
@@ -76,8 +85,8 @@
 <div>
 	{#if isLoading}{:else if spotify}
 		<Card className="h-auto">
-			<img src={spotify.album_art_url} alt="Album cover" class="m-0 h-20 w-20 p-0" />
-			<div class="flex w-full flex-col justify-center py-3">
+			<img src={spotify.album_art_url} alt="Album cover" class="h-20 w-20" />
+			<div class="flex w-full flex-col py-3">
 				<div class="flex items-center gap-1 text-sm font-[600] text-green-500">
 					<img
 						class="size-5"
