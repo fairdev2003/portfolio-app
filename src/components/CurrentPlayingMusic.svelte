@@ -77,7 +77,7 @@
 	{#if isLoading}{:else if spotify}
 		<Card className="h-auto">
 			<img src={spotify.album_art_url} alt="Album cover" class="m-0 h-20 w-20 p-0" />
-			<div class="flex w-full flex-col justify-center py-5">
+			<div class="flex w-full flex-col justify-center py-3">
 				<div class="flex items-center gap-1 text-sm font-[600] text-green-500">
 					<img
 						class="size-5"
