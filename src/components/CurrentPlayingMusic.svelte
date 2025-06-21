@@ -1,5 +1,6 @@
 <script lang="ts">
 	import axios from 'axios';
+	import Card from './Card.svelte';
 	import { onDestroy } from 'svelte';
 	import type { DiscordPresenceResponse, SpotifyActivity } from '../types/discord_status.types';
 
@@ -70,10 +71,26 @@
 	{#if isLoading}
 		<p>Loading current music...</p>
 	{:else if spotify}
-		<div class="flex flex-col items-center justify-center">
-			<img src={spotify.album_art_url} alt="Album cover" width="200" height="200" />
-			<div class="flex flex-col">
-				<h2>{spotify.song}</h2>
+		<Card className="h-auto">
+			<img src={spotify.album_art_url} alt="Album cover" class="m-0 h-20 w-20 p-0" />
+			<div class="flex w-full flex-col justify-center p-5">
+				<h3>{spotify.song}</h3>
+				<p>{spotify.artist}</p>
+				<progress
+					max={duration}
+					value={progress}
+					style="width: 100%; height: 8px; border-radius: 8px;"
+				></progress>
+				<div
+					style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-top: 0.25rem;"
+				>
+					<span>{formatMs(progress)}</span>
+					<span>{formatMs(duration)}</span>
+				</div>
+			</div>
+
+			<!-- <div class="flex flex-col">
+				
 				<p>{spotify.artist}</p>
 				<p><em>{spotify.album}</em></p>
 
@@ -83,6 +100,7 @@
 						value={progress}
 						style="width: 100%; height: 8px; border-radius: 8px;"
 					></progress>
+
 					<div
 						style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-top: 0.25rem;"
 					>
@@ -90,8 +108,8 @@
 						<span>{formatMs(duration)}</span>
 					</div>
 				</div>
-			</div>
-		</div>
+			</div> -->
+		</Card>
 	{:else}
 		<p>No music currently playing.</p>
 	{/if}
