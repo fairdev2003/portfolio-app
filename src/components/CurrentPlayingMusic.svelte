@@ -1,57 +1,115 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import axios, { type AxiosResponse } from 'axios';
+	import axios from 'axios';
+	import Card from './Card.svelte';
+	import type { DiscordPresenceResponse, SpotifyActivity } from '../types/discord_status.types';
 
-	const clientId = '5243d8d316cd4f46b80bd3df84f21dd6';
-	const clientSecret = '8218146b2dce46ddb5545d3728f9a06b';
+	let spotify: SpotifyActivity | null = null;
+	let isLoading = true;
+	let progress = 0;
+	let duration = 0;
 
-	type TokenType = {
-		access_token: string;
-		expires_in: number;
-		token_type: string;
-	};
+	const apiRoute = 'https://api.lanyard.rest/v1/users/424502321800675328';
 
-	// private methods
-	async function _getToken(): Promise<string> {
-		const result = await fetch('https://accounts.spotify.com/api/token', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
-				Authorization: 'Basic ' + btoa(clientId + ':' + clientSecret)
-			},
-			body: 'grant_type=client_credentials'
-		});
+	async function getCurrentPlayingMusic() {
+		try {
+			const response = await axios.get<DiscordPresenceResponse>(apiRoute);
 
-		const data = await result.json();
-		return data.access_token;
+			if (response.data.success && response.data.data.listening_to_spotify) {
+				spotify = response.data.data.spotify!;
+				const now = Date.now();
+
+				if (spotify.timestamps) {
+					progress = now - spotify.timestamps.start;
+					duration = spotify.timestamps.end - spotify.timestamps.start;
+				}
+			} else {
+				spotify = null;
+			}
+		} catch (error) {
+			console.error('Error fetching Discord presence:', error);
+			spotify = null;
+		} finally {
+			isLoading = false;
+		}
 	}
 
-	const _getGenres = async (token: string) => {
-		const result = await fetch(`https://api.spotify.com/v1/me/player/currently-playing`, {
-			method: 'GET',
-			headers: { Authorization: 'Bearer ' + token }
-		});
+	getCurrentPlayingMusic();
 
-		const data = await result.json();
-		console.log(data);
-		return data.categories.items;
-	};
+	const interval = setInterval(() => {
+		if (spotify?.timestamps) {
+			const now = Date.now();
+			progress = now - spotify.timestamps.start;
+			duration = spotify.timestamps.end - spotify.timestamps.start;
 
-	onMount(async () => {
-		_getGenres(await _getToken());
-	});
+			if (now > spotify.timestamps.end) {
+				getCurrentPlayingMusic();
+			}
+		}
+	}, 1000);
+
+	import { onDestroy } from 'svelte';
+	onDestroy(() => clearInterval(interval));
+
+	function formatMs(ms: number): string {
+		const totalSec = Math.floor(ms / 1000);
+		const min = Math.floor(totalSec / 60);
+		const sec = totalSec % 60;
+		return `${min}:${sec.toString().padStart(2, '0')}`;
+	}
 </script>
 
-<main></main>
+<div>
+	{#if isLoading}
+		<p>Loading current music...</p>
+	{:else if spotify}
+		<div class="flex flex-col items-center justify-center">
+			<img src={spotify.album_art_url} alt="Album cover" width="200" height="200" />
+			<div class="flex flex-col">
+				<h2>{spotify.song}</h2>
+				<p>{spotify.artist}</p>
+				<p><em>{spotify.album}</em></p>
+
+				<div>
+					<progress
+						max={duration}
+						value={progress}
+						style="width: 100%; height: 8px; border-radius: 8px;"
+					></progress>
+					<div
+						style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-top: 0.25rem;"
+					>
+						<span>{formatMs(progress)}</span>
+						<span>{formatMs(duration)}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	{:else}
+		<p>No music currently playing.</p>
+	{/if}
+</div>
 
 <style>
-	main {
-		text-align: center;
-		font-family: sans-serif;
-		padding: 2rem;
-	}
 	img {
 		border-radius: 1rem;
 		box-shadow: 0 0 10px #0004;
+	}
+	h2 {
+		margin: 0.5rem 0 0;
+		font-size: 1.5rem;
+	}
+	p {
+		margin: 0.25rem 0;
+	}
+	progress {
+		appearance: none;
+	}
+	progress::-webkit-progress-bar {
+		background-color: #eee;
+		border-radius: 8px;
+	}
+	progress::-webkit-progress-value {
+		background-color: #1db954;
+		border-radius: 8px;
 	}
 </style>

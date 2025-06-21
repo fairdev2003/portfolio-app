@@ -2,9 +2,7 @@
 	import Box from './Box.svelte';
 	import AnimatedLink from './AnimatedLink.svelte';
 
-	import axios from 'axios'; // w przeglądarce pomiń ten import lub dodaj przez CDN
-	import { onMount } from 'svelte';
-	import Card from './Card.svelte';
+	import CurrentPlayingMusic from './CurrentPlayingMusic.svelte';
 </script>
 
 <div class="flex flex-col gap-6 lg:col-span-2">
@@ -25,11 +23,9 @@
 
 	<div class="flex flex-col gap-5">
 		<div class="flex items-center gap-4">
-			<h2>Fav muzyczka</h2>
+			<h2>Co na słuchawach wariacie</h2>
 			<div class="h-0.5 flex-1 bg-gray-500"></div>
 		</div>
-		<Card>s</Card>
-		<Card>s</Card>
-		<Card>s</Card>
+		<CurrentPlayingMusic />
 	</div>
 </div>
