@@ -2,9 +2,14 @@
 	import axios from 'axios';
 	import Card from './Card.svelte';
 	import { onDestroy } from 'svelte';
-	import type { DiscordPresenceResponse, SpotifyActivity } from '../types/discord_status.types';
+	import type {
+		DiscordPresenceResponse,
+		DiscordUser,
+		SpotifyActivity
+	} from '../types/discord_status.types';
 
 	let spotify: SpotifyActivity | null = null;
+	let discord: DiscordUser | null = null;
 	let isLoading = true;
 	let progress = 0;
 	let duration = 0;
@@ -17,6 +22,7 @@
 
 			if (response.data.success && response.data.data.listening_to_spotify) {
 				spotify = response.data.data.spotify!;
+				discord = response.data.data.discord_user;
 				const now = Date.now();
 
 				if (spotify.timestamps) {
@@ -73,9 +79,10 @@
 	{:else if spotify}
 		<Card className="h-auto">
 			<img src={spotify.album_art_url} alt="Album cover" class="m-0 h-20 w-20 p-0" />
-			<div class="flex w-full flex-col justify-center p-5">
-				<h3>{spotify.song}</h3>
-				<p>{spotify.artist}</p>
+			<div class="flex w-full flex-col justify-center py-5">
+				<h3 class="">{spotify.song.length > 35 ? spotify.song.slice(0, 35) : spotify.song}</h3>
+
+				<p>{spotify.artist.replace(';', ',')}</p>
 				<progress
 					max={duration}
 					value={progress}
@@ -88,27 +95,6 @@
 					<span>{formatMs(duration)}</span>
 				</div>
 			</div>
-
-			<!-- <div class="flex flex-col">
-				
-				<p>{spotify.artist}</p>
-				<p><em>{spotify.album}</em></p>
-
-				<div>
-					<progress
-						max={duration}
-						value={progress}
-						style="width: 100%; height: 8px; border-radius: 8px;"
-					></progress>
-
-					<div
-						style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-top: 0.25rem;"
-					>
-						<span>{formatMs(progress)}</span>
-						<span>{formatMs(duration)}</span>
-					</div>
-				</div>
-			</div> -->
 		</Card>
 	{:else}
 		<p>No music currently playing.</p>
@@ -131,7 +117,7 @@
 		appearance: none;
 	}
 	progress::-webkit-progress-bar {
-		background-color: #eee;
+		background-color: #1e293b;
 		border-radius: 8px;
 	}
 	progress::-webkit-progress-value {
