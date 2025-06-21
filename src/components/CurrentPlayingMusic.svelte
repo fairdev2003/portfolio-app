@@ -1,6 +1,6 @@
 <script lang="ts">
 	import axios from 'axios';
-	import Card from './Card.svelte';
+	import { onDestroy } from 'svelte';
 	import type { DiscordPresenceResponse, SpotifyActivity } from '../types/discord_status.types';
 
 	let spotify: SpotifyActivity | null = null;
@@ -47,8 +47,16 @@
 		}
 	}, 1000);
 
-	import { onDestroy } from 'svelte';
-	onDestroy(() => clearInterval(interval));
+	const intervalRefresh = setInterval(() => {
+		if (spotify) {
+			getCurrentPlayingMusic();
+		}
+	}, 5000);
+
+	onDestroy(() => {
+		clearInterval(interval);
+		clearInterval(intervalRefresh);
+	});
 
 	function formatMs(ms: number): string {
 		const totalSec = Math.floor(ms / 1000);
