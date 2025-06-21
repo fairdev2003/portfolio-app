@@ -74,15 +74,22 @@
 </script>
 
 <div>
-	{#if isLoading}
-		<p>Loading current music...</p>
-	{:else if spotify}
+	{#if isLoading}{:else if spotify}
 		<Card className="h-auto">
 			<img src={spotify.album_art_url} alt="Album cover" class="m-0 h-20 w-20 p-0" />
 			<div class="flex w-full flex-col justify-center py-5">
-				<h3 class="">{spotify.song.length > 35 ? spotify.song.slice(0, 35) : spotify.song}</h3>
-
-				<p>{spotify.artist.replace(';', ',')}</p>
+				<div class="flex items-center gap-1 text-sm font-[600] text-green-500">
+					<img
+						class="size-5"
+						src={`https://cdn.discordapp.com/avatars/${discord?.id}/${discord?.avatar}.png`}
+						alt="ProfilePfp"
+					/>
+					<p>{discord?.global_name} słucha</p>
+				</div>
+				<h3 class="">
+					{spotify.song.length > 35 ? spotify.song.slice(0, 30) + '...' : spotify.song}
+				</h3>
+				<p>{spotify.artist.replaceAll(';', ',')}</p>
 				<progress
 					max={duration}
 					value={progress}
@@ -97,7 +104,9 @@
 			</div>
 		</Card>
 	{:else}
-		<p>No music currently playing.</p>
+		<Card className="flex flex-col gap-0 justify-center text-center font-[500] text-gray-400">
+			<p>Nic nie słucham ;cc</p>
+		</Card>
 	{/if}
 </div>
 
