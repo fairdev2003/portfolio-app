@@ -84,7 +84,7 @@
 						src={`https://cdn.discordapp.com/avatars/${discord?.id}/${discord?.avatar}.png`}
 						alt="ProfilePfp"
 					/>
-					<p>{discord?.global_name} słucha</p>
+					<p>{discord?.global_name} słucha Spotify</p>
 				</div>
 				<h3 class="">
 					{spotify.song.length > 35 ? spotify.song.slice(0, 30) + '...' : spotify.song}
