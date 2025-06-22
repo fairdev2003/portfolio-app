@@ -3,26 +3,20 @@
 	import Navigation from '../components/Navigation.svelte';
 	import Footer from '../components/Footer.svelte';
 	import PageHeader from '../components/PageHeader.svelte';
-	import "../scrollbar.css"
+	import '../scrollbar.css';
 	let { children } = $props();
 </script>
 
 <section>
+	<div class="my-5 h-5 bg-purple-600"></div>
 
-	<div class="bg-purple-600 h-5 my-5">
-
-	</div>
-
-	<div class="max-w-6xl mx-auto lg:px-10 px-5">
-
-	<PageHeader/>
-		<div class="lg:grid lg:grid-cols-4 md:flex md:flex-col md:justify-center w-full">
-
-
+	<div class="mx-auto max-w-6xl px-5 lg:px-10">
+		<PageHeader />
+		<div class="w-full md:flex md:flex-col md:justify-center lg:grid lg:grid-cols-4">
 			<!--Navigation-->
 
 			<div class="col-span-1">
-				<Navigation/>
+				<Navigation />
 			</div>
 
 			<!--Index Page-->
@@ -31,8 +25,5 @@
 			</div>
 		</div>
 	</div>
-	<Footer/>
-
-
+	<Footer />
 </section>
-

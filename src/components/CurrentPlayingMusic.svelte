@@ -7,6 +7,7 @@
 		DiscordUser,
 		SpotifyActivity
 	} from '../types/discord_status.types';
+	import Heading from './Heading.svelte';
 
 	let spotify: SpotifyActivity | null = null;
 	let discord: DiscordUser | null = null;
@@ -65,7 +66,7 @@
 		retryTimeout = setTimeout(async () => {
 			await getCurrentPlayingMusic();
 			startPolling();
-		}, seconds(5));
+		}, seconds(4));
 	}
 
 	getCurrentPlayingMusic().then(() => startPolling());
@@ -82,6 +83,7 @@
 	}
 </script>
 
+<Heading value="Co na słuchawach wariacie" />
 <div>
 	{#if isLoading}{:else if spotify}
 		<Card className="h-auto">

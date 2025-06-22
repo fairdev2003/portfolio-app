@@ -32,7 +32,7 @@
 			ważnych planów na drugi dzień. Serio. Od miesiąca również nie gadam z rodzicami. W zasadzie
 			już nie mieszkam z nimi od roku. Wyprowadziłem się też głównie dlatego, bo męczyła mnie ta
 			cała sytuacja. Przez rok po zdaniu matury kompletnie nie mogłem znaleźć pracy. Żaden lekarz
-			nie chciał mi podbić zaświadczenia, że mogę pracować – przez to ciężko było mi coś znaleźć.
+			nie chciał mi podbić zaświadczenia, że mogę pracować - przez to ciężko było mi coś znaleźć.
 			Mimo tego, że już i tak byłem w bardzo złej kondycji psychicznej, to rodzice, robiąc mi
 			awantury o to, że nie mam pracy, nie pomagali mi w tej sytuacji w ogóle <span
 				class="font-bold">~~ Klimson</span
@@ -40,7 +40,29 @@
 		</p>
 	</Box>
 	<Box className=" w-full overflow-hidden break-words">
-		<h3>01:30 19.06.2025</h3>
-		<p>""</p>
+		<h3>23:58 21.06.2025</h3>
+		<p>
+			Czuje że bez ludzi wokół mnie którzy mnie rozumieją, czuja ze mną - jestem bezwartościowy.
+			Właśnie wróciłem z rynku w Krakowie. Było tam masa osób które świetnie się bawiły. Zawsze z
+			kolegą wychodziłem na miasto, zagadywałem różne osoby a teraz boje sie nawet do niego
+			zadzwonić powiedzieć że cholernie tego mi brakuje (pokłóciłem sie z nim, oboje stwierdziliśmy
+			że to była głupota) ale w dalszym ciągu boje sie tego "nie". Dodatkowo nie pomaga fakt że
+			koleżanka też w zasadzie mnie "odrzuca". Odrzuca mnie jako osobe chora kij wie czy to BPD.
+			Czuje się pusto bez nikogo. Z jednej strony pojechałem na rynek kogoś poznać ale z drugiej
+			strony nie potrafię bo boje się że ktoś mnie wyśmieje. Koleżanka nie chce mnie "niszczyć"
+			bardziej ale bez niej czuje się zamrożony w miejscu. Jak sie z nią spotkałem czułem się jak
+			człowiek. Normalnie ze mna rozmawiała i brakuje mi tej interakcji. Czuje że zatracam się w tej
+			diagnozie lekarza o oczach. Nie potrafię sobie z tym już poradzić. Boje się że nie zmienie
+			tego jak wyglądam tak jakbym tego chciał. A chciałbym po prostu normalnie żyć. Bez żadnego
+			stresu o jutro, o ustatkowanie się z kimś kto mnie rozumie. Moi rodzice mnie też nie rozumieją
+			- uważają że ten mój problem jest błahy i inne osoby mają większe problemy niż ja, że jakieś
+			"dziecko na onkologii" chciałoby żyć. Nie rozumieją że te słowa mnie ranią. Nie dostałem od
+			nich ani grama wsparcie podczas tego bolesnego procesu gdzie szukałem pracy, gdzie każdy
+			pracodawca wymagał ode mnie badań których żadnen lekarz nie chciał mi podbić. Moje życie to
+			ciągła walka o przetrwanie. Miałem kiedyś super szanse znaleźć sobie bratnia dusze - i co?
+			Zjebalem to na własne życzenie. Koleżanka zaproponowała mi terapeute. Mam pieniądze na niego.
+			Jeżeli mam poczuć sie lepiej to jestem w stanie je wydać ale chciałbym mieć pewność że to się
+			skończy, ten ból, to cierpienie.
+		</p>
 	</Box>
 </div>

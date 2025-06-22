@@ -1,9 +1,10 @@
 <script>
 	import Box from '../../../components/Box.svelte';
+	import Heading from '../../../components/Heading.svelte';
 	import Signature from '/src/assets/signature.png';
 </script>
 
-<h2>O mnie</h2>
+<Heading value="O mnie" />
 <Box>
 	<div class="flex items-center gap-4">
 		<h3 class="text-2xl font-bold whitespace-nowrap text-white">Moje 5 minut</h3>

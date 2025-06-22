@@ -1,12 +1,10 @@
 <script>
 	import Box from '../../../components/Box.svelte';
+	import Heading from '../../../components/Heading.svelte';
 </script>
 
 <div class="flex flex-col gap-4">
-	<div class="flex items-center gap-4">
-		<h2>Sprzęt</h2>
-		<div class="h-0.5 flex-1 bg-gray-500"></div>
-	</div>
+	<Heading value="Sprzęt" />
 	<div class="flex flex-col gap-1">
 		<p class="font-[500] text-gray-500">
 			Na codzień pracuje na komputerze stacjonarnym, natomiast jak jestem na uczelni czy po prostu
