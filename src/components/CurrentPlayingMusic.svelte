@@ -8,6 +8,7 @@
 		SpotifyActivity
 	} from '../types/discord_status.types';
 	import Heading from './Heading.svelte';
+	import { music_phrases } from '$lib/static';
 
 	let spotify: SpotifyActivity | null = null;
 	let discord: DiscordUser | null = null;
@@ -81,21 +82,38 @@
 		const sec = totalSec % 60;
 		return `${min}:${sec.toString().padStart(2, '0')}`;
 	}
+
+	function copyToClipboard(song_id: string) {
+		navigator.clipboard.writeText(song_id).catch((err) => {
+			console.error('Failed to copy: ', err);
+		});
+	}
 </script>
 
-<Heading value="Co na słuchawach wariacie" />
-<div>
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
+<div
+	onclick={() => {
+		if (spotify?.track_id) {
+			copyToClipboard(spotify?.track_id);
+		}
+	}}
+>
 	{#if isLoading}{:else if spotify}
-		<Card className="h-auto">
+		<Heading value="Co na słuchawach wariacie" />
+		<Card className="h-auto mt-5 from-purple-700 to-red-500 transition-all bg-gradient-to-r">
 			<img src={spotify.album_art_url} alt="Album cover" class="h-20 w-20" />
 			<div class="flex w-full flex-col py-3">
-				<div class="flex items-center gap-1 text-sm font-[600] text-green-500">
+				<!-- <div class="flex items-center gap-1 text-sm font-[700] text-green-500">
 					<img
 						class="size-5"
 						src={`https://cdn.discordapp.com/avatars/${discord?.id}/${discord?.avatar}.png`}
 						alt="ProfilePfp"
 					/>
 					<p>{discord?.global_name} słucha Spotify</p>
+				</div> -->
+				<div class="flex items-center gap-1 text-sm italic">
+					{music_phrases[spotify.track_id]}
 				</div>
 				<h3 class="">
 					{spotify.song.length > 35 ? spotify.song.slice(0, 30) + '...' : spotify.song}
@@ -113,10 +131,6 @@
 					<span>{formatMs(duration)}</span>
 				</div>
 			</div>
-		</Card>
-	{:else}
-		<Card className="flex flex-col gap-0 justify-center text-center font-[500] text-gray-400">
-			<p>Nic nie słucham ;cc</p>
 		</Card>
 	{/if}
 </div>
@@ -137,11 +151,11 @@
 		appearance: none;
 	}
 	progress::-webkit-progress-bar {
-		background-color: #1e293b;
+		background-color: rgb(232, 202, 236, 0.5); /* #1e293b */
 		border-radius: 8px;
 	}
 	progress::-webkit-progress-value {
-		background-color: #1db954;
+		background-color: #09e355;
 		border-radius: 8px;
 	}
 </style>
