@@ -104,14 +104,6 @@
 		<Card className="h-auto mt-5 from-purple-700 to-red-500 transition-all bg-gradient-to-r">
 			<img src={spotify.album_art_url} alt="Album cover" class="h-20 w-20" />
 			<div class="flex w-full flex-col py-3">
-				<!-- <div class="flex items-center gap-1 text-sm font-[700] text-green-500">
-					<img
-						class="size-5"
-						src={`https://cdn.discordapp.com/avatars/${discord?.id}/${discord?.avatar}.png`}
-						alt="ProfilePfp"
-					/>
-					<p>{discord?.global_name} słucha Spotify</p>
-				</div> -->
 				<div class="flex items-center gap-1 text-sm italic">
 					{music_phrases[spotify.track_id]}
 				</div>

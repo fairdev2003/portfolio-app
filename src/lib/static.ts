@@ -133,11 +133,14 @@ const quotes: QuoteProps[] = [
 ];
 
 const music_phrases: Record<string, string> = {
+	// music id : phrase,
 	'2ZbSIu4PbLIcyGE4LwSGfB': '"Skąd tam jest tyle emocji?"',
 	'42l1cUco5Rbju3D7JO0Ox7': '"Moje oczy widzą gwiazdy."',
 	'4pAQRhlhhtDKljnYrr2qUu': '"Tango Argentino, z moją dziewczyną pod ręke."',
 	'6nTUXuoxJSLD5rTr1qZ5Ee': '"Czy naprawdę tak dużo kosztuje szczęście."',
-	'0grScFe336ZoitXuh1VpUJ': '"I znów będzie zabawnie, jeśli tylko mi wybaczysz"'
+	'0grScFe336ZoitXuh1VpUJ': '"I znów będzie zabawnie, jeśli tylko mi wybaczysz."',
+	'1S0kagOS5P8MQU6SS8pSlE': '"Za oknem deszcz, a ja w domu słucham techno."',
+	'7uu6bChltOWw8lJLmawUy6': '"Jeżeli dobrze oceni mnie algorytm."'
 };
 
 export { websiteStack, techStackItems, pageSections, projects, quotes, music_phrases };
