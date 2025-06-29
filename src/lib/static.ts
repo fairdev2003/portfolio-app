@@ -129,6 +129,16 @@ const quotes: QuoteProps[] = [
 		quote: 'Nie cel jest najważniejszy, lecz podróż.',
 		author: 'Ralph Waldo Emerson',
 		path: 'podroz_nie_cel'
+	},
+	{
+		quote: 'Świat wokół ciebie jest piękny, gdy świat w tobie jest spokojny. ',
+		author: 'DramatizeMe',
+		path: 'swiat'
+	},
+	{
+		quote: 'Każdego ranka, zanim o cokolwiek poprosisz Boga, podziękuj MU za wszystko.',
+		author: 'DramatizeMe',
+		path: 'bog'
 	}
 ];
 
