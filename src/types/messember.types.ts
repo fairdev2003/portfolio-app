@@ -43,15 +43,18 @@ type ProtectedFields = {
 	backendId: string;
 };
 
+type OpenedFields = {
+	messages: MessemberMessage[];
+};
+
 type MessageBoxData<T extends ConversationPermissionLevel = ConversationPermissionLevel.OPENED> = {
 	id: string;
 	linkUrl: string;
 	contactName: string;
 	activeAgoTimestamp?: string;
 	activityStatus: boolean;
-	messages: MessemberMessage[];
 	userBlocked: boolean;
-} & (T extends ConversationPermissionLevel.PROTECTED ? ProtectedFields : {});
+} & (T extends ConversationPermissionLevel.PROTECTED ? ProtectedFields : OpenedFields);
 
 type MessemberMessage = TextMessage | CallMessage;
 
@@ -70,7 +73,6 @@ const protectedConversation: MessageBoxData<ConversationPermissionLevel.PROTECTE
 	linkUrl: '/chat/125',
 	contactName: 'Fredi Kamionka',
 	activityStatus: true,
-	messages: [],
 	userBlocked: false,
 	protectedConversation: true,
 	backendId: 'backend-xyz-125'
