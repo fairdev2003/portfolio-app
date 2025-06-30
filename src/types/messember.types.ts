@@ -54,3 +54,24 @@ type MessageBoxData<T extends ConversationPermissionLevel = ConversationPermissi
 } & (T extends ConversationPermissionLevel.PROTECTED ? ProtectedFields : {});
 
 type MessemberMessage = TextMessage | CallMessage;
+
+// testy :D
+const openedConversation: MessageBoxData = {
+	id: '123',
+	linkUrl: '/chat/123',
+	contactName: 'Skurwiel',
+	activityStatus: true,
+	messages: [],
+	userBlocked: false
+};
+
+const protectedConversation: MessageBoxData<ConversationPermissionLevel.PROTECTED> = {
+	id: '125',
+	linkUrl: '/chat/125',
+	contactName: 'Fredi Kamionka',
+	activityStatus: true,
+	messages: [],
+	userBlocked: false,
+	protectedConversation: true,
+	backendId: 'backend-xyz-125'
+};

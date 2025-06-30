@@ -139,6 +139,11 @@ const quotes: QuoteProps[] = [
 		quote: 'Każdego ranka, zanim o cokolwiek poprosisz Boga, podziękuj MU za wszystko.',
 		author: 'DramatizeMe',
 		path: 'bog'
+	},
+	{
+		quote: 'Lepiej mieć makowca w garści niż kolege na wolności',
+		author: 'unknown',
+		path: 'makowiec'
 	}
 ];
 
