@@ -142,7 +142,7 @@ const quotes: QuoteProps[] = [
 	},
 	{
 		quote: 'Lepiej mieć makowca w garści niż kolege na wolności',
-		author: 'unknown',
+		author: 'Fredi Kamionka',
 		path: 'makowiec'
 	}
 ];
