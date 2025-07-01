@@ -8,6 +8,7 @@ type BaseMessemberMessage = {
 	timestampSend: number;
 	timestampRead: number;
 	messageType: MessageEnums;
+	messageUserSide: MessageUserSide.SENDER | MessageUserSide.RECIPIENT;
 };
 
 enum TextMessageReplyStatus {
@@ -19,6 +20,11 @@ type MessageWithReplyFields = {
 	replied?: boolean;
 	repliedReferenceId?: number;
 };
+
+enum MessageUserSide {
+	SENDER = 'sender', // nadawca (lewa strona)
+	RECIPIENT = 'recipient' // odbiorca (prawa strona)
+}
 
 type TextMessage<T extends TextMessageReplyStatus = TextMessageReplyStatus.NORMAL> =
 	BaseMessemberMessage & {
@@ -51,7 +57,7 @@ type MessageBoxData<T extends ConversationPermissionLevel = ConversationPermissi
 	id: string;
 	linkUrl: string;
 	contactName: string;
-	activeAgoTimestamp?: string;
+	activeAgoTimestamp?: number;
 	activityStatus: boolean;
 	userBlocked: boolean;
 } & (T extends ConversationPermissionLevel.PROTECTED ? ProtectedFields : OpenedFields);
