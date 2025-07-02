@@ -42,12 +42,13 @@ type CallMessage = BaseMessemberMessage & {
 
 type ImagesLinks = string[];
 
-type ImageMessage<T extends TextMessageReplyStatus = TextMessageReplyStatus.NORMAL> = {
-	messageType: MessageEnums.IMAGE;
-	// if there is one image message 
-	// will contain ImageMessage Component, 
-	// if there is more load GalleryMessage Component
-	images?: ImagesLinks;  
+type ImageMessage<T extends TextMessageReplyStatus = TextMessageReplyStatus.NORMAL> =
+	BaseMessemberMessage & {
+		messageType: MessageEnums.IMAGE;
+		// if there is one image message 
+		// will contain ImageMessage Component, 
+		// if there is more load GalleryMessage Component
+		images?: ImagesLinks;  
 } & (T extends TextMessageReplyStatus.REPLIED ? MessageWithReplyFields : {})
 
 enum ConversationPermissionLevel {
