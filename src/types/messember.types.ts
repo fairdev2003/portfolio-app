@@ -1,6 +1,7 @@
 enum MessageEnums {
 	MESSAGE = 'message',
-	CALL = 'call'
+	CALL = 'call',
+	IMAGE = "image"
 }
 
 type BaseMessemberMessage = {
@@ -39,6 +40,16 @@ type CallMessage = BaseMessemberMessage & {
 	callStatus: 'missed' | 'received' | 'dialed';
 };
 
+type ImagesLinks = string[];
+
+type ImageMessage<T extends TextMessageReplyStatus = TextMessageReplyStatus.NORMAL> = {
+	messageType: MessageEnums.IMAGE;
+	// if there is one image message 
+	// will contain ImageMessage Component, 
+	// if there is more load GalleryMessage Component
+	images?: ImagesLinks;  
+} & (T extends TextMessageReplyStatus.REPLIED ? MessageWithReplyFields : {})
+
 enum ConversationPermissionLevel {
 	OPENED = 'opened',
 	PROTECTED = 'protected'
@@ -65,7 +76,7 @@ type MessageBoxData<T extends ConversationPermissionLevel = ConversationPermissi
 type MessemberMessage = TextMessage | CallMessage;
 
 // testy :D
-const openedConversation: MessageBoxData = {
+const openedConversation: MessageBoxData<ConversationPermissionLevel.OPENED> = {
 	id: '123',
 	linkUrl: '/chat/123',
 	contactName: 'Skurwiel',
@@ -77,7 +88,7 @@ const openedConversation: MessageBoxData = {
 const protectedConversation: MessageBoxData<ConversationPermissionLevel.PROTECTED> = {
 	id: '125',
 	linkUrl: '/chat/125',
-	contactName: 'Fredi Kamionka',
+	contactName: 'Fredi Kamionka gmina burze',
 	activityStatus: true,
 	userBlocked: false,
 	protectedConversation: true,

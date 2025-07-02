@@ -1,7 +1,6 @@
 <script lang="ts">
 	import TechnologyStack from './(components)/TechnologyStack.svelte';
 	import Education from './(components)/Education.svelte';
-
 	import JobExperience from './(components)/JobExperience.svelte';
 	import FileDownload from './(components)/FileDownload.svelte';
 	import Intrudaction from './(components)/Intrudaction.svelte';

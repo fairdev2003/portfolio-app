@@ -17,7 +17,7 @@
 	let progress = 0;
 	let duration = 0;
 
-	const apiRoute = 'https://api.lanyard.rest/v1/users/424502321800675328';
+	const apiRoute = 'https://api.lanyard.rest/v1/users/424502321800675328' as const;
 
 	async function getCurrentPlayingMusic() {
 		try {

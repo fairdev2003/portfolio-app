@@ -88,3 +88,39 @@ export type SpotifyActivity = {
 	song: string;
 	track_id: string;
 };
+
+export enum UserRoles {
+	USER = "USER", STRANGER = "STRANGER", MOD = "MOD", ADMIN = "ADMIN", EDITOR = "EDITOR"
+}
+
+export type RolePrivileges = {
+  [UserRoles.ADMIN]: "READ" | "WRITE" | "DELETE";
+  [UserRoles.USER]: "READ" | "WRITE";
+  [UserRoles.STRANGER]: "READ";
+};
+
+// <T> means that you can specify other roles connected to that user
+export type User<T extends UserRoles = UserRoles.USER> = {
+	id: string;
+	firstName: string;
+	lastName: string;
+	nickName: string;
+	role: T
+	diary: Diary
+
+	// ty chuju czemu nie dzialasz
+	privileges: RolePrivileges[T] // <-- tutaj
+}
+
+const user: User<UserRoles.STRANGER> = {
+	privileges: "READ"
+}
+
+export type Diary = {
+	id: string
+	phraseName: string
+	createdAt: Date
+	updatedAt: Date
+	content: string
+	media: "Image" | "Video" // todo
+}
