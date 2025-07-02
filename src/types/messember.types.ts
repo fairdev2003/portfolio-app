@@ -74,7 +74,7 @@ type MessageBoxData<T extends ConversationPermissionLevel = ConversationPermissi
 	userBlocked: boolean;
 } & (T extends ConversationPermissionLevel.PROTECTED ? ProtectedFields : OpenedFields);
 
-type MessemberMessage = TextMessage | CallMessage;
+type MessemberMessage = TextMessage | CallMessage | ImageMessage;
 
 // testy :D
 const openedConversation: MessageBoxData<ConversationPermissionLevel.OPENED> = {
