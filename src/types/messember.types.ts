@@ -1,11 +1,11 @@
-enum MessageEnums {
+export enum MessageEnums {
 	MESSAGE = 'message',
 	CALL = 'call',
 	IMAGE = "image",
 	COMMUNIQUE = "communique"
 }
 
-type BaseMessemberMessage = {
+export type BaseMessemberMessage = {
 	id: string;
 	timestampSend: number;
 	timestampRead: number;
@@ -14,12 +14,12 @@ type BaseMessemberMessage = {
 	messageUserSide: MessageUserSide.SENDER | MessageUserSide.RECIPIENT;
 };
 
-enum TextMessageReplyStatus {
+export enum TextMessageReplyStatus {
 	REPLIED = 'replied',
 	NORMAL = 'normal'
 }
 
-type MessageWithReplyFields = {
+export type MessageWithReplyFields = {
 	// if message is replied it will handle 
 	// replied reference id also so its required to function
 	replied: boolean;
@@ -29,12 +29,12 @@ type MessageWithReplyFields = {
 	repliedReferenceId?: number;
 };
 
-enum MessageUserSide {
+export enum MessageUserSide {
 	SENDER = 'sender', // left side
 	RECIPIENT = 'recipient' // right side
 }
 
-type TextMessage<T extends TextMessageReplyStatus = TextMessageReplyStatus.NORMAL> =
+export type TextMessage<T extends TextMessageReplyStatus = TextMessageReplyStatus.NORMAL> =
 	BaseMessemberMessage & {
 		messageType: MessageEnums.MESSAGE;
 		// TODO: i guess i will implement some sort of custom 
@@ -44,15 +44,15 @@ type TextMessage<T extends TextMessageReplyStatus = TextMessageReplyStatus.NORMA
 		attachments?: string[];
 	} & (T extends TextMessageReplyStatus.REPLIED ? MessageWithReplyFields : {});
 
-type CallMessage = BaseMessemberMessage & {
+export type CallMessage = BaseMessemberMessage & {
 	messageType: MessageEnums.CALL;
 	callDuration: number; // seconds
 	callStatus: 'missed' | 'received' | 'dialed';
 };
 
-  type ImagesLinks = string[];
+export type ImagesLinks = string[];
 
-type ImageMessage<T extends TextMessageReplyStatus = TextMessageReplyStatus.NORMAL> =
+export type ImageMessage<T extends TextMessageReplyStatus = TextMessageReplyStatus.NORMAL> =
 	BaseMessemberMessage & {
 		// message type will tell main 
 		// component what component will be used for messages
@@ -63,31 +63,31 @@ type ImageMessage<T extends TextMessageReplyStatus = TextMessageReplyStatus.NORM
 		images?: ImagesLinks;  
 } & (T extends TextMessageReplyStatus.REPLIED ? MessageWithReplyFields : {})
 
-// it will NOT extends types from BaseMessemberMessage type because its only 
-type CommuniqueMessage = {
+// it will NOT extends types from 
+// BaseMessemberMessage type because its only TOP component 
+export type CommuniqueMessage = {
 	messageType: MessageEnums.COMMUNIQUE
 	communiqueContent: string
-
 } 
 
-enum ConversationPermissionLevel {
+export enum ConversationPermissionLevel {
 	OPENED = 'opened',
 	PROTECTED = 'protected'
 }
 
 // protected fields will handle 
 // all messages that will comes from backend instead of local files
-type ProtectedFields = {
+export type ProtectedFields = {
 	protectedConversation: true;
 	backendId: string;
 };
 
 // what fields will local messages have
-type OpenedFields = {
+export type OpenedFields = {
 	messages: MessemberMessage[];
 };
 
-type MessageBoxData<T extends ConversationPermissionLevel = ConversationPermissionLevel.OPENED> = {
+export type MessageBoxData<T extends ConversationPermissionLevel = ConversationPermissionLevel.OPENED> = {
 	id: string;
 	linkUrl: string;
 	contactName: string;
@@ -97,7 +97,7 @@ type MessageBoxData<T extends ConversationPermissionLevel = ConversationPermissi
 } & (T extends ConversationPermissionLevel.PROTECTED ? ProtectedFields : OpenedFields);
 
 // global type for all message types
-type MessemberMessage = TextMessage | CallMessage | ImageMessage;
+export type MessemberMessage = TextMessage | CallMessage | ImageMessage;
 
 // type testing
 const openedConversation: MessageBoxData<ConversationPermissionLevel.OPENED> = {
