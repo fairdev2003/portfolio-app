@@ -1,7 +1,8 @@
 enum MessageEnums {
 	MESSAGE = 'message',
 	CALL = 'call',
-	IMAGE = "image"
+	IMAGE = "image",
+	COMMUNIQUE = "communique"
 }
 
 type BaseMessemberMessage = {
@@ -9,6 +10,7 @@ type BaseMessemberMessage = {
 	timestampSend: number;
 	timestampRead: number;
 	messageType: MessageEnums;
+	// sender = right side, recipent = left side
 	messageUserSide: MessageUserSide.SENDER | MessageUserSide.RECIPIENT;
 };
 
@@ -18,9 +20,12 @@ enum TextMessageReplyStatus {
 }
 
 type MessageWithReplyFields = {
-	// if message is replied it will handle replied reference id also so its required to function
+	// if message is replied it will handle 
+	// replied reference id also so its required to function
 	replied: boolean;
-	// it will tell ChatBox component which message it will referenced to
+	// it will tell ChatBox component which 
+	// message it will referenced to and find this message
+	// in the message table
 	repliedReferenceId?: number;
 };
 
@@ -32,8 +37,10 @@ enum MessageUserSide {
 type TextMessage<T extends TextMessageReplyStatus = TextMessageReplyStatus.NORMAL> =
 	BaseMessemberMessage & {
 		messageType: MessageEnums.MESSAGE;
+		// TODO: i guess i will implement some sort of custom 
+		// 		 component that i can add to message bubble at some point?
 		messageContent: string;
-		// TODO: i guess i can type this to ImageMessage type
+		// TODO: i guess i can type this to ImageMessage type?
 		attachments?: string[];
 	} & (T extends TextMessageReplyStatus.REPLIED ? MessageWithReplyFields : {});
 
@@ -43,17 +50,25 @@ type CallMessage = BaseMessemberMessage & {
 	callStatus: 'missed' | 'received' | 'dialed';
 };
 
-type ImagesLinks = string[];
+  type ImagesLinks = string[];
 
 type ImageMessage<T extends TextMessageReplyStatus = TextMessageReplyStatus.NORMAL> =
 	BaseMessemberMessage & {
-		// message type will tell main component what component will be used for messages
+		// message type will tell main 
+		// component what component will be used for messages
 		messageType: MessageEnums.IMAGE;
 		// if there is one image message 
 		// will contain ImageMessage Component, 
 		// if there is more load GalleryMessage Component
 		images?: ImagesLinks;  
 } & (T extends TextMessageReplyStatus.REPLIED ? MessageWithReplyFields : {})
+
+// it will NOT extends types from BaseMessemberMessage type because its only 
+type CommuniqueMessage = {
+	messageType: MessageEnums.COMMUNIQUE
+	communiqueContent: string
+
+} 
 
 enum ConversationPermissionLevel {
 	OPENED = 'opened',
@@ -81,7 +96,7 @@ type MessageBoxData<T extends ConversationPermissionLevel = ConversationPermissi
 	userBlocked: boolean;
 } & (T extends ConversationPermissionLevel.PROTECTED ? ProtectedFields : OpenedFields);
 
-// global type for all 
+// global type for all message types
 type MessemberMessage = TextMessage | CallMessage | ImageMessage;
 
 // type testing
