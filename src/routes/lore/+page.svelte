@@ -1,26 +1,41 @@
 <div class="col-span-2 flex flex-col gap-5">
-    <h2>Rozdanie i fajerwerki</h2>
+  <h2>🎇 Rozdanie i fajerwerki</h2>
 
-    <p>
-        Jest to dla mnie bardzo wazna strona na etapie mojego zycia. Nie dosc ze moge wyrazic siebie na jakims etapie tym KIM jestem to jeszcze chcialbym pokazac wszytskim ze swiat nie jest czarno bialy i zawsze 
-        mozna liczyc na kogos pomoc nawet 
-        jezeli sie tego nigdy po tej osobie nie spoedziewales.
-    </p>
+  <p>
+    Ta strona jest dla mnie czymś więcej niż tylko projektem.  
+    To <strong>ważny etap mojego życia</strong>.  
+    To miejsce, gdzie mogę wyrazić, kim naprawdę jestem — tu i teraz.  
+    Ale też miejsce, w którym chcę pokazać, że <strong>świat nie jest czarno-biały</strong>.  
+    Że nawet jeśli czujesz się samotny, możesz doświadczyć dobra  
+    — czasem od osób, po których najmniej się tego spodziewasz.
+  </p>
 
-    <p> 
-        Chcialbym zaczac od tego ze przez bardzo dlugi okres czasu czulem sie naprawde zle zarowno ze samym soba jak z innymi. Duzo tez na tym etapie ludzie skrzywdzilem. 
-        Nie myslalem nidgy ze to w jaki sposob mysle nie bylo absolutnie zdrowe
-    </p>
+  <p>
+    Przez długi czas czułem się źle.  
+    Z samym sobą.  
+    Z innymi.  
+    Byłem zagubiony — w myślach, emocjach, relacjach.  
+    I wiem, że po drodze <strong>skrzywdziłem ludzi</strong>.  
+    Dziś już rozumiem, że to, w jaki sposób wtedy myślałem i działałem,  
+    nie było zdrowe — dla mnie ani dla nikogo.
+  </p>
 
-    <p>
-       Nie jest to zaden osad w moja strone czy innych.
-       Po prostu chcialbym zakonczyc ten rozdzial w moim zyciu i wynies z tego lekcje
-    </p>
+  <p>
+    Ale to <strong>nie jest miejsce na osąd</strong>.  
+    Ani mnie, ani kogokolwiek.  
+    To jest <strong>moment zakończenia pewnego rozdziału</strong>.  
+    I początek nowego.  
+    Z lekcją w sercu.
+  </p>
 
-    <p>
-        Jezeli czujesz sie w tej chwili sam - to tak nie jest. Tez tak myslalem a znikad pojawil sie ktos kto powiedzial ze "bedzie dobrze" i wlasnie jest dobrze.
-    </p>
+  <p>
+    Jeśli właśnie teraz czujesz się samotnie —  
+    proszę, pamiętaj: <strong>nie jesteś sam</strong>.  
+    Też tak myślałem.  
+    A potem, znikąd, pojawił się ktoś, kto po prostu powiedział:  
+    <q>Będzie dobrze.</q>  
+    I wiecie co? <strong>Jest dobrze.</strong>
+  </p>
 
-    <p>Pamietaj duszyczko nie jestes sam!</p>
-    
+  <p><strong>Duszyczko, nie jesteś sama.</strong> Naprawdę.</p>
 </div>
