@@ -3,9 +3,9 @@
 </script>
 
 <ResponsiveContainer cols="2" className="flex flex-col gap-y-5 text-center">
-  <h2>🎇 Rozdanie i fajerwerki</h2>
+  <h2 class="text-white">🎇 Rozdanie i fajerwerki</h2>
 
-  <p>
+  <p class="text">
     Ta strona jest dla mnie czymś więcej niż tylko projektem.  
     To <strong>ważny etap mojego życia</strong>.  
     To miejsce, gdzie mogę wyrazić, kim naprawdę jestem — tu i teraz.  
@@ -14,7 +14,7 @@
     — czasem od osób, po których najmniej się tego spodziewasz.
   </p>
 
-  <p>
+  <p class="text">
     Przez długi czas czułem się źle.  
     Z samym sobą.  
     Z innymi.  
@@ -24,7 +24,7 @@
     nie było zdrowe — dla mnie ani dla nikogo.
   </p>
 
-  <p>
+  <p class="text">
     Ale to <strong>nie jest miejsce na osąd</strong>.  
     Ani mnie, ani kogokolwiek.  
     To jest <strong>moment zakończenia pewnego rozdziału</strong>.  
@@ -32,7 +32,7 @@
     Z lekcją w sercu.
   </p>
 
-  <p>
+  <p class="text">
     Jeśli właśnie teraz czujesz się samotnie —  
     proszę, pamiętaj: <strong>nie jesteś sam</strong>.  
     Też tak myślałem.  
@@ -43,3 +43,9 @@
 
   <p><strong>Duszyczko, nie jesteś sama.</strong> Naprawdę.</p>
 </ResponsiveContainer>
+
+<style>
+    .text {
+        opacity: 85%;
+    }
+</style>
