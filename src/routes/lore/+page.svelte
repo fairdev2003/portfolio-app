@@ -1,4 +1,8 @@
-<div class="col-span-2 flex flex-col gap-5">
+<script>
+	import ResponsiveContainer from "../../components/responsive/ResponsiveContainer.svelte";
+
+</script>
+<ResponsiveContainer className="flex flex-col gap-y-5">
   <h2>🎇 Rozdanie i fajerwerki</h2>
 
   <p>
@@ -38,4 +42,4 @@
   </p>
 
   <p><strong>Duszyczko, nie jesteś sama.</strong> Naprawdę.</p>
-</div>
+</ResponsiveContainer>
