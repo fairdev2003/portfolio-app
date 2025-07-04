@@ -33,7 +33,7 @@
     proszę, pamiętaj: <strong>nie jesteś sam</strong>.  
     Też tak myślałem.  
     A potem, znikąd, pojawił się ktoś, kto po prostu powiedział:  
-    <q>Będzie dobrze.</q>  
+    <q>Będzie dobrze klimson.</q>  
     I wiecie co? <strong>Jest dobrze.</strong>
   </p>
 
