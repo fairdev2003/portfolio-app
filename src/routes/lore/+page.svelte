@@ -1,8 +1,11 @@
 <script>
+	import NavigationSectors from "../../components/NavigationSectors.svelte";
 	import ResponsiveContainer from "../../components/responsive/ResponsiveContainer.svelte";
 </script>
 
+<NavigationSectors/>
 <ResponsiveContainer cols="2" className="flex flex-col gap-y-5 text-center">
+  
   <h2 class="text-white">🎇 Rozdanie i fajerwerki</h2>
 
   <p class="text">

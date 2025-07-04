@@ -10,6 +10,6 @@
 
 </script>
 
-<div class={`col-span-${cols} ${className}`}>
+<div class={`col-span-${cols} ${className} text-white`}>
     {@render children()}
 </div>

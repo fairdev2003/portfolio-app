@@ -4,6 +4,7 @@
 	import Footer from '../components/Footer.svelte';
 	import PageHeader from '../components/PageHeader.svelte';
 	import '../scrollbar.css';
+	import NavigationSectors from '../components/NavigationSectors.svelte';
 	let { children } = $props();
 </script>
 
@@ -18,9 +19,10 @@
 			<div class="col-span-1">
 				<Navigation />
 			</div>
-
+			
 			<!--Index Page-->
 			<div class="col-span-3">
+				<NavigationSectors/>
 				{@render children()}
 			</div>
 		</div>

@@ -1,0 +1,13 @@
+name "move items" -- name declaration is optional
+
+-- use two dashes for a comment
+-- keywords are case insensitive
+
+-- more than one trigger can be used in a program
+every 20 ticks do
+    -- each trigger block can contain multiple statements
+    INPUT FROM a
+    OUTPUT TO b
+    -- "a" and "b" are inventory labels
+    -- use a label gun to identify them in world
+end
