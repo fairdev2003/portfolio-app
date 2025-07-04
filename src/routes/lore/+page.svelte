@@ -1,7 +1,8 @@
 <script>
 	import ResponsiveContainer from "../../components/responsive/ResponsiveContainer.svelte";
 </script>
-<ResponsiveContainer cols="2" className="flex flex-col gap-y-5">
+
+<ResponsiveContainer cols="2" className="flex flex-col gap-y-5 text-center">
   <h2>🎇 Rozdanie i fajerwerki</h2>
 
   <p>
