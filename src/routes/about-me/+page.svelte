@@ -5,7 +5,6 @@
 	import FileDownload from './(components)/FileDownload.svelte';
 	import Intrudaction from './(components)/Intrudaction.svelte';
 	import Hardware from './(components)/Hardware.svelte';
-	import NavigationSectors from '../../components/NavigationSectors.svelte';
 </script>
 
 <div class="flex flex-col gap-12 px-5 lg:col-span-2">

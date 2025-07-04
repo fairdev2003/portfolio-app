@@ -1,5 +1,4 @@
 <script lang="ts">
-	import NavigationSectors from '../../components/NavigationSectors.svelte';
 
 	let { children } = $props();
 </script>
