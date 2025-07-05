@@ -5,9 +5,11 @@
 	type Props = {
 		children: Snippet;
 		href?: string;
+		left?: boolean;
+		right?: boolean;
 	};
 
-	const { children, href = '' }: Props = $props();
+	const { children, href = '', right = false, left = false }: Props = $props();
 </script>
 
 <button
@@ -16,6 +18,7 @@
 	}}
 	class="cursor-pointer rounded-lg border-1 border-gray-950 bg-gray-700 p-2 px-6 text-sm transition-colors hover:bg-gray-800"
 >
+	{left ? '<' : ''}
 	{@render children()}
-	{'>'}
+	{right ? '>' : ''}
 </button>

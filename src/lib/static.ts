@@ -158,8 +158,9 @@ const music_phrases: Record<string, string> = {
 	'1S0kagOS5P8MQU6SS8pSlE': '"Za oknem deszcz, a ja w domu słucham techno."',
 	'7uu6bChltOWw8lJLmawUy6': '"Jeżeli dobrze oceni mnie algorytm."',
 	'6wKrx6Adh4vM79RdIDYAWQ': '"Jestem typem, który czuje 3 razy więcej niż ty"',
-	'2rGhzYsIgignr1vwPL2RLF': 'Przełom.',
-	'77vLpSAMNzeYL4EBeZxWqI': 'Znowu jadę do Ciebie sam.'
+	'2rGhzYsIgignr1vwPL2RLF': '"Przełom."',
+	'77vLpSAMNzeYL4EBeZxWqI': 'Znowu jadę do Ciebie sam.',
+	'2v7H4q6xCk6VHnLYhD7yTk': '"Błysk"'
 };
 
 export { websiteStack, techStackItems, pageSections, projects, quotes, music_phrases };

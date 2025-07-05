@@ -1,18 +1,17 @@
-import type { BlogWindowProps } from '../../types/blog.types.js';
-
-const routeData: Record<string, string> = {
-	'/blog/sfm': 'Super Factory Manager',
-	'/blog': 'Sekcja Blogowa'
-};
+import type { BlogWindowProps } from '../../../types/blog.types';
 
 export async function load({ url }) {
 	const pageData: BlogWindowProps = {
 		route: url.pathname,
-		routeName: 'Sekcja Blogowa',
+		routeName: 'Super Factory Manager',
 		navigation: {
+			left: {
+				value: 'Blog',
+				href: '/blog'
+			},
 			right: {
-				value: 'SFM',
-				href: '/blog/sfm/'
+				value: 'Examples',
+				href: '/blog/sfm/examples'
 			}
 		},
 		references: [

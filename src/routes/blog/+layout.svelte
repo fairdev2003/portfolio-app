@@ -8,6 +8,6 @@
 <ResponsiveWrapper>
 	{@render children()}
 	<ResponsiveContainer cols={1} className="p-5">
-		<div>{data.routeName}</div>
+		<div>{data.route}</div>
 	</ResponsiveContainer>
 </ResponsiveWrapper>

@@ -14,9 +14,10 @@ export type NavigatorButtonProps = {
 	value: string;
 	desc?: string;
 	className?: string;
+	href: string;
 };
 
 export type References = {
 	name: string;
-	route: string;
+	href: string;
 };

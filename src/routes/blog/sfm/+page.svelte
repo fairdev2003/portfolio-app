@@ -1,10 +1,13 @@
 <script>
+	import { klimsonApp } from '$lib';
 	import SectorButton from '../(components)/SectorButton.svelte';
 	import ResponsiveContainer from '../../../components/responsive/ResponsiveContainer.svelte';
 	import SfmCodeArea from './(components)/SFMCodeArea.svelte';
+
+	const { data } = $props();
 </script>
 
-<ResponsiveContainer cols={2} className="flex flex-col gap-y-3">
+<ResponsiveContainer cols={2} className="flex flex-col gap-y-3 col-span-2">
 	<h2>🧠 Super Factory Manager</h2>
 
 	<p>
@@ -64,8 +67,13 @@
 			target="_blank">https://www.curseforge.com/minecraft/mc-mods/super-factory-manager</a
 		>
 	</p>
-	<div class="mt-5 flex justify-end px-5">
-		<SectorButton href="/blog">Next: Blog</SectorButton>
+	<div class="mt-5 flex justify-between">
+		<SectorButton left href={data.navigation?.left?.href}
+			>{data.navigation?.left?.value}</SectorButton
+		>
+		<SectorButton right href={data.navigation?.right?.href}
+			>{data.navigation?.right?.value}</SectorButton
+		>
 	</div>
 </ResponsiveContainer>
 
