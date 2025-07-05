@@ -7,7 +7,7 @@
 <div class="h-max-[300px] w-full rounded-md border-2 border-slate-700 bg-gray-800">
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div class="flex w-full justify-between rounded-t-md bg-slate-700 p-2 px-3">
-		<div class="flex gap-2">
+		<div class="flex items-center gap-2">
 			<img src={DiskImage} alt="disk" class="h-5 w-5" />
 			<p class="text-sm text-gray-400">{'01-example.sfm'}</p>
 		</div>
@@ -22,7 +22,7 @@
 			<Clipboard size={15} />
 		</div>
 	</div>
-	<div class="overflow-x-auto overflow-y-auto p-2 whitespace-nowrap">
+	<div class="overflow-x-scroll overflow-y-auto p-2 whitespace-nowrap">
 		<CodeLine className="text-[#9CDCFE]">
 			NAME <span class="text-[#CE9178]">"Gregiorius Master Plan"</span>
 		</CodeLine>
@@ -71,16 +71,3 @@
 		<CodeLine className="code text-[#c586c0]">END</CodeLine>
 	</div>
 </div>
-
-<style>
-	@font-face {
-		font-family: 'Consolas';
-		src: url('./assets/consolas.ttf') format('truetype');
-		font-weight: normal;
-		font-style: normal;
-	}
-
-	.code {
-		font-family: 'Consolas', monospace;
-	}
-</style>

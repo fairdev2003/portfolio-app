@@ -1,6 +1,9 @@
 <script lang="ts">
-	export let className = '';
-	export let indent = 0;
+	type Props = {
+		className?: string;
+		indent?: number;
+	};
+	const { className = '', indent = 0 }: Props = $props();
 
 	const calculateIndent = (value: number) => {
 		return value === 0 ? 0 : value * 1.25; // 1.25rem = 20px (możesz dostosować)
@@ -11,6 +14,7 @@
 	class={`code-line flex items-center ${className}`}
 	style="padding-left: {calculateIndent(indent)}rem;"
 >
+	<!-- svelte-ignore slot_element_deprecated -->
 	<div class="code-content">
 		<slot />
 	</div>
