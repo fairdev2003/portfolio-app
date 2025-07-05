@@ -39,13 +39,13 @@
 		width: 2rem;
 		text-align: right;
 		margin-right: 0.5rem;
-		color: #6a9955; /* kolor numerów linii, możesz zmienić */
+		color: #6a9955;
 		user-select: none;
 		font-size: 0.875rem;
 	}
 
 	.code-content {
 		flex-grow: 1;
-		white-space: pre-wrap; /* zachowaj formatowanie */
+		white-space: pre-wrap;
 	}
 </style>
