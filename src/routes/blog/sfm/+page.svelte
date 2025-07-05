@@ -49,12 +49,6 @@
 		</li>
 	</ul>
 
-	<p>
-		Link do moda: <a
-			href="https://www.curseforge.com/minecraft/mc-mods/super-factory-manager"
-			target="_blank">https://www.curseforge.com/minecraft/mc-mods/super-factory-manager</a
-		>
-	</p>
 	<h2>🛠️ Przykład prostego programu:</h2>
 	<SfmCodeArea />
 	<h2>🎯 Dla kogo?</h2>
@@ -62,6 +56,12 @@
 		Dla graczy, którzy lubią myśleć systemowo, bawić się automatyką i tworzyć efektywne rozwiązania.
 		Mod idealnie sprawdzi się zarówno dla początkujących, jak i zaawansowanych inżynierów
 		Minecrafta.
+	</p>
+	<p>
+		Link do moda: <a
+			href="https://www.curseforge.com/minecraft/mc-mods/super-factory-manager"
+			target="_blank">https://www.curseforge.com/minecraft/mc-mods/super-factory-manager</a
+		>
 	</p>
 </ResponsiveContainer>
 
