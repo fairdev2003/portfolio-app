@@ -1,0 +1,47 @@
+NAME "Ultimate FTB Skies Expert Sieving Guru"
+
+-- input diddy baby oil into diesel generator.
+EVERY 20 TICKS DO
+    INPUT fluid:: FROM diesel_deposit
+    OUTPUT fluid:: TO diesel_generator
+END
+
+-- energy manager
+EVERY 1 TICK DO
+    INPUT fe:: FROM energy_cube BOTTOM SIDE
+    OUTPUT fe:: TO energy_acceptor
+END
+
+-- variables:
+-- sand, gravel, dust
+EVERY 20 TICKS DO
+    
+    -- TODO: round robin
+    INPUT FROM gravel_deposit
+    OUTPUT minecraft:gravel TO gravel_sifting
+        FORGET
+    INPUT FROM sand_deposit
+    OUTPUT minecraft:sand TO sand_sifting
+        FORGET
+    INPUT FROM dust_deposit
+    OUTPUT ftbskies:dust TO dust_sifting
+        FORGET
+    
+    -- TODO:
+    -- the rest some days later i guess...
+    -- soul sand
+    -- waterlogged sand
+END
+
+-- output resources management
+EVERY 20 TICKS DO
+    INPUT FROM gravel_sifting, sand_sifting, dust_sifting
+    OUTPUT TO resource_deposit
+        FORGET
+    INPUT FROM resource_deposit
+    OUTPUT TO drawer_system
+END
+
+EVERY 20 TICKS DO
+    
+END

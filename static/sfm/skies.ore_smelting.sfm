@@ -1,0 +1,27 @@
+NAME "Auto smelting"
+
+EVERY 20 TICKS DO
+    INPUT *raw* FROM controller
+    OUTPUT raw_iron TO smelting_iron NORTH SIDE
+    OUTPUT raw_copper TO smelting_copper NORTH SIDE
+    OUTPUT raw_aluminum TO smelting_aluminum NORTH SIDE
+    OUTPUT raw_lead TO smelting_lead NORTH SIDE
+    OUTPUT raw_silver TO smelting_silver NORTH SIDE
+    OUTPUT raw_gold TO smelting_gold NORTH SIDE
+    OUTPUT raw_tin TO smelting_tin NORTH SIDE
+    OUTPUT raw_zinc TO smelting_zinc NORTH SIDE
+    OUTPUT raw_nickel TO smelting_nickel NORTH SIDE
+END
+
+EVERY 20 TICKS DO
+    INPUT FROM smelting_iron NORTH SIDE
+    INPUT FROM smelting_copper NORTH SIDE
+    INPUT FROM smelting_aluminum NORTH SIDE
+    INPUT FROM smelting_lead NORTH SIDE
+    INPUT FROM smelting_silver NORTH SIDE
+    INPUT FROM smelting_gold NORTH SIDE
+    INPUT FROM smelting_tin NORTH SIDE
+    INPUT FROM smelting_zinc NORTH SIDE
+    INPUT FROM smelting_nickel NORTH SIDE
+    OUTPUT TO controller
+END

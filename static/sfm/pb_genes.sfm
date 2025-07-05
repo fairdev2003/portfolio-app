@@ -1,0 +1,72 @@
+name "Genes Factory"
+
+-- get bone meal from interface and input this into flower automatic farm
+EVERY 20 TICKS DO
+    INPUT *bone* FROM interface
+    OUTPUT TO automatic_flower
+END
+
+
+-- refil cages
+EVERY 2 SECONDS DO
+    INPUT 1 *cage* FROM interface
+    OUTPUT TO babee
+END
+
+-- input flowers intop babee machine
+EVERY 20 TICKS DO
+    INPUT *bush* FROM flower_storage
+    OUTPUT *bush* TO babee
+END
+
+
+-- energy
+EVERY 1 TICKS DO
+    INPUT forge_energy:: FROM energy BOTTOM SIDE
+    OUTPUT forge_energy:: TO babee, incubator, centrifuge, energy_machine
+END
+
+-- output baby bee into temp chest
+EVERY 10 SECONDS DO
+    INPUT FROM babee
+    OUTPUT TO baby_chest
+END
+
+-- incubator setup
+EVERY 20 TICKS DO
+    INPUT *treat* FROM interface
+    INPUT *bee* FROM baby_chest
+    
+    OUTPUT *bee* TO incubator
+    OUTPUT *treat* TO incubator BOTTOM SIDE
+END
+
+-- bottler setup
+EVERY 10 SECONDS DO
+    INPUT *bottle* FROM interface
+    OUTPUT *bottle* TO bottler
+END
+
+-- bee spawning
+EVERY 10 SECONDS DO
+    INPUT *bee* FROM incubator
+    INPUT *bee* FROM adult_chest
+    OUTPUT *bee* TO bee_spawner
+END
+
+-- output material into centrifuge
+EVERY 20 TICKS DO
+    INPUT *material* FROM bottler
+    OUTPUT *material* TO centrifuge
+END
+
+-- output genes from centrifuge to indexer
+EVERY 20 TICKS DO
+    INPUT FROM centrifuge
+    OUTPUT TO indexer
+END
+
+EVERY 20 TICKS DO
+    INPUT *cage* FROM interface
+    OUTPUT TO manual_breeding
+END

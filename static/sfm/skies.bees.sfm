@@ -1,0 +1,22 @@
+NAME "Total BEEconation"
+
+EVERY 1 TICKS DO
+    INPUT fe:: FROM energy BOTTOM SIDE
+    OUTPUT fe:: TO fabrication
+END
+
+EVERY 20 TICKS DO
+    INPUT *comb* FROM beehive
+    OUTPUT TO buffor
+        FORGET
+    INPUT *comb* FROM buffor
+    OUTPUT TO fabrication SLOTS 0,1
+END
+
+EVERY 20 TICKS DO
+    INPUT FROM fabrication
+    OUTPUT TO drawer_system
+        FORGET
+    INPUT fluid:: FROM fabrication
+    OUTPUT fluid:: TO drawer_system
+END

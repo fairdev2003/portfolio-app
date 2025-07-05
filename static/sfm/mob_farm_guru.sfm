@@ -1,0 +1,28 @@
+NAME "Ultimate Mob Farm Guru"
+
+EVERY 20 TICKS DO
+    -- void any
+    INPUT WITH TAG *enchantable* FROM loot_storage
+    OUTPUT TO trash
+        FORGET
+    INPUT EXCEPT 
+        -- blacklist
+        *trophy*,
+        *book*,
+        *banner*,
+        *potion*
+        FROM loot
+    OUTPUT TO loot_storage
+    -- store experience
+    INPUT fluid:: FROM exp
+    OUTPUT fluid:: TO exp_storage
+        FORGET
+    -- void blacklisted items into trash can
+    INPUT FROM loot
+    OUTPUT TO trash
+END
+
+EVERY 1 TICKS DO
+    INPUT fe:: FROM energy_storage BOTTOM SIDE
+    OUTPUT fe:: to energy_machine
+END

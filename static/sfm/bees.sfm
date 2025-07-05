@@ -1,0 +1,50 @@
+NAME "Bees Management System"
+
+-- external combs processing
+EVERY 20 TICKS DO
+    INPUT *comb* FROM external_nest
+    OUTPUT *comb* TO comb_chest
+END
+
+-- combs management
+EVERY 20 TICKS DO
+
+    INPUT *comb* FROM nest
+    OUTPUT TO comb_chest
+        FORGET
+    INPUT *bottle*, *pollen*, *log*, *honey*, *dye* FROM nest
+    OUTPUT TO ae2system
+    
+END
+
+-- bottling
+EVERY 20 TICKS DO
+    INPUT FROM bottles
+    OUTPUT TO nest 
+END
+
+
+-- energy into centifuges
+EVERY 1 TICKS DO
+    INPUT forge_energy:: FROM energy_cube TOP SIDE
+    OUTPUT forge_energy:: TO processing BOTTOM SIDE
+END
+
+-- comb processing
+EVERY 20 TICKS DO
+    INPUT *comb* FROM external_comb_chest
+    INPUT *comb* FROM comb_chest
+    OUTPUT *comb* TO processing
+END
+
+-- output combs to ae2 system
+EVERY 20 TICKS DO
+    INPUT FROM processing BOTTOM SIDE
+    OUTPUT TO ae2system
+END
+
+-- input liquid honey into tank
+EVERY 20 TICKS DO
+    INPUT fluid:: FROM processing BOTTOM SIDE
+    OUTPUT fluid:: TO honey_tank BOTTOM SIDE
+END

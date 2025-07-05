@@ -1,0 +1,33 @@
+NAME "HNN System"
+
+-- energy
+EVERY 1 TICKS DO
+    INPUT fe:: FROM energy TOP SIDE
+    OUTPUT fe:: TO simulation, loot
+END
+
+EVERY 20 TICKS DO
+    INPUT FROM interface
+    OUTPUT TO simulation
+END
+
+EVERY 20 TICKS DO
+    INPUT 
+        hostilenetworks:overworld_prediction,
+        hostilenetworks:nether_prediction,
+        hostilenetworks:end_prediction,
+        hostilenetworks:twilight_prediction,
+        kubejs:starlight_prediction
+    FROM simulation
+    OUTPUT TO interface
+        FORGET
+    INPUT FROM simulation
+    OUTPUT 
+        8 each hostilenetworks:prediction 
+    TO loot ROUND ROBIN BY BLOCK
+END
+
+EVERY 20 TICKS DO
+    INPUT FROM loot
+    OUTPUT TO interface
+END 
