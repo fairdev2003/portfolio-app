@@ -19,7 +19,7 @@
 			class="flex cursor-pointer items-center gap-1 text-gray-400"
 		>
 			<p class="text-[13px]">Copy</p>
-			<Clipboard size={20} />
+			<Clipboard size={15} />
 		</div>
 	</div>
 	<div class="overflow-x-auto overflow-y-auto p-2 whitespace-nowrap">
