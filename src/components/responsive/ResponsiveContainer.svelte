@@ -6,9 +6,13 @@
 		cols?: number | string;
 		className?: string;
 	};
+
 	const { children, cols = 2, className = '' }: Props = $props();
+
+	const baseClass = `text-white ${className}`;
+	const colClass = `col-span-${cols}`;
 </script>
 
-<div class={`col-span-${cols} ${className} text-white`}>
+<div class={`${colClass} ${baseClass}`}>
 	{@render children()}
 </div>

@@ -7,14 +7,8 @@ const routeData: Record<string, string> = {
 
 export async function load({ url }) {
 	const pageData: BlogWindowProps = {
-		navigation: {
-			left: {
-				value: ''
-			}
-		},
 		route: url.pathname,
 		routeName: routeData[url.pathname]
 	};
-
 	return pageData;
 }
