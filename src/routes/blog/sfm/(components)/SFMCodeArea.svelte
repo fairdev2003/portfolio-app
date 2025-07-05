@@ -3,6 +3,8 @@
 	import CodeLine from './CodeLine.svelte';
 	import { Clipboard } from 'lucide-svelte';
 	import KeywordPart from './KeywordPart.svelte';
+
+	let copiedStatus: boolean = false;
 </script>
 
 <div class="h-max-[300px] w-full rounded-md border-2 border-slate-700 bg-gray-800">
@@ -15,12 +17,21 @@
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<div
 			onclick={() => {
+				// TODO: write actual code
 				navigator.clipboard.writeText('01-example.sfm');
+				copiedStatus = true;
+				setTimeout(() => {
+					copiedStatus = false;
+				}, 4000);
 			}}
-			class="flex cursor-pointer items-center gap-1 text-gray-400 select-none"
+			class="flex cursor-pointer items-center gap-1 text-gray-400 transition-colors select-none hover:text-white"
 		>
-			<p class="text-[13px]">Copy</p>
-			<Clipboard size={15} />
+			{#if copiedStatus}
+				<p class="text-[13px] text-green-500">Copied!</p>
+			{:else}
+				<p class="text-[13px]">Copy</p>
+				<Clipboard size={15} />
+			{/if}
 		</div>
 	</div>
 	<div class="overflow-x-scroll overflow-y-auto p-2 whitespace-nowrap">
