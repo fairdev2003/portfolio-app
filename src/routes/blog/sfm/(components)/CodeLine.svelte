@@ -1,7 +1,6 @@
 <script lang="ts">
 	export let className = '';
 	export let indent = 0;
-	export let lineNumber: number | null = null; // numer linii (opcjonalny)
 
 	const calculateIndent = (value: number) => {
 		return value === 0 ? 0 : value * 1.25; // 1.25rem = 20px (możesz dostosować)
@@ -12,9 +11,6 @@
 	class={`code-line flex items-center ${className}`}
 	style="padding-left: {calculateIndent(indent)}rem;"
 >
-	{#if lineNumber !== null}
-		<span class="line-number">{lineNumber}</span>
-	{/if}
 	<div class="code-content">
 		<slot />
 	</div>
