@@ -16,7 +16,7 @@
 			onclick={() => {
 				navigator.clipboard.writeText('01-example.sfm');
 			}}
-			class="flex cursor-pointer items-center gap-1 text-gray-400"
+			class="flex cursor-pointer items-center gap-1 text-gray-400 select-none"
 		>
 			<p class="text-[13px]">Copy</p>
 			<Clipboard size={15} />
