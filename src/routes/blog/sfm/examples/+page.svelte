@@ -6,6 +6,7 @@
 
 <ResponsiveContainer cols={2} className="flex flex-col gap-y-3">
 	<div class="flex flex-col gap-2">
+		<div>Siema</div>
 		{#each data.sfmFiles as sfmFile}
 			<p class="text-white">{sfmFile}</p>
 		{/each}
