@@ -62,7 +62,7 @@ const websiteStack: TechStackType[] = [
 const pageSections = [
 	{ name: 'Index', description: '', path: '/' },
 	{ name: 'O mnie', description: 'Trochę informacji o mnie', path: '/about-me' },
-	{ name: 'Projekty', description: 'Lista moich projektów', path: '/projects' },
+	{ name: 'Blog', description: 'Rzeczy ktore mnie interesuja', path: '/blog' },
 	{ name: 'Cytaty', description: 'Moje życiowe cytaty', path: '/quotes' },
 	{ name: 'Kontakt', description: 'Dostępne metody kontaktu', path: '/contact' },
 	{ name: 'Historia', description: 'Ta sekcja jest w trakcie budowy', path: '/lore' }
