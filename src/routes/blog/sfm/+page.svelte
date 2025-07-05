@@ -1,4 +1,5 @@
 <script>
+	import SectorButton from '../(components)/SectorButton.svelte';
 	import ResponsiveContainer from '../../../components/responsive/ResponsiveContainer.svelte';
 	import SfmCodeArea from './(components)/SFMCodeArea.svelte';
 </script>
@@ -63,6 +64,9 @@
 			target="_blank">https://www.curseforge.com/minecraft/mc-mods/super-factory-manager</a
 		>
 	</p>
+	<div class="mt-5 flex justify-end px-5">
+		<SectorButton href="/blog">Next: Blog</SectorButton>
+	</div>
 </ResponsiveContainer>
 
 <style>
