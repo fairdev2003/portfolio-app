@@ -2,6 +2,7 @@
 	import DiskImage from './assets/disk.png';
 	import CodeLine from './CodeLine.svelte';
 	import { Clipboard } from 'lucide-svelte';
+	import KeywordPart from './KeywordPart.svelte';
 </script>
 
 <div class="h-max-[300px] w-full rounded-md border-2 border-slate-700 bg-gray-800">
@@ -23,8 +24,9 @@
 		</div>
 	</div>
 	<div class="overflow-x-scroll overflow-y-auto p-2 whitespace-nowrap">
-		<CodeLine className="text-[#9CDCFE]">
-			NAME <span class="text-[#CE9178]">"Gregiorius Master Plan"</span>
+		<CodeLine>
+			<KeywordPart className="text-[#9CDCFE] hover:bg-blue-500">NAME</KeywordPart>
+			<span class="text-[#CE9178]">"Gregiorius Master Plan"</span>
 		</CodeLine>
 
 		<CodeLine />
@@ -71,3 +73,6 @@
 		<CodeLine className="code text-[#c586c0]">END</CodeLine>
 	</div>
 </div>
+
+<style>
+</style>

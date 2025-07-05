@@ -13,3 +13,5 @@ enum Keywords {
 	IF = 'if',
 	LABEL = 'label'
 }
+
+type KeywordType = `${Keywords}`;
