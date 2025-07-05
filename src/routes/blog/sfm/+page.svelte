@@ -4,7 +4,7 @@
 	import SfmCodeArea from './(components)/SFMCodeArea.svelte';
 </script>
 
-<ResponsiveContainer cols="2" className="flex flex-col gap-y-3">
+<ResponsiveContainer cols={2} className="flex flex-col gap-y-3 col-span-2">
 	<h2>🧠 Super Factory Manager</h2>
 
 	<p>

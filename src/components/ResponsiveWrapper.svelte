@@ -1,9 +1,7 @@
 <script lang="ts">
-
-	let { children } = $props()
+	let { children } = $props();
 </script>
 
-<div class="lg:grid grid-cols-3">
-	
+<div class="grid-cols-3 lg:grid">
 	{@render children()}
 </div>
