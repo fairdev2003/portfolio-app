@@ -17,7 +17,7 @@
 			<!--Navigation-->
 
 			<div class="col-span-1">
-				<DiscordActivityPill />
+				<!-- <DiscordActivityPill /> -->
 				<Navigation />
 			</div>
 

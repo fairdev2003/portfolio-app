@@ -69,7 +69,7 @@
 	{#each pageSections as { name, path }}
 		<a href={path} class="mb-3 text-xl font-bold">{name}</a>
 	{/each}
-	<DiscordActivityPill mobile />
+	<!-- <DiscordActivityPill mobile /> -->
 </nav>
 
 <style>
