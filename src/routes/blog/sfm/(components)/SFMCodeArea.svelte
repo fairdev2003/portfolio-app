@@ -4,22 +4,37 @@
 	import { Clipboard } from 'lucide-svelte';
 	import KeywordPart from './KeywordPart.svelte';
 	import { VSCThemeColor } from './styles/colors';
+	import { SFMCompiler } from '$lib';
+	import { onMount } from 'svelte';
 
-	let copiedStatus: boolean = false;
+	type SFMCodeAreaPage = 'no_compiler_example' | 'barebone';
+	let copiedStatus: boolean = $state(false);
+	let sfm_program_lines: string[] = $state([]);
+	let sfm_program: string;
+	const program_name: string = 'hnn.sfm';
+	const program_path: string = `/sfm/${program_name}`;
+	let code_area_page: SFMCodeAreaPage = $state('no_compiler_example');
+
+	const handleCodeAreaPageChange = (page: SFMCodeAreaPage) => (code_area_page = page);
+
+	onMount(async () => {
+		sfm_program_lines = await SFMCompiler.GetSuperFactoryManagerLines(program_path);
+		sfm_program = await SFMCompiler.FetchSuperFactoryManagerContent(program_path);
+	});
 </script>
 
-<div class="h-max-[300px] w-full rounded-md border-2 border-slate-700 bg-gray-800">
+<div class="h-min-[300px] w-full rounded-md border-2 border-slate-700 bg-gray-800">
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div class="flex w-full justify-between rounded-t-md bg-slate-700 p-2 px-3">
 		<div class="flex items-center gap-2">
 			<img src={DiskImage} alt="disk" class="h-5 w-5" />
-			<p class="text-sm text-gray-400">{'01-example.sfm'}</p>
+			<p class="text-sm text-gray-400">{program_name}</p>
 		</div>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<div
 			onclick={() => {
 				// TODO: write actual code
-				navigator.clipboard.writeText('01-example.sfm');
+				navigator.clipboard.writeText(sfm_program);
 				copiedStatus = true;
 				setTimeout(() => {
 					copiedStatus = false;
@@ -36,9 +51,30 @@
 		</div>
 	</div>
 	<!-- code area -->
-	{@render CodeAreaExample()}
+	{#if code_area_page === 'no_compiler_example'}
+		{@render CodeAreaExample()}
+	{/if}
+	{#if code_area_page === 'barebone'}
+		<div class="p-2">
+			{#each sfm_program_lines as line}
+				<CodeLine className="">{line}</CodeLine>
+			{/each}
+		</div>
+	{/if}
+
+	<div class="flex h-[34px] items-center gap-2 bg-slate-700">
+		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<p class="cursor-pointer px-5" onclick={() => handleCodeAreaPageChange('no_compiler_example')}>
+			1
+		</p>
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+		<p class="cursor-pointer px-5" onclick={() => handleCodeAreaPageChange('barebone')}>2</p>
+	</div>
 </div>
 
+<!-- Example without compiler -->
 {#snippet CodeAreaExample()}
 	<div class="overflow-hidden p-2 whitespace-nowrap">
 		<CodeLine>
