@@ -35,6 +35,11 @@
 			{/if}
 		</div>
 	</div>
+	<!-- code area -->
+	{@render CodeArea()}
+</div>
+
+{#snippet CodeArea()}
 	<div class="overflow-hidden p-2 whitespace-nowrap">
 		<CodeLine>
 			<KeywordPart className="text-[#9CDCFE] hover:bg-blue-500">NAME</KeywordPart>
@@ -90,7 +95,7 @@
 		>
 		<CodeLine className="code text-[#c586c0]">END</CodeLine>
 	</div>
-</div>
+{/snippet}
 
 <style>
 </style>
