@@ -36,8 +36,8 @@
 				<a href={program_link} target="_blank" class="text-gray-400"
 					>{SFMCompiler.ExtractFileNameFromURL(program_link)}</a
 				>
-				|
-				<span class={VSCThemeColor.StringGreen}>{code_area_page}</span>
+				<!-- |
+				<span class={VSCThemeColor.StringGreen}>{code_area_page}</span> -->
 			</p>
 		</div>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -91,38 +91,7 @@
 		</div>
 	{/if}
 
-	<div class="flex h-[34px] items-center gap-2 bg-slate-700 px-2">
-		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		{#if program_link != ''}
-			<p
-				class="cursor-pointer px-5 hover:bg-slate-800"
-				onclick={() => handleCodeAreaPageChange('no_compiler_example')}
-			>
-				1
-			</p>
-		{/if}
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-		{#if program_link != ''}
-			<p
-				class="cursor-pointer px-5 hover:bg-slate-800"
-				onclick={() => handleCodeAreaPageChange('barebone')}
-			>
-				2
-			</p>
-		{/if}
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-		{#if program_link != ''}
-			<p
-				class="cursor-pointer px-5 hover:bg-slate-800"
-				onclick={() => handleCodeAreaPageChange('compiler_test')}
-			>
-				3
-			</p>
-		{/if}
-	</div>
+	<!-- <div class="flex h-[30px] items-center gap-2 bg-slate-700 px-2"></div> -->
 </div>
 
 <!-- Example without compiler -->
