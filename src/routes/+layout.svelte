@@ -4,6 +4,7 @@
 	import Footer from '../components/Footer.svelte';
 	import PageHeader from '../components/PageHeader.svelte';
 	import '../scrollbar.css';
+	import DiscordActivityPill from '../components/discord/DiscordActivityPill.svelte';
 	let { children } = $props();
 </script>
 
@@ -16,9 +17,10 @@
 			<!--Navigation-->
 
 			<div class="col-span-1">
+				<DiscordActivityPill />
 				<Navigation />
 			</div>
-			
+
 			<!--Index Page-->
 			<div class="col-span-3">
 				{@render children()}
