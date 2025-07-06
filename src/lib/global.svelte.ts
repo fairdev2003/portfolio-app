@@ -1,5 +1,9 @@
 import axios from 'axios';
-import type { DiscordPresenceResponse, DiscordUser } from '../types/discord_status.types';
+import type {
+	DiscordAvatar,
+	DiscordPresenceResponse,
+	DiscordUser
+} from '../types/discord_status.types';
 
 class KlimsonApp {
 	public watchUrl: string = 'https://api.lanyard.rest/v1/users/424502321800675328' as const;
@@ -34,7 +38,7 @@ class KlimsonApp {
 		}
 	}
 
-	public getDiscordAvatar() {
+	public getDiscordAvatar(): DiscordAvatar | undefined {
 		if (this.discordData) {
 			const user: DiscordUser = this.discordData.data.discord_user;
 			return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
@@ -50,7 +54,7 @@ class KlimsonApp {
 		return `${activities[0].name} + ${activities.length - 1}`;
 	}
 
-	public getStylesBasedOnActivity() {
+	public getStylesBasedOnActivity(): string {
 		const status = this.discordData?.data.discord_status;
 
 		switch (status) {

@@ -16,6 +16,8 @@ export type DiscordPresenceData = {
 	spotify?: SpotifyActivity;
 };
 
+export type DiscordAvatar = string;
+
 export type DiscordUser = {
 	id: string;
 	username: string;
