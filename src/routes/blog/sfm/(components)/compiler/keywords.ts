@@ -1,4 +1,4 @@
-enum Keywords {
+export enum Keywords {
 	NAME = 'name',
 	NAME_STRING = 'name_string',
 	COMMENT = 'comment',
@@ -14,4 +14,4 @@ enum Keywords {
 	LABEL = 'label'
 }
 
-type KeywordType = `${Keywords}`;
+export type KeywordType = `${Keywords}`;

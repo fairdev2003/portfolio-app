@@ -7,7 +7,7 @@
 	import { SFMCompiler } from '$lib';
 	import { onMount } from 'svelte';
 
-	type SFMCodeAreaPage = 'no_compiler_example' | 'barebone';
+	type SFMCodeAreaPage = 'no_compiler_example' | 'barebone' | 'compiler_test';
 	let copiedStatus: boolean = $state(false);
 	let sfm_program_lines: string[] = $state([]);
 	let sfm_program: string;
@@ -61,16 +61,44 @@
 			{/each}
 		</div>
 	{/if}
+	{#if code_area_page === 'compiler_test'}
+		<div class="min-h-[300px] p-2">
+			<CodeLine className={VSCThemeColor.VariableBlue}>COMPILER TEST</CodeLine>
+			<CodeLine />
 
-	<div class="flex h-[34px] items-center gap-2 bg-slate-700">
+			{#each sfm_program_lines as line}
+				<CodeLine>
+					{@html SFMCompiler.highlightCustomSFM(line)}
+				</CodeLine>
+			{/each}
+		</div>
+	{/if}
+
+	<div class="flex h-[34px] items-center gap-2 bg-slate-700 px-2">
 		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<p class="cursor-pointer px-5" onclick={() => handleCodeAreaPageChange('no_compiler_example')}>
+		<p
+			class="cursor-pointer px-5 hover:bg-slate-800"
+			onclick={() => handleCodeAreaPageChange('no_compiler_example')}
+		>
 			1
 		</p>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-		<p class="cursor-pointer px-5" onclick={() => handleCodeAreaPageChange('barebone')}>2</p>
+		<p
+			class="cursor-pointer px-5 hover:bg-slate-800"
+			onclick={() => handleCodeAreaPageChange('barebone')}
+		>
+			2
+		</p>
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+		<p
+			class="cursor-pointer px-5 hover:bg-slate-800"
+			onclick={() => handleCodeAreaPageChange('compiler_test')}
+		>
+			3
+		</p>
 	</div>
 </div>
 
