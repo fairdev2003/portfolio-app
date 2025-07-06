@@ -11,9 +11,18 @@ export enum VSCThemeColor {
 	CommentGray = 'text-[#6a737d]', // #6a737d — komentarze
 	FunctionCyan = 'text-[#4ec9b0]', // #4ec9b0 — funkcje
 	VariableBlue = 'text-[#9CDCFE]', // #9CDCFE - variable blue
-	MainPurple = 'text-[#c586c0]'
+	MainPurple = 'text-[#c586c0]', // #c586c0 - pink main
+	RedRedstone = 'text-red-400'
 }
 
 export const KeywordColor = {
-	[Keywords.EVERY]: VSCThemeColor.MainPurple
+	[Keywords.EVERY]: VSCThemeColor.MainPurple,
+	[Keywords.NUMBER]: VSCThemeColor.NumberYellow,
+	[Keywords.TICKS]: VSCThemeColor.VariableOrange,
+	[Keywords.COMMENT]: VSCThemeColor.StringGreen,
+	[Keywords.VARIABLE]: VSCThemeColor.VariableBlue,
+	[Keywords.DIRECTION]: VSCThemeColor.NumberYellow,
+	[Keywords.OPERATOR]: VSCThemeColor.NumberYellow,
+	[Keywords.STRING]: VSCThemeColor.StringGreen,
+	[Keywords.REDSTONE]: VSCThemeColor.RedRedstone
 };

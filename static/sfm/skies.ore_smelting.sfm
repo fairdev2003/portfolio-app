@@ -1,4 +1,4 @@
-NAME "Auto smelting"
+NAME "FTB Skies Auto smelting by Maksiator"
 
 EVERY 20 TICKS DO
     INPUT *raw* FROM controller

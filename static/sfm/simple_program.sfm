@@ -1,0 +1,6 @@
+EVERY 20 TICKS DO
+    -- bierze item z kontynera a
+    INPUT 20 minecraft:coal FROM a -- kontyner a
+    -- i przenosi go do kontynera b 
+    OUTPUT TO b BOTTOM SIDE -- kontyner b
+END

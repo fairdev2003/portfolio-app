@@ -54,7 +54,8 @@
 	</ul>
 
 	<h2>🛠️ Przykład prostego programu:</h2>
-	<SfmCodeArea />
+	<SfmCodeArea program_link="/sfm/mob_farm_guru.sfm" />
+
 	<h2>🎯 Dla kogo?</h2>
 	<p>
 		Dla graczy, którzy lubią myśleć systemowo, bawić się automatyką i tworzyć efektywne rozwiązania.

@@ -11,7 +11,13 @@ export enum Keywords {
 	OUTPUT = 'output',
 	TO = 'to',
 	IF = 'if',
-	LABEL = 'label'
+	LABEL = 'label',
+	TICKS = 'ticks',
+	VARIABLE = 'variable',
+	DIRECTION = 'direction',
+	OPERATOR = 'operator',
+	STRING = 'string',
+	REDSTONE = 'redstone'
 }
 
 export type KeywordType = `${Keywords}`;

@@ -11,15 +11,19 @@
 	let copiedStatus: boolean = $state(false);
 	let sfm_program_lines: string[] = $state([]);
 	let sfm_program: string;
-	const program_name: string = 'hnn.sfm';
-	const program_path: string = `/sfm/${program_name}`;
-	let code_area_page: SFMCodeAreaPage = $state('no_compiler_example');
+	let code_area_page: SFMCodeAreaPage = $state('compiler_test');
 
 	const handleCodeAreaPageChange = (page: SFMCodeAreaPage) => (code_area_page = page);
 
+	type Props = {
+		program_link?: string;
+	};
+
+	const { program_link = '' }: Props = $props();
+
 	onMount(async () => {
-		sfm_program_lines = await SFMCompiler.GetSuperFactoryManagerLines(program_path);
-		sfm_program = await SFMCompiler.FetchSuperFactoryManagerContent(program_path);
+		sfm_program_lines = await SFMCompiler.GetSuperFactoryManagerLines(program_link);
+		sfm_program = await SFMCompiler.FetchSuperFactoryManagerContent(program_link);
 	});
 </script>
 
@@ -29,7 +33,11 @@
 		<div class="flex items-center gap-2">
 			<img src={DiskImage} alt="disk" class="h-5 w-5" />
 			<p class="text-sm text-gray-400">
-				{program_name} | <span class={VSCThemeColor.StringGreen}>{code_area_page}</span>
+				<a href={program_link} target="_blank" class="text-gray-400"
+					>{SFMCompiler.ExtractFileNameFromURL(program_link)}</a
+				>
+				|
+				<span class={VSCThemeColor.StringGreen}>{code_area_page}</span>
 			</p>
 		</div>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -54,57 +62,66 @@
 	</div>
 
 	<!-- No Compiler Example -->
-	{#if code_area_page === 'no_compiler_example'}
-		{@render CodeAreaExample()}
-	{/if}
+	{#if program_link != ''}
+		{#if code_area_page === 'no_compiler_example'}
+			{@render CodeAreaExample()}
+		{/if}
 
-	<!-- Only Formatted Code without colors -->
-	{#if code_area_page === 'barebone'}
-		<div class="p-2">
-			{#each sfm_program_lines as line}
-				<CodeLine className="">{line}</CodeLine>
-			{/each}
-		</div>
-	{/if}
-	<!-- Compiler testing -->
-	{#if code_area_page === 'compiler_test'}
+		<!-- Only Formatted Code without colors -->
+		{#if code_area_page === 'barebone'}
+			<div class="p-2">
+				{#each sfm_program_lines as line}
+					<CodeLine className="">{line}</CodeLine>
+				{/each}
+			</div>
+		{/if}
+		<!-- Compiler testing -->
+		{#if code_area_page === 'compiler_test'}
+			<div class="p-2">
+				{#each sfm_program_lines as line}
+					<CodeLine>
+						{@html SFMCompiler.highlightCustomSFM(line)}
+					</CodeLine>
+				{/each}
+			</div>
+		{/if}
+	{:else}
 		<div class="min-h-[300px] p-2">
-			<CodeLine className={VSCThemeColor.VariableBlue}>COMPILER TEST</CodeLine>
-			<CodeLine />
-
-			{#each sfm_program_lines as line}
-				<CodeLine>
-					{@html SFMCompiler.highlightCustomSFM(line)}
-				</CodeLine>
-			{/each}
+			<CodeLine className={VSCThemeColor.VariableBlue}>NO PROGRAM!</CodeLine>
 		</div>
 	{/if}
 
 	<div class="flex h-[34px] items-center gap-2 bg-slate-700 px-2">
 		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<p
-			class="cursor-pointer px-5 hover:bg-slate-800"
-			onclick={() => handleCodeAreaPageChange('no_compiler_example')}
-		>
-			1
-		</p>
+		{#if program_link != ''}
+			<p
+				class="cursor-pointer px-5 hover:bg-slate-800"
+				onclick={() => handleCodeAreaPageChange('no_compiler_example')}
+			>
+				1
+			</p>
+		{/if}
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-		<p
-			class="cursor-pointer px-5 hover:bg-slate-800"
-			onclick={() => handleCodeAreaPageChange('barebone')}
-		>
-			2
-		</p>
+		{#if program_link != ''}
+			<p
+				class="cursor-pointer px-5 hover:bg-slate-800"
+				onclick={() => handleCodeAreaPageChange('barebone')}
+			>
+				2
+			</p>
+		{/if}
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-		<p
-			class="cursor-pointer px-5 hover:bg-slate-800"
-			onclick={() => handleCodeAreaPageChange('compiler_test')}
-		>
-			3
-		</p>
+		{#if program_link != ''}
+			<p
+				class="cursor-pointer px-5 hover:bg-slate-800"
+				onclick={() => handleCodeAreaPageChange('compiler_test')}
+			>
+				3
+			</p>
+		{/if}
 	</div>
 </div>
 
@@ -168,4 +185,7 @@
 {/snippet}
 
 <style>
+	a {
+		color: oklch(70.7% 0.022 261.325);
+	}
 </style>
