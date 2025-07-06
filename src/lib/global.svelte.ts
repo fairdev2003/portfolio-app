@@ -44,6 +44,7 @@ class KlimsonApp {
 	public formatDiscordActivityPill() {
 		const activities = this.discordData?.data.activities ?? [];
 
+		if (activities.length === 0 && this.discordData?.data.discord_status !== 'online') return '';
 		if (activities.length === 0) return 'Offline';
 		if (activities.length === 1) return activities[0].name;
 		return `${activities[0].name} + ${activities.length - 1}`;
