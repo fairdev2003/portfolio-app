@@ -10,8 +10,8 @@ export async function load({ url }) {
 				href: '/blog'
 			},
 			right: {
-				value: 'Examples',
-				href: '/blog/sfm/examples'
+				value: 'Zaczynamy',
+				href: '/blog/sfm/get-started'
 			}
 		},
 		references: [

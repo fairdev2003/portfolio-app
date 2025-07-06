@@ -24,7 +24,6 @@ class Compiler {
 	}
 
 	public highlightCustomSFM(code: string): string {
-		// Zamień komentarze na placeholdery
 		if (code.includes('NAME')) {
 			const name_string = code.split('"')[1];
 			const string_inside = name_string.split('"');
@@ -41,7 +40,6 @@ class Compiler {
 			return `__COMMENT_PLACEHOLDER_${index}__`;
 		});
 
-		// Reszta kolorowania (bez komentarzy)
 		code = code
 			.replace(
 				/\b(NAME|EVERY|INPUT|OUTPUT|FROM|TO|END|DO|FORGET|ROUND ROBIN BY|EACH|SIDE|HAS|IF|THEN|WITH|EXCEPT|RETAIN|PULSE)\b/gi,
@@ -69,7 +67,7 @@ class Compiler {
 			);
 
 		1;
-		// Przywróć komentarze
+
 		code = code.replace(/__COMMENT_PLACEHOLDER_(\d+)__/g, (_, index) => {
 			const comment = comments[parseInt(index, 10)];
 			return `<span class="${KeywordColor.comment}">${comment}</span>`;
