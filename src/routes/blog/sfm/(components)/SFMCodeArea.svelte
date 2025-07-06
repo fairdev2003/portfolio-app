@@ -49,7 +49,7 @@
 
 		<CodeLine indent={1} className="text-[#c586c0]"
 			>INPUT <span class={VSCThemeColor.NumberYellow}>5</span>
-			<span class="text-[#CE9178]">*plate*, *sheet*</span>
+			<span class={VSCThemeColor.VariableBlue}>*plate*, *sheet*</span>
 			FROM
 			<span class="text-[#D4D4D4]">manual_chest, ae2_chest</span></CodeLine
 		>
