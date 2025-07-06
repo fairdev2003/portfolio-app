@@ -36,10 +36,10 @@
 		</div>
 	</div>
 	<!-- code area -->
-	{@render CodeArea()}
+	{@render CodeAreaExample()}
 </div>
 
-{#snippet CodeArea()}
+{#snippet CodeAreaExample()}
 	<div class="overflow-hidden p-2 whitespace-nowrap">
 		<CodeLine>
 			<KeywordPart className="text-[#9CDCFE] hover:bg-blue-500">NAME</KeywordPart>
