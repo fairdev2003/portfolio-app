@@ -27,7 +27,10 @@
 	});
 </script>
 
-<div class="h-min-[300px] w-full rounded-md border-2 border-slate-700 bg-gray-800">
+<div
+	id={SFMCompiler.ExtractFileNameFromURL(program_link)}
+	class="h-min-[300px] w-full rounded-md border-2 border-slate-700 bg-gray-800"
+>
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div class="flex w-full justify-between rounded-t-md bg-slate-700 p-2 px-3">
 		<div class="flex items-center gap-2">
