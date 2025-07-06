@@ -3,6 +3,7 @@
 	import CodeLine from './CodeLine.svelte';
 	import { Clipboard } from 'lucide-svelte';
 	import KeywordPart from './KeywordPart.svelte';
+	import { VSCThemeColor } from './styles/colors';
 
 	let copiedStatus: boolean = false;
 </script>
@@ -34,28 +35,31 @@
 			{/if}
 		</div>
 	</div>
-	<div class="overflow-x-scroll overflow-y-auto p-2 whitespace-nowrap">
+	<div class="overflow-hidden p-2 whitespace-nowrap">
 		<CodeLine>
 			<KeywordPart className="text-[#9CDCFE] hover:bg-blue-500">NAME</KeywordPart>
 			<span class="text-[#CE9178]">"Gregiorius Master Plan"</span>
 		</CodeLine>
 
 		<CodeLine />
-		<CodeLine className="text-[#6A9955]">-- zapierdala 1</CodeLine>
+		<CodeLine className="text-[#6A9955]">-- statement 1</CodeLine>
 		<CodeLine className="text-[#c586c0]"
 			>EVERY <span class="text-[#DCDCAA]">20</span> TICKS DO</CodeLine
 		>
 
 		<CodeLine indent={1} className="text-[#c586c0]"
-			>INPUT FROM <span class="text-[#D4D4D4]">chest_1</span></CodeLine
+			>INPUT <span class={VSCThemeColor.NumberYellow}>5</span>
+			<span class="text-[#CE9178]">*plate*, *sheet*</span>
+			FROM
+			<span class="text-[#D4D4D4]">manual_chest, ae2_chest</span></CodeLine
 		>
 		<CodeLine indent={1} className="text-[#c586c0]"
-			>OUTPUT TO <span class="text-[#D4D4D4]">chest_2</span></CodeLine
+			>OUTPUT TO <span class="text-[#D4D4D4]">depot</span></CodeLine
 		>
 		<CodeLine className="code text-[#c586c0]">END</CodeLine>
 
 		<CodeLine />
-		<CodeLine className="text-[#6A9955]">-- zapierdala 2</CodeLine>
+		<CodeLine className="text-[#6A9955]">-- statement 2</CodeLine>
 		<CodeLine className="text-[#c586c0]"
 			>EVERY <span class="text-[#DCDCAA]">30</span> TICKS DO</CodeLine
 		>
@@ -65,12 +69,15 @@
 		>
 		<CodeLine indent={1} className="text-[#c586c0]"
 			>OUTPUT <span class="text-[#9CDCFE]">fluid::</span> TO
-			<span class="text-[#D4D4D4]">diesel_generator</span></CodeLine
-		>
+			<span class="text-[#D4D4D4]">diesel_generator, robin_hood</span>
+			<span class={VSCThemeColor.VariableOrange}
+				>ROUND ROBIN BY <span class={VSCThemeColor.NumberYellow}>BLOCK</span></span
+			>
+		</CodeLine>
 		<CodeLine className="code text-[#c586c0]">END</CodeLine>
 
 		<CodeLine />
-		<CodeLine className="text-[#6A9955]">-- zapierdala 3</CodeLine>
+		<CodeLine className="text-[#6A9955]">-- statement 3</CodeLine>
 		<CodeLine className="text-[#c586c0]"
 			>EVERY <span class="text-[#DCDCAA]">20</span> TICKS DO</CodeLine
 		>

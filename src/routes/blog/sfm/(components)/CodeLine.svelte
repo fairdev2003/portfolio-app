@@ -30,7 +30,7 @@
 
 	.code-line {
 		font-family: 'Consolas', monospace;
-		height: 1.25rem; /* 20px */
+		min-height: 1.25rem; /* 20px */
 		line-height: 1.25rem;
 	}
 

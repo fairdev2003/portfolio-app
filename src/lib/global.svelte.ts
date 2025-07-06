@@ -1,9 +1,5 @@
 import axios from 'axios';
-import type {
-	DiscordAvatar,
-	DiscordPresenceResponse,
-	DiscordUser
-} from '../types/discord_status.types';
+import type { DiscordAvatar, DiscordPresenceResponse, DiscordUser } from '$lib';
 
 class KlimsonApp {
 	public watchUrl: string = 'https://api.lanyard.rest/v1/users/424502321800675328' as const;
