@@ -28,7 +28,9 @@
 	<div class="flex w-full justify-between rounded-t-md bg-slate-700 p-2 px-3">
 		<div class="flex items-center gap-2">
 			<img src={DiskImage} alt="disk" class="h-5 w-5" />
-			<p class="text-sm text-gray-400">{program_name}</p>
+			<p class="text-sm text-gray-400">
+				{program_name} | <span class={VSCThemeColor.StringGreen}>{code_area_page}</span>
+			</p>
 		</div>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<div
@@ -50,10 +52,13 @@
 			{/if}
 		</div>
 	</div>
-	<!-- code area -->
+
+	<!-- No Compiler Example -->
 	{#if code_area_page === 'no_compiler_example'}
 		{@render CodeAreaExample()}
 	{/if}
+
+	<!-- Only Formatted Code without colors -->
 	{#if code_area_page === 'barebone'}
 		<div class="p-2">
 			{#each sfm_program_lines as line}
@@ -61,6 +66,7 @@
 			{/each}
 		</div>
 	{/if}
+	<!-- Compiler testing -->
 	{#if code_area_page === 'compiler_test'}
 		<div class="min-h-[300px] p-2">
 			<CodeLine className={VSCThemeColor.VariableBlue}>COMPILER TEST</CodeLine>
