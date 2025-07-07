@@ -24,7 +24,7 @@ class Compiler {
 	}
 
 	public highlightCustomSFM(code: string): string {
-		if (code.includes('NAME')) {
+		if (code.includes('NAME') || code.includes('name')) {
 			const name_string = code.split('"')[1];
 			const string_inside = name_string.split('"');
 			code = code.replace(

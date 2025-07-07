@@ -10,7 +10,7 @@
 	type SFMCodeAreaPage = 'no_compiler_example' | 'barebone' | 'compiler_test';
 	let copiedStatus: boolean = $state(false);
 	let sfm_program_lines: string[] = $state([]);
-	let sfm_program: string;
+	let sfm_program: string = $state('');
 	let code_area_page: SFMCodeAreaPage = $state('compiler_test');
 
 	const handleCodeAreaPageChange = (page: SFMCodeAreaPage) => (code_area_page = page);
@@ -23,7 +23,9 @@
 
 	onMount(async () => {
 		sfm_program_lines = await SFMCompiler.GetSuperFactoryManagerLines(program_link);
-		sfm_program = await SFMCompiler.FetchSuperFactoryManagerContent(program_link);
+		if (program_link !== '') {
+			sfm_program = await SFMCompiler.FetchSuperFactoryManagerContent(program_link);
+		}
 	});
 </script>
 
@@ -44,28 +46,30 @@
 			</p>
 		</div>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<div
-			onclick={() => {
-				// TODO: write actual code
-				navigator.clipboard.writeText(sfm_program);
-				copiedStatus = true;
-				setTimeout(() => {
-					copiedStatus = false;
-				}, 4000);
-			}}
-			class="flex cursor-pointer items-center gap-1 text-gray-400 transition-colors select-none hover:text-white"
-		>
-			{#if copiedStatus}
-				<p class="text-[13px] text-green-500">Copied!</p>
-			{:else}
-				<p class="text-[13px]">Copy</p>
-				<Clipboard size={15} />
-			{/if}
-		</div>
+		{#if sfm_program !== ''}
+			<div
+				onclick={() => {
+					// TODO: write actual code
+					navigator.clipboard.writeText(sfm_program);
+					copiedStatus = true;
+					setTimeout(() => {
+						copiedStatus = false;
+					}, 4000);
+				}}
+				class="flex cursor-pointer items-center gap-1 text-gray-400 transition-colors select-none hover:text-white"
+			>
+				{#if copiedStatus}
+					<p class="text-[13px] text-green-500">Copied!</p>
+				{:else}
+					<p class="text-[13px]">Copy</p>
+					<Clipboard size={15} />
+				{/if}
+			</div>
+		{/if}
 	</div>
 
 	<!-- No Compiler Example -->
-	{#if program_link != ''}
+	{#if sfm_program !== ''}
 		{#if code_area_page === 'no_compiler_example'}
 			{@render CodeAreaExample()}
 		{/if}
@@ -89,7 +93,7 @@
 			</div>
 		{/if}
 	{:else}
-		<div class="min-h-[300px] p-2">
+		<div class="min-h-[100px] p-2">
 			<CodeLine className={VSCThemeColor.VariableBlue}>NO PROGRAM!</CodeLine>
 		</div>
 	{/if}
