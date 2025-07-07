@@ -1,0 +1,25 @@
+Name "Inscriber Automation"
+
+-- DO NOT mix accumilation processor crafting with others!
+
+Every tick do
+    Input fe:: from EnderCell
+    Output fe:: to Inscriber_Processor, Inscriber_Silicon, Inscriber_Circuit top side
+End
+
+Every 20 ticks do
+    Input from Barrel
+    Output retain 2 gold_ingot or diamond or certus_quartz_crystal or 
+                    entro_crystal or sky_steel_ingot to each Inscriber_Circuit slots 2
+    Output retain 2 silicon to each Inscriber_Silicon slots 2
+    Output retain 2 redstone or fluix_dust to each Inscriber_Processor slots 2
+Forget
+    Input from Inscriber_Circuit slots 3
+    Output retain 2 to each Inscriber_Processor slots 0
+Forget
+    Input from Inscriber_Silicon slots 3
+    Output retain 2 to each Inscriber_Processor slots 1
+Forget
+    Input from Inscriber_Processor slots 3
+    Output to Barrel
+End

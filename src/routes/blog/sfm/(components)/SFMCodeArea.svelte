@@ -2,16 +2,15 @@
 	import DiskImage from './assets/disk.png';
 	import CodeLine from './CodeLine.svelte';
 	import { Clipboard } from 'lucide-svelte';
-	import KeywordPart from './KeywordPart.svelte';
 	import { VSCThemeColor } from './styles/colors';
 	import { SFMCompiler } from '$lib';
 	import { onMount } from 'svelte';
 
-	type SFMCodeAreaPage = 'no_compiler_example' | 'barebone' | 'compiler_test';
+	type SFMCodeAreaPage = 'barebone' | 'compiler';
 	let copiedStatus: boolean = $state(false);
 	let sfm_program_lines: string[] = $state([]);
 	let sfm_program: string = $state('');
-	let code_area_page: SFMCodeAreaPage = $state('compiler_test');
+	let code_area_page: SFMCodeAreaPage = $state('compiler');
 
 	const handleCodeAreaPageChange = (page: SFMCodeAreaPage) => (code_area_page = page);
 
@@ -68,97 +67,30 @@
 		{/if}
 	</div>
 
-	<!-- No Compiler Example -->
-	{#if sfm_program !== ''}
-		{#if code_area_page === 'no_compiler_example'}
-			{@render CodeAreaExample()}
-		{/if}
-
-		<!-- Only Formatted Code without colors -->
-		{#if code_area_page === 'barebone'}
+	{#if program_link.includes('.sfm')}
+		{#if sfm_program !== ''}
+			<!-- Compiler testing -->
+			{#if code_area_page === 'compiler'}
+				<div class="p-2">
+					{#each sfm_program_lines as line}
+						<CodeLine>
+							{@html SFMCompiler.highlightCustomSFM(line)}
+						</CodeLine>
+					{/each}
+				</div>
+			{/if}
+		{:else}
 			<div class="p-2">
-				{#each sfm_program_lines as line}
-					<CodeLine className="">{line}</CodeLine>
-				{/each}
-			</div>
-		{/if}
-		<!-- Compiler testing -->
-		{#if code_area_page === 'compiler_test'}
-			<div class="p-2">
-				{#each sfm_program_lines as line}
-					<CodeLine>
-						{@html SFMCompiler.highlightCustomSFM(line)}
-					</CodeLine>
-				{/each}
+				<CodeLine className={VSCThemeColor.VariableBlue}>NO PROGRAM!</CodeLine>
 			</div>
 		{/if}
 	{:else}
 		<div class="p-2">
-			<CodeLine className={VSCThemeColor.VariableBlue}>NO PROGRAM!</CodeLine>
+			<CodeLine className={VSCThemeColor.VariableBlue}>NOT VALID PROGRAM!</CodeLine>
 		</div>
 	{/if}
-
 	<!-- <div class="flex h-[30px] items-center gap-2 bg-slate-700 px-2"></div> -->
 </div>
-
-<!-- Example without compiler -->
-{#snippet CodeAreaExample()}
-	<div class="overflow-hidden p-2 whitespace-nowrap">
-		<CodeLine>
-			<KeywordPart className="text-[#9CDCFE] hover:bg-blue-500">NAME</KeywordPart>
-			<span class="text-[#CE9178]">"Gregiorius Master Plan"</span>
-		</CodeLine>
-
-		<CodeLine />
-		<CodeLine className="text-[#6A9955]">-- statement 1</CodeLine>
-		<CodeLine className="text-[#c586c0]"
-			>EVERY <span class="text-[#DCDCAA]">20</span> TICKS DO</CodeLine
-		>
-
-		<CodeLine indent={1} className="text-[#c586c0]"
-			>INPUT <span class={VSCThemeColor.NumberYellow}>5</span>
-			<span class={VSCThemeColor.VariableBlue}>*plate*, *sheet*</span>
-			FROM
-			<span class="text-[#D4D4D4]">manual_chest, ae2_chest</span></CodeLine
-		>
-		<CodeLine indent={1} className="text-[#c586c0]"
-			>OUTPUT TO <span class="text-[#D4D4D4]">depot</span></CodeLine
-		>
-		<CodeLine className="code text-[#c586c0]">END</CodeLine>
-
-		<CodeLine />
-		<CodeLine className="text-[#6A9955]">-- statement 2</CodeLine>
-		<CodeLine className="text-[#c586c0]"
-			>EVERY <span class="text-[#DCDCAA]">30</span> TICKS DO</CodeLine
-		>
-
-		<CodeLine indent={1} className="text-[#c586c0]"
-			>INPUT FROM <span class="text-[#D4D4D4]">oil_tank</span></CodeLine
-		>
-		<CodeLine indent={1} className="text-[#c586c0]"
-			>OUTPUT <span class="text-[#9CDCFE]">fluid::</span> TO
-			<span class="text-[#D4D4D4]">diesel_generator, robin_hood</span>
-			<span class={VSCThemeColor.VariableOrange}
-				>ROUND ROBIN BY <span class={VSCThemeColor.NumberYellow}>BLOCK</span></span
-			>
-		</CodeLine>
-		<CodeLine className="code text-[#c586c0]">END</CodeLine>
-
-		<CodeLine />
-		<CodeLine className="text-[#6A9955]">-- statement 3</CodeLine>
-		<CodeLine className="text-[#c586c0]"
-			>EVERY <span class="text-[#DCDCAA]">20</span> TICKS DO</CodeLine
-		>
-
-		<CodeLine indent={1} className="text-[#c586c0]"
-			>INPUT FROM <span class="text-[#D4D4D4]">sink</span></CodeLine
-		>
-		<CodeLine indent={1} className="text-[#c586c0]"
-			>OUTPUT TO <span class="text-[#D4D4D4]">water_tank</span></CodeLine
-		>
-		<CodeLine className="code text-[#c586c0]">END</CodeLine>
-	</div>
-{/snippet}
 
 <style>
 	a {
