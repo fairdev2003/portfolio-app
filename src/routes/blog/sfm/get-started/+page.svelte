@@ -6,7 +6,7 @@
 	const { data } = $props();
 </script>
 
-<ResponsiveContainer cols={2} className="flex flex-col gap-y-3">
+<ResponsiveContainer cols={2} className="flex flex-col gap-y-3 col-span-2">
 	<h2>Zaczynamy</h2>
 
 	<div class="mt-5 flex justify-between">
