@@ -93,7 +93,7 @@
 			</div>
 		{/if}
 	{:else}
-		<div class="min-h-[100px] p-2">
+		<div class="p-2">
 			<CodeLine className={VSCThemeColor.VariableBlue}>NO PROGRAM!</CodeLine>
 		</div>
 	{/if}

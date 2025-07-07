@@ -1,5 +1,7 @@
 <script>
 	import { klimsonApp } from '$lib';
+	import { MoveRight } from 'lucide-svelte';
+	import PageNavigator from '../(components)/PageNavigator.svelte';
 	import SectorButton from '../(components)/SectorButton.svelte';
 	import ResponsiveContainer from '../../../components/responsive/ResponsiveContainer.svelte';
 	import SfmCodeArea from './(components)/SFMCodeArea.svelte';
@@ -54,7 +56,7 @@
 	</ul>
 
 	<h2>🛠️ Przykład prostego programu:</h2>
-	<SfmCodeArea program_link="/sfm/mob_farm_guru.sfm" />
+	<SfmCodeArea program_link="/sfm/simple_program.sfm" />
 
 	<h2>🎯 Dla kogo?</h2>
 	<p>
@@ -68,14 +70,9 @@
 			target="_blank">https://www.curseforge.com/minecraft/mc-mods/super-factory-manager</a
 		>
 	</p>
-	<div class="mt-5 flex justify-between">
-		<SectorButton left href={data.navigation?.left?.href}
-			>{data.navigation?.left?.value}</SectorButton
-		>
-		<SectorButton right href={data.navigation?.right?.href}
-			>{data.navigation?.right?.value}</SectorButton
-		>
-	</div>
+	{#if data.navigation && data.navigation.left && data.navigation.right}
+		<PageNavigator left={data.navigation.left} right={data.navigation.right} />
+	{/if}
 </ResponsiveContainer>
 
 <style>

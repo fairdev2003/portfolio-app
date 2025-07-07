@@ -6,8 +6,8 @@ export type BlogWindowProps = {
 };
 
 export type BlogNavigator = {
-	left: NavigatorButtonProps;
-	right: NavigatorButtonProps;
+	left?: NavigatorButtonProps;
+	right?: NavigatorButtonProps;
 };
 
 export type NavigatorButtonProps = {
