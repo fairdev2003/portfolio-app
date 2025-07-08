@@ -2,7 +2,8 @@ import axios, { type AxiosResponse } from 'axios';
 import { KeywordColor } from '../styles/colors';
 
 class Compiler {
-	constructor() {}
+	public sfm_program_content: string = '';
+	public sfm_program_lines: string[] = [];
 
 	public ExtractFileNameFromURL(url: string): string {
 		if (url === '') {
@@ -12,24 +13,63 @@ class Compiler {
 		return parts[parts.length - 1];
 	}
 
+	public GetProgramName(): string {
+		const match = this.sfm_program_content.match(/^NAME\s+"(.+?)"/im);
+		return match ? match[1] : '';
+	}
+
+	public ExtractVariablesFromProgram(): string[] {
+		const ignoreList = [
+			'BOTTOM',
+			'TOP',
+			'SIDE',
+			'LEFT',
+			'RIGHT',
+			'FRONT',
+			'BACK',
+			'NORTH',
+			'SOUTH',
+			'EAST',
+			'WEST'
+		];
+
+		const matches = [...this.sfm_program_content.matchAll(/\b(?:FROM|TO)\b\s+([^\n]+)/gi)];
+
+		const allVars = new Set<string>();
+
+		for (const match of matches) {
+			if (!match[1]) continue;
+
+			const vars = match[1]
+				.split(/[\s,]+/)
+				.map((v) => v.trim())
+				.filter((v) => v !== '' && !ignoreList.includes(v.toUpperCase()));
+
+			vars.forEach((v) => allVars.add(v));
+		}
+
+		return [...allVars];
+	}
+
 	public async FetchSuperFactoryManagerContent(path: string): Promise<string> {
 		const response: AxiosResponse<string> = await axios.get(path, { responseType: 'text' });
+		this.sfm_program_content = response.data;
 		return response.data;
 	}
 
 	public async GetSuperFactoryManagerLines(path: string): Promise<string[]> {
 		const content = await this.FetchSuperFactoryManagerContent(path);
 		const lines = content.split('\n');
+		this.sfm_program_lines = lines;
 		return lines;
 	}
 
-	public highlightCustomSFM(code: string): string {
+	public renderCompiledCode(code: string): string {
 		if (code.includes('NAME') || code.includes('name')) {
-			const name_string = code.split('"')[1];
-			const string_inside = name_string.split('"');
+			const name_string = this.GetProgramName();
 			code = code.replace(
-				name_string,
-				`<span class="${KeywordColor.comment}">${name_string}</span>`
+				`"${name_string}"`,
+				`<span class="${KeywordColor.comment}">"${name_string}"</span>`
 			);
 		}
 
@@ -42,7 +82,7 @@ class Compiler {
 
 		code = code
 			.replace(
-				/\b(NAME|EVERY|INPUT|OUTPUT|FROM|TO|END|DO|FORGET|ROUND ROBIN BY|EACH|SIDE|HAS|IF|THEN|WITH|EXCEPT|RETAIN|PULSE)\b/gi,
+				/\b(NAME|EVERY|INPUT|OUTPUT|FROM|TO|END|DO|FORGET|ROUND ROBIN BY|EACH|SIDE|HAS|IF|THEN|WITH|EXCEPT|RETAIN|PULSE|ELSE)\b/gi,
 				(match) => `<span class="${KeywordColor.every}">${match}</span>`
 			)
 			.replace(/\b(\d+)\b/g, (match) => `<span class="${KeywordColor.number}">${match}</span>`)
@@ -56,9 +96,12 @@ class Compiler {
 				/\b(TOP|BOTTOM|NORTH|SOUTH|EAST|WEST|FRONT|BACK|LEFT|RIGHT)\b/gi,
 				(match) => `<span class="${KeywordColor.direction}">${match}</span>`
 			)
-			.replace(/\bTAG\b/gi, (match) => `<span class="${KeywordColor.variable}">${match}</span>`)
 			.replace(
-				/\b(gt|lt|ge|le|eq|ne)\b/gi,
+				/\b(TAG|FALSE|TRUE)\b/gi,
+				(match) => `<span class="${KeywordColor.variable}">${match}</span>`
+			)
+			.replace(
+				/\b(gt|lt|ge|le|eq|ne|and|or)\b/gi,
 				(match) => `<span class="${KeywordColor.operator}">${match}</span>`
 			)
 			.replace(
@@ -77,5 +120,4 @@ class Compiler {
 	}
 }
 
-const SFMCompiler = new Compiler();
-export { SFMCompiler };
+export { Compiler };

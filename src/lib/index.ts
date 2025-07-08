@@ -23,7 +23,7 @@ import type {
 	User,
 	UserRoles
 } from '../types/discord_status.types';
-import { SFMCompiler } from '../routes/blog/sfm/(components)/compiler/sfm.compiler';
+import { Compiler } from '../routes/blog/sfm/(components)/compiler/sfm.compiler';
 
 export type {
 	DiscordActivity,
@@ -40,6 +40,6 @@ export type {
 	UserRoles
 };
 
-export { SFMCompiler };
+export { Compiler };
 export { websiteStack, techStackItems, pageSections, projects, quotes, music_phrases };
 export { klimsonApp };

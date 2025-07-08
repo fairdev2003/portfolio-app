@@ -3,15 +3,14 @@
 	import CodeLine from './CodeLine.svelte';
 	import { Clipboard } from 'lucide-svelte';
 	import { VSCThemeColor } from './styles/colors';
-	import { SFMCompiler } from '$lib';
+	import { Compiler } from '$lib';
 	import { onMount } from 'svelte';
 
-	type SFMCodeAreaPage = 'barebone' | 'compiler';
+	type SFMCodeAreaPage = 'barebone' | 'compiler' | 'data_test';
 	let copiedStatus: boolean = $state(false);
 	let sfm_program_lines: string[] = $state([]);
 	let sfm_program: string = $state('');
 	let code_area_page: SFMCodeAreaPage = $state('compiler');
-
 	const handleCodeAreaPageChange = (page: SFMCodeAreaPage) => (code_area_page = page);
 
 	type Props = {
@@ -19,6 +18,8 @@
 	};
 
 	const { program_link = '' }: Props = $props();
+
+	const SFMCompiler = new Compiler();
 
 	onMount(async () => {
 		sfm_program_lines = await SFMCompiler.GetSuperFactoryManagerLines(program_link);
@@ -74,8 +75,20 @@
 				<div class="p-2">
 					{#each sfm_program_lines as line}
 						<CodeLine>
-							{@html SFMCompiler.highlightCustomSFM(line)}
+							{@html SFMCompiler.renderCompiledCode(line)}
 						</CodeLine>
+					{/each}
+				</div>
+			{/if}
+			{#if code_area_page === 'data_test'}
+				<div class="p-2">
+					<CodeLine className={VSCThemeColor.MainPurple}>
+						{SFMCompiler.GetProgramName()}
+					</CodeLine>
+					<CodeLine />
+					<CodeLine>VARS:</CodeLine>
+					{#each SFMCompiler.ExtractVariablesFromProgram() as variable}
+						<CodeLine>{variable}</CodeLine>
 					{/each}
 				</div>
 			{/if}
