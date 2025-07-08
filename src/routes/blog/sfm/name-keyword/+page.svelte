@@ -52,6 +52,15 @@
 				<span class="rounded-md bg-gray-800 p-0.5 px-1 text-gray-400">Name</span>...).
 			</p>
 		</li>
+
+		<li class="flex items-center gap-2">
+			<span class="text-lg">✅</span>
+			<p>
+				Składnia <span class="bg-gray-800 p-0.5 text-gray-400">NAME</span>
+				<strong>nie jest wymagana</strong> — program będzie działał poprawnie nawet bez niej.
+			</p>
+		</li>
+
 		<h3 class="mt-5">✅ Dobry zwyczaj:</h3>
 		<p>Używaj nazw opisujących działanie programu, np.:</p>
 		<SfmCodeArea program_link={'/sfm/name/03-name.sfm'} />
