@@ -1,0 +1,14 @@
+name "if conditions"
+
+every 20 ticks do
+    input 1 minecraft:iron_ingot from garden_cloche
+    if overall a has gt 10 iron_ingot then
+        output to interface
+    end
+end
+
+-- if redstone is pulsed into the super factory manager do the job and input raw ore into interface
+every redstone pulse do
+    output *raw* from auto_miner
+    input to interface
+end

@@ -85,11 +85,6 @@
 					<CodeLine className={VSCThemeColor.MainPurple}>
 						{SFMCompiler.GetProgramName()}
 					</CodeLine>
-					<CodeLine />
-					<CodeLine>VARS:</CodeLine>
-					{#each SFMCompiler.ExtractVariablesFromProgram() as variable}
-						<CodeLine>{variable}</CodeLine>
-					{/each}
 				</div>
 			{/if}
 		{:else}

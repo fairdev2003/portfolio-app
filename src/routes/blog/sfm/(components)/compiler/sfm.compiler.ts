@@ -65,12 +65,11 @@ class Compiler {
 	}
 
 	public renderCompiledCode(code: string): string {
-		if (code.includes('NAME') || code.includes('name')) {
-			const name_string = this.GetProgramName();
-			code = code.replace(
-				`"${name_string}"`,
-				`<span class="${KeywordColor.comment}">"${name_string}"</span>`
-			);
+		code = code.replace(code, `<span class="${KeywordColor.variable}">${code}</span>`);
+
+		const name_string = this.GetProgramName();
+		if (code.match(/\bNAME\b/i) && name_string) {
+			code = code.replace(new RegExp(`"${name_string}"`, 'i'), '__NAME_STRING__');
 		}
 
 		const comments: string[] = [];
@@ -82,7 +81,7 @@ class Compiler {
 
 		code = code
 			.replace(
-				/\b(NAME|EVERY|INPUT|OUTPUT|FROM|TO|END|DO|FORGET|ROUND ROBIN BY|EACH|SIDE|HAS|IF|THEN|WITH|EXCEPT|RETAIN|PULSE|ELSE)\b/gi,
+				/\b(NAME|SLOTS|EVERY|SOME|OVERALL|ONE|LONE|INPUT|OUTPUT|FROM|TO|END|DO|FORGET|ROUND ROBIN BY|EACH|SIDE|HAS|IF|THEN|WITH|EXCEPT|RETAIN|PULSE|ELSE)\b/gi,
 				(match) => `<span class="${KeywordColor.every}">${match}</span>`
 			)
 			.replace(/\b(\d+)\b/g, (match) => `<span class="${KeywordColor.number}">${match}</span>`)
@@ -107,14 +106,18 @@ class Compiler {
 			.replace(
 				/\bREDSTONE\b/gi,
 				(match) => `<span class="${KeywordColor.redstone}">${match}</span>`
-			);
-
-		1;
+			)
+			.replace(/[()]/g, (match) => `<span class="text-white">${match}</span>`);
 
 		code = code.replace(/__COMMENT_PLACEHOLDER_(\d+)__/g, (_, index) => {
 			const comment = comments[parseInt(index, 10)];
 			return `<span class="${KeywordColor.comment}">${comment}</span>`;
 		});
+
+		code = code.replace(
+			/__NAME_STRING__/g,
+			`<span class="${KeywordColor.ticks}">"${name_string}"</span>`
+		);
 
 		return code;
 	}

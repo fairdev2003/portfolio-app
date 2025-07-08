@@ -15,6 +15,8 @@
 	<SfmCodeArea program_link={'/sfm/mob_farm_guru.sfm'} />
 	<SfmCodeArea program_link={'/sfm/bees.sfm'} />
 	<SfmCodeArea program_link={'/sfm/pb_genes.sfm'} />
+	<SfmCodeArea program_link={'/sfm/ae2.inscriber.sfm'} />
+
 	<SfmCodeArea
 		program_link={'https://raw.githubusercontent.com/TeamDman/SuperFactoryManager/refs/heads/1.19.2/examples/02-retention.sfm'}
 	/>
@@ -30,5 +32,6 @@
 	<SfmCodeArea
 		program_link={'https://raw.githubusercontent.com/TeamDman/SuperFactoryManager/refs/heads/1.19.2/examples/03-conditions.sfm'}
 	/>
+	<SfmCodeArea program_link={'/sfm/keyword.test.sfm'} />
 	<PageNavigator left={data.navigation?.left} right={data.navigation?.right} />
 </ResponsiveContainer>
