@@ -1,20 +1,22 @@
 <script>
 	import { goto } from '$app/navigation';
-	let { name, description, path } = $props()
+	let { name, description, path } = $props();
 </script>
 
-<div class="nav flex gap-6 cursor-pointer" onclick={() => goto(path)}>
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
+<div class="nav flex cursor-pointer gap-6" onclick={() => goto(path)}>
 	<div class="nav-box w-0.5 bg-gray-700 transition-colors peer-hover:bg-blue-500"></div>
-	<div class="flex flex-col h-15 justify-center">
-		<h3 class="text-xl cursor-pointer">{name}</h3>
-		<p class="text-gray-400 cursor-pointer text-sm">{description}</p>
+	<div class="flex h-15 flex-col justify-center">
+		<h3 class="cursor-pointer text-xl">{name}</h3>
+		<p class="cursor-pointer text-sm text-gray-400">{description}</p>
 	</div>
 </div>
 
 <style>
-    .nav:hover {
-        .nav-box {
-            background-color: #ffffff;
-        }
-    }
+	.nav:hover {
+		.nav-box {
+			background-color: #ffffff;
+		}
+	}
 </style>

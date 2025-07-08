@@ -10,8 +10,8 @@ export async function load({ url }) {
 				href: '/blog'
 			},
 			right: {
-				value: 'Zaczynamy',
-				href: '/blog/sfm/get-started'
+				value: 'Słowo kluczowe - NAME',
+				href: '/blog/sfm/name-keyword'
 			}
 		},
 		references: [

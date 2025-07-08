@@ -6,8 +6,8 @@ export async function load({ url }) {
 		routeName: 'Super Factory Manager',
 		navigation: {
 			left: {
-				value: 'Zaczynamy',
-				href: '/blog/sfm/get-started'
+				value: 'Słowo kluczowe - NAME',
+				href: '/blog/sfm/name-keyword'
 			}
 		},
 		references: [
