@@ -1,0 +1,18 @@
+name "combined logical conditions"
+
+every 20 ticks do
+    input from a
+
+    -- użycie operatorów logicznych: and, or, not
+    if a has gt 20 iron_ingot and a has gt 5 gold_ingot then
+        output 10 to b
+    end
+
+    if not a has lt 10 copper_ingot then
+        output 5 to c
+    end
+
+    if (a has gt 5 coal or a has gt 5 charcoal) and not a has lt 1 blaze_rod then
+        output 1 to d
+    end
+end

@@ -1,0 +1,16 @@
+name "else-if structure example"
+
+every 20 ticks do
+    input from storage_a
+
+    -- warunki z else if
+    if storage_a has ge 64 redstone then
+        output 32 to machine_a
+    else if storage_a has ge 32 redstone then
+        output 16 to machine_a
+    else if storage_a has ge 16 redstone then
+        output 8 to machine_a
+    else
+        output 1 to machine_a
+    end
+end

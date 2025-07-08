@@ -1,0 +1,13 @@
+name "basic if structure"
+
+every 20 ticks do
+    input from a
+
+    if a has gt 10 iron_ingot then
+        output 10 to b
+    else if a has gt 5 iron_ingot then
+        output 5 to b
+    else
+        output 1 to b
+    end
+end

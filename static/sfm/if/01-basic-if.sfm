@@ -1,0 +1,3 @@
+IF a HAS gt 10 minecraft:iron_ingot THEN
+    OUTPUT TO b
+END
