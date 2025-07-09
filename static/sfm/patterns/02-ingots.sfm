@@ -1,0 +1,7 @@
+name "ingot matcher"
+
+every 20 ticks do
+    -- dopasowuje zarówno iron jak i copper ingoty z dowolnego moda
+    input ".*:(iron|copper)_ingot" from a
+    output to b
+end
