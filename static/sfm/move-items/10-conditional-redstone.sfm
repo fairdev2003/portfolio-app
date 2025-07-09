@@ -1,0 +1,6 @@
+every 20 ticks do
+    if a has gt 0 "redstone" then -- again, redstone must be in quotes
+        input from a
+        output to b
+    end
+end

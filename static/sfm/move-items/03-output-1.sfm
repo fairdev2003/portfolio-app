@@ -1,0 +1,6 @@
+every 20 ticks do
+    input from a
+    output 1 to b   -- only insert 1 item at a time
+                    -- if multiple inventories are labelled "b",
+                    -- only one will receive an item
+end

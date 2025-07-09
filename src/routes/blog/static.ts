@@ -6,6 +6,7 @@ type BlogRoute = {
 export const sfmBlogRoutes: BlogRoute[] = [
 	{ name: 'Wprowadzenie do SFM', path: '/blog/sfm' },
 	{ name: 'Słowo kluczowe - NAME', path: '/blog/sfm/name-keyword' },
+	{ name: 'Fundamenty', path: '/blog/sfm/fundamentals' },
 	{ name: 'Warunki logiczne', path: '/blog/sfm/conditions' },
 	{ name: 'Retencja', path: '/blog/sfm/retention' },
 	{ name: 'Wzorce', path: '/blog/sfm/patterns' },

@@ -1,0 +1,5 @@
+every 20 ticks do
+    input 1 from each a -- each "a" inventory will only have 1 item removed,
+                        -- instead of 1 item total being moved
+    output to b
+end

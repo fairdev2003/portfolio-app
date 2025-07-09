@@ -1,0 +1,4 @@
+every 20 ticks do
+    INPUT 1 from a -- only extract 1 item at a time
+    OUTPUT to b
+end

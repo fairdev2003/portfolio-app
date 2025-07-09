@@ -1,0 +1,4 @@
+every 20 ticks do
+    input thaumcraft:iron_nugget from a -- only move thaumcraft iron nuggets
+    output to b
+end

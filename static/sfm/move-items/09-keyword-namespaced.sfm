@@ -1,0 +1,4 @@
+every 20 ticks do
+    input "minecraft:redstone" from a -- redstone is a keyword, so must be surrounded in quotes
+    output to b
+end

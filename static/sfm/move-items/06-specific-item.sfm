@@ -1,0 +1,4 @@
+every 20 ticks do
+    input iron_ingot from a -- only move iron ingots, "minecraft:" namespace is assumed
+    output to b
+end
