@@ -1,0 +1,5 @@
+every 20 ticks do
+    -- move 25 items except 1 from "a" to "b"
+    input 25 retain 1 from a
+    output to b
+end

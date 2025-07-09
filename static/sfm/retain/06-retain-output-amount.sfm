@@ -1,0 +1,5 @@
+every 20 ticks do
+    input from a
+    output 5 retain 20 red_sand to b
+    -- accept 5 red sand at once, with "a" max of 20 in "b"
+end

@@ -1,0 +1,15 @@
+every 20 ticks do
+    input
+        15 retain 5 iron_ingot,
+        12 retain 3 stone
+    from "a" top side
+
+    output
+        2 iron_ingot,
+        64 retain 10 stone
+    to b
+
+    -- moves all but 5 iron ingots to "b", 15 at a time
+    -- moves up to 10 stone to "b", ensuring "a" keeps 3 stone
+    -- "b" can accept up to 64 stone but "a" can only provide 12 at a time
+end

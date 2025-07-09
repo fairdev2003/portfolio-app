@@ -1,0 +1,10 @@
+every 20 ticks do
+    -- move 20 red sand and all coal
+    -- but leave 1 red sand
+    input
+        20 retain 1 red_sand,
+        retain 1 coal
+    from a
+
+    output to b
+end

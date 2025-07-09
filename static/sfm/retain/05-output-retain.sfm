@@ -1,0 +1,5 @@
+every 20 ticks do
+    input from a
+    output retain 1 to b
+    -- only output until "b" has 1 item
+end

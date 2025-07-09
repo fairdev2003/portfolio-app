@@ -1,0 +1,7 @@
+name "retention"
+
+every 20 ticks do
+    -- move all items except 1 from "a" to "b"
+    input retain 1 from a
+    output to b
+end
