@@ -2,11 +2,19 @@
 	import { klimsonApp } from '$lib';
 	import { gsap } from 'gsap';
 	import { X } from 'lucide-svelte';
-	import { onMount, tick } from 'svelte';
+	import { onDestroy, onMount, tick } from 'svelte';
 	import SpotifySVG from '../assets/spotify.png';
 
 	onMount(async () => {
 		await klimsonApp.onComponentMount();
+	});
+
+	$effect(() => {
+		const spotifySong = klimsonApp.spotify?.song;
+		if (!spotifySong) {
+			console.log('no song');
+			closeModal();
+		}
 	});
 
 	type Props = {
@@ -60,7 +68,7 @@
 
 {#if klimsonApp.spotify}
 	<p
-		class={` mb-1 text-[12px] font-semibold text-green-500 ${responsiveState == 'desktop' ? 'mx-2 hidden lg:flex' : 'mx-4 flex lg:hidden'}`}
+		class={`mb-1 text-[12px] font-semibold text-green-500 ${responsiveState == 'desktop' ? 'mx-2 hidden lg:flex' : 'mx-4 flex lg:hidden'}`}
 	>
 		 SLUCHAM SPOTIFY
 	</p>
@@ -116,9 +124,10 @@
 	<!-- Modal backdrop -->
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
+
 	<div
 		onclick={() => closeModal()}
-		class="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-[#0a0a1c]"
+		class="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-[#0a0a1c]"
 	>
 		<!-- Modal content -->
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -130,34 +139,54 @@
 			<!-- Header -->
 
 			<!-- Body -->
+
 			<div
 				bind:this={modalContentEl}
 				class="modal-content relative flex w-full gap-5 p-6 text-white"
 			>
-				<img class="size-20 rounded-lg" src={klimsonApp.spotify?.album_art_url} alt="Album cover" />
+				{#if klimsonApp.spotify?.song}
+					<img
+						class="size-20 rounded-lg"
+						src={klimsonApp.spotify?.album_art_url}
+						alt="Album cover"
+					/>
+				{/if}
 				<div class="relative flex w-full flex-col">
-					<img class="absolute top-16 -left-9 size-6" src={SpotifySVG} alt="spotify" />
+					{#if klimsonApp.spotify?.song}
+						<img class="absolute top-16 -left-9 size-6" src={SpotifySVG} alt="spotify" />
+					{/if}
 					<!-- svelte-ignore a11y_missing_attribute -->
-					<a class="flex cursor-pointer items-center gap-1 font-bold">
-						{klimsonApp.getSong()}
-					</a>
-					<p class="font-sm mb-1 text-sm text-gray-400">
-						{klimsonApp.getArtist()?.replaceAll(';', ',')}
-					</p>
-					<div>
-						{@render ProgessBar()}
-					</div>
-					<div class="mt-1 flex justify-between font-semibold">
-						<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.progress)}</p>
-						<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.duration)}</p>
-					</div>
+					{#if klimsonApp.spotify?.song}
+						<a class="flex cursor-pointer items-center gap-1 font-bold">
+							{klimsonApp.getSong()}
+						</a>
+					{/if}
+
+					{#if klimsonApp.spotify?.song}
+						<p class="font-sm mb-1 text-sm text-gray-400">
+							{klimsonApp.getArtist()?.replaceAll(';', ',')}
+						</p>
+					{/if}
+					{#if klimsonApp.spotify?.song}
+						<div>
+							{@render ProgessBar()}
+						</div>
+					{/if}
+					{#if klimsonApp.spotify?.song}
+						<div class="mt-1 flex justify-between font-semibold">
+							<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.progress)}</p>
+							<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.duration)}</p>
+						</div>
+					{/if}
 				</div>
-				<div
-					onclick={() => closeModal()}
-					class="absolute top-5 right-4 cursor-pointer rounded-full p-1 transition-colors hover:bg-white/30"
-				>
-					<X className="" />
-				</div>
+				{#if klimsonApp.spotify?.song}
+					<div
+						onclick={() => closeModal()}
+						class="absolute top-5 right-4 cursor-pointer rounded-full p-1 transition-colors hover:bg-white/30"
+					>
+						<X className="" />
+					</div>
+				{/if}
 			</div>
 
 			<!-- Footer -->

@@ -27,6 +27,10 @@ class KlimsonApp {
 		this.startProgressUpdater();
 	}
 
+	public runCallback(callback: () => void) {
+		callback();
+	}
+
 	public async onComponentMount() {
 		await this.init();
 	}
@@ -60,7 +64,7 @@ class KlimsonApp {
 	private startPolling() {
 		const loop = async () => {
 			await this.fetchData();
-			console.log('Log');
+
 			this.pollingTimer = setTimeout(loop, this.pollingInterval);
 		};
 
