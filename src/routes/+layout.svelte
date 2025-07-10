@@ -19,7 +19,7 @@
 
 			<div class="col-span-1">
 				<!-- TODO: PERFORMANCE -->
-				<!-- <SpotifyStatus /> -->
+				<SpotifyStatus />
 				<Navigation />
 			</div>
 

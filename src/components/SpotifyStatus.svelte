@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { klimsonApp } from '$lib';
 	import { gsap } from 'gsap';
+	import { X } from 'lucide-svelte';
 	import { onMount, tick } from 'svelte';
 
 	onMount(async () => {
@@ -72,7 +73,9 @@
 			<div class="flex flex-col">
 				<p class="text-[14px] font-semibold">{klimsonApp.spotify?.song}</p>
 				<p class="text-[11px] text-gray-400">{klimsonApp.spotify?.artist.replaceAll(';', ', ')}</p>
-				{@render ProgessBar()}
+				<div class="w-9/10">
+					{@render ProgessBar()}
+				</div>
 				<div class="mt-1 flex w-9/10 justify-between font-semibold">
 					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.progress)}</p>
 					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.duration)}</p>
@@ -86,9 +89,9 @@
 	{@render Modal()}
 {/if}
 
-{#snippet ProgessBar()}
+{#snippet ProgessBar(className?: string)}
 	{#if klimsonApp.duration > 0}
-		<div class="mt-1 h-[0.12rem] w-9/10 rounded bg-gray-700">
+		<div class={`mt-1 h-[0.12rem] rounded bg-gray-700 ${className}`}>
 			<div
 				class="h-full bg-white transition-all duration-500 ease-linear"
 				style="width: {(klimsonApp.progress / klimsonApp.duration) * 100}%"
@@ -102,27 +105,48 @@
 	</script>
 
 	<!-- Modal backdrop -->
-	<div class="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-black">
+	<div class="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-[#0a0a1c]">
 		<!-- Modal content -->
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
-			onclick={() => closeModal()}
 			bind:this={modalEl}
-			class="white w-11/12 rounded-lg border-2 border-zinc-700 bg-zinc-800 bg-gradient-to-l from-zinc-900 to-zinc-800 shadow-2xl sm:w-3/4 md:w-1/2 lg:w-1/3"
+			class="white w-11/12 rounded-lg border-2 border-slate-700 bg-gradient-to-r from-slate-800 shadow-2xl sm:w-3/4 md:w-1/2 lg:w-1/3"
 		>
 			<!-- Header -->
-			<div class="flex h-[30px] w-full items-center justify-between bg-zinc-700"></div>
 
 			<!-- Body -->
-			<div bind:this={modalContentEl} class="modal-content h-[200px] p-6 text-white">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus tempore amet nihil animi
-				ab? Unde eligendi dignissimos, nemo ducimus neque vitae nobis rerum libero, culpa earum fuga
-				minus est perferendis? Delenit
+			<div
+				bind:this={modalContentEl}
+				class="modal-content relative flex w-full gap-5 p-6 text-white"
+			>
+				<img
+					class="h-20 w-20 rounded-lg"
+					src={klimsonApp.spotify?.album_art_url}
+					alt="Album cover"
+				/>
+				<div class="flex w-full flex-col">
+					<h3 class="font-bold">{klimsonApp.getSong()}</h3>
+					<p class="font-sm mb-1 text-sm text-gray-400">
+						{klimsonApp.getArtist()?.replaceAll(';', ',')}
+					</p>
+					<div>
+						{@render ProgessBar()}
+					</div>
+					<div class="mt-1 flex justify-between font-semibold">
+						<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.progress)}</p>
+						<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.duration)}</p>
+					</div>
+				</div>
+				<div
+					onclick={() => closeModal()}
+					class="absolute top-5 right-4 cursor-pointer rounded-full p-1 transition-colors hover:bg-white/30"
+				>
+					<X className="" />
+				</div>
 			</div>
 
 			<!-- Footer -->
-			<div class="flex h-[30px] w-full items-center justify-between bg-zinc-700"></div>
 		</div>
 	</div>
 {/snippet}
