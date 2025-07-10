@@ -3,6 +3,7 @@
 	import { gsap } from 'gsap';
 	import { X } from 'lucide-svelte';
 	import { onMount, tick } from 'svelte';
+	import SpotifySVG from '../assets/spotify.png';
 
 	onMount(async () => {
 		await klimsonApp.onComponentMount();
@@ -120,13 +121,16 @@
 				bind:this={modalContentEl}
 				class="modal-content relative flex w-full gap-5 p-6 text-white"
 			>
-				<img
-					class="h-20 w-20 rounded-lg"
-					src={klimsonApp.spotify?.album_art_url}
-					alt="Album cover"
-				/>
-				<div class="flex w-full flex-col">
-					<h3 class="font-bold">{klimsonApp.getSong()}</h3>
+				<img class="size-20 rounded-lg" src={klimsonApp.spotify?.album_art_url} alt="Album cover" />
+				<div class="relative flex w-full flex-col">
+					<img class="absolute top-16 -left-9 size-6" src={SpotifySVG} alt="spotify" />
+					<a
+						class="flex cursor-pointer items-center gap-1 font-bold"
+						href={`https://open.spotify.com/track/${klimsonApp.spotify?.track_id}`}
+						target="_blank"
+					>
+						{klimsonApp.getSong()}
+					</a>
 					<p class="font-sm mb-1 text-sm text-gray-400">
 						{klimsonApp.getArtist()?.replaceAll(';', ',')}
 					</p>
@@ -150,3 +154,9 @@
 		</div>
 	</div>
 {/snippet}
+
+<style>
+	a {
+		color: white;
+	}
+</style>

@@ -1,5 +1,7 @@
 <script lang="ts">
 	import axios from 'axios';
+	import { klimsonApp } from '$lib';
+
 	import Card from './Card.svelte';
 	import { onDestroy, tick } from 'svelte';
 	import type {
@@ -19,63 +21,6 @@
 
 	const apiRoute = 'https://api.lanyard.rest/v1/users/424502321800675328' as const;
 
-	async function getCurrentPlayingMusic() {
-		try {
-			const response = await axios.get<DiscordPresenceResponse>(apiRoute);
-
-			if (response.data.success && response.data.data.listening_to_spotify) {
-				spotify = response.data.data.spotify!;
-				discord = response.data.data.discord_user;
-				const now = Date.now();
-
-				if (spotify.timestamps) {
-					progress = now - spotify.timestamps.start;
-					duration = spotify.timestamps.end - spotify.timestamps.start;
-				}
-			} else {
-				spotify = null;
-			}
-
-			await tick();
-		} catch (error) {
-			console.error('Error fetching Discord presence:', error);
-			spotify = null;
-		} finally {
-			isLoading = false;
-		}
-	}
-
-	getCurrentPlayingMusic();
-
-	const seconds = (seconds: number): number => {
-		return seconds * 1000;
-	};
-
-	const interval = setInterval(() => {
-		if (spotify?.timestamps) {
-			const now = Date.now();
-			progress = now - spotify.timestamps.start;
-			duration = spotify.timestamps.end - spotify.timestamps.start;
-
-			if (now > spotify.timestamps.end) {
-				getCurrentPlayingMusic();
-			}
-		}
-	}, seconds(1));
-
-	function startPolling() {
-		retryTimeout = setTimeout(async () => {
-			await getCurrentPlayingMusic();
-			startPolling();
-		}, seconds(4));
-	}
-
-	getCurrentPlayingMusic().then(() => startPolling());
-
-	onDestroy(() => {
-		clearInterval(interval);
-	});
-
 	function formatMs(ms: number): string {
 		const totalSec = Math.floor(ms / 1000);
 		const min = Math.floor(totalSec / 60);
@@ -94,33 +39,35 @@
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
 	onclick={() => {
-		if (spotify?.track_id) {
-			copyToClipboard(spotify?.track_id);
+		if (klimsonApp.spotify?.track_id) {
+			copyToClipboard(klimsonApp.spotify?.track_id);
 		}
 	}}
 >
-	{#if isLoading}{:else if spotify}
+	{#if klimsonApp.spotify}
 		<Heading value="Co na słuchawach wariacie" />
 		<Card className="h-auto mt-5 from-purple-700 to-red-500 transition-all bg-gradient-to-r">
-			<img src={spotify.album_art_url} alt="Album cover" class="h-20 w-20" />
+			<img src={klimsonApp.getAlbumCover()} alt="Album cover" class="h-20 w-20" />
 			<div class="flex w-full flex-col py-3">
 				<div class="flex items-center gap-1 text-sm italic">
-					{music_phrases[spotify.track_id]}
+					{music_phrases[klimsonApp.spotify?.track_id]}
 				</div>
 				<h3 class="">
-					{spotify.song.length > 35 ? spotify.song.slice(0, 30) + '...' : spotify.song}
+					{klimsonApp.spotify.song.length > 35
+						? klimsonApp.spotify.song.slice(0, 30) + '...'
+						: klimsonApp.spotify?.song}
 				</h3>
-				<p>{spotify.artist.replaceAll(';', ',')}</p>
+				<p>{klimsonApp.spotify?.artist.replaceAll(';', ',')}</p>
 				<progress
-					max={duration}
-					value={progress}
+					max={klimsonApp.duration}
+					value={klimsonApp.progress}
 					style="width: 100%; height: 8px; border-radius: 8px;"
 				></progress>
 				<div
 					style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-top: 0.25rem;"
 				>
-					<span>{formatMs(progress)}</span>
-					<span>{formatMs(duration)}</span>
+					<span>{formatMs(klimsonApp.progress)}</span>
+					<span>{formatMs(klimsonApp.progress)}</span>
 				</div>
 			</div>
 		</Card>
