@@ -10,8 +10,7 @@
 	});
 
 	type Props = {
-		mobile?: boolean;
-		desktop?: boolean;
+		responsiveState: 'desktop' | 'mobile';
 	};
 
 	let musicInfoModalOpenState: boolean = $state(false);
@@ -56,28 +55,36 @@
 		);
 	}
 
-	const { mobile = false, desktop = true }: Props = $props();
+	const { responsiveState = 'desktop' }: Props = $props();
 </script>
 
 {#if klimsonApp.spotify}
-	<p class="mx-2 mb-1 hidden text-[12px] font-semibold text-green-500 lg:flex"> SLUCHAM SPOTIFY</p>
+	<p
+		class={` mb-1 text-[12px] font-semibold text-green-500 ${responsiveState == 'desktop' ? 'mx-2 hidden lg:flex' : 'mx-4 flex lg:hidden'}`}
+	>
+		 SLUCHAM SPOTIFY
+	</p>
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
 		onclick={() => {
 			openModal();
 		}}
-		class="mr-4 mb-3 flex hidden cursor-pointer items-center gap-2 rounded-lg p-3 transition-colors select-none hover:bg-white/30 lg:flex"
+		class={`mr-2 mb-3 cursor-pointer items-center gap-2 rounded-lg p-3 transition-colors select-none hover:bg-white/30 ${responsiveState == 'desktop' ? 'hidden lg:flex' : 'flex lg:hidden'}`}
 	>
 		<img class="h-14 w-14 rounded-lg" src={klimsonApp.spotify?.album_art_url} alt="Album cover" />
-		<div class="flex w-9/10 w-full flex-col gap-0.5">
+		<div
+			class={`flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} w-full flex-col gap-0.5`}
+		>
 			<div class="flex flex-col">
 				<p class="text-[14px] font-semibold">{klimsonApp.spotify?.song}</p>
 				<p class="text-[11px] text-gray-400">{klimsonApp.spotify?.artist.replaceAll(';', ', ')}</p>
-				<div class="w-9/10">
+				<div class={responsiveState == 'desktop' ? 'w-9/10' : 'w-full'}>
 					{@render ProgessBar()}
 				</div>
-				<div class="mt-1 flex w-9/10 justify-between font-semibold">
+				<div
+					class={`mt-1 flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} justify-between font-semibold`}
+				>
 					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.progress)}</p>
 					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.duration)}</p>
 				</div>
@@ -101,12 +108,18 @@
 	{/if}
 {/snippet}
 
+<!-- svelte-ignore a11y_click_events_have_key_events -->
 {#snippet Modal()}
 	<script lang="ts">
 	</script>
 
 	<!-- Modal backdrop -->
-	<div class="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-[#0a0a1c]">
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<div
+		onclick={() => closeModal()}
+		class="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-[#0a0a1c]"
+	>
 		<!-- Modal content -->
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -124,11 +137,8 @@
 				<img class="size-20 rounded-lg" src={klimsonApp.spotify?.album_art_url} alt="Album cover" />
 				<div class="relative flex w-full flex-col">
 					<img class="absolute top-16 -left-9 size-6" src={SpotifySVG} alt="spotify" />
-					<a
-						class="flex cursor-pointer items-center gap-1 font-bold"
-						href={`https://open.spotify.com/track/${klimsonApp.spotify?.track_id}`}
-						target="_blank"
-					>
+					<!-- svelte-ignore a11y_missing_attribute -->
+					<a class="flex cursor-pointer items-center gap-1 font-bold">
 						{klimsonApp.getSong()}
 					</a>
 					<p class="font-sm mb-1 text-sm text-gray-400">

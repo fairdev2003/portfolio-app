@@ -19,7 +19,7 @@
 		<AnimatedLink text="O mnie" href="/about-me" />
 	</Box>
 
-	<div class="flex flex-col gap-5">
+	<!-- <div class="flex flex-col gap-5">
 		<CurrentPlayingMusic />
-	</div>
+	</div> -->
 </div>

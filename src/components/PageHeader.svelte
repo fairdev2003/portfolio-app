@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import { pageSections } from '$lib/static';
 	import DiscordActivityPill from './discord/DiscordActivityPill.svelte';
+	import SpotifyStatus from './SpotifyStatus.svelte';
 
 	let menu: HTMLElement | null = null;
 	let isOpen = false;
@@ -46,6 +47,7 @@
 		<h1>Klimson <span class="code">_</span></h1>
 	</div>
 	<div class="flex-grow"></div>
+
 	<div class="relative flex lg:hidden">
 		<img
 			on:click={toggleMenu}
@@ -60,17 +62,20 @@
 	<div class="overlay" on:click={toggleMenu}></div>
 {/if}
 
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <nav bind:this={menu} on:click={toggleMenu} class="sidebar flex flex-col p-5 text-white">
 	<div class="mb-4 flex gap-1">
 		<span class="text-2xl text-green-500">{'>'}</span>
 		<h1>Klimson <span class="code">_</span></h1>
 	</div>
-
 	{#each pageSections as { name, path }}
 		<a href={path} class="mb-3 text-xl font-bold">{name}</a>
 	{/each}
+
 	<!-- <DiscordActivityPill mobile /> -->
 </nav>
+<SpotifyStatus responsiveState="mobile" />
 
 <style>
 	.sidebar {
@@ -82,7 +87,7 @@
 		background: #0a0a1c;
 		box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
 		transform: translateX(-200%);
-		z-index: 50;
+		z-index: 40;
 	}
 	.overlay {
 		position: fixed;
