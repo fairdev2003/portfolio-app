@@ -1,8 +1,5 @@
 <script>
-	import { klimsonApp } from '$lib';
-	import { MoveRight } from 'lucide-svelte';
 	import PageNavigator from '../(components)/PageNavigator.svelte';
-	import SectorButton from '../(components)/SectorButton.svelte';
 	import ResponsiveContainer from '../../../components/responsive/ResponsiveContainer.svelte';
 	import SfmCodeArea from './(components)/SFMCodeArea.svelte';
 

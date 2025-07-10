@@ -5,6 +5,7 @@
 	import PageHeader from '../components/PageHeader.svelte';
 	import '../scrollbar.css';
 	import DiscordActivityPill from '../components/discord/DiscordActivityPill.svelte';
+	import SpotifyStatus from '../components/SpotifyStatus.svelte';
 	let { children } = $props();
 </script>
 
@@ -17,7 +18,8 @@
 			<!--Navigation-->
 
 			<div class="col-span-1">
-				<!-- <DiscordActivityPill /> -->
+				<!-- TODO: PERFORMANCE -->
+				<!-- <SpotifyStatus /> -->
 				<Navigation />
 			</div>
 

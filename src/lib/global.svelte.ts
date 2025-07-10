@@ -1,72 +1,118 @@
 import axios from 'axios';
-import type { DiscordAvatar, DiscordPresenceResponse, DiscordUser } from '$lib';
+import type {
+	DiscordPresenceResponse,
+	DiscordUser,
+	SpotifyActivity
+} from '../types/discord_status.types';
 
 class KlimsonApp {
-	public watchUrl: string = 'https://api.lanyard.rest/v1/users/424502321800675328' as const;
-	public discordData: DiscordPresenceResponse | undefined = $state();
+	private readonly apiRoute = 'https://api.lanyard.rest/v1/users/424502321800675328';
 	private pollingInterval = 4000;
-	private isRequestInProgress = false;
+	private progressInterval = 1000;
 
-	constructor() {
-		this.runDiscordStatusWatch();
+	public spotify: SpotifyActivity | null = $state(null);
+	public discord: DiscordUser | null = null;
+	public progress: number = $state(0);
+	public duration: number = $state(0);
+	public isLoading: boolean = true;
+
+	private pollingTimer: ReturnType<typeof setTimeout> | null = null;
+	private progressTimer: ReturnType<typeof setInterval> | null = null;
+
+	constructor() {}
+
+	private async init() {
+		await this.fetchData();
+		this.startPolling();
+		this.startProgressUpdater();
 	}
 
-	private runDiscordStatusWatch() {
-		this.fetchDiscordData();
-
-		setInterval(() => {
-			this.fetchDiscordData();
-		}, this.pollingInterval);
+	public async onComponentMount() {
+		await this.init();
 	}
 
-	private async fetchDiscordData() {
-		if (this.isRequestInProgress) return;
-
-		this.isRequestInProgress = true;
-
+	private async fetchData() {
 		try {
-			const response = await axios.get<DiscordPresenceResponse>(this.watchUrl);
-			this.discordData = response.data;
-		} catch (error) {
-			console.error('Failed to fetch Discord data:', error);
+			const res = await axios.get<DiscordPresenceResponse>(this.apiRoute);
+			const data = res.data;
+
+			if (data.success && data.data.listening_to_spotify) {
+				this.spotify = data.data.spotify!;
+				this.discord = data.data.discord_user;
+
+				const now = Date.now();
+				const start = this.spotify.timestamps.start;
+				const end = this.spotify.timestamps.end;
+
+				this.progress = now - start;
+				this.duration = end - start;
+			} else {
+				this.spotify = null;
+			}
+		} catch (e) {
+			console.error('Failed to fetch Discord presence:', e);
+			this.spotify = null;
 		} finally {
-			this.isRequestInProgress = false;
+			this.isLoading = false;
 		}
 	}
 
-	public getDiscordAvatar(): DiscordAvatar | undefined {
-		if (this.discordData) {
-			const user: DiscordUser = this.discordData.data.discord_user;
-			return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
-		}
+	private startPolling() {
+		const loop = async () => {
+			await this.fetchData();
+			console.log('Log');
+			this.pollingTimer = setTimeout(loop, this.pollingInterval);
+		};
+
+		loop();
 	}
 
-	public formatDiscordActivityPill() {
-		const activities = this.discordData?.data.activities ?? [];
+	private startProgressUpdater() {
+		this.progressTimer = setInterval(() => {
+			if (!this.spotify || !this.spotify.timestamps) {
+				this.progress = 0;
+				this.duration = 0;
+				return;
+			}
 
-		if (activities.length === 0 && this.discordData?.data.discord_status !== 'online') return '';
-		if (activities.length === 0) return 'Offline';
-		if (activities.length === 1) return activities[0].name;
-		return `${activities[0].name} + ${activities.length - 1}`;
+			const now = Date.now();
+			const { start, end } = this.spotify.timestamps;
+
+			this.progress = now - start;
+			this.duration = end - start;
+
+			if (now > end) {
+				this.fetchData();
+			}
+		}, this.progressInterval);
 	}
 
-	public getStylesBasedOnActivity(): string {
-		const status = this.discordData?.data.discord_status;
+	public formatMs(ms: number): string {
+		const totalSec = Math.floor(ms / 1000);
+		const min = Math.floor(totalSec / 60);
+		const sec = totalSec % 60;
+		return `${min}:${sec.toString().padStart(2, '0')}`;
+	}
 
-		switch (status) {
-			case 'online':
-				return 'border-3 border-emerald-400 bg-emerald-800';
-			case 'idle':
-				return 'border-3 border-amber-400 bg-amber-800';
-			case 'dnd':
-				return 'border-3 border-rose-400 bg-rose-800';
-			case 'offline':
-				return 'border-3 border-zinc-400 bg-zinc-800';
-			default:
-				return 'border-3 border-zinc-400';
-		}
+	public getAlbumCover(): string | null {
+		return this.spotify?.album_art_url ?? null;
+	}
+
+	public getSong(): string | null {
+		return this.spotify?.song ?? null;
+	}
+
+	public getArtist(): string | null {
+		return this.spotify?.artist ?? null;
+	}
+
+	public getTrackId(): string | null {
+		return this.spotify?.track_id ?? null;
+	}
+
+	public getDiscordUsername(): string | null {
+		return this.discord?.username ?? null;
 	}
 }
 
-const klimsonApp = new KlimsonApp();
-export { klimsonApp };
+export const klimsonApp = new KlimsonApp();
