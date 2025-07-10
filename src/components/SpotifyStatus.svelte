@@ -10,9 +10,8 @@
 	});
 
 	$effect(() => {
-		const spotifySong = klimsonApp.spotify?.song;
-		if (!spotifySong) {
-			console.log('no song');
+		const spotifySong = klimsonApp.spotify;
+		if (!spotifySong && modalEl) {
 			closeModal();
 		}
 	});
@@ -179,14 +178,14 @@
 						</div>
 					{/if}
 				</div>
-				{#if klimsonApp.spotify?.song}
+				<!-- {#if klimsonApp.spotify?.song}
 					<div
 						onclick={() => closeModal()}
 						class="absolute top-5 right-4 cursor-pointer rounded-full p-1 transition-colors hover:bg-white/30"
 					>
 						<X className="" />
 					</div>
-				{/if}
+				{/if} -->
 			</div>
 
 			<!-- Footer -->
