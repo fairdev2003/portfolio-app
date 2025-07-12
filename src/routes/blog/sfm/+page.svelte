@@ -72,6 +72,11 @@
 	{/if}
 </ResponsiveContainer>
 
+<svelte:head>
+	<title>SFM - Wprowadzenie</title>
+	<meta name="description" content="Strona glowna mojej strony" />
+</svelte:head>
+
 <style>
 	strong {
 		color: #ce9178;

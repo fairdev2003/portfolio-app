@@ -3,3 +3,8 @@
 </script>
 
 <Index />
+
+<svelte:head>
+	<title>Klimson</title>
+	<meta name="description" content="Strona glowna mojej strony" />
+</svelte:head>

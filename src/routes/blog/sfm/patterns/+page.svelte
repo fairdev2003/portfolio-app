@@ -86,3 +86,8 @@
 		</SectorButton>
 	</div>
 </ResponsiveContainer>
+
+<svelte:head>
+	<title>SFM - Wzorce</title>
+	<meta name="description" content="Strona glowna mojej strony" />
+</svelte:head>

@@ -35,3 +35,8 @@
 	<SfmCodeArea program_link={'/sfm/keyword.test.sfm'} />
 	<PageNavigator left={data.navigation?.left} right={data.navigation?.right} />
 </ResponsiveContainer>
+
+<svelte:head>
+	<title>SFM - Przykłady</title>
+	<meta name="description" content="Strona glowna mojej strony" />
+</svelte:head>

@@ -76,3 +76,8 @@
 		>
 	</div>
 </ResponsiveContainer>
+
+<svelte:head>
+	<title>SFM - NAME</title>
+	<meta name="description" content="Strona glowna mojej strony" />
+</svelte:head>

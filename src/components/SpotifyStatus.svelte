@@ -87,7 +87,7 @@
 				<p class="text-[14px] font-semibold">{klimsonApp.spotify?.song}</p>
 				<p class="text-[11px] text-gray-400">{klimsonApp.spotify?.artist.replaceAll(';', ', ')}</p>
 				<div class={responsiveState == 'desktop' ? 'w-9/10' : 'w-full'}>
-					{@render ProgessBar()}
+					{@render ProgressBar()}
 				</div>
 				<div
 					class={`mt-1 flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} justify-between font-semibold`}
@@ -104,7 +104,7 @@
 	{@render Modal()}
 {/if}
 
-{#snippet ProgessBar(className?: string)}
+{#snippet ProgressBar(className?: string)}
 	{#if klimsonApp.duration > 0}
 		<div class={`mt-1 h-[0.12rem] rounded bg-gray-700 ${className}`}>
 			<div
@@ -168,7 +168,7 @@
 					{/if}
 					{#if klimsonApp.spotify?.song}
 						<div>
-							{@render ProgessBar()}
+							{@render ProgressBar()}
 						</div>
 					{/if}
 					{#if klimsonApp.spotify?.song}

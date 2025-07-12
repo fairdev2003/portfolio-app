@@ -77,3 +77,8 @@
 		</SectorButton>
 	</div>
 </ResponsiveContainer>
+
+<svelte:head>
+	<title>SFM - Fundamenty</title>
+	<meta name="description" content="Strona glowna mojej strony" />
+</svelte:head>

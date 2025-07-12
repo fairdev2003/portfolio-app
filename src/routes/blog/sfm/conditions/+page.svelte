@@ -97,3 +97,8 @@
 		</SectorButton>
 	</div>
 </ResponsiveContainer>
+
+<svelte:head>
+	<title>SFM - Warunki logiczne</title>
+	<meta name="description" content="Strona glowna mojej strony" />
+</svelte:head>
