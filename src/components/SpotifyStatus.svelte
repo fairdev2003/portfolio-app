@@ -126,7 +126,7 @@
 
 	<div
 		onclick={() => closeModal()}
-		class="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-[#0a0a1c]"
+		class={`bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-[#0a0a1c] ${responsiveState === 'mobile' && 'pb-10'}`}
 	>
 		<!-- Modal content -->
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
