@@ -64,8 +64,7 @@ const pageSections = [
 	{ name: 'O mnie', description: 'Trochę informacji o mnie', path: '/about-me' },
 	{ name: 'Blog', description: 'Rzeczy ktore mnie interesuja', path: '/blog' },
 	{ name: 'Cytaty', description: 'Moje życiowe cytaty', path: '/quotes' },
-	{ name: 'Kontakt', description: 'Dostępne metody kontaktu', path: '/contact' },
-	{ name: 'Historia', description: 'Ta sekcja jest w trakcie budowy', path: '/lore' }
+	{ name: 'Kontakt', description: 'Dostępne metody kontaktu', path: '/contact' }
 ];
 
 type ProjectsProps = {
