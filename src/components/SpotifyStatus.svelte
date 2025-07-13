@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { klimsonApp } from '$lib';
 	import { gsap } from 'gsap';
-	import { X } from 'lucide-svelte';
-	import { onDestroy, onMount, tick } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import SpotifySVG from '../assets/spotify.png';
 
 	onMount(async () => {
