@@ -31,7 +31,7 @@ class KlimsonApp {
 		callback();
 	}
 
-	public async onComponentMount() {
+	public async zamontujKurwe() {
 		await this.init();
 	}
 

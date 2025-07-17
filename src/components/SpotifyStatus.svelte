@@ -5,7 +5,7 @@
 	import SpotifySVG from '../assets/spotify.png';
 
 	onMount(async () => {
-		await klimsonApp.onComponentMount();
+		await klimsonApp.zamontujKurwe();
 	});
 
 	$effect(() => {
