@@ -72,7 +72,11 @@
 		najbardziej okej 👍
 	</p>
 
-	<p>Jestem dumny z tego, ze to ja byłem w tej rozmowie - nie "algorytm".</p>
+	<p>
+		Jestem dumny z tego, ze to ja byłem w tej rozmowie - nie "algorytm". Natomiast chcialbym
+		zaznaczyc ze reakcja "mini rekacji" lub tego "mini zawalu" dalej sie we mnie moze aktywowac
+		jezeli zobacze osobe ktora miala wplyw emocjonalny na mnie. Nowe osoby tego nie aktywuja.
+	</p>
 
 	<PageNavigator
 		left={{ href: '/lore/covid', value: 'Covid' }}
