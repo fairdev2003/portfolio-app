@@ -82,7 +82,7 @@
 	<p>
 		Było wiele sytuacji, w których doświadczałem upokorzenia i jeszcze więcej wątków, które mógłbym
 		poruszyć, ale uważam, że te, które opisałem, w pełni oddają to, co wtedy czułem. Nie muszę chyba
-		dodawać, że moja psychika prawdopodobnie próbowała mnie chronić przed tym wszystkim – bo przez
+		dodawać, że moja psycha prawdopodobnie próbowała mnie chronić przed tym wszystkim – bo przez
 		długi czas nie postrzegałem tego jako traumy, lecz raczej jako "jakiś rozdział życia". Można
 		nawet powiedzieć, że częściowo o tym zapomniałem
 	</p>
