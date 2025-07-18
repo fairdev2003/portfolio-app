@@ -5,7 +5,9 @@
 	const { left, right }: BlogNavigator = $props();
 </script>
 
-<div class={`mt-5 flex ${!left ? 'justify-end' : 'justify-between'}`}>
+<div
+	class={`mt-5 flex ${!left ? `${!right ? 'justify-start' : 'justify-end'}` : 'justify-between'}`}
+>
 	{#if left}
 		<SectorButton left href={left?.href}>{left?.value}</SectorButton>
 	{/if}
