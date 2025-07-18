@@ -1,5 +1,6 @@
 <script>
 	import ResponsiveContainer from '../../components/responsive/ResponsiveContainer.svelte';
+	import PageNavigator from '../blog/(components)/PageNavigator.svelte';
 </script>
 
 <ResponsiveContainer cols="2" className="flex flex-col gap-y-5 col-span-2">
@@ -26,6 +27,8 @@
 	</p>
 
 	<h2>Duszyczko nie jestes sama</h2>
+
+	<PageNavigator right={{ href: '/lore/igniter', value: 'Zapalnik' }} />
 </ResponsiveContainer>
 
 <style>

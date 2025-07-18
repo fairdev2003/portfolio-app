@@ -1,5 +1,6 @@
 <script>
 	import ResponsiveContainer from '../../../components/responsive/ResponsiveContainer.svelte';
+	import PageNavigator from '../../blog/(components)/PageNavigator.svelte';
 </script>
 
 <ResponsiveContainer cols="2" className="flex flex-col gap-y-5 col-span-2">
@@ -57,6 +58,11 @@
 		I wiecie co..... I TAK WROCILEM DO TEJ RELACJI Z DZIEWCZYNAMI 💢 Piszac to wrecz jestem zly na
 		siebie ze tak zrobilem mimo ze wiem dlaczego tak bylo.
 	</p>
+
+	<PageNavigator
+		left={{ href: '/lore/igniter', value: 'Zapalnik' }}
+		right={{ href: '/lore/covid', value: 'Covid' }}
+	/>
 </ResponsiveContainer>
 
 <style>

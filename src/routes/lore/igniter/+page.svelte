@@ -1,5 +1,6 @@
 <script>
 	import ResponsiveContainer from '../../../components/responsive/ResponsiveContainer.svelte';
+	import PageNavigator from '../../blog/(components)/PageNavigator.svelte';
 </script>
 
 <ResponsiveContainer cols="2" className="flex flex-col gap-y-5 col-span-2">
@@ -86,6 +87,11 @@
 		długi czas nie postrzegałem tego jako traumy, lecz raczej jako "jakiś rozdział życia". Można
 		nawet powiedzieć, że częściowo o tym zapomniałem
 	</p>
+
+	<PageNavigator
+		left={{ href: '/lore/', value: 'Index' }}
+		right={{ href: '/lore/matrix', value: 'Matrix' }}
+	/>
 </ResponsiveContainer>
 
 <style>

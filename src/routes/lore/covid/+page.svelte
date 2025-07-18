@@ -1,5 +1,6 @@
 <script>
 	import ResponsiveContainer from '../../../components/responsive/ResponsiveContainer.svelte';
+	import PageNavigator from '../../blog/(components)/PageNavigator.svelte';
 </script>
 
 <ResponsiveContainer cols="2" className="flex flex-col gap-y-5 col-span-2">
@@ -33,11 +34,27 @@
 	<p>
 		Z uwagi na to ze nasza znajomosc publikowalismy na facebooku bylo to widoczne dla wszystkich. Na
 		zdjeciach byly widoczne maseczki bo to byl okres w zasadzie gdze mozna bylo wychodzic i bylo
-		"wzglednie" bezpiecznie jezeli chodzi o samego wirusa. "Kolega z zabki" wrecz chcial sie
-		dolaczyc gdy widzial dziewczyny, wiec stwierdzilem hmm "czemu nie". Pozniej tego zalowalem. Przy
-		tej historii bede uzywal stwierdzen "kolega z zabki" lub innych okresles aby nie ujawnic
-		tozszamosci tych osob. Na tym etapie chcialbym podkreslic ze czuje jakbym pisal ksiazke XD
+		"wzglednie" bezpiecznie jezeli chodzi o samego wirusa. Bylem wrecz dumny ze inne osoby mogly
+		zobaczyc ze u mnie jest wszystko w porzadku. "Kolega z zabki" wrecz chcial sie dolaczyc gdy
+		widzial dziewczyny, wiec stwierdzilem hmm "czemu nie". Pozniej tego zalowalem. Przy tej historii
+		bede uzywal stwierdzen "kolega z zabki" lub innych okresles aby nie ujawnic tozszamosci tych
+		osob. Na tym etapie chcialbym podkreslic ze czuje jakbym pisal ksiazke XD
 	</p>
+
+	<p>
+		Ale co moge jeszcze moge dodac - czulem sie w miare stabilny (mimo ze dalej myslalem o sobie
+		krytycznie). Budujace wrecz byly dla mnie sytuacje gdzie wychodzilem z tymi dziewczynami na
+		rolki jakies, robilismy jakies wspolne zdjecia przy jeziorze czy jakies wspolne ogladanie filmow
+		- wtedy wyszla Pila jakas nowa i ogladalismy to wspolnie - razem z "kolega z zabki" i kolezanka.
+		Natomiast cos zaczelo sie zmieniac juz na etapie kolegi z zabki i kolezanki co wymykalo mi sie
+		psychicznie spod mojej kontroli. Dodam ze kolezanka z ktora ogladalimsy wspolnie pile mi sie
+		mega "podobala".
+	</p>
+
+	<PageNavigator
+		left={{ href: '/lore/matrix', value: 'Matrix' }}
+		right={{ href: '/lore/algorithm', value: 'Algorytm' }}
+	/>
 </ResponsiveContainer>
 
 <style>
