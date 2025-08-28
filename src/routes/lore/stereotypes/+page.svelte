@@ -77,6 +77,16 @@
 		konca zycia bedziesz samotny"</i
 	>
 
+	<p>
+		Kolejnym charakterstycznym objawem (ktory byl przycmiony przez jakakolwiek racjonalnosc) - jest
+		wyobrazania sobie roznych sytuacji, gdzie "Ja" zrobilem sobie krzywde i odgrywalem scenki w
+		swojej glowie jakby ludzie zareagowali gdyby przyejchali do szpitala po nieudanej probie
+		samobojczej. Czesto te mysli byly zmienne - raz myslalem - "osoba odwiedzajaca mnie w szpitalu"
+		podejdzie do mnie z rozumowaniem "Dlaczego tak zrobiles, wszystko jest w porzadku? 😔" a raz z
+		rozumowaniem "Dlaczego to k*a zrobiles, jestes samolubny!". Te mysli byly regularne ale mnie nie
+		meczyly - w zasadzie nie czulem sie zle jak o tym myslalem
+	</p>
+
 	<p>Dlaczego podkreslilem "klasycznego bordera"?</p>
 
 	<p>

@@ -9,7 +9,11 @@
 	class="sticky top-0 col-span-1 mt-10 flex flex-col items-center justify-center gap-5 p-5 md:flex md:flex-row lg:mt-0 lg:flex-col"
 >
 	<div class="h-48 w-48 overflow-hidden rounded-full">
-		<img src={Klimson} alt="Example" class="h-full w-full object-contain" />
+		<img
+			src="https://imgs.search.brave.com/mB_pkHWWjtUHLN_sjQ6LIipzuswtNgx5dS86-T1WTjA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE2/NDgyMjE4OC92ZWN0/b3IvbWFsZS1hdmF0/YXItcHJvZmlsZS1w/aWN0dXJlLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1LUHNM/Z1ZJd0VHZER2ZjRf/a2l5bkNYdzk2cF9Q/aEJqSUdkVTY4cWtw/YnVJPQ"
+			alt="Example"
+			class="h-full w-full object-contain"
+		/>
 	</div>
 	<h2 class="text-xl font-[500] text-gray-400">fairdev2003</h2>
 	<div class="flex flex-col gap-3">

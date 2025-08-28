@@ -4,10 +4,13 @@
 
 	import CurrentPlayingMusic from './CurrentPlayingMusic.svelte';
 	import Heading from './Heading.svelte';
+	import RecomendationSnippet from './orange_love/RecomendationSnippet.svelte';
 </script>
 
 <div class="flex flex-col gap-6 lg:col-span-2">
 	<Heading value="Strona Główna" />
+
+	<RecomendationSnippet />
 
 	<Box className="font-[500] text-gray-400 bg-[#131333] p-10 flex flex-col gap-3">
 		<p>Miło mi Cię tu gościć.</p>
