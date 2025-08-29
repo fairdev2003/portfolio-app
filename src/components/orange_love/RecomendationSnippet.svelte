@@ -17,15 +17,14 @@
 		});
 	}
 
-	function handleOpenModal() {
-		gsap.from(modalEl, {
-			opacity: 1,
-			y: 0,
-			duration: 0.3,
-			onComplete: () => {
-				open = true;
-			}
-		});
+	async function handleOpenModal() {
+		open = true;
+		await tick(); // poczekaj aż modal się wstawi do DOM
+		gsap.fromTo(
+			modalEl,
+			{ opacity: 0, y: -50 },
+			{ opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' }
+		);
 	}
 </script>
 
@@ -42,7 +41,7 @@
 	</p>
 	<div>
 		<span
-			class="cursor-pointer underline hover:text-white"
+			class="cursor-pointer underline select-none hover:text-white"
 			onclick={() => {
 				handleOpenModal();
 			}}>Szczegóły</span
