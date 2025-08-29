@@ -19,7 +19,7 @@
 			{easterEgg}
 		</code>
 		<p>
-			© 2025 <span class="text-red-500">/ TREŚĆ NIEDOSTĘPNA /</span> . All rights reserved.
+			© 2025 <span class="text-red-500">/ ** /</span> . All rights reserved.
 		</p>
 	</div>
 </footer>
