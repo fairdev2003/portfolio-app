@@ -16,7 +16,7 @@
 		/>
 	</div>
 	<h2 class="text-xl font-[500] text-gray-400">fairdev2003</h2>
-	<div class="flex flex-col gap-3">
+	<!-- <div class="flex flex-col gap-3">
 		<div class="flex items-center gap-2">
 			<img src={Github} alt="GitHub" class="h-5 w-5 grayscale" />
 			<a href="https://github.com/fairdev2003" target="_blank" class="font-[500] text-blue-500"
@@ -43,7 +43,7 @@
 				class="font-[500] text-blue-500">Kod strony</a
 			>
 		</div>
-	</div>
+	</div> -->
 </div>
 
 <style>
