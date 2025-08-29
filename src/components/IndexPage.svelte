@@ -19,7 +19,7 @@
 			projekt w wybranym frameworku. Zdecydowałem się na <span class="text-orange-500">Svelte</span>
 		</p>
 		<p>Miłego przeglądania! :)</p>
-		<AnimatedLink text="O mnie" href="/about-me" />
+		<!-- <AnimatedLink text="O mnie" href="/about-me" /> -->
 	</Box>
 
 	<!-- <div class="flex flex-col gap-5">
