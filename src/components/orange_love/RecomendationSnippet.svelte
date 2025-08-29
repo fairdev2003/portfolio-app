@@ -37,7 +37,9 @@
 		</div>
 	</div>
 	<p class="m-1.5">
-		Jestem dumnym użytkownikiem usług w Orange {'<3'}
+		Jestem dumnym użytkownikiem usług w Orange <span class="bg-white/60 px-2 text-black"
+			>{'<'}❤️{'>'}</span
+		>
 	</p>
 	<div>
 		<span
@@ -52,13 +54,13 @@
 
 {#snippet Modal()}
 	{#if open}
-		<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 text-black">
-			<div bind:this={modalEl} class="w-[90%] max-w-md bg-white p-6 shadow-lg">
+		<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 text-white">
+			<div bind:this={modalEl} class="w-[90%] max-w-md bg-slate-700 p-6 shadow-lg">
 				<h2 class="mb-2 text-xl font-bold">Work in progres...</h2>
 				<p class="text-bla mb-4 text-sm">Work in progress....</p>
 				<button
 					onclick={() => close()}
-					class="rounded bg-orange-500 px-4 py-2 text-white hover:bg-orange-600"
+					class="cursor-pointer rounded bg-orange-500 px-4 py-2 text-white hover:bg-orange-600/30"
 				>
 					Zamknij
 				</button>
