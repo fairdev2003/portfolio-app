@@ -1,5 +1,8 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import { onMount } from 'svelte';
+	import gsap from 'gsap';
+	import { browser } from '$app/environment';
 
 	type Props = {
 		children: Snippet;
@@ -11,8 +14,12 @@
 
 	const baseClass = `text-white ${className}`;
 	const colClass = `col-span-${cols}`;
+
+	let container: HTMLDivElement;
+	
+	
 </script>
 
-<div class={`${colClass} ${baseClass}`}>
+<div bind:this={container} class={`${colClass} ${baseClass}`}>
 	{@render children()}
 </div>

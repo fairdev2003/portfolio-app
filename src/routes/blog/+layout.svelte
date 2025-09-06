@@ -7,7 +7,12 @@
 </script>
 
 <ResponsiveWrapper>
-	{@render children()}
+	
+	<ResponsiveContainer cols={2} className="p-5 col-span-2 flex flex-col gap-2">
+		{@render children()}
+	</ResponsiveContainer>
+		
+	
 	<ResponsiveContainer cols={1} className="p-5 col-span-1 flex flex-col gap-2">
 		<SideBlogBar route={data.route} />
 	</ResponsiveContainer>
