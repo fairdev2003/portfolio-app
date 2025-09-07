@@ -43,7 +43,9 @@
 		</div>
 	</Box>
 
-	<OrangeLoading/>
+	<div class="mx-auto">
+		<OrangeLoading/>
+	</div>
 
 	<!-- <div class="flex flex-col gap-5">
 		<CurrentPlayingMusic />
