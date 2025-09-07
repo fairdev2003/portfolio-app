@@ -2,7 +2,7 @@
 	let { children, className = '' } = $props();
 </script>
 
-<div class={`flex flex-col gap-5 bg-[#131333] p-10 ${className}`}>
+<div class={`box-tt flex flex-col gap-5 rounded-xl bg-[#131333] p-10 ${className}`}>
 	{@render children()}
 </div>
 

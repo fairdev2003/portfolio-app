@@ -1,10 +1,12 @@
 <script lang="ts">
 	import Box from './Box.svelte';
 	import AnimatedLink from './AnimatedLink.svelte';
-
 	import CurrentPlayingMusic from './CurrentPlayingMusic.svelte';
 	import Heading from './Heading.svelte';
 	import RecomendationSnippet from './orange_love/RecomendationSnippet.svelte';
+	import { browser } from '$app/environment';
+
+	let loaded = false;
 </script>
 
 <div class="flex flex-col gap-6 lg:col-span-2">
@@ -12,17 +14,59 @@
 
 	<RecomendationSnippet />
 
-	<Box className="font-[500] text-gray-400 bg-[#131333] p-10 flex flex-col gap-3">
-		<p>Miło mi Cię tu gościć.</p>
-		<p>
-			Serdeczne pozdrowienia dla Pana Krzysztofa. Dziękuję, że pozwolił mi Pan zrealizować ten
-			projekt w wybranym frameworku. Zdecydowałem się na <span class="text-orange-500">Svelte</span>
-		</p>
-		<p>Miłego przeglądania! :)</p>
-		<!-- <AnimatedLink text="O mnie" href="/about-me" /> -->
+	
+
+	<Box className="box-tt">
+		<div class="lg:grid lg:grid-cols-5 flex flex-col gap-10">
+			<div class="col-span-2 lg:mx-0 mx-auto flex justify-center items-center">
+				{#if browser}
+					<img
+						alt="mc-me"
+						src="https://starlightskins.lunareclipse.studio/render/ultimate/3dd3f4e8-4203-4604-bb84-3d8a92ae9880/full?renderScale=0.3"
+						class="transition-all duration-500 ease-out"
+						style="width: {loaded ? '100%' : '30%'}; height: auto; transform: scale({loaded
+							? 1
+							: 0.3}); opacity: {loaded ? 1 : 0.5};"
+						on:load={() => (loaded = true)}
+						
+					/>
+				{:else}
+					<!-- Placeholder podczas SSR -->
+					<div style="width: 30%; height: auto; background: #333;"></div>
+				{/if}
+			</div>
+			<div class="col-span-3 flex flex-col gap-2">
+				<h2 class="header">Daniel tried to swim in lava	</h2>
+				<p class="text">
+Daniel met a creeper and got a big “surprise party” in his face. Respawn and try again… maybe bring a shield next time.
+</p>
+
+			</div>
+		</div>
 	</Box>
 
 	<!-- <div class="flex flex-col gap-5">
 		<CurrentPlayingMusic />
 	</div> -->
 </div>
+
+<style>
+	@font-face {
+		font-family: 'Consolas';
+		src: url('./assets/consolas.ttf') format('truetype');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	.header {
+		font-family: 'Consolas', monospace;
+		font-weight: 800;
+		
+	}
+
+	.text {
+		font-family: 'Consolas', monospace;
+		font-weight: 600;
+	}
+
+</style>
