@@ -5,6 +5,7 @@
 	import Heading from './Heading.svelte';
 	import RecomendationSnippet from './orange_love/RecomendationSnippet.svelte';
 	import { browser } from '$app/environment';
+	import OrangeLoading from './OrangeLoading.svelte';
 
 	let loaded = false;
 </script>
@@ -14,11 +15,9 @@
 
 	<RecomendationSnippet />
 
-	
-
 	<Box className="box-tt">
-		<div class="lg:grid lg:grid-cols-5 flex flex-col gap-10">
-			<div class="col-span-2 lg:mx-0 mx-auto flex justify-center items-center">
+		<div class="flex flex-col gap-10 lg:grid lg:grid-cols-5">
+			<div class="col-span-2 mx-auto flex items-center justify-center lg:mx-0">
 				{#if browser}
 					<img
 						alt="mc-me"
@@ -28,7 +27,6 @@
 							? 1
 							: 0.3}); opacity: {loaded ? 1 : 0.5};"
 						on:load={() => (loaded = true)}
-						
 					/>
 				{:else}
 					<!-- Placeholder podczas SSR -->
@@ -36,14 +34,16 @@
 				{/if}
 			</div>
 			<div class="col-span-3 flex flex-col gap-2">
-				<h2 class="header">Daniel tried to swim in lava	</h2>
+				<h2 class="header">Daniel tried to swim in lava</h2>
 				<p class="text">
-Daniel met a creeper and got a big “surprise party” in his face. Respawn and try again… maybe bring a shield next time.
-</p>
-
+					Daniel met a creeper and got a big “surprise party” in his face. Respawn and try again…
+					maybe bring a shield next time.
+				</p>
 			</div>
 		</div>
 	</Box>
+
+	<OrangeLoading/>
 
 	<!-- <div class="flex flex-col gap-5">
 		<CurrentPlayingMusic />
@@ -61,12 +61,10 @@ Daniel met a creeper and got a big “surprise party” in his face. Respawn and
 	.header {
 		font-family: 'Consolas', monospace;
 		font-weight: 800;
-		
 	}
 
 	.text {
 		font-family: 'Consolas', monospace;
 		font-weight: 600;
 	}
-
 </style>
