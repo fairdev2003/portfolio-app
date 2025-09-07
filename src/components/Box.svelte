@@ -1,4 +1,12 @@
 <script lang="ts">
+	import type { Snippet } from "svelte";
+
+
+	type Props = {
+		className: string,
+		children: Snippet
+	}
+
 	let { children, className = '' } = $props();
 </script>
 
