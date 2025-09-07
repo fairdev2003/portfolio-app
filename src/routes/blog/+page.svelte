@@ -3,6 +3,7 @@
 	import Box from '../../components/Box.svelte';
 	import ResponsiveContainer from '../../components/responsive/ResponsiveContainer.svelte';
 	import SectorButton from './(components)/SectorButton.svelte';
+	import SFM from '../../assets/sfm.png'
 
 	const { data } = $props();
 </script>
@@ -17,7 +18,7 @@
 	<div on:click={() => {goto("/blog/sfm")}} class="flex gap-5 gap-5 rounded-xl bg-[#131333] hover:bg-[#131333]/50 cursor-pointer p-5">
 		<div class="size-20 col-span-2 flex justify-center items-center">
 			<!-- svelte-ignore a11y_missing_attribute -->
-			<img src="/src/assets/sfm.png" class="" />
+			<img src={SFM} class="" />
 		</div>
 		<div class="col-span-8">
 			<h3>
@@ -28,7 +29,7 @@
 			</p>
 		</div>
 	</div>
-	<div class="mt-5 flex justify-between">
+	<div class="mt-2 flex justify-between">
 		<SectorButton left href={data.navigation?.left?.href}
 			>{data.navigation?.left?.value}</SectorButton
 		>
