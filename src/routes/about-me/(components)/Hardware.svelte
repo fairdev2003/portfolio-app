@@ -24,9 +24,26 @@
 </div>
 
 <Terminal>
-	<p class={`${VSCThemeColor.HighlightBlue} font-bold`}>⟹ Sprzęt</p>
-	<p class={'h-5'}>{'\n'}</p>
+	<p class={`${VSCThemeColor.HighlightBlue} font-bold`}>⟹ System</p>
+	<!-- SYSTEM -->
 	<TerminalRecord key="Dystybucja" value="Arch Linux" keyColor={VSCThemeColor.MainPurple} />
+	<TerminalRecord key="Kernel" value="Linux 6.16.5-arch1-1" keyColor={VSCThemeColor.MainPurple} />
+	<TerminalRecord key="Shell" value="zsh 5.9" keyColor={VSCThemeColor.MainPurple} />
+
+	<TerminalRecord
+		key="Środowisko graficzne"
+		value="GNOME 48.4"
+		keyColor={VSCThemeColor.MainPurple}
+	/>
+	<TerminalRecord key="Menadżer Okienek" value="Wayland" keyColor={VSCThemeColor.MainPurple} />
+	<TerminalRecord
+		key="Czcionka"
+		value="JetBrains Mono (11pt, SemiBold)"
+		keyColor={VSCThemeColor.MainPurple}
+	/>
+
+	<!-- PERYPETIE -->
+	<p class={`${VSCThemeColor.HighlightBlue} font-bold`}>⟹ Perypetie</p>
 	<TerminalRecord
 		key="Monitor 1 (Główny)"
 		value="MSI Microstep 24 75hz 1920x1080"
@@ -53,4 +70,37 @@
 		value="Sony WH-CH720N Noise Canceling Wireless Headphones"
 		keyColor={VSCThemeColor.MainPurple}
 	/>
+	<!-- PERYPETIE -->
+	<p class={`${VSCThemeColor.HighlightBlue} font-bold`}>⟹ Podzespoły komputera</p>
+	<TerminalRecord
+		key="Płyta Główna"
+		value="Jakas random lenovo xD"
+		keyColor={VSCThemeColor.MainPurple}
+	/>
+	<TerminalRecord
+		key="Procesor"
+		value="Intel Core i5-7400 (4)"
+		keyColor={VSCThemeColor.MainPurple}
+	/>
+	<TerminalRecord
+		key="Karta Graficzna"
+		value="NVIDIA GeForce GTX 1050 Ti"
+		keyColor={VSCThemeColor.MainPurple}
+	/>
+	<TerminalRecord key="VRAM" value="4096MiB" keyColor={VSCThemeColor.MainPurple} />
+	<TerminalRecord key="RAM" value="16GiB" keyColor={VSCThemeColor.MainPurple} />
+	<TerminalRecord
+		key="Dysk 1 (Główny)"
+		value="Laxar 610 M.2 NVME 2TB"
+		keyColor={VSCThemeColor.MainPurple}
+	/>
+	<TerminalRecord key="Dysk 2" value="128GB Patriot SATA" keyColor={VSCThemeColor.MainPurple} />
+	<p class={`${VSCThemeColor.CommentGray} font-bold`}>{'// Partycja dysków'}</p>
+	<TerminalRecord key="Dysk '/' (System)" value="50GIB" keyColor={VSCThemeColor.MainPurple} />
+	<TerminalRecord
+		key="Dysk '/home' (Katalog domowy)"
+		value="1.78 TiB"
+		keyColor={VSCThemeColor.MainPurple}
+	/>
+	<TerminalRecord key="Dysk boot (EFI)" value="100MiB" keyColor={VSCThemeColor.MainPurple} />
 </Terminal>
