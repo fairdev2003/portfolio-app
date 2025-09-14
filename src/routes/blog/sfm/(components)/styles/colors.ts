@@ -15,6 +15,8 @@ export enum VSCThemeColor {
 	RedRedstone = 'text-red-400'
 }
 
+export type VSCThemeColorKey = keyof typeof VSCThemeColor;
+
 export const KeywordColor = {
 	[Keywords.EVERY]: VSCThemeColor.MainPurple,
 	[Keywords.NUMBER]: VSCThemeColor.NumberYellow,

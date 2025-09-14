@@ -5,6 +5,9 @@
 	import { TerminalContext } from './terminal.controls.svelte';
 	import { X } from 'lucide-svelte';
 	import { Search } from '@lucide/svelte';
+	import type { TerminalProps } from './types/terminal';
+
+	const { children }: TerminalProps = $props();
 </script>
 
 {#if TerminalContext.terminalOpenState}
@@ -41,7 +44,13 @@
 
 		<div
 			bind:this={TerminalContext.TerminalReference}
-			class="b-10 h-6/10 w-9/10 rounded-b-2xl border-1 border-neutral-800 bg-neutral-950 lg:w-6/10"
-		></div>
+			class="b-10 h-6/10 w-9/10 overflow-scroll rounded-b-2xl border-1 border-neutral-800 bg-neutral-950 p-3 lg:w-6/10"
+		>
+			<div class="flex flex-col opacity-0" bind:this={TerminalContext.TerminalContent}>
+				{#if children}
+					{@render children()}
+				{/if}
+			</div>
+		</div>
 	</div>
 {/if}
