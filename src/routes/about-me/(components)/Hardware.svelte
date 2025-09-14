@@ -24,7 +24,7 @@
 </div>
 
 <Terminal>
-	<p class={`${VSCThemeColor.HighlightBlue} font-bold`}>⟹ System</p>
+	<p class={`${VSCThemeColor.HighlightBlue} string font-bold`}>$:~ System</p>
 	<!-- SYSTEM -->
 	<TerminalRecord key="Dystybucja" value="Arch Linux" keyColor={VSCThemeColor.MainPurple} />
 	<TerminalRecord key="Kernel" value="Linux 6.16.5-arch1-1" keyColor={VSCThemeColor.MainPurple} />
@@ -43,7 +43,7 @@
 	/>
 
 	<!-- PERYPETIE -->
-	<p class={`${VSCThemeColor.HighlightBlue} font-bold`}>⟹ Perypetie</p>
+	<p class={`${VSCThemeColor.HighlightBlue} string string font-bold`}>$:~ Perypetie</p>
 	<TerminalRecord
 		key="Monitor 1 (Główny)"
 		value="MSI Microstep 24 75hz 1920x1080"
@@ -71,7 +71,7 @@
 		keyColor={VSCThemeColor.MainPurple}
 	/>
 	<!-- PERYPETIE -->
-	<p class={`${VSCThemeColor.HighlightBlue} font-bold`}>⟹ Podzespoły komputera</p>
+	<p class={`${VSCThemeColor.HighlightBlue} string font-bold`}>$:~ Podzespoły komputera</p>
 	<TerminalRecord
 		key="Płyta Główna"
 		value="Jakas random lenovo xD"
@@ -95,12 +95,28 @@
 		keyColor={VSCThemeColor.MainPurple}
 	/>
 	<TerminalRecord key="Dysk 2" value="128GB Patriot SATA" keyColor={VSCThemeColor.MainPurple} />
-	<p class={`${VSCThemeColor.CommentGray} font-bold`}>{'// Partycja dysków'}</p>
-	<TerminalRecord key="Dysk '/' (System)" value="50GIB" keyColor={VSCThemeColor.MainPurple} />
+	<p class={`${VSCThemeColor.HighlightBlue} string font-bold`}>$:~ Partycja Systemowa</p>
+	<TerminalRecord key="Dysk '/' (System)" value="50 GIB" keyColor={VSCThemeColor.MainPurple} />
 	<TerminalRecord
 		key="Dysk '/home' (Katalog domowy)"
 		value="1.78 TiB"
 		keyColor={VSCThemeColor.MainPurple}
 	/>
-	<TerminalRecord key="Dysk boot (EFI)" value="100MiB" keyColor={VSCThemeColor.MainPurple} />
+	<TerminalRecord key="Dysk boot (EFI)" value="100 MiB" keyColor={VSCThemeColor.MainPurple} />
+	<TerminalRecord key="Pamięć Swap (` RAM)" value="4 GiB" keyColor={VSCThemeColor.MainPurple} />
 </Terminal>
+
+<style>
+	@font-face {
+		font-family: 'Consolas';
+		src: url('./assets/consolas.ttf') format('truetype');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	.string {
+		font-family: 'Consolas', monospace;
+		min-height: 1.5rem; /* 20px */
+		line-height: 1.5rem;
+	}
+</style>
