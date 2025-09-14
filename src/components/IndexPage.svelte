@@ -21,7 +21,7 @@
 				{#if browser}
 					<img
 						alt="mc-me"
-						src="https://starlightskins.lunareclipse.studio/render/ultimate/fair123/full?renderScale=0.3"
+						src="https://starlightskins.lunareclipse.studio/render/ultimate/fair123	/full?renderScale=0.3"
 						class="transition-all duration-500 ease-out"
 						style="width: {loaded ? '100%' : '30%'}; height: auto; transform: scale({loaded
 							? 1

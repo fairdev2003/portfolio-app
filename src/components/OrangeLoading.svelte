@@ -53,7 +53,7 @@
 		position: relative;
 		width: 60px;
 		height: 60px;
-		border: 5px solid orangered;
+		border: 5px solid orange;
 		display: flex;
 		align-items: flex-start;
 		overflow: hidden;
@@ -62,7 +62,7 @@
 
 	.loader-fill {
 		width: 100%;
-		background-color: orangered;
+		background-color: orange;
 		transition: height 0.7s ease; /* animacja wypełnienia */
 	}
 </style>
