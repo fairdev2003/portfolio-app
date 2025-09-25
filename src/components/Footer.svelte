@@ -11,10 +11,10 @@
 </script>
 
 <footer class="mb-20 flex flex-col items-center justify-center gap-4 pt-10">
-	<div class="h-0.5 w-50 bg-gray-500"></div>
+	<div class="h-0.5 w-50 bg-neutral-700"></div>
 
 	<div class="flex flex-col justify-start gap-2">
-		<code class="flex justify-center gap-2 rounded-lg bg-[#131333] p-1.5 px-10 select-none">
+		<code class="flex justify-center gap-2 rounded-lg bg-neutral-800/60 p-1.5 px-10 select-none">
 			<span class="text-green-500">{'>'}</span>
 			{easterEgg}
 		</code>

@@ -3,30 +3,31 @@
 	import Box from '../../components/Box.svelte';
 	import ResponsiveContainer from '../../components/responsive/ResponsiveContainer.svelte';
 	import SectorButton from './(components)/SectorButton.svelte';
-	import SFM from '../../assets/sfm.png'
+	import SFM from '../../assets/sfm.png';
 
 	const { data } = $props();
 </script>
 
 <ResponsiveContainer cols={2} className="flex flex-col gap-y-3 col-span-2">
 	<h2>Sekcja blogowa</h2>
-	
+
 	<!-- move this to component -->
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<!-- svelte-ignore event_directive_deprecated -->
-	<div on:click={() => {goto("/blog/sfm")}} class="flex gap-5 gap-5 rounded-xl bg-[#131333] hover:bg-[#131333]/50 cursor-pointer p-5">
-		<div class="size-20 col-span-2 flex justify-center items-center">
+	<div
+		on:click={() => {
+			goto('/blog/sfm');
+		}}
+		class="box flex cursor-pointer gap-5 gap-5 rounded-xl p-5 hover:bg-[#131333]/50"
+	>
+		<div class="col-span-2 flex size-20 items-center justify-center">
 			<!-- svelte-ignore a11y_missing_attribute -->
 			<img src={SFM} class="" />
 		</div>
 		<div class="col-span-8">
-			<h3>
-				SFM
-			</h3>
-			<p class="">
-				Super Factory Manager to nowoczesny mod logistyczny do Minecrafta...
-			</p>
+			<h3>SFM</h3>
+			<p class="">Super Factory Manager to nowoczesny mod logistyczny do Minecrafta...</p>
 		</div>
 	</div>
 	<div class="mt-2 flex justify-between">

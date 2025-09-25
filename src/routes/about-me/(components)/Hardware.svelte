@@ -19,7 +19,7 @@
 			TerminalContext.OpenTerminal();
 			console.log(TerminalContext.terminalOpenState);
 		}}
-		class="h-20 cursor-pointer rounded-2xl bg-[#131333] hover:bg-[#131333]/40"
+		class="box h-20 cursor-pointer rounded-2xl"
 	></div>
 </div>
 

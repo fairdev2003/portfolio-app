@@ -20,7 +20,7 @@
 			<p class="cursor-pointer text-sm">{name}</p>
 		{/if}
 	</div>
-	<div class={`nav-box w-0.5 bg-gray-700 transition-colors peer-hover:bg-blue-500`}></div>
+	<div class={`nav-box w-0.5 bg-neutral-700 transition-colors peer-hover:bg-blue-500`}></div>
 </div>
 
 <style>

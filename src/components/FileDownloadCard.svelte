@@ -3,8 +3,8 @@
 </script>
 
 <div>
-	<div class="flex h-auto items-center gap-4 rounded-2xl bg-[#131333] px-5 py-2">
-		<div class="h-10 w-10 rounded-full bg-[#27275b] p-2">
+	<div class="box flex h-auto items-center gap-4 rounded-2xl px-5 py-2">
+		<div class="h-12 w-12 rounded-full bg-neutral-700/50 p-3">
 			<img
 				alt="file"
 				src="https://img.icons8.com/?size=100&id=CslWyEDXb961&format=png&color=FFFFFF"

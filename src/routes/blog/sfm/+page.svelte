@@ -81,7 +81,4 @@
 	strong {
 		color: #ce9178;
 	}
-	a {
-		color: #166a98;
-	}
 </style>

@@ -16,7 +16,7 @@
 	onclick={() => {
 		goto(href);
 	}}
-	class="cursor-pointer rounded-lg border-1 border-gray-950 bg-gray-700 p-2 px-6 text-sm transition-colors hover:bg-gray-800"
+	class="box cursor-pointer rounded-lg border-1 border-gray-950 p-2 px-6 text-sm transition-colors hover:bg-gray-800"
 >
 	{left ? '<' : ''}
 	{@render children()}

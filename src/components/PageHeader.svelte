@@ -40,7 +40,7 @@
 </script>
 
 <header
-	class="sticky top-0 z-10 flex items-center gap-1 bg-[#0a0a1c] py-5 pb-5 select-none lg:relative lg:bg-transparent"
+	class="sticky top-0 z-10 mt-5 flex items-center gap-1 bg-[#0a0a1c] py-5 pb-5 select-none lg:relative lg:bg-transparent"
 >
 	<div class="flex gap-1">
 		<span class="text-2xl text-green-500">{'>'}</span>

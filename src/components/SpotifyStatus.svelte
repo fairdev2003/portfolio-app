@@ -65,18 +65,13 @@
 </script>
 
 {#if klimsonApp.spotify}
-	<p
-		class={`mb-1 text-[12px] font-semibold text-green-500 ${responsiveState == 'desktop' ? 'mx-2 hidden lg:flex' : 'mx-4 flex lg:hidden'}`}
-	>
-		 SLUCHAM SPOTIFY
-	</p>
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
 		onclick={() => {
 			openModal();
 		}}
-		class={`mr-2 mb-3 cursor-pointer items-center gap-2 rounded-lg p-3 transition-colors select-none hover:bg-white/30 ${responsiveState == 'desktop' ? 'hidden lg:flex' : 'flex lg:hidden'}`}
+		class={`mr-2 mb-3 cursor-pointer items-center gap-2 rounded-lg  p-3 transition-colors select-none hover:bg-white/30 sm:active:bg-white/30 ${responsiveState == 'desktop' ? 'hidden lg:flex' : 'flex lg:hidden'}`}
 	>
 		<img class="h-14 w-14 rounded-lg" src={klimsonApp.spotify?.album_art_url} alt="Album cover" />
 		<div
@@ -105,7 +100,7 @@
 
 {#snippet ProgressBar(className?: string)}
 	{#if klimsonApp.duration > 0}
-		<div class={`mt-1 h-[0.12rem] rounded bg-gray-700 ${className}`}>
+		<div class={`mt-1 h-0.5 rounded bg-neutral-700 ${className}`}>
 			<div
 				class="h-full bg-white transition-all duration-500 ease-linear"
 				style="width: {(klimsonApp.progress / klimsonApp.duration) * 100}%"
@@ -125,14 +120,14 @@
 
 	<div
 		onclick={() => closeModal()}
-		class={`bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-[#0a0a1c] ${responsiveState === 'mobile' && 'pb-10'}`}
+		class={`bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-neutral-900 ${responsiveState === 'mobile' && 'pb-10'}`}
 	>
 		<!-- Modal content -->
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
 			bind:this={modalEl}
-			class="white w-11/12 rounded-lg border-2 border-slate-700 bg-gradient-to-r from-slate-800 shadow-2xl sm:w-3/4 md:w-1/2 lg:w-1/3"
+			class="white w-11/12 rounded-lg border-2 border-neutral-700 bg-gradient-to-r from-neutral-800 shadow-2xl sm:w-3/4 md:w-1/2 lg:w-1/3"
 		>
 			<!-- Header -->
 
@@ -195,5 +190,7 @@
 <style>
 	a {
 		color: white;
+		background-color: transparent;
+		padding: 0 0 0 0;
 	}
 </style>

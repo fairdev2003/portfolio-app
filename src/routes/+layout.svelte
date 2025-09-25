@@ -10,8 +10,6 @@
 </script>
 
 <section>
-	<div class="my-5 h-5 bg-purple-600"></div>
-
 	<div class="mx-auto max-w-6xl px-5 lg:px-10">
 		<PageHeader />
 		<div class="w-full md:flex md:flex-col md:justify-center lg:grid lg:grid-cols-4">

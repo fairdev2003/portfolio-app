@@ -103,5 +103,6 @@
 <style>
 	a {
 		color: oklch(70.7% 0.022 261.325);
+		background-color: transparent;
 	}
 </style>
