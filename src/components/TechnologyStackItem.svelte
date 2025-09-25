@@ -3,10 +3,10 @@
 </script>
 
 <div
-	class="group relative flex h-15 w-15 cursor-pointer items-center justify-center rounded-lg border-2 border-gray-500 p-1 transition-colors hover:border-white"
+	class="group relative flex h-15 w-15 cursor-pointer items-center justify-center rounded-lg border-2 border-neutral-500 p-1 transition-colors hover:border-white"
 >
 	<div
-		class="absolute bottom-full left-1/2 z-100 mt-2 hidden -translate-x-1/2 justify-center rounded-lg bg-[#131333] p-2 text-sm text-white opacity-0 shadow-lg transition-opacity duration-300 group-hover:flex group-hover:opacity-100"
+		class="absolute bottom-full left-1/2 z-100 mt-2 hidden -translate-x-1/2 justify-center rounded-lg bg-neutral-900 p-2 text-sm text-white opacity-0 shadow-lg transition-opacity duration-300 group-hover:flex group-hover:opacity-100"
 	>
 		{stack_name}
 	</div>

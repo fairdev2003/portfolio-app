@@ -7,12 +7,11 @@
 	import Hardware from './(components)/Hardware.svelte';
 </script>
 
-<div class="flex flex-col gap-12 px-5 lg:col-span-2">
+<div class="flex flex-col gap-12 lg:col-span-2">
 	<Intrudaction />
 	<TechnologyStack />
 	<Education />
 	<JobExperience />
 	<Hardware />
 	<FileDownload />
-	
 </div>

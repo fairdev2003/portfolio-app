@@ -61,12 +61,7 @@
 		Mod idealnie sprawdzi się zarówno dla początkujących, jak i zaawansowanych inżynierów
 		Minecrafta.
 	</p>
-	<p>
-		Link do moda: <a
-			href="https://www.curseforge.com/minecraft/mc-mods/super-factory-manager"
-			target="_blank">https://www.curseforge.com/minecraft/mc-mods/super-factory-manager</a
-		>
-	</p>
+
 	{#if data.navigation && data.navigation.left && data.navigation.right}
 		<PageNavigator left={data.navigation.left} right={data.navigation.right} />
 	{/if}

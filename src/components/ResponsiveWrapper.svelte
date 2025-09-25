@@ -14,6 +14,6 @@
 	let container: HTMLDivElement;
 </script>
 
-<div class="grid-cols-3 px-5 lg:grid" bind:this={container}>
+<div class="grid-cols-3 lg:grid" bind:this={container}>
 	{@render children()}
 </div>

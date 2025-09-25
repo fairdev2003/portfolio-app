@@ -40,7 +40,7 @@
 </script>
 
 <header
-	class="sticky top-0 z-10 mt-5 flex items-center gap-1 bg-[#0a0a1c] py-5 pb-5 select-none lg:relative lg:bg-transparent"
+	class="sticky top-0 z-10 mt-5 flex items-center gap-1 bg-neutral-950 py-5 pb-5 select-none lg:relative lg:bg-transparent"
 >
 	<div class="flex gap-1">
 		<span class="text-2xl text-green-500">{'>'}</span>
@@ -64,7 +64,11 @@
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-<nav bind:this={menu} on:click={toggleMenu} class="sidebar flex flex-col p-5 text-white">
+<nav
+	bind:this={menu}
+	on:click={toggleMenu}
+	class="sidebar flex flex-col bg-neutral-950 p-5 text-white"
+>
 	<div class="mb-4 flex gap-1">
 		<span class="text-2xl text-green-500">{'>'}</span>
 		<h1>Klimson <span class="code">_</span></h1>
@@ -84,7 +88,7 @@
 		left: 0;
 		width: 40vh;
 		height: 100vh;
-		background: #0a0a1c;
+
 		box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
 		transform: translateX(-200%);
 		z-index: 40;
@@ -117,5 +121,6 @@
 	a {
 		text-decoration: none;
 		color: inherit;
+		background-color: transparent;
 	}
 </style>

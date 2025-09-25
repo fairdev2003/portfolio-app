@@ -3,7 +3,7 @@
 	import Heading from '../../components/Heading.svelte';
 </script>
 
-<div class="flex flex-col gap-10 px-5 lg:col-span-2">
+<div class="flex flex-col gap-10 lg:col-span-2">
 	<div class="flex flex-col">
 		<h2>Kontakt</h2>
 		<p class="font-[500] text-gray-500">
@@ -50,5 +50,6 @@
 	a {
 		color: white;
 		font-weight: bold;
+		background-color: transparent;
 	}
 </style>

@@ -19,7 +19,7 @@
 		on:click={() => {
 			goto('/blog/sfm');
 		}}
-		class="box flex cursor-pointer gap-5 gap-5 rounded-xl p-5 hover:bg-[#131333]/50"
+		class="box flex cursor-pointer gap-5 rounded-xl p-5 hover:bg-[#131333]/50"
 	>
 		<div class="col-span-2 flex size-20 items-center justify-center">
 			<!-- svelte-ignore a11y_missing_attribute -->

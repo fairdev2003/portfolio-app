@@ -6,6 +6,7 @@
 	import '../scrollbar.css';
 	import DiscordActivityPill from '../components/discord/DiscordActivityPill.svelte';
 	import SpotifyStatus from '../components/SpotifyStatus.svelte';
+	import ResponsiveWrapper from '../components/ResponsiveWrapper.svelte';
 	let { children } = $props();
 </script>
 
@@ -17,12 +18,12 @@
 
 			<div class="col-span-1">
 				<!-- TODO: PERFORMANCE -->
-				<SpotifyStatus mobile />
+				<SpotifyStatus responsiveState="desktop" />
 				<Navigation />
 			</div>
 
 			<!--Index Page-->
-			<div class="col-span-3">
+			<div class="col-span-3 lg:px-5">
 				{@render children()}
 			</div>
 		</div>

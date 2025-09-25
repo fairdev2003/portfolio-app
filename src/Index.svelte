@@ -5,9 +5,8 @@
 	import ResponsiveWrapper from './components/ResponsiveWrapper.svelte';
 </script>
 
-<div class="mx-5 grid-cols-3 gap-5 lg:grid">
+<div class="grid-cols-3 gap-5 lg:grid">
+	<IndexPage />
 
-		<IndexPage />
-	
 	<Profile />
 </div>
