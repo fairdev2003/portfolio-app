@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { klimsonApp } from '$lib';
+	import Box from '../../components/Box.svelte';
+	import SpotifyStatus from '../../components/SpotifyStatus.svelte';
 	import CircularProgressBar from './(components)/CircularProgressBar.svelte';
 </script>
 
-<CircularProgressBar
-	size={50}
-	strokeWidth={5}
-	progress={klimsonApp.progress / klimsonApp.duration}
-/>
+<div class="flex flex-col gap-5">
+	<SpotifyStatus responsiveState="desktop" />
+</div>
 
 <svelte:head>
-	<title>Klimson</title>
-	<meta name="description" content="Strona glowna mojej strony" />
+	<title>Muzyka</title>
+	<meta name="description" content="Muzyka moja pasja" />
 </svelte:head>

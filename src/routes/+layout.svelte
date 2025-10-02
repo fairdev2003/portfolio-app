@@ -4,9 +4,7 @@
 	import Footer from '../components/Footer.svelte';
 	import PageHeader from '../components/PageHeader.svelte';
 	import '../scrollbar.css';
-	import DiscordActivityPill from '../components/discord/DiscordActivityPill.svelte';
 	import SpotifyStatus from '../components/SpotifyStatus.svelte';
-	import ResponsiveWrapper from '../components/ResponsiveWrapper.svelte';
 	let { children } = $props();
 </script>
 
