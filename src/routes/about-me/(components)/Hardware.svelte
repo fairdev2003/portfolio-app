@@ -1,8 +1,5 @@
 <script lang="ts">
-	import { tick } from 'svelte';
-	import Box from '../../../components/Box.svelte';
 	import Heading from '../../../components/Heading.svelte';
-	import gsap from 'gsap';
 	import Terminal from '../../../components/terminal/Terminal.svelte';
 	import { TerminalContext } from '../../../components/terminal/terminal.controls.svelte';
 	import { VSCThemeColor } from '../../blog/sfm/(components)/styles/colors';
@@ -43,7 +40,7 @@
 	/>
 
 	<!-- PERYPETIE -->
-	<p class={`${VSCThemeColor.HighlightBlue} string string font-bold`}>$:~ Perypetie</p>
+	<p class={`${VSCThemeColor.HighlightBlue} string string font-bold`}>$:~ Peryferie</p>
 	<TerminalRecord
 		key="Monitor 1 (Główny)"
 		value="MSI Microstep 24 75hz 1920x1080"
@@ -70,7 +67,7 @@
 		value="Sony WH-CH720N Noise Canceling Wireless Headphones"
 		keyColor={VSCThemeColor.MainPurple}
 	/>
-	<!-- PERYPETIE -->
+	<!-- PERYFERIE -->
 	<p class={`${VSCThemeColor.HighlightBlue} string font-bold`}>$:~ Podzespoły komputera</p>
 	<TerminalRecord
 		key="Płyta Główna"

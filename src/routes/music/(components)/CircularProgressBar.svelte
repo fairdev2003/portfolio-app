@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { Play } from 'lucide-svelte';
+
 	let offset: number = $state(0);
 
 	type Props = {
@@ -17,28 +19,34 @@
 	});
 </script>
 
-<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} class="rotate-[-90deg]">
-	<!-- Tło -->
-	<circle
-		cx={size / 2}
-		cy={size / 2}
-		r={radius}
-		stroke="#444"
-		fill="none"
-		stroke-width={strokeWidth}
-	/>
+<div class="relative inline-flex items-center justify-center">
+	<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} class="rotate-[-90deg]">
+		<circle
+			cx={size / 2}
+			cy={size / 2}
+			r={radius}
+			stroke="#444"
+			fill="none"
+			stroke-width={strokeWidth}
+		/>
 
-	<!-- Pasek postępu -->
-	<circle
-		cx={size / 2}
-		cy={size / 2}
-		r={radius}
-		stroke="white"
-		fill="none"
-		stroke-width={strokeWidth}
-		stroke-dasharray={circumference}
-		stroke-dashoffset={offset}
-		stroke-linecap="round"
-		class="transition-all duration-300"
-	/>
-</svg>
+		<circle
+			cx={size / 2}
+			cy={size / 2}
+			r={radius}
+			stroke="white"
+			fill="none"
+			stroke-width={strokeWidth}
+			stroke-dasharray={circumference}
+			stroke-dashoffset={offset}
+			stroke-linecap="round"
+			class="transition-all duration-300"
+		/>
+	</svg>
+</div>
+
+<style>
+	.play {
+		transform: translate(-50%, -50%);
+	}
+</style>

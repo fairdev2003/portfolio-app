@@ -37,8 +37,8 @@
 	<div class="flex w-full justify-between rounded-t-md bg-slate-700 p-2 px-3">
 		<div class="flex items-center gap-2">
 			<img src={DiskImage} alt="disk" class="h-5 w-5" />
-			<p class="text-sm text-gray-400">
-				<a href={program_link} target="_blank" class="text-gray-400"
+			<p class="program_name text-sm font-thin text-gray-400">
+				<a href={program_link} target="_blank" class=" text-gray-400"
 					>{SFMCompiler.ExtractFileNameFromURL(program_link)}</a
 				>
 				<!-- |
@@ -104,5 +104,14 @@
 	a {
 		color: oklch(70.7% 0.022 261.325);
 		background-color: transparent;
+	}
+
+	@font-face {
+		font-family: 'Consolas';
+		src: url('./assets/consolas.ttf') format('truetype');
+	}
+
+	.program_name {
+		font-family: 'Consolas', monospace;
 	}
 </style>

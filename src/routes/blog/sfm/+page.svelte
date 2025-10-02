@@ -73,6 +73,7 @@
 </svelte:head>
 
 <style>
+	@import 'tailwindcss';
 	strong {
 		color: #ce9178;
 	}
