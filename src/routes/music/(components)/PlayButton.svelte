@@ -35,7 +35,7 @@
 
 <div
 	onclick={handleClick}
-	class="flex size-[40px] cursor-pointer items-center justify-center rounded-full bg-neutral-700"
+	class={`flex size-[40px] ${!song_link && 'transition-colors duration-100 active:border active:border-red-500'} cursor-pointer items-center justify-center rounded-full bg-neutral-700`}
 >
 	<svg width="35" height="35" viewBox="0 0 100 100">
 		{#if state === 'not-playing'}
