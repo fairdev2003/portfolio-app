@@ -8,7 +8,7 @@
 	const { children }: Props = $props();
 </script>
 
-<p class="heading text-md text-neutral-500">{@render children()}</p>
+<p class="heading text-md text-white/70">{@render children()}</p>
 
 <style>
 </style>
