@@ -27,6 +27,8 @@
 
 <div
 	onclick={() => {
+		if (!song_link) return;
+
 		if (!MusicController.audio) {
 			// either no audio loaded or new track selected
 
@@ -48,18 +50,6 @@
 		<circle cx="50" cy="50" r="48" fill="transparent" stroke="none" />
 
 		<!-- Okrąg progressu -->
-		<circle
-			cx="50"
-			cy="50"
-			r={radius}
-			fill="none"
-			stroke="white"
-			stroke-width={strokeWidth}
-			stroke-dasharray={circumference}
-			stroke-dashoffset={dashoffset}
-			stroke-linecap="round"
-			class="transition-all duration-300"
-		/>
 
 		<!-- Play icon -->
 		<polygon
