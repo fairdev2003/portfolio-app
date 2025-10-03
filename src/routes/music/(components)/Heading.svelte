@@ -15,7 +15,6 @@
 	.heading {
 		font-family: 'DM Serif Display', serif;
 		font-weight: 600;
-
 		letter-spacing: 0.5px;
 	}
 </style>

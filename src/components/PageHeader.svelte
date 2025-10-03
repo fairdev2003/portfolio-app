@@ -4,6 +4,9 @@
 	import { pageSections } from '$lib/static';
 	import DiscordActivityPill from './discord/DiscordActivityPill.svelte';
 	import SpotifyStatus from './SpotifyStatus.svelte';
+	import Heading from '../routes/music/(components)/Heading.svelte';
+
+	import { goto } from '$app/navigation';
 
 	let menu: HTMLElement | null = null;
 	let isOpen = false;
@@ -40,18 +43,17 @@
 </script>
 
 <header
-	class="sticky top-0 z-10 mt-5 flex items-center gap-1 bg-neutral-950 py-5 pb-5 select-none lg:relative lg:bg-transparent"
+	class="sticky top-0 z-10 flex items-center gap-1 py-5 select-none lg:relative lg:bg-transparent"
 >
-	<div class="flex gap-1">
-		<span class="text-2xl text-green-500">{'>'}</span>
-		<h1>Klimson <span class="code">_</span></h1>
-	</div>
-	<div class="flex-grow"></div>
-
-	<div class="relative flex lg:hidden">
+	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+	<div
+		class="flex h-15 w-6xl items-center justify-between border-1 border-neutral-800/60 bg-neutral-900/60 px-10 backdrop-blur-sm lg:hidden"
+	>
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<Heading onclick={() => goto('/')}>klimson.dev</Heading>
 		<img
 			on:click={toggleMenu}
-			class="h-10 w-10 cursor-pointer"
+			class="h-8 w-8 cursor-pointer"
 			alt="hamburger"
 			src="https://img.icons8.com/?size=100&id=8113&format=png&color=FFFFFF"
 		/>

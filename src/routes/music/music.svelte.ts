@@ -17,8 +17,8 @@ class Music {
 		this.audio = a;
 	}
 
-	public async PlayMusic() {
-		this.audio?.play();
+	public async PlayMusic(id: number) {
+		if (id != id) this.audio?.play();
 	}
 	public async PauseMusic() {
 		this.audio?.pause();
