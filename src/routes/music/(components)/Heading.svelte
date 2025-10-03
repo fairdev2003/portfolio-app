@@ -1,14 +1,15 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	type Props = {
 		children: Snippet;
-	};
+	} & HTMLAttributes<HTMLHeadingElement>;
 
-	const { children }: Props = $props();
+	const { children, ...props }: Props = $props();
 </script>
 
-<h1 class="heading text-3xl">{@render children()}</h1>
+<h1 class="heading text-3xl" {...props}>{@render children()}</h1>
 
 <style>
 	.heading {

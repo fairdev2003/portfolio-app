@@ -6,16 +6,8 @@
 		song_link?: string;
 	};
 
-	let state = $state<PlayButtonState>('not-playing');
 	const { song_link }: Props = $props();
-
-	$effect(() => {
-		if (MusicController.audio) {
-			MusicController.audio.onplay = () => (state = 'playing');
-			MusicController.audio.onpause = () => (state = 'not-playing');
-			MusicController.audio.onended = () => (state = 'not-playing');
-		}
-	});
+	let state = $state<PlayButtonState>('not-playing');
 
 	async function handleClick() {
 		if (!song_link) return;
@@ -31,6 +23,14 @@
 			}
 		}
 	}
+
+	$effect(() => {
+		if (MusicController.audio) {
+			MusicController.audio.onplay = () => (state = 'playing');
+			MusicController.audio.onpause = () => (state = 'not-playing');
+			MusicController.audio.onended = () => (state = 'not-playing');
+		}
+	});
 </script>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
