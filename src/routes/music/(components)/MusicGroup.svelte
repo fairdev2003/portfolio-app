@@ -18,11 +18,11 @@
 	<div class="mt-5 flex flex-col gap-3 px-5">
 		{#if showMore == false}
 			{#each musicGroup.musicList.slice(0, 3) as { ...rest }}
-				<MusicCard {...rest} />
+				<MusicCard playlist={musicGroup.musicList} {...rest} />
 			{/each}
 		{:else}
 			{#each musicGroup.musicList as { ...rest }}
-				<MusicCard {...rest} />
+				<MusicCard playlist={musicGroup.musicList} {...rest} />
 			{/each}
 		{/if}
 	</div>

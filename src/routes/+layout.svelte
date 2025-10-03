@@ -5,6 +5,7 @@
 	import PageHeader from '../components/PageHeader.svelte';
 	import '../scrollbar.css';
 	import SpotifyStatus from '../components/SpotifyStatus.svelte';
+	import { onMount } from 'svelte';
 	let { children } = $props();
 </script>
 

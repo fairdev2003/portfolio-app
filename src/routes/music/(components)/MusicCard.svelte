@@ -2,15 +2,13 @@
 	import CircularProgressBar from './CircularProgressBar.svelte';
 	import PlayButton from './PlayButton.svelte';
 	import type { MusicType } from './types/music';
+	import MusicController from '../musicController.svelte';
 
 	type Props = {
-		song_name: string;
-		song_artist: string;
-		song_image: string;
-		song_link?: string;
-	};
+		playlist: MusicType[];
+	} & MusicType;
 
-	const { ...music }: MusicType = $props();
+	const { ...music }: Props = $props();
 </script>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -19,7 +17,7 @@
 	onclick={() => {
 		console.log();
 	}}
-	class={`flex items-center justify-between gap-3 border border-neutral-700/50 bg-neutral-800/60 p-3 px-4`}
+	class={`relative flex items-center justify-between gap-3 border border-neutral-700/50 bg-neutral-800/60 p-3 px-4`}
 >
 	<!-- svelte-ignore a11y_missing_attribute -->
 	<div class="flex gap-3">
@@ -30,5 +28,16 @@
 		</div>
 	</div>
 
+	{#if music.id === MusicController.selectedId}
+		{@render ProgressBar(0.6)}
+	{/if}
+
 	<PlayButton {...music} />
 </div>
+
+{#snippet ProgressBar(progeress: number)}
+	<div
+		class="absolute bottom-0 left-0 h-0.5 bg-green-500 transition-all duration-75"
+		style="width: {MusicController.progress * 100}%;"
+	></div>
+{/snippet}
