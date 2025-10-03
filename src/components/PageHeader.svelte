@@ -50,9 +50,9 @@
 		class="flex h-15 w-6xl items-center justify-between border-1 border-neutral-800/60 bg-neutral-900/60 px-10 backdrop-blur-sm lg:hidden"
 	>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<Heading onclick={() => goto('/')}>klimson.dev</Heading>
+		<h3 class="klimson-heading" onclick={() => goto('/')}>klimson.dev</h3>
 		<img
-			on:click={toggleMenu}
+			onclick={toggleMenu}
 			class="h-8 w-8 cursor-pointer"
 			alt="hamburger"
 			src="https://img.icons8.com/?size=100&id=8113&format=png&color=FFFFFF"
@@ -61,14 +61,14 @@
 </header>
 
 {#if isOpen}
-	<div class="overlay" on:click={toggleMenu}></div>
+	<div class="overlay" onclick={toggleMenu}></div>
 {/if}
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <nav
 	bind:this={menu}
-	on:click={toggleMenu}
+	onclick={toggleMenu}
 	class="sidebar flex flex-col bg-neutral-950 p-5 text-white"
 >
 	<div class="mb-4 flex gap-1">
@@ -84,6 +84,14 @@
 <SpotifyStatus responsiveState="mobile" />
 
 <style>
+	.klimson-heading {
+		font-family: 'DM Serif Display', serif;
+		font-weight: 600;
+		font-style: normal;
+		font-size: 25px;
+		letter-spacing: 0.5px;
+	}
+
 	.sidebar {
 		position: fixed;
 		top: 0;
