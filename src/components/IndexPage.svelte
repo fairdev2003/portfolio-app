@@ -2,16 +2,16 @@
 	import Box from './Box.svelte';
 	import AnimatedLink from './AnimatedLink.svelte';
 	import CurrentPlayingMusic from './CurrentPlayingMusic.svelte';
-	import Heading from './Heading.svelte';
 	import RecomendationSnippet from './orange_love/RecomendationSnippet.svelte';
 	import { browser } from '$app/environment';
 	import OrangeLoading from './OrangeLoading.svelte';
+	import Heading from '../routes/music/(components)/Heading.svelte';
 
 	let loaded = false;
 </script>
 
 <div class="flex flex-col gap-6 lg:col-span-2">
-	<Heading value="Strona Główna" />
+	<Heading>Index</Heading>
 
 	<Box>Siema</Box>
 

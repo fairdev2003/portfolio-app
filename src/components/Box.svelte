@@ -9,6 +9,8 @@
 	let { children, className = '' } = $props();
 </script>
 
-<div class={`box flex flex-col gap-5 rounded-xl bg-neutral-800/40 p-10 ${className}`}>
+<div
+	class={`box flex flex-col gap-5 border border-neutral-700/60 bg-neutral-900/60 p-10 ${className}`}
+>
 	{@render children()}
 </div>

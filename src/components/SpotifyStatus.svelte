@@ -71,7 +71,7 @@
 		onclick={() => {
 			openModal();
 		}}
-		class={`mb-3 cursor-pointer items-center gap-2 rounded-lg  p-3 transition-colors select-none hover:bg-white/30 sm:active:bg-white/30 ${responsiveState == 'desktop' ? 'hidden lg:flex' : 'flex lg:hidden'}`}
+		class={`mb-3 cursor-pointer items-center gap-2 border border-neutral-700/50  bg-neutral-800/60 p-3 transition-colors select-none hover:bg-neutral-700  ${responsiveState == 'desktop' ? 'hidden lg:flex' : 'flex lg:hidden'}`}
 	>
 		<img class="h-14 w-14 rounded-lg" src={klimsonApp.spotify?.album_art_url} alt="Album cover" />
 		<div
@@ -79,7 +79,7 @@
 		>
 			<div class="flex flex-col">
 				<p class="text-[14px] font-semibold">{klimsonApp.spotify?.song}</p>
-				<p class="text-[11px] text-gray-400">{klimsonApp.spotify?.artist.replaceAll(';', ', ')}</p>
+				<p class="text-[11px] text-white">{klimsonApp.spotify?.artist.replaceAll(';', ', ')}</p>
 				<div class={responsiveState == 'desktop' ? 'w-full' : 'w-full'}>
 					{@render ProgressBar()}
 				</div>
@@ -100,7 +100,7 @@
 
 {#snippet ProgressBar(className?: string)}
 	{#if klimsonApp.duration > 0}
-		<div class={`mt-1 h-0.5 rounded bg-neutral-700 ${className}`}>
+		<div class={`mt-1 h-0.5 rounded bg-white/30 ${className}`}>
 			<div
 				class="h-full bg-white transition-all duration-500 ease-linear"
 				style="width: {(klimsonApp.progress / klimsonApp.duration) * 100}%"
