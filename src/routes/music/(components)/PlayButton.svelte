@@ -1,5 +1,5 @@
 <script lang="ts">
-	import MusicController from '../musicController.svelte';
+	import MusicController from '../MusicController.svelte';
 	import type { MusicType, PlayButtonState } from './types/music';
 
 	type Props = {

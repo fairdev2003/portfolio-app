@@ -2,7 +2,7 @@
 	import CircularProgressBar from './CircularProgressBar.svelte';
 	import PlayButton from './PlayButton.svelte';
 	import type { MusicType } from './types/music';
-	import MusicController from '../musicController.svelte';
+	import MusicController from '../MusicController.svelte';
 
 	type Props = {
 		playlist: MusicType[];
