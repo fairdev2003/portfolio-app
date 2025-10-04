@@ -11,11 +11,11 @@
 	<PagesNavigation
 		pages={[
 			{ name: 'KLIMSON', route: '/' },
-			{ name: 'MUSIC', route: '/music' }
+			{ name: 'MUZYKA', route: '/music' }
 		]}
 	/>
 	<div class="mb-5 flex flex-col gap-3">
-		<Heading id="music">Muzyka.</Heading>
+		<Heading id="Muzyka">Muzyka.</Heading>
 		<Paragraph
 			>Taka mała sekcja na temat muzyki, której słucham. Dzięki muzyce czuje sie w jakims filmie. Na
 			dobrą sprawe lubie praktycznie każdą muzyke. Nie mam swojego ulubionego typu muzyki więc tak

@@ -7,8 +7,8 @@
 
 <div class="flex flex-col justify-center gap-5">
 	<div class="flex flex-col gap-1">
-		<Heading class="mb-1" id="stack">Stack</Heading>
-		<Paragraph class="font-[500] text-gray-500">
+		<Heading padding class="mb-1" id="Stack">Stack</Heading>
+		<Paragraph>
 			Na przestrzeni lat ten stack technologiczny cały czas się rozwijał. Moje pierwsza styczność z
 			programowaniem miała miejsce gdy dołączyłem do projektu gry na Roblox. Nigdy nie sądziłem ze
 			zaczne tworzyć tak prężnie strony internetowe.

@@ -6,6 +6,8 @@
 	import Intrudaction from './(components)/Intrudaction.svelte';
 	import Hardware from './(components)/Hardware.svelte';
 	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
+	import ResponsiveContainer from '../../components/responsive/ResponsiveContainer.svelte';
+	import ContentsTable from '../../components/typography/ContentsTable.svelte';
 </script>
 
 <div class="flex flex-col lg:col-span-2">

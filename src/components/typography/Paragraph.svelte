@@ -17,6 +17,6 @@
 	p {
 		font-family: Georgia, 'Times New Roman', Times, serif;
 		font-weight: 500;
-		font-size: 17px;
+		font-size: 18px;
 	}
 </style>

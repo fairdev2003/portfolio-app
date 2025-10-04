@@ -6,18 +6,23 @@
 
 	type Props = {
 		children: Snippet;
+		padding?: boolean;
 	} & HTMLAttributes<HTMLHeadingElement>;
 
-	const { children, ...props }: Props = $props();
+	const { padding = false, children, ...props }: Props = $props();
 </script>
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<h1 {...props} id={props.id} class={`heading group relative pt-5 text-3xl ${props.class}`}>
+<h1
+	{...props}
+	id={props.id}
+	class={`heading group relative text-3xl ${props.class} ${padding && 'pt-5'}`}
+>
 	<span>{@render children()}</span>
 
 	<span
-		class="absolute top-5 -left-6 hidden cursor-pointer text-neutral-500 transition-opacity group-hover:flex"
+		class={`absolute ${padding ? 'top-5' : 'top-0'} -left-6 hidden cursor-pointer text-neutral-500 transition-opacity group-hover:flex`}
 		>#</span
 	>
 	<span
@@ -25,7 +30,7 @@
 			const url = location.origin + location.pathname + '#' + props.id;
 			goto(url);
 		}}
-		class="absolute top-5 -left-6 size-6 cursor-pointer text-neutral-500"
+		class={`absolute ${padding ? 'top-5' : 'top-0'} -left-6 size-6 cursor-pointer text-neutral-500`}
 	></span>
 </h1>
 
