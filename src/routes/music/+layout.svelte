@@ -6,7 +6,7 @@
 </script>
 
 <ResponsiveWrapper>
-	<ResponsiveContainer>
+	<ResponsiveContainer cols={2}>
 		{@render children()}
 	</ResponsiveContainer>
 </ResponsiveWrapper>

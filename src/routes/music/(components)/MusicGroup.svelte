@@ -1,54 +1,80 @@
 <script lang="ts">
-	import { Music } from 'lucide-svelte';
+	import gsap from 'gsap';
 	import MusicCard from './MusicCard.svelte';
 	import type { MusicGroupType } from './types/music';
 
 	const { ...musicGroup }: MusicGroupType = $props();
+
 	let showMore: boolean = $state(false);
+	let extraListEl: HTMLDivElement | null = null;
+
+	function toggle() {
+		if (!extraListEl) return;
+
+		if (showMore) {
+			// zwijanie reszty
+			gsap.to(extraListEl, {
+				height: 0,
+				duration: 0.5,
+				ease: 'power2.inOut',
+				onComplete: () => {
+					showMore = false;
+				}
+			});
+		} else {
+			// rozwijanie reszty
+			showMore = true;
+			gsap.fromTo(
+				extraListEl,
+				{ height: 0 },
+				{
+					height: extraListEl.scrollHeight,
+					duration: 0.5,
+					ease: 'power2.inOut',
+					onComplete: () => {
+						extraListEl!.style.height = 'auto';
+					}
+				}
+			);
+		}
+	}
 </script>
 
 <div class="border border-neutral-800/60 bg-neutral-900/60 pb-5 text-sm">
-	<div class=" bg-neutral-800/60 p-5">
+	<div class="bg-neutral-800/60 p-5">
 		<h3 class="group-name">{musicGroup.groupName}</h3>
 		<p class="mt-1 text-gray-300">{musicGroup.groupDesc}</p>
 		<div class="mt-2 flex items-center">
 			<p class="text-[13px] text-neutral-500">{musicGroup.musicList.length} utworów</p>
 		</div>
 	</div>
+
+	<!-- zawsze widoczne 3 pierwsze -->
 	<div class="mt-5 flex flex-col gap-3 px-5">
-		{#if showMore == false}
-			{#each musicGroup.musicList.slice(0, 3) as { ...rest }}
-				<MusicCard playlist={musicGroup.musicList} {...rest} />
-			{/each}
-		{:else}
-			{#each musicGroup.musicList as { ...rest }}
-				<MusicCard playlist={musicGroup.musicList} {...rest} />
-			{/each}
-		{/if}
+		{#each musicGroup.musicList.slice(0, 3) as { ...rest } (rest.id)}
+			<MusicCard playlist={musicGroup.musicList} {...rest} />
+		{/each}
 	</div>
+
+	<!-- reszta listy z animacją -->
+	<div
+		bind:this={extraListEl}
+		class="mt-3 flex flex-col gap-3 overflow-hidden px-5"
+		style="height: 0;"
+	>
+		{#each musicGroup.musicList.slice(3) as { ...rest } (rest.id)}
+			<MusicCard playlist={musicGroup.musicList} {...rest} />
+		{/each}
+	</div>
+
 	{#if musicGroup.musicList.length > 3}
 		<div class="mt-3 flex justify-center text-sm">
-			<!-- svelte-ignore a11y_click_events_have_key_events -->
-			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-			{#if showMore}
-				<p
-					onclick={() => {
-						showMore = !showMore;
-					}}
-					class="cursor-pointer text-sm font-medium text-neutral-300 hover:underline"
-				>
-					Zobacz mniej.
-				</p>
-			{:else}
-				<p
-					onclick={() => {
-						showMore = !showMore;
-					}}
-					class="cursor-pointer text-sm font-medium text-neutral-300 hover:underline"
-				>
-					Zobacz więcej {`(${musicGroup.musicList.length - 3})`}.
-				</p>
-			{/if}
+			<p
+				onclick={toggle}
+				class="cursor-pointer text-sm font-medium text-neutral-300 hover:underline"
+			>
+				{showMore ? 'Zobacz mniej.' : `Zobacz więcej (${musicGroup.musicList.length - 3})`}
+			</p>
 		</div>
 	{/if}
 </div>
