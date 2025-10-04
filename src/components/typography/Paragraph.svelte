@@ -12,3 +12,11 @@
 <p class="heading text-md text-white/70" {...props}>
 	{@render children()}
 </p>
+
+<style>
+	p {
+		font-family: Georgia, 'Times New Roman', Times, serif;
+		font-weight: 500;
+		font-size: 17px;
+	}
+</style>
