@@ -71,7 +71,7 @@
 		onclick={() => {
 			openModal();
 		}}
-		class={`mb-3 cursor-pointer items-center gap-2 border border-neutral-700/50  bg-neutral-800/60 p-3 transition-colors select-none hover:bg-neutral-700  ${responsiveState == 'desktop' ? 'hidden lg:flex' : 'flex lg:hidden'}`}
+		class={`mb-3 cursor-pointer items-center gap-2 border border-neutral-800/60 bg-neutral-900/60  p-3 backdrop-blur-xl transition-colors select-none hover:bg-neutral-700  ${responsiveState == 'desktop' ? 'hidden lg:flex' : 'flex lg:hidden'}`}
 	>
 		<img class="h-14 w-14 rounded-lg" src={klimsonApp.spotify?.album_art_url} alt="Album cover" />
 		<div

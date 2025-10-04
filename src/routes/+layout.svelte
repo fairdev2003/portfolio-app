@@ -10,7 +10,7 @@
 </script>
 
 <section>
-	<div class="mx-auto max-w-6xl px-5 lg:px-10">
+	<div class="mx-auto max-w-7xl px-5 lg:px-10">
 		<PageHeader />
 		<div class="w-full md:flex md:flex-col md:justify-center lg:grid lg:grid-cols-4">
 			<!--Navigation-->
@@ -22,7 +22,7 @@
 			</div>
 
 			<!--Index Page-->
-			<div class="col-span-3 lg:px-5">
+			<div class="col-span-3 lg:px-12">
 				{@render children()}
 			</div>
 		</div>

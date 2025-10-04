@@ -1,11 +1,7 @@
 <script lang="ts">
 	import Box from './Box.svelte';
-	import AnimatedLink from './AnimatedLink.svelte';
-	import CurrentPlayingMusic from './CurrentPlayingMusic.svelte';
-	import RecomendationSnippet from './orange_love/RecomendationSnippet.svelte';
-	import { browser } from '$app/environment';
-	import OrangeLoading from './OrangeLoading.svelte';
-	import Heading from '../routes/music/(components)/Heading.svelte';
+
+	import Heading from './typography/Heading.svelte';
 
 	let loaded = false;
 </script>
@@ -15,9 +11,7 @@
 
 	<Box>Siema</Box>
 
-	<!-- <div class="flex flex-col gap-5">
-		<CurrentPlayingMusic />
-	</div> -->
+	<div class="h-[550px]"></div>
 </div>
 
 <style>

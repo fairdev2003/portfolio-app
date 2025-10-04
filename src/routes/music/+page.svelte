@@ -1,16 +1,19 @@
 <script lang="ts">
-	import { klimsonApp } from '$lib';
-	import Box from '../../components/Box.svelte';
-	import SpotifyStatus from '../../components/SpotifyStatus.svelte';
-	import CircularProgressBar from './(components)/CircularProgressBar.svelte';
-	import Heading from './(components)/Heading.svelte';
 	import MusicGroup from './(components)/MusicGroup.svelte';
-	import Paragraph from './(components)/Paragraph.svelte';
+	import Paragraph from '../../components/typography/Paragraph.svelte';
 	import { playlistBorder } from './(components)/static';
-	import type { MusicGroupType } from './(components)/types/music';
+
+	import Heading from '../../components/typography/Heading.svelte';
+	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
 </script>
 
 <div class="flex flex-col gap-3">
+	<PagesNavigation
+		pages={[
+			{ name: 'KLIMSON', route: '/' },
+			{ name: 'MUSIC', route: '/music' }
+		]}
+	/>
 	<div class="mb-5 flex flex-col gap-3">
 		<Heading>Muzyka.</Heading>
 		<Paragraph

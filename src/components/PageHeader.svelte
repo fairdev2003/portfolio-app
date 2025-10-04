@@ -4,7 +4,6 @@
 	import { pageSections } from '$lib/static';
 	import DiscordActivityPill from './discord/DiscordActivityPill.svelte';
 	import SpotifyStatus from './SpotifyStatus.svelte';
-	import Heading from '../routes/music/(components)/Heading.svelte';
 
 	import { goto } from '$app/navigation';
 
@@ -47,13 +46,13 @@
 >
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<div
-		class="flex h-15 w-6xl items-center justify-between border-1 border-neutral-800/60 bg-neutral-900/60 px-10 backdrop-blur-sm lg:hidden"
+		class="flex h-15 w-6xl items-center justify-between border-1 border-neutral-800/60 bg-neutral-900/60 px-10 backdrop-blur-sm lg:border-none lg:bg-transparent"
 	>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<h3 class="klimson-heading" onclick={() => goto('/')}>klimson.dev</h3>
 		<img
 			onclick={toggleMenu}
-			class="h-8 w-8 cursor-pointer"
+			class="h-8 w-8 cursor-pointer lg:hidden"
 			alt="hamburger"
 			src="https://img.icons8.com/?size=100&id=8113&format=png&color=FFFFFF"
 		/>

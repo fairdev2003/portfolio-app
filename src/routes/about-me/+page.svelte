@@ -5,9 +5,16 @@
 	import FileDownload from './(components)/FileDownload.svelte';
 	import Intrudaction from './(components)/Intrudaction.svelte';
 	import Hardware from './(components)/Hardware.svelte';
+	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
 </script>
 
-<div class="flex flex-col gap-12 lg:col-span-2">
+<div class="flex flex-col lg:col-span-2">
+	<PagesNavigation
+		pages={[
+			{ name: 'KLIMSON', route: '/' },
+			{ name: 'O MNIE', route: '/about-me' }
+		]}
+	/>
 	<Intrudaction />
 	<TechnologyStack />
 	<Education />

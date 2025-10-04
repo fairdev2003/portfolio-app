@@ -4,11 +4,18 @@
 	import ResponsiveContainer from '../../components/responsive/ResponsiveContainer.svelte';
 	import SectorButton from './(components)/SectorButton.svelte';
 	import SFM from '../../assets/sfm.png';
+	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
 
 	const { data } = $props();
 </script>
 
-<ResponsiveContainer cols={2} className="flex flex-col gap-y-3 col-span-2">
+<ResponsiveContainer cols={2} className="flex flex-col gap-y-3 col-span-2 ">
+	<PagesNavigation
+		pages={[
+			{ name: 'KLIMSON', route: '/' },
+			{ name: 'BLOG', route: '/about-me' }
+		]}
+	/>
 	<h2>Sekcja blogowa</h2>
 
 	<!-- move this to component -->

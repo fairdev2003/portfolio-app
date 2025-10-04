@@ -1,14 +1,15 @@
 <script lang="ts">
-	import { quotes } from "$lib/static"
-	import type { QuoteProps } from "$lib/static"
+	import { quotes } from '$lib/static';
+	import type { QuoteProps } from '$lib/static';
 	import { onMount } from 'svelte';
 	import QuoteBox from '../../quotes/(components)/QuoteBox.svelte';
 	import NotFound from '../../../components/NotFound.svelte';
-	export let data : {
+	import PagesNavigation from '../../../components/typography/PagesNavigation.svelte';
+	export let data: {
 		q_path: string;
 	};
-	let validPath: boolean = false
-	let quote : QuoteProps;
+	let validPath: boolean = false;
+	let quote: QuoteProps;
 
 	onMount(() => {
 		quotes.map((q) => {
@@ -17,14 +18,24 @@
 				quote = q;
 				return;
 			}
-		})
-	})
+		});
+	});
 </script>
 
-<div class="col-span-2">
+<div class="col-span-2 flex flex-col gap-5">
+	<PagesNavigation
+		pages={[
+			{ name: 'KLIMSON', route: '/' },
+			{ name: 'CYTATY', route: '/about-me' },
+			{
+				name: data.q_path.toUpperCase().replaceAll('-', ' ').replaceAll('_', ' '),
+				route: '/about-me'
+			}
+		]}
+	/>
 	{#if validPath}
 		<QuoteBox quote={quote.quote} author={quote.author}></QuoteBox>
 	{:else}
-		<NotFound/>
+		<NotFound />
 	{/if}
 </div>

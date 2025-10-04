@@ -12,7 +12,6 @@
 		if (!extraListEl) return;
 
 		if (showMore) {
-			// zwijanie reszty
 			gsap.to(extraListEl, {
 				height: 0,
 				duration: 0.5,
@@ -22,7 +21,6 @@
 				}
 			});
 		} else {
-			// rozwijanie reszty
 			showMore = true;
 			gsap.fromTo(
 				extraListEl,
@@ -49,14 +47,12 @@
 		</div>
 	</div>
 
-	<!-- zawsze widoczne 3 pierwsze -->
 	<div class="mt-5 flex flex-col gap-3 px-5">
 		{#each musicGroup.musicList.slice(0, 3) as { ...rest } (rest.id)}
 			<MusicCard playlist={musicGroup.musicList} {...rest} />
 		{/each}
 	</div>
 
-	<!-- reszta listy z animacją -->
 	<div
 		bind:this={extraListEl}
 		class="mt-3 flex flex-col gap-3 overflow-hidden px-5"
@@ -69,6 +65,8 @@
 
 	{#if musicGroup.musicList.length > 3}
 		<div class="mt-3 flex justify-center text-sm">
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 			<p
 				onclick={toggle}
 				class="cursor-pointer text-sm font-medium text-neutral-300 hover:underline"

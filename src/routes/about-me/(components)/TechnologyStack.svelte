@@ -1,12 +1,12 @@
 <script lang="ts">
 	import TechnologyStackItem from '../../../components/TechnologyStackItem.svelte';
 	import { techStackItems, websiteStack } from '$lib/static.js';
-	import Heading from '../../../components/Heading.svelte';
+	import Heading from '../../../components/typography/Heading.svelte';
 </script>
 
 <div class="flex flex-col justify-center gap-5">
 	<div class="flex flex-col gap-1">
-		<Heading value="Stack technologiczny" />
+		<Heading class="mb-1">Stack</Heading>
 		<p class="font-[500] text-gray-500">
 			Na przestrzeni lat ten stack technologiczny cały czas się rozwijał. Moje pierwsza styczność z
 			programowaniem miała miejsce gdy dołączyłem do projektu gry na Roblox. Nigdy nie sądziłem ze

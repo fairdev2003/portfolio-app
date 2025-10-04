@@ -6,7 +6,7 @@
 
 <div class="mt-10 h-0.5 w-full bg-gray-500 md:hidden" />
 <div
-	class="sticky top-0 col-span-1 mt-10 flex flex-col items-center justify-center gap-5 p-5 md:flex md:flex-row lg:mt-0 lg:flex-col"
+	class="sticky top-0 col-span-1 mt-10 flex flex-col items-center gap-5 p-5 md:flex md:flex-row lg:mt-0 lg:flex-col"
 >
 	<div class="h-48 w-48 overflow-hidden rounded-full">
 		<img
