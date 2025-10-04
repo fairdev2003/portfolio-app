@@ -6,7 +6,7 @@
 </script>
 
 <div class="mb-5">
-	<Heading class="mb-5">O mnie</Heading>
+	<Heading class="mb-5" id="about-me">O mnie</Heading>
 	<Box>
 		<div class="flex items-center gap-4">
 			<h3 class="text-2xl font-bold whitespace-nowrap text-white">Moje 5 minut</h3>

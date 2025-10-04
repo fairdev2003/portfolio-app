@@ -15,7 +15,7 @@
 		]}
 	/>
 	<div class="mb-5 flex flex-col gap-3">
-		<Heading>Muzyka.</Heading>
+		<Heading id="music">Muzyka.</Heading>
 		<Paragraph
 			>Taka mała sekcja na temat muzyki, której słucham. Dzięki muzyce czuje sie w jakims filmie. Na
 			dobrą sprawe lubie praktycznie każdą muzyke. Nie mam swojego ulubionego typu muzyki więc tak
