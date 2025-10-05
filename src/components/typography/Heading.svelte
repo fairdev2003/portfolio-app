@@ -24,7 +24,7 @@
 
 	{#if !idTrackingDisabled}
 		<span
-			class={`absolute ${padding ? 'top-5' : 'top-0'} -left-6 hidden cursor-pointer text-neutral-500 transition-opacity group-hover:flex`}
+			class={`hidden lg:absolute ${padding ? 'top-5' : 'top-0'} -left-6 hidden cursor-pointer text-neutral-500 transition-opacity group-hover:flex`}
 			>#</span
 		>
 		<span
@@ -33,7 +33,7 @@
 				const url = location.origin + location.pathname + '#' + props.id;
 				goto(url);
 			}}
-			class={`absolute ${padding ? 'top-5' : 'top-0'} -left-6 size-6 cursor-pointer text-neutral-500`}
+			class={`hidden lg:absolute ${padding ? 'top-5' : 'top-0'} -left-6 size-6 cursor-pointer text-neutral-500`}
 		></span>
 	{/if}
 </h1>
