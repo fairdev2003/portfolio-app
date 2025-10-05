@@ -16,7 +16,7 @@
 			case 'archived':
 				return '';
 			case 'completed':
-				return '';
+				return 'bg-green-400/30 border border-green-400 text-white';
 		}
 	};
 

@@ -36,5 +36,25 @@ export const projects: Project[] = [
 		},
 		screenshots: [],
 		startDate: '10.03.2025'
+	},
+	{
+		id: 'harc-quiz',
+		name: 'HarcQuiz',
+		description: 'Najwieksza strona z harcerskimi quizami.',
+		category: 'web',
+		status: 'wip',
+		techStack: [{ name: 'Svelte' }],
+		links: [
+			{ type: 'repo', url: 'https://github.com/fairdev2003/portfolio-app' },
+			{ type: 'demo', url: 'https://harc-quiz.pl/' }
+		],
+		logo: {
+			color: 'bg-amber-800/20',
+			url: 'https://res.cloudinary.com/dzaslaxhw/image/upload/v1759636482/samples/campfire-loading.svg'
+		},
+		screenshots: [],
+		startDate: '10.03.2025'
 	}
 ];
+
+let s = '/src/assets/campfire.png';

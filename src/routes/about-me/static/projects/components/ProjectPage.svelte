@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Project, ProjectId } from '../../project.types';
 	import { projects } from '../../projects';
+	import HarcQuiz from '../HarcQuiz.svelte';
 	import KlimsonServer from '../KlimsonServer.svelte';
 	import PortfolioApp from '../PortfolioApp.svelte';
 
@@ -21,5 +22,8 @@
 	{/if}
 	{#if id === 'klimson-server'}
 		<KlimsonServer project={getProjectRecord(id)} />
+	{/if}
+	{#if id === 'harc-quiz'}
+		<HarcQuiz project={getProjectRecord(id)} />
 	{/if}
 </div>

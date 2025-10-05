@@ -124,7 +124,7 @@
 				<!-- header -->
 				<div class="h-10 flex items-center flex-shrink-0 border-b border-neutral-700/60 justify-between px-5 bg-neutral-800/60 mb-2">
 					<div class="flex justify-center w-full">
-						<p class="text-[18px]">{selectedId}</p>
+						<p class="text-[18px]">{projects.find(p => p.id == id)?.name}</p>
 					</div>
 					<button onclick={() => closeModal()} class="hover:bg-white/10 text-neutral-500 rounded-full p-0.5 cursor-pointer">
 						<X/>
