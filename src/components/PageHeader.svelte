@@ -6,6 +6,7 @@
 	import SpotifyStatus from './SpotifyStatus.svelte';
 
 	import { goto } from '$app/navigation';
+	import RenovationAlert from '../routes/about-me/sectors/components/RenovationAlert.svelte';
 
 	let menu: HTMLElement | null = null;
 	let isOpen = false;
@@ -85,6 +86,8 @@
 	{#each pageSections as { name, path }}
 		<a href={path} class="mb-3 text-xl font-bold">{name}</a>
 	{/each}
+	<div class="h-2"></div>
+	<RenovationAlert small />
 
 	<!-- <DiscordActivityPill mobile /> -->
 </nav>
