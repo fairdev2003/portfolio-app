@@ -29,8 +29,3 @@
 		musicList={playlistBorder.musicList}
 	/>
 </div>
-
-<svelte:head>
-	<title>Muzyka</title>
-	<meta name="description" content="Muzyka to moja pasja" />
-</svelte:head>

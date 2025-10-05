@@ -10,3 +10,8 @@
 		{@render children()}
 	</ResponsiveContainer>
 </ResponsiveWrapper>
+
+<svelte:head>
+	<title>Muzyka</title>
+	<meta name="description" content="Muzyka to moja pasja" />
+</svelte:head>

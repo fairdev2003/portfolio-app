@@ -16,3 +16,8 @@
 		<ContentsTable />
 	</div>
 </ResponsiveWrapper>
+
+<svelte:head>
+	<title>O mnie</title>
+	<meta name="description" content="Informacje o mnie :)" />
+</svelte:head>

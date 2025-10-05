@@ -11,11 +11,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #303068;
+    background: white;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #191945;
+    background: gray;
     border-radius: 10px;
 }

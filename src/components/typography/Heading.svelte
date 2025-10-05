@@ -7,9 +7,10 @@
 	type Props = {
 		children: Snippet;
 		padding?: boolean;
+		idTrackingDisabled?: boolean;
 	} & HTMLAttributes<HTMLHeadingElement>;
 
-	const { padding = false, children, ...props }: Props = $props();
+	const { padding = false, idTrackingDisabled = false, children, ...props }: Props = $props();
 </script>
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -21,17 +22,20 @@
 >
 	<span>{@render children()}</span>
 
-	<span
-		class={`absolute ${padding ? 'top-5' : 'top-0'} -left-6 hidden cursor-pointer text-neutral-500 transition-opacity group-hover:flex`}
-		>#</span
-	>
-	<span
-		onclick={() => {
-			const url = location.origin + location.pathname + '#' + props.id;
-			goto(url);
-		}}
-		class={`absolute ${padding ? 'top-5' : 'top-0'} -left-6 size-6 cursor-pointer text-neutral-500`}
-	></span>
+	{#if !idTrackingDisabled}
+		<span
+			class={`absolute ${padding ? 'top-5' : 'top-0'} -left-6 hidden cursor-pointer text-neutral-500 transition-opacity group-hover:flex`}
+			>#</span
+		>
+		<span
+			onclick={() => {
+				if (!props.id) return;
+				const url = location.origin + location.pathname + '#' + props.id;
+				goto(url);
+			}}
+			class={`absolute ${padding ? 'top-5' : 'top-0'} -left-6 size-6 cursor-pointer text-neutral-500`}
+		></span>
+	{/if}
 </h1>
 
 <style>

@@ -54,3 +54,21 @@
 		</div>
 	</div>
 {/if}
+
+<style>
+	::-webkit-scrollbar {
+		display: none;
+	}
+
+	::-webkit-scrollbar-track {
+		display: none;
+	}
+
+	::-webkit-scrollbar-thumb {
+		display: none;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		display: none;
+	}
+</style>

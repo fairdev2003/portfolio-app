@@ -8,6 +8,7 @@
 	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
 	import ResponsiveContainer from '../../components/responsive/ResponsiveContainer.svelte';
 	import ContentsTable from '../../components/typography/ContentsTable.svelte';
+	import Projects from './(components)/Projects.svelte';
 </script>
 
 <div class="flex flex-col lg:col-span-2">
@@ -19,6 +20,7 @@
 	/>
 	<Intrudaction />
 	<TechnologyStack />
+	<Projects />
 	<Education />
 	<JobExperience />
 	<Hardware />

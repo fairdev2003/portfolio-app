@@ -1,14 +1,14 @@
 <script lang="ts">
-	import Heading from '../../../components/Heading.svelte';
 	import Terminal from '../../../components/terminal/Terminal.svelte';
 	import { TerminalContext } from '../../../components/terminal/terminal.controls.svelte';
 	import { VSCThemeColor } from '../../blog/sfm/(components)/styles/colors';
 	import TerminalRecord from '../../../components/terminal/(components)/TerminalRecord.svelte';
+	import Heading from '../../../components/typography/Heading.svelte';
 </script>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div class="flex flex-col gap-4">
-	<Heading value="Sprzęt" />
+	<Heading id="Sprzęt" padding>Sprzęt</Heading>
 
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<div

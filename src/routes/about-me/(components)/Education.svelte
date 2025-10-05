@@ -3,7 +3,7 @@
 </script>
 
 <div class="flex flex-col gap-5">
-	<Heading id="Wykształcenie">Wykształcenie</Heading>
+	<Heading padding id="Wykształcenie">Wykształcenie</Heading>
 	<div class="flex items-center gap-3">
 		<img
 			class="h-15 w-15"

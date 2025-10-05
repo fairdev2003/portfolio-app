@@ -7,7 +7,8 @@
 
 <div class="mb-5">
 	<Heading padding class="mb-5" id="O-Mnie">O mnie</Heading>
-	<Box>
+	<Box className="relative">
+		<div class="h-3"></div>
 		<div class="flex items-center gap-4">
 			<h3 class="text-2xl font-bold whitespace-nowrap text-white">Moje 5 minut</h3>
 			<div class="h-0.5 flex-1 bg-gray-500"></div>
@@ -27,5 +28,6 @@
 			</p>
 			<p class="font-[500] text-gray-400">Miłego dnia :)</p>
 		</div>
+		<div class="h-3"></div>
 	</Box>
 </div>

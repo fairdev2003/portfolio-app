@@ -9,7 +9,7 @@
 	const { children, ...props }: Props = $props();
 </script>
 
-<p class="heading text-md text-white/70" {...props}>
+<p class="heading text-md text-[17px] text-white/70 lg:text-[18px]" {...props}>
 	{@render children()}
 </p>
 
@@ -17,6 +17,5 @@
 	p {
 		font-family: Georgia, 'Times New Roman', Times, serif;
 		font-weight: 500;
-		font-size: 18px;
 	}
 </style>
