@@ -4,12 +4,16 @@
 
 	type Props = {
 		children: Snippet;
+		white?: boolean;
 	} & HTMLAttributes<HTMLParagraphElement>;
 
-	const { children, ...props }: Props = $props();
+	const { white = false, children, ...props }: Props = $props();
 </script>
 
-<p class="heading text-md text-[17px] text-neutral-500 lg:text-[18px]" {...props}>
+<p
+	class={`heading text-md text-[17px] ${white ? 'text-white' : 'text-neutral-500'}  lg:text-[18px]`}
+	{...props}
+>
 	{@render children()}
 </p>
 
