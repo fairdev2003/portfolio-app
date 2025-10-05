@@ -65,7 +65,9 @@
 	const { responsiveState = 'desktop' }: Props = $props();
 </script>
 
-<Paragraph class="my-3 mt-6 text-green-500">▶ Słucham Spotify</Paragraph>
+{#if klimsonApp.spotify}
+	<Paragraph class="my-3 mt-6 text-green-500">▶ Słucham Spotify</Paragraph>
+{/if}
 {#if klimsonApp.spotify}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
