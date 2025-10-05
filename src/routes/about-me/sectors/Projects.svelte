@@ -61,11 +61,12 @@
 		}
 	}
 
-	const modalMount: Attachment = (element) => {
-		return () => {
-			console.log('cleaning up');
-		};
-	};
+	function modalMount(): Attachment {
+		return (element: Element) => {
+			gsap.fromTo(element, {opacity: 0}, {opacity: 1, duration: 0.1})
+				
+		}
+	}
 
 	onMount(async () => {
 		const params = new URLSearchParams(window.location.search);
@@ -115,14 +116,14 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 {#snippet Modal(id: string)}
 	{#if modalOpened}
-		<div {@attach modalMount} class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 text-white">
+		<div {@attach modalMount()} class="fixed lg:backdrop-blur-lg md:backdrop-blur-lg inset-0 z-50 flex items-center justify-center bg-black/50 text-white">
 			<div
 				{@attach modalAnimation()}
 				bind:this={modalEl}
-				class="relative flex h-[99%] lg:h-[95%] w-[98%] lg:w-7xl max-w-3xl flex-col border border-neutral-800/60 bg-neutral-950"
+				class="relative flex h-[99%] lg:h-[95%] w-[98%] lg:w-7xl max-w-3xl flex-col border border-neutral-800/60 bg-neutral-950/60 lg:backdrop-blur-none backdrop-blur-xl"
 			>	
 				<!-- header -->
-				<div class="h-10 flex items-center flex-shrink-0 border-b border-neutral-700/60 justify-between px-5 bg-neutral-800/60 mb-2">
+				<div class="h-10 flex  items-center flex-shrink-0 border-b border-neutral-700/60 justify-between px-5 bg-neutral-800/60 mb-2">
 					<div class="flex justify-center w-full">
 						<p class="text-[18px]">{projects.find(p => p.id == id)?.name}</p>
 					</div>
