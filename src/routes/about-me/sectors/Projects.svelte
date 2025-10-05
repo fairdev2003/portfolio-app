@@ -9,6 +9,7 @@
 	import type { Project } from '../static/project.types';
 	import ProjectPage from '../static/projects/components/ProjectPage.svelte';
 	import { onMount, tick } from 'svelte';
+	import PagesNavigation from '../../../components/typography/PagesNavigation.svelte';
 
 	type ProjectType = 'portfolio' | 'klimson-server' | 'modopedia' | 'clan-manager';
 	let selectedId: string = $state('klimson-server');
@@ -68,11 +69,14 @@
 
 	onMount(async () => {
 		const params = new URLSearchParams(window.location.search);
-		const id = params.get('openModal');
+		const id = params.get('openProject');
 
 		await tick()
 
-		if (id) {
+		const ids: string[] = projects.map(i => i.id)
+		
+
+		if (id && ids.includes(id)) {
 			selectedId = id;
 			openModal();
 		}
@@ -80,8 +84,14 @@
 	
 </script>
 
-<div class="flex flex-col gap-5">
-	<Heading padding id="Projekty">Projekty</Heading>
+<div class="flex flex-col gap-3">
+	<PagesNavigation pages={[
+		{name: "KLIMSON", route: "/"},
+		{name: "PROJEKTY", route: "/"}
+		
+	]}/>
+	<Heading id="Projekty">Projekty</Heading>
+	<a href="/projects">Projekty</a>
 	<div class="flex flex-col gap-3">
 		{#each projects as project}
 			<ProjectCard onClick={() => {
