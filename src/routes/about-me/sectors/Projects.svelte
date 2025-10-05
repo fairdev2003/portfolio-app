@@ -81,17 +81,23 @@
 			openModal();
 		}
 	});
+
+	type Props = {
+		blockPagesNavigation?: boolean
+	}
+	const { blockPagesNavigation = false }: Props = $props()
 	
 </script>
 
 <div class="flex flex-col gap-3">
-	<PagesNavigation pages={[
+	{#if !blockPagesNavigation}
+		<PagesNavigation pages={[
 		{name: "KLIMSON", route: "/"},
-		{name: "PROJEKTY", route: "/"}
-		
-	]}/>
-	<Heading id="Projekty">Projekty</Heading>
-	<a href="/projects">Projekty</a>
+		{name: "PROJEKTY", route: "/projects"}
+	]}/>	
+	{/if}
+	
+	<Heading id="Projekty" class={blockPagesNavigation ? "mt-5" : ""}>Projekty</Heading>
 	<div class="flex flex-col gap-3">
 		{#each projects as project}
 			<ProjectCard onClick={() => {

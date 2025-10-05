@@ -20,7 +20,7 @@
 	/>
 	<Intrudaction />
 	<TechnologyStack />
-	<Projects />
+	<Projects blockPagesNavigation />
 	<Education />
 	<JobExperience />
 	<Hardware />
