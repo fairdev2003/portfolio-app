@@ -59,15 +59,19 @@ const websiteStack: TechStackType[] = [
 	{ src: 'Tailwind-CSS.svg', stack_name: 'TailwindCSS', href: 'https://tailwindcss.com/' }
 ];
 
-const pageSections = [
+type PageContentsType = {
+	path: string;
+	name: string;
+	description?: string;
+};
+
+const pageSections: PageContentsType[] = [
 	{ name: 'Index', description: '', path: '/' },
 	{ name: 'O mnie', description: 'Trochę informacji o mnie', path: '/about-me' },
 	{ name: 'Blog', description: 'Rzeczy ktore mnie interesuja', path: '/blog' },
 	{ name: 'Projekty', description: 'Baza moich projektów', path: '/projects' },
-	{ name: 'Muzyka', description: 'Moja ulubiona muzyczka', path: '/music' },
-
 	{ name: 'Kontakt', description: 'Dostępne metody kontaktu', path: '/contact' },
-	{ name: 'Cytaty', description: 'Moje życiowe cytaty', path: '/quotes' }
+	{ name: 'Spis treści', description: 'Wszystkie treści na mojej stronie', path: '/contents' }
 ];
 
 type ProjectsProps = {

@@ -6,6 +6,7 @@
 	import Heading from '../../components/typography/Heading.svelte';
 	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
 	import RenovationAlert from '../about-me/sectors/components/RenovationAlert.svelte';
+	import TopMusicPlayer from './(components)/TopMusicPlayer.svelte';
 </script>
 
 <div class="flex flex-col gap-3">

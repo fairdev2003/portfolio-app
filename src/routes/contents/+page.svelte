@@ -1,0 +1,42 @@
+<script>
+	import ContactForm from '../../components/ContactForm.svelte';
+	import Document from '../../components/Document.svelte';
+	import Heading from '../../components/typography/Heading.svelte';
+
+	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
+	import Paragraph from '../../components/typography/Paragraph.svelte';
+	import Text from '../../components/typography/Text.svelte';
+	import RenovationAlert from '../about-me/sectors/components/RenovationAlert.svelte';
+	import ContentsTable from './(components)/ContentsTable.svelte';
+</script>
+
+<div class="flex flex-col gap-5 lg:col-span-2">
+	<PagesNavigation
+		pages={[
+			{ name: 'KLIMSON', route: '/' },
+			{ name: 'SPIS TREŚCI', route: '/contents' }
+		]}
+	/>
+	<Heading padding id="Spis-treści">Spis treści.</Heading>
+	<Paragraph
+		>Jeżeli nie znalazłeś tego co potrzebujesz na mojej stronie w nawigacji, tutaj prawdopodobnie to
+		znajdziesz o ile nie ukrylem tego lub treść nie jest zablokowana dla przechodnych użytkowników.
+		Jeżeli mimo tego coś widoczne nadal nie bedzie dla ciebie dostepna prosze o kontakt, naprawimy
+		{':)'}</Paragraph
+	>
+	<Document>
+		<Heading id="Nawigacja">Nawigacja</Heading>
+		<ContentsTable type="section" />
+		<Heading id="Pozostałe">Pozostałe</Heading>
+		<ContentsTable />
+		<div class="h-3"></div>
+	</Document>
+</div>
+
+<style>
+	a {
+		color: white;
+		font-weight: bold;
+		background-color: transparent;
+	}
+</style>

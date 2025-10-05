@@ -1,11 +1,12 @@
 <script lang="ts">
 	import Box from '../../components/Document.svelte';
+	import Paragraph from '../../components/typography/Paragraph.svelte';
 </script>
 
 <div class="col-span-2 flex flex-col gap-y-5">
 	<Box className=" w-full overflow-hidden break-words">
 		<h3>12 czerwiec 2025 13 minut po północy.....</h3>
-		<p>
+		<Paragraph white>
 			Hejo. Dzisiaj był mega dziwny dzień. Jak zwykle wstaję w ogromnym chaosie z łóżka, ale
 			dzisiejszy dzień był inny, bo wziąłem prysznic rano, co jest absolutnie do mnie niepodobne.
 			Zazwyczaj codziennie budzę się pół godziny i zbieram się w biegu. Często jest tak, że po
@@ -37,11 +38,11 @@
 			awantury o to, że nie mam pracy, nie pomagali mi w tej sytuacji w ogóle <span
 				class="font-bold">~~ Klimson</span
 			>
-		</p>
+		</Paragraph>
 	</Box>
 	<Box className=" w-full overflow-hidden break-words">
 		<h3>23:58 21.06.2025</h3>
-		<p>
+		<Paragraph white>
 			Czuje że bez ludzi wokół mnie którzy mnie rozumieją, czuja ze mną - jestem bezwartościowy.
 			Właśnie wróciłem z rynku w Krakowie. Było tam masa osób które świetnie się bawiły. Zawsze z
 			kolegą wychodziłem na miasto, zagadywałem różne osoby a teraz boje sie nawet do niego
@@ -63,6 +64,6 @@
 			Zjebalem to na własne życzenie. Koleżanka zaproponowała mi terapeute. Mam pieniądze na niego.
 			Jeżeli mam poczuć sie lepiej to jestem w stanie je wydać ale chciałbym mieć pewność że to się
 			skończy, ten ból, to cierpienie.
-		</p>
+		</Paragraph>
 	</Box>
 </div>

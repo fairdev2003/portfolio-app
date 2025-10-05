@@ -2,15 +2,16 @@ import type { MusicGroupType, TopMusicType } from './types/music';
 
 export const TopMusicPlaylist: TopMusicType[] = [
 	{
-		id: 1,
+		id: 0,
 		song_name: 'Good Luck with Your Dreams',
 		song_artist: 'DJ DENZ The Rooster',
 		song_image: 'https://i.scdn.co/image/ab67616d0000b273ca887bc66aaa063549df03da',
 		song_desc: 'i see stars in the night sky.',
-		song_link: ''
+		song_link:
+			'https://res.cloudinary.com/dzaslaxhw/video/upload/v1759446605/Music/SpotiDownloader.com_-_Blackmail_-_Mareux.mp3'
 	},
 	{
-		id: 2,
+		id: 1,
 		song_name: 'Club De Vampiros',
 		song_artist: 'French Police',
 		song_image: 'https://i.scdn.co/image/ab67616d0000b273fc71e48308f836ad93901919',

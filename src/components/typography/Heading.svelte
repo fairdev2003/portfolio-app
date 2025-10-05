@@ -33,7 +33,7 @@
 				const url = location.origin + location.pathname + '#' + props.id;
 				goto(url);
 			}}
-			class={`hidden lg:absolute ${padding ? 'top-5' : 'top-0'} -left-6 size-6 cursor-pointer text-neutral-500`}
+			class={`group-hover:flex lg:absolute ${padding ? 'top-5' : 'top-0'} -left-6 size-6 cursor-pointer text-neutral-500`}
 		></span>
 	{/if}
 </h1>
