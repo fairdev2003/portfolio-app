@@ -43,7 +43,10 @@ h3 {
 }
 
 a {
-    @apply hover:underline text-blue-700
+    color: #0d5ec8
+}
+a:hover {
+    text-decoration: underline;
 }
 
 a:hover {

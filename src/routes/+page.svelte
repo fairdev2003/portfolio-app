@@ -1,4 +1,5 @@
 <script>
+	import Footer from '../components/Footer.svelte';
 	import Index from '../Index.svelte';
 </script>
 

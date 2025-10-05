@@ -7,6 +7,7 @@
 	import '../scrollbar.css';
 	import SpotifyStatus from '../components/SpotifyStatus.svelte';
 	import { onMount } from 'svelte';
+	import HotlineWebring from '../components/HotlineWebring.svelte';
 	let { children } = $props();
 </script>
 
@@ -28,5 +29,6 @@
 			</div>
 		</div>
 	</div>
+	<HotlineWebring />
 	<Footer />
 </section>
