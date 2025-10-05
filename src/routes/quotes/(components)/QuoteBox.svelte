@@ -13,7 +13,7 @@
 </script>
 
 <Box disabledPages>
-	<Paragraph>"{quote}"</Paragraph>
+	<Paragraph class="text-[18px] text-white">"{quote}"</Paragraph>
 	<div class="flex justify-end">
 		<Paragraph class="font-bold text-white">~~ {author}</Paragraph>
 	</div>
