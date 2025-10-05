@@ -25,7 +25,7 @@
 	<!-- svelte-ignore event_directive_deprecated -->
 
 	<ProjectCard
-		name="Super Factory Manager"
+		name="Super Factory Manager (deprecated design)"
 		description="Super Factory Manager to nowoczesny mod logistyczny do Minecrafta..."
 		logo={{ url: SFM, color: 'bg-indigo-500/50' }}
 		onClick={() => {

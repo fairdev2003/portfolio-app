@@ -9,12 +9,9 @@
 	const { children, ...props }: Props = $props();
 </script>
 
-<div
-	class="heading text-md flex justify-center text-[17px] text-neutral-500 lg:text-[18px]"
-	{...props}
->
-	<p class="mx-auto flex">{@render children()}</p>
-</div>
+<p class="heading text-md text-[17px] text-white/70 lg:text-[15px]" {...props}>
+	{@render children()}
+</p>
 
 <style>
 	p {

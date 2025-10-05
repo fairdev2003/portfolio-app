@@ -1,9 +1,24 @@
 <script>
 	import ContactForm from '../../components/ContactForm.svelte';
 	import Heading from '../../components/typography/Heading.svelte';
+
+	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
+	import Text from '../../components/typography/Text.svelte';
+	import RenovationAlert from '../about-me/sectors/components/RenovationAlert.svelte';
 </script>
 
-<div class="flex flex-col gap-10 lg:col-span-2">
+<div class="flex flex-col gap-5 lg:col-span-2">
+	<PagesNavigation
+		pages={[
+			{ name: 'KLIMSON', route: '/' },
+			{ name: 'KONTAKT', route: '/contact' }
+		]}
+	/>
+	<Heading>Kontakt</Heading>
+	<RenovationAlert />
+</div>
+
+{#snippet OldContactComponentContent()}
 	<div class="flex flex-col">
 		<h2>Kontakt</h2>
 		<p class="font-[500] text-gray-500">
@@ -39,12 +54,11 @@
 				<p class="font-[500] text-gray-500">Dołącz do serwera społeczności developerów</p>
 			</div>
 		</div>
-		<!--		<Heading>Dane kontaktowe</Heading>-->
 		<Heading>Formualarz kontaktowy</Heading>
 		<ContactForm />
 		<p class="flex justify-center font-[500] text-gray-500">Słyszymy sie później?</p>
 	</div>
-</div>
+{/snippet}
 
 <style>
 	a {
