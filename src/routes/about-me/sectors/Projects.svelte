@@ -8,6 +8,7 @@
 	import { projects } from '../static/projects';
 	import type { Project } from '../static/project.types';
 	import ProjectPage from '../static/projects/components/ProjectPage.svelte';
+	import { onMount, tick } from 'svelte';
 
 	type ProjectType = 'portfolio' | 'klimson-server' | 'modopedia' | 'clan-manager';
 	let selectedId: string = $state('klimson-server');
@@ -65,7 +66,17 @@
 		};
 	};
 
-	
+	onMount(async () => {
+		const params = new URLSearchParams(window.location.search);
+		const id = params.get('openModal');
+
+		await tick()
+
+		if (id) {
+			selectedId = id;
+			openModal();
+		}
+	});
 	
 </script>
 
