@@ -20,7 +20,7 @@
 
 	{#if path}
 		<div class="mt-5">
-			<AnimatedLink href={`/quote/${path}`} text="Zobacz" />
+			<AnimatedLink href={`/quote/${path}`} text="ZOBACZ" />
 		</div>
 	{/if}
 </Box>
