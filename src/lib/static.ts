@@ -63,7 +63,7 @@ const pageSections = [
 	{ name: 'Index', description: '', path: '/' },
 	{ name: 'O mnie', description: 'Trochę informacji o mnie', path: '/about-me' },
 	{ name: 'Blog', description: 'Rzeczy ktore mnie interesuja', path: '/blog' },
-	{ name: 'Projekty', description: 'Baza moich projktów', path: '/projects' },
+	{ name: 'Projekty', description: 'Baza moich projektów', path: '/projects' },
 	{ name: 'Muzyka', description: 'Moja ulubiona muzyczka', path: '/music' },
 
 	{ name: 'Kontakt', description: 'Dostępne metody kontaktu', path: '/contact' },
