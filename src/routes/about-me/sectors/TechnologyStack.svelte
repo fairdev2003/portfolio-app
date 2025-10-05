@@ -3,6 +3,7 @@
 	import { techStackItems, websiteStack } from '$lib/static.js';
 	import Heading from '../../../components/typography/Heading.svelte';
 	import Paragraph from '../../../components/typography/Paragraph.svelte';
+	import RenovationAlert from './components/RenovationAlert.svelte';
 </script>
 
 <div class="flex flex-col justify-center gap-5">
@@ -15,6 +16,11 @@
 		</Paragraph>
 	</div>
 	<!--Stack items-->
+
+	<RenovationAlert />
+</div>
+
+{#snippet StackSector()}
 	<div class="flex flex-wrap justify-center gap-3 md:justify-start lg:justify-start">
 		{#each techStackItems as { src, stack_name, imageStyle, href }}
 			<TechnologyStackItem {href} {src} {stack_name} {imageStyle} />
@@ -27,4 +33,4 @@
 		{/each}
 	</div>
 	<p class="font-[500]">Zobacz także <a href="/projects">Projekty</a></p>
-</div>
+{/snippet}

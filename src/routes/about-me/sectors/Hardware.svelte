@@ -4,6 +4,7 @@
 	import { VSCThemeColor } from '../../blog/sfm/(components)/styles/colors';
 	import TerminalRecord from '../../../components/terminal/(components)/TerminalRecord.svelte';
 	import Heading from '../../../components/typography/Heading.svelte';
+	import { SquareTerminal } from 'lucide-svelte';
 </script>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -11,15 +12,34 @@
 	<Heading id="Sprzęt" padding>Sprzęt</Heading>
 
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<div
+	<!-- <div
 		onclick={() => {
 			TerminalContext.OpenTerminal();
 			console.log(TerminalContext.terminalOpenState);
 		}}
 		class="box h-20 cursor-pointer rounded-2xl"
-	></div>
+	></div> -->
+	<div
+		onclick={() => {
+			TerminalContext.OpenTerminal();
+			console.log(TerminalContext.terminalOpenState);
+		}}
+		class="flex w-full cursor-pointer gap-3 border border-neutral-700/60 bg-neutral-900/60 p-3 hover:bg-neutral-800/60"
+	>
+		<div class="flex-shrink-0">
+			<div class={`flex size-18 items-center justify-center rounded-md bg-blue-800/60`}>
+				<!-- <img alt="svelte" class="size-10" /> -->
+				<div class="text-blue-400">
+					<SquareTerminal size={50} />
+				</div>
+			</div>
+		</div>
+		<div class="flex flex-col">
+			<h3 class="text-[20px]">Odtwórz terminal</h3>
+			<p class="text-[15px] text-neutral-400">Użytkownik Linuxa płakał jak odpalał</p>
+		</div>
+	</div>
 </div>
-
 <Terminal>
 	<p class={`${VSCThemeColor.HighlightBlue} string font-bold`}>$:~ System</p>
 	<!-- SYSTEM -->
@@ -115,5 +135,12 @@
 		font-family: 'Consolas', monospace;
 		min-height: 1.5rem; /* 20px */
 		line-height: 1.5rem;
+	}
+
+	h3 {
+		font-family: 'DM Serif Display', serif;
+	}
+	p {
+		font-family: Georgia, 'Times New Roman', Times, serif;
 	}
 </style>

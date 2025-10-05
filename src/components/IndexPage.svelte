@@ -2,6 +2,7 @@
 	import Box from './Box.svelte';
 
 	import Heading from './typography/Heading.svelte';
+	import Paragraph from './typography/Paragraph.svelte';
 
 	let loaded = false;
 </script>
@@ -9,7 +10,11 @@
 <div class="flex flex-col gap-6 lg:col-span-2">
 	<Heading>Index</Heading>
 
-	<Box>Siema</Box>
+	<Paragraph><a href="/music">Muzyka</a></Paragraph>
+
+	<Box>
+		<Paragraph>🚧 W trakcie remontu <a href="/about-me">Zobacz</a></Paragraph>
+	</Box>
 
 	<div class="h-[550px]"></div>
 </div>

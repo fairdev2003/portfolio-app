@@ -1,9 +1,14 @@
 <script>
 	import Heading from '../../../components/typography/Heading.svelte';
+	import RenovationAlert from './components/RenovationAlert.svelte';
 </script>
 
 <div class="flex flex-col gap-5">
 	<Heading padding id="Wykształcenie">Wykształcenie</Heading>
+	<RenovationAlert />
+</div>
+
+{#snippet EducationSnippet()}
 	<div class="flex items-center gap-3">
 		<img
 			class="h-15 w-15"
@@ -26,4 +31,4 @@
 			<p class="font-[500] text-gray-500">Studia | Październik 2024 - Teraz</p>
 		</div>
 	</div>
-</div>
+{/snippet}

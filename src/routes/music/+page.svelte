@@ -5,6 +5,7 @@
 
 	import Heading from '../../components/typography/Heading.svelte';
 	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
+	import RenovationAlert from '../about-me/sectors/components/RenovationAlert.svelte';
 </script>
 
 <div class="flex flex-col gap-3">
@@ -28,4 +29,8 @@
 		groupName={playlistBorder.groupName}
 		musicList={playlistBorder.musicList}
 	/>
+
+	<div class="h-5"></div>
+
+	<RenovationAlert />
 </div>
