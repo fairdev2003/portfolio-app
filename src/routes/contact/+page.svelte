@@ -1,6 +1,6 @@
 <script>
 	import ContactForm from '../../components/ContactForm.svelte';
-	import Heading from '../../components/Heading.svelte';
+	import Heading from '../../components/typography/Heading.svelte';
 </script>
 
 <div class="flex flex-col gap-10 lg:col-span-2">

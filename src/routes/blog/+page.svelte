@@ -1,8 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
-	import Box from '../../components/Document.svelte';
 	import ResponsiveContainer from '../../components/responsive/ResponsiveContainer.svelte';
-	import SectorButton from './(components)/SectorButton.svelte';
 	import SFM from '../../assets/sfm.png';
 	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
 	import ProjectCard from '../about-me/sectors/components/ProjectCard.svelte';
