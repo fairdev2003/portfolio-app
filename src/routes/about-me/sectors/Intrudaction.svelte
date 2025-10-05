@@ -16,8 +16,8 @@
 			<Paragraph class="font-[500] text-gray-400">
 				W pracy i prywatnie mowią mi Klimson. Od 2 lat hobbistycznie pasjonuje sie programowaniem.
 				Do tej pory zrobiłem kilka naprawdę świetnych projektów, Moim głównym projektem na ten
-				moment jest <a href="www.google.com">modopedia</a>. Moim celem jest pracować kiedyś w
-				budowaniu stron internetowych zarówno wizualnie jak i w częsci serwerowej.
+				moment jest <a href="/projects?openProject=portfolio">moje portfolio</a>. Moim celem jest
+				pracować kiedyś w budowaniu stron internetowych zarówno wizualnie jak i w częsci serwerowej.
 			</Paragraph>
 			<Paragraph class="font-[500] text-gray-400">
 				Przeprowadziłem się z mojego rodzinnego miasta do Krakowa, gdzie studiuje informatykę
