@@ -65,8 +65,13 @@
 	function modalMount(): Attachment {
 		return (element: Element) => {
 			gsap.fromTo(element, {opacity: 0}, {opacity: 1, duration: 0.1})
-				
-		}
+
+			const url = new URL(window.location.href);
+				if (url.searchParams.has('openProject')) {
+					url.searchParams.delete('openProject');
+					window.history.replaceState({}, '', url.toString());
+				}
+			}
 	}
 
 	onMount(async () => {
@@ -100,6 +105,10 @@
 	{/if}
 	
 	<Heading id="Projekty" class={blockPagesNavigation ? "mt-5" : ""}>Projekty</Heading>
+	{#if blockPagesNavigation}
+		<Paragraph><a href="/projects?openProject=portfolio">Odtwórz strone z opisem tej strony {"klimson.dev"}</a></Paragraph>
+	{/if}
+	
 	<Paragraph class="text-red-400">{"[Kliknij na kafelki poniżej cii]"}</Paragraph>
 	<div class="flex flex-col gap-3">
 		{#each projects as project}
