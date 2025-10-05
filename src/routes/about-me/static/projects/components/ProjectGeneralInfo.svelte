@@ -12,7 +12,7 @@
 	>
 		<img alt="svelte" class="flex size-30 opacity-80" src={project.logo?.url} />
 	</div>
-	<div class="mt-3 lg:mt-0">
+	<div class="mt-5 lg:mt-0">
 		<Heading idTrackingDisabled>{project.name}</Heading>
 		<div class="mt-2">
 			<StatusBit status={project.status} />
