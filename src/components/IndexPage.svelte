@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Box from './Box.svelte';
+	import Box from './Paper.svelte';
 
 	import Heading from './typography/Heading.svelte';
 	import Paragraph from './typography/Paragraph.svelte';

@@ -1,6 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
-	import Box from '../../components/Box.svelte';
+	import Box from '../../components/Paper.svelte';
 	import ResponsiveContainer from '../../components/responsive/ResponsiveContainer.svelte';
 	import SectorButton from './(components)/SectorButton.svelte';
 	import SFM from '../../assets/sfm.png';

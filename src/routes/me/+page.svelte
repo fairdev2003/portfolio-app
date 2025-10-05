@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Box from '../../components/Box.svelte';
+	import Box from '../../components/Paper.svelte';
 </script>
 
 <div class="col-span-2 flex flex-col gap-y-5">

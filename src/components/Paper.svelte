@@ -12,8 +12,15 @@
 </script>
 
 <div
-	class={`${props.class} box flex flex-col gap-5 border border-neutral-700/60 bg-neutral-900/60 p-10`}
+	class={`${props.class} box relative flex flex-col gap-5 border border-neutral-700/60 bg-neutral-900/60 p-10`}
 	{...props}
 >
 	{@render children()}
+	<p class="absolute right-8 bottom-4 text-white/70">1/1</p>
 </div>
+
+<style>
+	p {
+		font-family: Georgia, 'Times New Roman', Times, serif;
+	}
+</style>
