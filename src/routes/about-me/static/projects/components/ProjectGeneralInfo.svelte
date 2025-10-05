@@ -6,7 +6,7 @@
 	const project: Project = $props();
 </script>
 
-<div class="flex-col gap-5 p-5 lg:flex lg:flex-row lg:justify-start">
+<div class="flex-col gap-5 lg:flex lg:flex-row lg:justify-start">
 	<div
 		class={`mx-auto flex size-40 items-center justify-center rounded-lg lg:mx-px ${project.logo?.color}`}
 	>
