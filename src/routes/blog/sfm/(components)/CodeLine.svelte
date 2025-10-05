@@ -2,8 +2,9 @@
 	type Props = {
 		className?: string;
 		indent?: number;
+		disabledHighlight?: boolean;
 	};
-	const { className = '', indent = 0 }: Props = $props();
+	const { disabledHighlight = false, className = '', indent = 0 }: Props = $props();
 
 	const calculateIndent = (value: number) => {
 		return value === 0 ? 0 : value * 1.25;
@@ -15,7 +16,7 @@
 	style="padding-left: {calculateIndent(indent)}rem;"
 >
 	<!-- svelte-ignore slot_element_deprecated -->
-	<div class="code-content hover:bg-blue-900/50">
+	<div class={`code-content ${!disabledHighlight && 'hover:bg-blue-900/50'}`}>
 		<slot />
 	</div>
 </div>

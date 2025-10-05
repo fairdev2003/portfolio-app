@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Box from './Paper.svelte';
+	import Box from './Document.svelte';
 	import SpotifyStatus from './SpotifyStatus.svelte';
 
 	import Heading from './typography/Heading.svelte';

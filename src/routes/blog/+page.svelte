@@ -1,6 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
-	import Box from '../../components/Paper.svelte';
+	import Box from '../../components/Document.svelte';
 	import ResponsiveContainer from '../../components/responsive/ResponsiveContainer.svelte';
 	import SectorButton from './(components)/SectorButton.svelte';
 	import SFM from '../../assets/sfm.png';
@@ -29,7 +29,7 @@
 	<ProjectCard
 		name="Super Factory Manager"
 		description="Super Factory Manager to nowoczesny mod logistyczny do Minecrafta..."
-		logo={{ url: SFM, color: 'bg-gray-500' }}
+		logo={{ url: SFM, color: 'bg-indigo-500/50' }}
 		onClick={() => {
 			goto('/blog/sfm');
 		}}
