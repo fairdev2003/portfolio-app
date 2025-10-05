@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Box from '../../../components/Paper.svelte';
 	import AnimatedLink from '../../../components/AnimatedLink.svelte';
+	import Paragraph from '../../../components/typography/Paragraph.svelte';
 
 	type QuoteBoxProps = {
 		quote: string;
@@ -11,10 +12,10 @@
 	let { quote, author, path }: QuoteBoxProps = $props();
 </script>
 
-<Box>
-	<i>"{quote}"</i>
+<Box disabledPages>
+	<Paragraph>"{quote}"</Paragraph>
 	<div class="flex justify-end">
-		<p>~~ {author}</p>
+		<Paragraph class="font-bold text-white">~~ {author}</Paragraph>
 	</div>
 
 	{#if path}
