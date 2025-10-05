@@ -18,5 +18,23 @@ export const projects: Project[] = [
 		},
 		screenshots: [],
 		startDate: '10.03.2025'
+	},
+	{
+		id: 'klimson-server',
+		name: 'Klimson Server',
+		description: 'Moge sprawnie zarządzać strukturą moich plików i serwisów',
+		category: 'web',
+		status: 'wip',
+		techStack: [{ name: 'Svelte' }],
+		links: [
+			{ type: 'repo', url: 'https://github.com/fairdev2003/portfolio-app' },
+			{ type: 'demo', url: 'https://klimson.dev/' }
+		],
+		logo: {
+			color: 'bg-cyan-500/20',
+			url: 'https://icon.icepanel.io/Technology/svg/Go.svg'
+		},
+		screenshots: [],
+		startDate: '10.03.2025'
 	}
 ];

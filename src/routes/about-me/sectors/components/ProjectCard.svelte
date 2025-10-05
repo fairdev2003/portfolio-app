@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ProjectLogo } from '../static/project.types';
+	import type { ProjectLogo } from '../../static/project.types';
 
 	type Props = {
 		logo?: ProjectLogo;

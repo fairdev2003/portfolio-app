@@ -1,3 +1,5 @@
+import type { projects } from './projects';
+
 export type Tech = {
 	name: string;
 	iconUrl?: string;
@@ -10,17 +12,23 @@ export type ProjectLogo = {
 	style?: string; // Tailwind css
 };
 
+export type ProjectLinkType = 'repo' | 'demo' | 'docs' | 'design';
+
 export type ProjectLink = {
-	type: 'repo' | 'demo' | 'docs' | 'design';
+	type: ProjectLinkType;
 	url: string;
 };
+
+export type ProjectCategory = 'web' | 'mobile' | 'library' | 'tool';
+
+export type ProjectStatus = 'wip' | 'completed' | 'archived';
 
 export type Project = {
 	id: string;
 	name: string;
 	description: string;
-	category: 'web' | 'mobile' | 'library' | 'tool';
-	status: 'wip' | 'completed' | 'archived';
+	category: ProjectCategory;
+	status: ProjectStatus;
 	techStack: Tech[];
 	links: ProjectLink[];
 	screenshots?: string[];
@@ -29,3 +37,9 @@ export type Project = {
 	endDate?: string;
 	features?: string[];
 };
+
+export type ProjectPage = {
+	project?: Project;
+};
+
+export type ProjectId = (typeof projects)[number]['id'];

@@ -1,16 +1,23 @@
 <script lang="ts">
 	import Heading from '../../../../../components/typography/Heading.svelte';
+	import StatusBit from '../../../sectors/components/StatusBit.svelte';
+	import type { Project } from '../../project.types';
+
+	const project: Project = $props();
 </script>
 
-<div class="flex gap-5 border-1 border-neutral-700 bg-neutral-800/60 p-5">
-	<div class="flex size-40 items-center justify-center rounded-lg bg-orange-500/30">
-		<img
-			alt="svelte"
-			class="size-30 opacity-80"
-			src="https://icon.icepanel.io/Technology/svg/Svelte.svg"
-		/>
+<div
+	class="flex-col gap-5 border-1 border-neutral-700 bg-neutral-800/60 p-5 lg:flex lg:flex-row lg:justify-start"
+>
+	<div
+		class={`mx-auto flex size-40 items-center justify-center rounded-lg lg:mx-px ${project.logo?.color}`}
+	>
+		<img alt="svelte" class="flex size-30 opacity-80" src={project.logo?.url} />
 	</div>
 	<div>
-		<Heading idTrackingDisabled>Portfolio</Heading>
+		<Heading idTrackingDisabled>{project.name}</Heading>
+		<div class="mt-2">
+			<StatusBit status={project.status} />
+		</div>
 	</div>
 </div>
