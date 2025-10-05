@@ -10,10 +10,10 @@
 	<PagesNavigation
 		pages={[
 			{ name: 'KLIMSON', route: '/' },
-			{ name: 'ADHD', route: '/adhd' }
+			{ name: 'PROGRAMOWANIE', route: '/coding' }
 		]}
 	/>
-	<Heading>ADHD.</Heading>
+	<Heading>Programowanie.</Heading>
 	<div class="mx-auto mt-10 flex">
 		<Paragraph>{'Tu nic nie ma :<'}</Paragraph>
 	</div>

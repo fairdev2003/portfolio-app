@@ -8,6 +8,8 @@ type PageContentsType = {
 
 export const pageContents: PageContentsType[] = [
 	{ name: 'Muzyka', path: '/music', description: 'Moja ulubiona muzyczka' },
+	{ name: 'Gry', path: '/games', description: 'Moja ulubiona muzyczka' },
+	{ name: 'Programowanie', path: '/coding', description: 'Moja ulubiona muzyczka' },
 	{ name: 'Cytaty', path: '/quotes', description: 'Moje życiowe cytaty' },
 	{ name: 'Galeria', path: '/gallery', description: 'Moja ulubiona muzyczka' },
 	{ name: 'ADHD', path: '/adhd', description: 'Moja ulubiona muzyczka' },

@@ -14,4 +14,7 @@
 		]}
 	/>
 	<Heading>Galeria.</Heading>
+	<div class="mx-auto mt-10 flex">
+		<Paragraph>{'Tu nic nie ma :<'}</Paragraph>
+	</div>
 </div>
