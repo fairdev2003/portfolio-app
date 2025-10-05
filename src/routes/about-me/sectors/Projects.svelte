@@ -6,9 +6,7 @@
 	import ProjectCard from './components/ProjectCard.svelte';
 	import Heading from '../../../components/typography/Heading.svelte';
 	import { projects } from '../static/projects';
-	import PortfolioApp from '../static/projects/PortfolioApp.svelte';
 	import type { Project } from '../static/project.types';
-	import KlimsonServer from '../static/projects/KlimsonServer.svelte';
 	import ProjectPage from '../static/projects/components/ProjectPage.svelte';
 
 	type ProjectType = 'portfolio' | 'klimson-server' | 'modopedia' | 'clan-manager';
@@ -26,7 +24,7 @@
 	}
 
 	function closeModal() {
-		// animate out
+		
 		if (modalEl) {
 			gsap.to(modalEl, {
 				scaleY: 0.2,
@@ -41,7 +39,7 @@
 				}
 			});
 		} else {
-			// fallback if no ref
+			
 			modalOpened = false;
 			document.body.style.overflow = 'auto';
 		}
@@ -77,7 +75,6 @@
 		{#each projects as project}
 			<ProjectCard onClick={() => {
 				selectedId = project.id
-				console.log(selectedId)
 				openModal()
 			}} name={project.name} description={project.description} logo={project.logo}/>
 		{/each}
@@ -95,7 +92,7 @@
 			<div
 				{@attach modalAnimation()}
 				bind:this={modalEl}
-				class="relative flex h-[95%] w-[90%] lg:w-7xl max-w-3xl flex-col border border-neutral-800/60 bg-neutral-950"
+				class="relative flex h-[95%] w-[98%] lg:w-7xl max-w-3xl flex-col border border-neutral-800/60 bg-neutral-950"
 			>	
 				<!-- header -->
 				<div class="h-10 flex items-center flex-shrink-0 border-b border-neutral-700/60 justify-between px-5 bg-neutral-800/60 mb-2">
@@ -109,11 +106,9 @@
 				
 				<!-- scrollable content -->
 				<div {@attach contentAnimation()} bind:this={contentEl} class="flex-1 overflow-y-auto p-6 pt-5">
-					
 					<ProjectPage {id}/>
 				</div>
-
-				
+			
 			</div>
 		</div>
 	{/if}
