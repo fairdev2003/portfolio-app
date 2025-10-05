@@ -19,7 +19,7 @@
 
 			<div class="col-span-1">
 				<!-- TODO: PERFORMANCE -->
-				<SpotifyStatus responsiveState="desktop" />
+
 				<Navigation />
 			</div>
 

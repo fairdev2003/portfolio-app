@@ -19,4 +19,11 @@
 			background-color: #ffffff;
 		}
 	}
+
+	h3 {
+		font-family: 'DM Serif Display', serif;
+	}
+	p {
+		font-family: Georgia, 'Times New Roman', Times, serif;
+	}
 </style>

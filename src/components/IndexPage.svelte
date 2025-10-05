@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Box from './Paper.svelte';
+	import SpotifyStatus from './SpotifyStatus.svelte';
 
 	import Heading from './typography/Heading.svelte';
 	import Paragraph from './typography/Paragraph.svelte';
@@ -8,13 +9,26 @@
 </script>
 
 <div class="flex flex-col gap-6 lg:col-span-2">
-	<Heading>Index</Heading>
+	<div>
+		<Heading>Index</Heading>
+		<SpotifyStatus />
+	</div>
 
-	<Box>
+	<div></div>
+	<Heading>Newsy</Heading>
+	<Box customPaging="1/2">
 		<Paragraph>🚧 W trakcie remontu <a href="/about-me">Zobacz</a>.</Paragraph>
 	</Box>
+	<Box customPaging="2/2">
+		<Paragraph
+			>🎵 Czarnuchyy <a
+				target="_blank"
+				href="https://suno.com/song/cb4ad69a-d418-4410-bd02-ca948a9c04a1">here</a
+			></Paragraph
+		>
+	</Box>
 
-	<Heading>Plany</Heading>
+	<Heading id="Plany">Plany</Heading>
 
 	<Box customPaging="1/2">
 		<Paragraph

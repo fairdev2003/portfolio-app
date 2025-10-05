@@ -3,6 +3,7 @@
 	import { gsap } from 'gsap';
 	import { onMount, tick } from 'svelte';
 	import SpotifySVG from '../assets/spotify.png';
+	import Paragraph from './typography/Paragraph.svelte';
 
 	onMount(async () => {
 		await klimsonApp.zamontujKurwe();
@@ -16,7 +17,7 @@
 	});
 
 	type Props = {
-		responsiveState: 'desktop' | 'mobile';
+		responsiveState?: 'desktop' | 'mobile';
 	};
 
 	let musicInfoModalOpenState: boolean = $state(false);
@@ -64,6 +65,7 @@
 	const { responsiveState = 'desktop' }: Props = $props();
 </script>
 
+<Paragraph class="my-3 mt-6 text-green-500">▶ Słucham Spotify</Paragraph>
 {#if klimsonApp.spotify}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -71,7 +73,7 @@
 		onclick={() => {
 			openModal();
 		}}
-		class={`mb-3 cursor-pointer items-center gap-2 border border-neutral-800/60 bg-neutral-900/60  p-3 backdrop-blur-xl transition-colors select-none hover:bg-neutral-700  ${responsiveState == 'desktop' ? 'hidden lg:flex' : 'flex lg:hidden'}`}
+		class={`mb-3 flex cursor-pointer items-center gap-2 border border-neutral-700/60 bg-neutral-800/60 p-3 py-5 transition-colors select-none hover:bg-neutral-700`}
 	>
 		<img class="h-14 w-14 rounded-lg" src={klimsonApp.spotify?.album_art_url} alt="Album cover" />
 		<div
@@ -100,9 +102,9 @@
 
 {#snippet ProgressBar(className?: string)}
 	{#if klimsonApp.duration > 0}
-		<div class={`mt-1 h-0.5 rounded bg-white/30 ${className}`}>
+		<div class={`mt-1 h-1 rounded-full bg-white/30 ${className}`}>
 			<div
-				class="h-full bg-white transition-all duration-500 ease-linear"
+				class="h-full rounded-full bg-green-400 transition-all duration-500 ease-linear"
 				style="width: {(klimsonApp.progress / klimsonApp.duration) * 100}%"
 			></div>
 		</div>

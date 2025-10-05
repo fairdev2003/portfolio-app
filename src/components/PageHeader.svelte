@@ -91,7 +91,6 @@
 
 	<!-- <DiscordActivityPill mobile /> -->
 </nav>
-<SpotifyStatus responsiveState="mobile" />
 
 <style>
 	.klimson-heading {
