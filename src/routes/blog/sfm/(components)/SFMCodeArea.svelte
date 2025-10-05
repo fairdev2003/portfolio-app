@@ -31,10 +31,10 @@
 
 <div
 	id={SFMCompiler.ExtractFileNameFromURL(program_link)}
-	class="h-min-[300px] w-full rounded-md border-2 border-slate-700 bg-gray-800"
+	class="h-min-[300px] w-full border-2 border-neutral-800/60 bg-neutral-900/70"
 >
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div class="flex w-full justify-between rounded-t-md bg-slate-700 p-2 px-3">
+	<div class="flex w-full justify-between bg-neutral-800/60 p-2 px-3">
 		<div class="flex items-center gap-2">
 			<img src={DiskImage} alt="disk" class="h-5 w-5" />
 			<p class="program_name text-sm font-thin text-gray-400">

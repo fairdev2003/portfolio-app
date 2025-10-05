@@ -15,7 +15,7 @@
 	style="padding-left: {calculateIndent(indent)}rem;"
 >
 	<!-- svelte-ignore slot_element_deprecated -->
-	<div class="code-content hover:bg-blue-900">
+	<div class="code-content hover:bg-blue-900/50">
 		<slot />
 	</div>
 </div>
