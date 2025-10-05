@@ -7,12 +7,14 @@
 
 <div class="mx-auto my-15 flex justify-center gap-3">
 	{@render Button('left')}
-	<a
-		href="https://hotlinewebring.club/"
-		target="_blank"
-		class="cursor-pointer rounded-full p-2 px-3 text-white no-underline transition-colors hover:bg-white/10"
-		>HOTLINE WEBRING</a
-	>
+	<div class="relative flex flex-col items-center justify-center">
+		<p class="bottom-8 px-2 text-[12px] text-neutral-500 select-none">PROUD MEMBER OF</p>
+		<a
+			href="https://hotlinewebring.club/"
+			target="_blank"
+			class="cursor-pointer rounded-full p-2 px-3 text-white transition-colors">HOTLINE WEBRING</a
+		>
+	</div>
 	{@render Button('right')}
 </div>
 
@@ -20,7 +22,7 @@
 	<a
 		href={side == 'left' ? previous : next}
 		target="_blank"
-		class="cursor-pointer rounded-full p-2 text-white transition-colors hover:bg-white/10"
+		class="cursor-pointer rounded-full p-2 text-white"
 	>
 		{#if side === 'left'}
 			<ChevronLeft />
@@ -33,6 +35,6 @@
 <style>
 	a {
 		color: white;
-		text-decoration-line: none;
+		text-decoration-line: underline;
 	}
 </style>
