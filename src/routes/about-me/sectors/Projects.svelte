@@ -120,7 +120,7 @@
 			<div
 				{@attach modalAnimation()}
 				bind:this={modalEl}
-				class="relative flex h-[99%] lg:h-[95%] w-[98%] lg:w-7xl max-w-3xl flex-col border border-neutral-800/60 bg-neutral-950/60 lg:backdrop-blur-none backdrop-blur-xl"
+				class="relative flex h-[99%] lg:h-[95%] w-[98%] lg:w-7xl max-w-3xl flex-col border border-neutral-800/60 bg-neutral-950/60 lg:backdrop-blur-none backdrop-blur-lg"
 			>	
 				<!-- header -->
 				<div class="h-10 flex  items-center flex-shrink-0 border-b border-neutral-700/60 justify-between px-5 bg-neutral-800/60 mb-2">
