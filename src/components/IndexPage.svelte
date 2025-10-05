@@ -10,13 +10,22 @@
 <div class="flex flex-col gap-6 lg:col-span-2">
 	<Heading>Index</Heading>
 
-	<Paragraph><a href="/music">Muzyka</a></Paragraph>
-
 	<Box>
-		<Paragraph>🚧 W trakcie remontu <a href="/about-me">Zobacz</a></Paragraph>
+		<Paragraph>🚧 W trakcie remontu <a href="/about-me">Zobacz</a>.</Paragraph>
 	</Box>
 
-	<div class="h-[550px]"></div>
+	<Heading>Plany</Heading>
+
+	<Box customPaging="1/2">
+		<Paragraph
+			>⏯️ Stworzyć playliste z trzema najlepszymi utworami z mojego albumu na Spotify.</Paragraph
+		>
+	</Box>
+	<Box customPaging="2/2">
+		<Paragraph>🟢 Dodać komponent, który pokazuje czy jestem aktywny na Discordzie.</Paragraph>
+	</Box>
+
+	<div class="h-[100px]"></div>
 </div>
 
 <style>

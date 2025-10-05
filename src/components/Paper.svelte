@@ -6,9 +6,10 @@
 	type Props = {
 		className: string;
 		children: Snippet;
+		customPaging?: string;
 	} & HTMLAttributes<HTMLDivElement>;
 
-	let { children, className = '', ...props } = $props();
+	let { customPaging = '1/1', children, className = '', ...props } = $props();
 </script>
 
 <div
@@ -16,7 +17,7 @@
 	{...props}
 >
 	{@render children()}
-	<p class="absolute right-8 bottom-4 text-white/70">1/1</p>
+	<p class="absolute right-8 bottom-4 text-white/70">{customPaging}</p>
 </div>
 
 <style>
