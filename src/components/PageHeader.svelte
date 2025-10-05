@@ -52,12 +52,16 @@
 		<h3 class="klimson-heading ml-10" onclick={() => goto('/')}>klimson.dev</h3>
 		<div class="relative flex items-center justify-center">
 			<img
-				class="mr-10 h-8 w-8 cursor-pointer lg:hidden"
+				class="group peer mr-10 h-10 w-10 cursor-pointer rounded-lg p-2 active:bg-white/20 lg:hidden"
 				alt="hamburger"
 				src="https://img.icons8.com/?size=100&id=8113&format=png&color=FFFFFF"
 			/>
 
-			<span onclick={toggleMenu} class="absolute right-4 -bottom-4 h-15 w-20 bg-transparent"></span>
+			<span
+				onclick={toggleMenu}
+				class="absolute right-5 -bottom-3 -z-1 h-15 w-20 bg-transparent peer-hover:bg-white/50"
+			>
+			</span>
 		</div>
 	</div>
 </header>
