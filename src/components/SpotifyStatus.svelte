@@ -32,6 +32,7 @@
 			ease: 'power2.in',
 			onComplete: () => {
 				musicInfoModalOpenState = false;
+				document.body.style.overflow = 'auto';
 			}
 		});
 
@@ -43,6 +44,7 @@
 	}
 
 	async function openModal() {
+		document.body.style.overflow = 'hidden';
 		musicInfoModalOpenState = true;
 
 		await tick();
@@ -124,14 +126,14 @@
 
 	<div
 		onclick={() => closeModal()}
-		class={`fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-neutral-950 ${responsiveState === 'mobile' && 'pb-10'}`}
+		class={`fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-neutral-950/90 backdrop-blur-md ${responsiveState === 'mobile' && 'pb-10'}`}
 	>
 		<!-- Modal content -->
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
 			bind:this={modalEl}
-			class="white w-11/12 rounded-lg border-2 border-neutral-700 bg-neutral-800 bg-gradient-to-r shadow-2xl backdrop-blur-3xl sm:w-3/4 md:w-1/2 lg:w-1/3"
+			class="white w-11/12 border border-neutral-700/60 bg-neutral-800/60 bg-gradient-to-r shadow-2xl backdrop-blur-3xl sm:w-3/4 md:w-1/2 lg:w-1/3"
 		>
 			<!-- Header -->
 

@@ -13,3 +13,7 @@ export type MusicGroupType = {
 };
 
 export type PlayButtonState = 'playing' | 'not-playing';
+
+export type TopMusicType = {
+	song_desc?: string;
+} & MusicType;

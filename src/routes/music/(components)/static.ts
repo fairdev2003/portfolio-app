@@ -1,4 +1,31 @@
-import type { MusicGroupType } from './types/music';
+import type { MusicGroupType, TopMusicType } from './types/music';
+
+export const TopMusicPlaylist: TopMusicType[] = [
+	{
+		id: 1,
+		song_name: 'Good Luck with Your Dreams',
+		song_artist: 'DJ DENZ The Rooster',
+		song_image: 'https://i.scdn.co/image/ab67616d0000b273ca887bc66aaa063549df03da',
+		song_desc: 'i see stars in the night sky.',
+		song_link: ''
+	},
+	{
+		id: 2,
+		song_name: 'Club De Vampiros',
+		song_artist: 'French Police',
+		song_image: 'https://i.scdn.co/image/ab67616d0000b273fc71e48308f836ad93901919',
+		song_desc: 'dear vampiro, mood swings me again hell nah.',
+		song_link: ''
+	},
+	{
+		id: 2,
+		song_name: 'i see the moon',
+		song_artist: 'Staticbøi, pavlos',
+		song_image: 'https://i.scdn.co/image/ab67616d0000b273de6b61598de8aaa6f801b40c',
+		song_desc: 'see, moon not that god damn stars.',
+		song_link: ''
+	}
+];
 
 export const playlistBorder: MusicGroupType = {
 	groupName: 'Border Mood.',
