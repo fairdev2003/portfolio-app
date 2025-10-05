@@ -13,7 +13,7 @@
 </script>
 
 {#if project}
-	<div class="px-5">
+	<div class="lg:px-5">
 		<ProjectGeneralInfo {...project} />
 	</div>
 {/if}
