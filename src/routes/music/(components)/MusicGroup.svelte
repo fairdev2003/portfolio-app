@@ -69,7 +69,7 @@
 			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 			<p
 				onclick={toggle}
-				class="cursor-pointer text-sm font-medium text-neutral-300 hover:underline"
+				class="cursor-pointer text-sm font-medium text-neutral-300 select-none hover:underline"
 			>
 				{showMore ? 'Zobacz mniej.' : `Zobacz więcej (${musicGroup.musicList.length - 3})`}
 			</p>
