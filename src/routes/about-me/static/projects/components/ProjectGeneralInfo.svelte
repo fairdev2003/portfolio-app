@@ -6,13 +6,15 @@
 	const project: Project = $props();
 </script>
 
-<div class="mt-5 flex-col gap-5 lg:mt-0 lg:flex lg:flex-row lg:justify-start">
+<div
+	class="flex-col gap-5 border-1 border-neutral-800/60 bg-neutral-900/60 p-5 lg:flex lg:flex-row lg:justify-start"
+>
 	<div
 		class={`mx-auto flex size-40 items-center justify-center rounded-lg lg:mx-px ${project.logo?.color}`}
 	>
 		<img alt="svelte" class="flex size-30 opacity-80" src={project.logo?.url} />
 	</div>
-	<div class="mt-5 lg:mt-0">
+	<div class="m-5">
 		<Heading idTrackingDisabled>{project.name}</Heading>
 		<div class="mt-2">
 			<StatusBit status={project.status} />

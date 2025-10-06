@@ -25,6 +25,13 @@
 				gotowo stworzonymi komponentami strony, bo po prostu lubie sój indywidualizm. Strona jest w
 				stylu</Paragraph
 			>
+			<Paragraph
+				>Początkowo projekt był skierowany w celu stworzenia projektu na studia (za który tak swoją
+				drogą dostalem 5). Natomiast od jakiegoś czasu zaczynam bardzo lubieć dodaawać najróżniejsze
+				komponenty stworzone w 100% przeze mnie. Szczerze powiedziawszy nie lubie bibliotek z już
+				gotowo stworzonymi komponentami strony, bo po prostu lubie sój indywidualizm. Strona jest w
+				stylu</Paragraph
+			>
 		</div>
 	</div>
 {/if}
