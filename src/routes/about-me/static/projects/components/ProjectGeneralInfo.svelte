@@ -42,7 +42,7 @@
 	>
 		<img alt="svelte" class="flex size-30 opacity-80" src={project.logo?.url} />
 	</div>
-	<div class="m-5">
+	<div class="my-5">
 		<div class="flex items-center gap-2">
 			<Heading idTrackingDisabled class="flex items-center"><p>{project.name}</p></Heading>
 			<StatusBit status={project.status} />
