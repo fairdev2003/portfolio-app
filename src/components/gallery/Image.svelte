@@ -7,33 +7,40 @@
 		description?: string;
 		src?: string;
 		disabledBorder?: boolean;
-	} & HTMLAttributes<HTMLImageElement>;
+		galleryMode?: boolean;
+	} & HTMLAttributes<HTMLDivElement>;
 
-	const { name, description, src, disabledBorder = false, ...props }: Props = $props();
+	const {
+		name,
+		description,
+		src,
+		disabledBorder = false,
+		galleryMode = false,
+		...props
+	}: Props = $props();
 
 	const borderStatement: string = !disabledBorder
-		? `border-1 border-neutral-800/60 bg-neutral-900/60`
+		? `border border-neutral-800/60 bg-neutral-900/60`
 		: '';
+
+	const imgClasses = galleryMode
+		? 'w-full h-full object-cover cursor-pointer'
+		: 'w-full h-full object-contain cursor-pointer';
 </script>
 
-<div class="flex flex-col items-center justify-center gap-3">
-	<div class={`image-wrapper flex flex-col justify-center ${borderStatement}`}>
-		<img alt={name ? name : 'no-image-name-provided'} {src} class="cursor-pointer" />
+<div {...props} class="flex flex-col items-center justify-center gap-3">
+	<div class={`image-wrapper w-full ${borderStatement} overflow-hidden rounded-lg`}>
+		<img alt={name ? name : 'no-image-name-provided'} {src} class={imgClasses} />
 	</div>
-	<div>
-		<Paragraph class="text-[16px] text-neutral-500">{description}</Paragraph>
-	</div>
+	{#if description}
+		<div>
+			<Paragraph class="text-[16px] text-neutral-500">{description}</Paragraph>
+		</div>
+	{/if}
 </div>
 
 <style>
 	.image-wrapper {
 		aspect-ratio: 16 / 9;
-		overflow: hidden;
-	}
-
-	.image-wrapper img {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
 	}
 </style>

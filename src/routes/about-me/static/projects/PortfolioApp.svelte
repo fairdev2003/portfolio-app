@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Gallery from '../../../../components/gallery/Gallery.svelte';
 	import Heading from '../../../../components/typography/Heading.svelte';
 	import Paragraph from '../../../../components/typography/Paragraph.svelte';
 	import StatusBit from '../../sectors/components/StatusBit.svelte';
@@ -33,5 +34,11 @@
 				stylu</Paragraph
 			>
 		</div>
+
+		<Heading padding>Galeria</Heading>
+		<div class="h-5"></div>
+
+		<Gallery />
+		<div class="h-20"></div>
 	</div>
 {/if}
