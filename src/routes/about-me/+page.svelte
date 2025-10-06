@@ -26,8 +26,3 @@
 	<Hardware />
 	<FileDownload />
 </div>
-
-<svelte:head>
-	<title>Projekty</title>
-	<meta name="description" content="Moje projekty." />
-</svelte:head>

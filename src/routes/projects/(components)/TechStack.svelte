@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import type { Tech } from '../../about-me/static/project.types';
 
 	type Props = {
@@ -21,9 +22,13 @@
 </div>
 
 {#snippet Tech(name: string, iconUrl: string, docsUrl: string)}
+	<!-- svelte-ignore a11y_consider_explicit_label -->
 	<button
-		class="size-10 cursor-pointer rounded-md border border-neutral-800/60 bg-neutral-900/60 p-2"
+		onclick={() => {
+			window.open(docsUrl, '_blank');
+		}}
+		class="size-10 cursor-pointer rounded-md border border-neutral-700/60 bg-neutral-800/60 p-2"
 	>
-		<img src={iconUrl} />
+		<img src={iconUrl} alt="name" />
 	</button>
 {/snippet}

@@ -5,3 +5,8 @@
 <div class="col-span-2 flex flex-col">
 	<Projects />
 </div>
+
+<svelte:head>
+	<title>Projekty</title>
+	<meta name="description" content="Moje projekty." />
+</svelte:head>
