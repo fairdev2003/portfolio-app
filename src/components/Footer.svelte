@@ -15,7 +15,7 @@
 </script>
 
 <footer
-	class="flex flex-col items-center justify-center gap-4 border-1 border-neutral-800/60 bg-neutral-900/60 py-20 pt-10"
+	class="flex flex-col items-center justify-center gap-4 border-1 border-neutral-800/60 bg-neutral-900/60 px-5 py-20 pt-10 text-start"
 >
 	<div
 		class={`box relative flex flex-col border border-neutral-700/60 bg-neutral-900/60 px-4 py-2`}
@@ -25,12 +25,17 @@
 			{easterEgg} <span></span></CodeLine
 		>
 	</div>
-	<div class="flex flex-col gap-4 lg:flex-row">
-		{#each pageSections as pageSection}
-			<Paragraph>
-				<a href={pageSection.path}>{pageSection.name}</a>
-			</Paragraph>
-		{/each}
+
+	<div>
+		<div class="flex justify-start gap-3 lg:flex lg:flex-row">
+			{#each pageSections as pageSection}
+				<div class="col-span-1">
+					<Paragraph>
+						<a class="text-[15px] lg:text-[17px]" href={pageSection.path}>{pageSection.name}</a>
+					</Paragraph>
+				</div>
+			{/each}
+		</div>
 	</div>
 	<p class="footer-text text-white/80">@ Klimson 2025. All rights reserved.</p>
 </footer>
