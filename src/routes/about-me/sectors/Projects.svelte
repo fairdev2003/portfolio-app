@@ -127,10 +127,17 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 {#snippet Modal(id: string)}
 	{#if modalOpened}
-		<div {@attach modalMount()} class="fixed lg:backdrop-blur-lg md:backdrop-blur-lg inset-0 z-50 flex items-center justify-center bg-black/50 text-white">
+		<div {@attach modalMount()} onclick={(a) => {
+					a.stopPropagation()
+					closeModal()
+				}} class="fixed lg:backdrop-blur-lg md:backdrop-blur-lg inset-0 z-50 flex items-center justify-center bg-black/50 text-white">
 			<div
 				{@attach modalAnimation()}
 				bind:this={modalEl}
+				onclick={(a) => {
+					a.stopPropagation()
+					
+				}}
 				class="relative flex h-[99%] lg:h-[95%] w-[98%] lg:w-7xl max-w-3xl flex-col border border-neutral-800/60 lg:bg-neutral-950 bg-neutral-950/60 md:backdrop-blur-none backdrop-blur-lg"
 			>	
 				<!-- header -->
