@@ -8,7 +8,7 @@
 
 <div class="mb-5">
 	<Heading padding class="mb-5" id="O-Mnie">O mnie</Heading>
-	<div class="h-5" />
+
 	<Box className="relative">
 		<div class="my-3 flex flex-col gap-4">
 			<Paragraph class="font-[500] text-gray-400">Witam cię, jestem</Paragraph>

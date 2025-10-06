@@ -96,7 +96,7 @@
 	
 </script>
 
-<div class="flex flex-col gap-3">
+<div class="flex flex-col gap-3 mb-5">
 	{#if !blockPagesNavigation}
 		<PagesNavigation pages={[
 		{name: "KLIMSON", route: "/"},
@@ -104,7 +104,7 @@
 	]}/>	
 	{/if}
 	
-	<Heading id="Projekty" class={blockPagesNavigation ? "mt-5" : ""}>Projekty</Heading>
+	<Heading id="Projekty" padding class={blockPagesNavigation ? "mt-5" : ""}>Projekty</Heading>
 	{#if blockPagesNavigation}
 		<Paragraph><a href="/projects?openProject=portfolio">Odtwórz strone z opisem tej strony {"klimson.dev"}</a></Paragraph>
 	{/if}

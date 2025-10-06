@@ -1,6 +1,9 @@
-<script>
+<script lang="ts">
+	import { pageSections } from '$lib';
+	import { hobbyContents, pageContents, shitpostContents } from '$lib/contents';
 	import ContactForm from '../../components/ContactForm.svelte';
 	import Document from '../../components/Document.svelte';
+	import ContentLink from '../../components/typography/ContentLink.svelte';
 	import Heading from '../../components/typography/Heading.svelte';
 
 	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
@@ -8,6 +11,12 @@
 	import Text from '../../components/typography/Text.svelte';
 	import RenovationAlert from '../about-me/sectors/components/RenovationAlert.svelte';
 	import ContentsTable from './(components)/ContentsTable.svelte';
+
+	type PageContentsType = {
+		path: string;
+		name: string;
+		description?: string;
+	};
 </script>
 
 <div class="flex flex-col gap-5 lg:col-span-2">
@@ -24,6 +33,16 @@
 		Jeżeli mimo tego coś widoczne nadal nie bedzie dla ciebie dostepna prosze o kontakt, naprawimy
 		{':)'}</Paragraph
 	>
+
+	<div class="flex flex-col">
+		{@render Contents(pageSections, 'Nawigacja')}
+		{@render Contents(hobbyContents, 'Hobby')}
+		{@render Contents(shitpostContents, 'Shitpost')}
+		{@render Contents(pageContents, 'Pozostałe')}
+	</div>
+</div>
+
+{#snippet OldDesign()}
 	<Document>
 		<Heading id="Nawigacja">Nawigacja</Heading>
 		<ContentsTable type="section" />
@@ -31,7 +50,19 @@
 		<ContentsTable />
 		<div class="h-3"></div>
 	</Document>
-</div>
+{/snippet}
+
+{#snippet Contents(contents: PageContentsType[], name: string)}
+	<div class="h-5"></div>
+	<Heading id={name} padding class="mb-5">{name}</Heading>
+	<div class="flex flex-col gap-3">
+		{#each contents as content}
+			{#if content.path != '/contents'}
+				<ContentLink name={content.name} path={content.path} desc={content.description} />
+			{/if}
+		{/each}
+	</div>
+{/snippet}
 
 <style>
 	a {

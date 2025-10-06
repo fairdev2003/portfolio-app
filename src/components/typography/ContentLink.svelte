@@ -2,13 +2,14 @@
 	type Props = {
 		name: string;
 		path: string;
+		desc?: string;
 	};
 
-	const { name, path }: Props = $props();
+	const { name, path, desc }: Props = $props();
 </script>
 
 <div class="relative flex items-center justify-between">
-	<a class="text-neutral-500" href={path}>{'⦁ '} {name}</a>
+	<a data-tip={desc} class="text-neutral-500" href={path}>{'⦁ '} {name}</a>
 	<p class="mr-5">{path.replace('/', '')}</p>
 </div>
 
