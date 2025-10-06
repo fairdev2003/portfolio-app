@@ -12,7 +12,7 @@
 	const theme = (): string => {
 		switch (status) {
 			case 'wip':
-				return 'bg-orange-400/30 border border-orange-400 text-white';
+				return 'bg-green-400/30 border border-green-400/0 text-white';
 			case 'archived':
 				return '';
 			case 'completed':
@@ -23,7 +23,7 @@
 	const name = (): string => {
 		switch (status) {
 			case 'wip':
-				return 'W trakcie';
+				return 'W TRAKCIE';
 			case 'archived':
 				return 'Zaarchiwizowany';
 			case 'completed':
@@ -32,19 +32,18 @@
 	};
 </script>
 
-<div class={`${theme()} inline-flex items-center justify-center gap-1 rounded-full px-3 py-1`}>
+<div
+	class={`${theme()} inline-flex h-[30px] items-center justify-center gap-1 rounded-full px-3 py-1`}
+>
 	<div class="text-[15px]">
 		{#if status === 'wip'}
-			<img alt={status} class="size-4" src={PlaySVG} />
+			<img alt={status} class="size-2" src={PlaySVG} />
 		{/if}
 		{#if status === 'archived'}{/if}
 	</div>
 
-	<p class="text-sm whitespace-nowrap">{name()}</p>
+	<p class="text-sm text-[12px]">{name()}</p>
 </div>
 
 <style>
-	p {
-		font-family: Georgia, 'Times New Roman', Times, serif;
-	}
 </style>

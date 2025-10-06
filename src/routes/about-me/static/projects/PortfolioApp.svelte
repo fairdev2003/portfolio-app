@@ -18,24 +18,24 @@
 	<div class="lg:px-5">
 		<ProjectGeneralInfo {...project} />
 		<div class="mt-5 flex flex-col gap-3">
-			<Heading idTrackingDisabled>Opis</Heading>
+			<Heading idTrackingDisabled>Opis.</Heading>
 			<Paragraph
 				>Początkowo projekt był skierowany w celu stworzenia projektu na studia (za który tak swoją
 				drogą dostalem 5). Natomiast od jakiegoś czasu zaczynam bardzo lubieć dodaawać najróżniejsze
 				komponenty stworzone w 100% przeze mnie. Szczerze powiedziawszy nie lubie bibliotek z już
-				gotowo stworzonymi komponentami strony, bo po prostu lubie sój indywidualizm. Strona jest w
-				stylu</Paragraph
+				gotowo stworzonymi komponentami strony, bo po prostu lubie sój indywidualizm.</Paragraph
 			>
-			<Paragraph
-				>Początkowo projekt był skierowany w celu stworzenia projektu na studia (za który tak swoją
-				drogą dostalem 5). Natomiast od jakiegoś czasu zaczynam bardzo lubieć dodaawać najróżniejsze
-				komponenty stworzone w 100% przeze mnie. Szczerze powiedziawszy nie lubie bibliotek z już
-				gotowo stworzonymi komponentami strony, bo po prostu lubie sój indywidualizm. Strona jest w
-				stylu</Paragraph
-			>
+			<Heading idTrackingDisabled padding>Styl.</Heading>
+			<Paragraph>
+				Postawilem na styl dosyć ciekawy bo połączyłem nowoczesny styl ze stylem poezji i
+				literatury. Głowne czcionki czyli DM Serif Display i George idealnie wręcz oddają styl
+				gazety czy jakiegoś artykułu. Jeżeli zwróciłeś uwage otwarcie modalu z projektem na
+				urządzeniach mobilnych ma w sobie blur czyli cos co dzisiaj jest na topie. Nie jest to
+				Liquid Glass ale oddaje styl nowoczesnego UI
+			</Paragraph>
 		</div>
 
-		<Heading padding>Galeria</Heading>
+		<Heading idTrackingDisabled padding>Galeria.</Heading>
 		<div class="h-5"></div>
 
 		<Gallery

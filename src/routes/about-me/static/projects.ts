@@ -10,7 +10,7 @@ export const projects: Project[] = [
 		techStack: [{ name: 'Svelte' }],
 		links: [
 			{ type: 'repo', url: 'https://github.com/fairdev2003/portfolio-app' },
-			{ type: 'demo', url: 'https://klimson.dev/' }
+			{ type: 'demo', url: 'https://klimson.dev' }
 		],
 		logo: {
 			color: 'bg-orange-500/20',
@@ -26,10 +26,7 @@ export const projects: Project[] = [
 		category: 'web',
 		status: 'wip',
 		techStack: [{ name: 'Svelte' }],
-		links: [
-			{ type: 'repo', url: 'https://github.com/fairdev2003/portfolio-app' },
-			{ type: 'demo', url: 'https://klimson.dev/' }
-		],
+		links: [],
 		logo: {
 			color: 'bg-cyan-500/20',
 			url: 'https://icon.icepanel.io/Technology/svg/Go.svg'
