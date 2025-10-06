@@ -166,3 +166,9 @@
 		
 	}
 </style>
+
+<svelte:window onkeydown={a => {
+	if (a.key === "Escape") {
+		closeModal()
+	} 
+}}></svelte:window>
