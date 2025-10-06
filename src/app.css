@@ -2,19 +2,9 @@
 @import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 
-
-
-
 body {
-    color: #fff;
-
-    
-  
-   
-    
-   
+    color: #fff;   
     @apply bg-neutral-950
-    
 }
 
 .box {

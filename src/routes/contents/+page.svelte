@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { pageSections } from '$lib';
-	import { hobbyContents, pageContents, shitpostContents } from '$lib/contents';
+	import { hobbyContents, pageContents, shitpostContents, techContents } from '$lib/contents';
 	import ContactForm from '../../components/ContactForm.svelte';
 	import Document from '../../components/Document.svelte';
 	import ContentLink from '../../components/typography/ContentLink.svelte';
@@ -19,7 +19,7 @@
 	};
 </script>
 
-<div class="flex flex-col gap-5 lg:col-span-2">
+<div class="flex flex-col lg:col-span-2">
 	<PagesNavigation
 		pages={[
 			{ name: 'KLIMSON', route: '/' },
@@ -38,6 +38,7 @@
 		{@render Contents(pageSections, 'Nawigacja')}
 		{@render Contents(hobbyContents, 'Hobby')}
 		{@render Contents(shitpostContents, 'Shitpost')}
+		{@render Contents(techContents, 'Tech')}
 		{@render Contents(pageContents, 'Pozostałe')}
 	</div>
 </div>

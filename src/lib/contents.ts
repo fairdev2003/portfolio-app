@@ -11,8 +11,7 @@ export const pageContents: PageContentsType[] = [
 	{ name: 'Galeria', path: '/gallery', description: 'Moja ulubiona muzyczka' },
 	{ name: 'ADHD', path: '/adhd', description: 'Moja ulubiona muzyczka' },
 	{ name: 'Me', path: '/me', description: 'Moja ulubiona muzyczka' },
-	{ name: 'Fajerwerki', path: '/lore', description: 'Moja ulubiona muzyczka' },
-	{ name: 'i use arch btw', path: '/arch', description: 'Moja ulubiona muzyczka' }
+	{ name: 'Fajerwerki', path: '/lore', description: 'Moja ulubiona muzyczka' }
 ];
 
 export const hobbyContents: PageContentsType[] = [
@@ -23,4 +22,8 @@ export const hobbyContents: PageContentsType[] = [
 
 export const shitpostContents: PageContentsType[] = [
 	{ name: 'Index', path: '/shitpost', description: 'Moja ulubiona muzyczka' }
+];
+
+export const techContents: PageContentsType[] = [
+	{ name: 'i use arch btw', path: '/arch', description: 'Moja ulubiona muzyczka' }
 ];
