@@ -19,6 +19,15 @@
 		<Paragraph>{'Tu nic nie ma :<'}</Paragraph>
 	</div>
 	<div class="jus flex">
-		<Image src="https://res.cloudinary.com/dzaslaxhw/image/upload/v1721836744/gallery/Art6.png" />
+		<Image
+			disabledBorder
+			description="Widok Hyprlanda z otwartym Spotify."
+			src="https://res.cloudinary.com/dzaslaxhw/image/upload/v1759771829/portfolio/download.jpg"
+		/>
 	</div>
 </div>
+
+<svelte:head>
+	<title>i use arch btw.</title>
+	<meta name="description" content="Strona o mojej przychodzie z linuxem" />
+</svelte:head>
