@@ -14,11 +14,8 @@
 			{ name: 'I USE ARCH BTW', route: '/arch' }
 		]}
 	/>
-	<Heading>i use arch btw.</Heading>
-	<div class="mx-auto mt-10 flex">
-		<Paragraph>{'Tu nic nie ma :<'}</Paragraph>
-	</div>
-	<div class="jus flex">
+	<Heading id="Arch">i use arch btw.</Heading>
+	<div class="mt-5">
 		<Image
 			disabledBorder
 			description="Widok Hyprlanda z otwartym Spotify."

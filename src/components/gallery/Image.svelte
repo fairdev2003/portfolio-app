@@ -24,8 +24,8 @@
 		: '';
 
 	const imgClasses = galleryMode
-		? 'w-full h-full object-cover cursor-pointer'
-		: 'w-full h-full object-contain cursor-pointer';
+		? ' object-cover w-full h-full cursor-pointer'
+		: ' object-contain w-full h-full cursor-pointer';
 </script>
 
 <div {...props} class="flex flex-col items-center justify-center gap-3">

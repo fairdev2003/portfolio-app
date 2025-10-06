@@ -2,6 +2,7 @@
 	import Gallery from '../../../../components/gallery/Gallery.svelte';
 	import Heading from '../../../../components/typography/Heading.svelte';
 	import Paragraph from '../../../../components/typography/Paragraph.svelte';
+	import TechStack from '../../../projects/(components)/TechStack.svelte';
 	import StatusBit from '../../sectors/components/StatusBit.svelte';
 	import type { Project, ProjectPage } from '../project.types';
 	import { projects } from '../projects';
@@ -17,6 +18,7 @@
 {#if project}
 	<div class="lg:px-5">
 		<ProjectGeneralInfo {...project} />
+		<TechStack stack={project.techStack} />
 		<div class="mt-5 flex flex-col gap-3">
 			<Heading idTrackingDisabled>Opis.</Heading>
 			<Paragraph
@@ -45,6 +47,5 @@
 				'https://res.cloudinary.com/dzaslaxhw/image/upload/v1759782318/portfolio/e871a5fe-f58e-4c1c-99d9-8ad02a13769c.png'
 			]}
 		/>
-		<div class="h-20"></div>
 	</div>
 {/if}
