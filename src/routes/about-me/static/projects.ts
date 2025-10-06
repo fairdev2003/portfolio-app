@@ -39,7 +39,7 @@ export const projects: Project[] = [
 			{
 				name: 'TailwindCSS',
 				iconUrl: 'https://icon.icepanel.io/Technology/svg/Tailwind-CSS.svg',
-				docsUrl: 'https://svelte.dev/'
+				docsUrl: 'https://tailwindcss.com/'
 			}
 		],
 		links: [
