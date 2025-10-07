@@ -45,7 +45,10 @@
 	<div class="my-5">
 		<div class="mb-2 flex items-center gap-2 text-[gray]">
 			<Calendar color="gray" size="20px" />
-			<p class="text-[14px]">{project.startDate}</p>
+			<p class="text-[14px]">
+				{project.startDate}
+				{project.endDate ? ' - ' + project.endDate : '- TERAZ'}
+			</p>
 		</div>
 		<div class="flex items-center gap-2">
 			<Heading idTrackingDisabled class="flex items-center"><p>{project.name}</p></Heading>
