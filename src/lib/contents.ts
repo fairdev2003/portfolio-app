@@ -25,5 +25,6 @@ export const shitpostContents: PageContentsType[] = [
 ];
 
 export const techContents: PageContentsType[] = [
-	{ name: 'i use arch btw', path: '/arch', description: 'Moja ulubiona muzyczka' }
+	{ name: 'i use arch btw', path: '/arch', description: 'Moja ulubiona muzyczka' },
+	{ name: 'Ustawienia VSC', path: '/vsc', description: 'Jak wygląda mój setup w VSC' }
 ];
