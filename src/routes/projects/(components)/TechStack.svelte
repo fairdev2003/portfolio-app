@@ -27,7 +27,7 @@
 		onclick={() => {
 			window.open(docsUrl, '_blank');
 		}}
-		class="size-10 cursor-pointer rounded-md border border-neutral-700/60 bg-neutral-800/60 p-2 hover:bg-neutral-700/60"
+		class="size-10 cursor-pointer rounded-md border border-neutral-700/60 bg-neutral-800/60 p-2 transition-colors hover:bg-neutral-700/60"
 	>
 		<img src={iconUrl} alt="name" />
 	</button>
