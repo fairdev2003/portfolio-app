@@ -38,9 +38,3 @@
 		</div>
 	{/if}
 </div>
-
-<style>
-	.image-wrapper {
-		aspect-ratio: 16 / 9;
-	}
-</style>

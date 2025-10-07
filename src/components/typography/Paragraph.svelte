@@ -11,7 +11,7 @@
 </script>
 
 <p
-	class={`heading text-md text-[17px] ${white ? 'text-white' : 'text-neutral-500'}  lg:text-[18px]`}
+	class={`heading text-md text-[17px] ${white ? 'text-white' : 'text-neutral-400'}  lg:text-[18px]`}
 	{...props}
 >
 	{@render children()}
