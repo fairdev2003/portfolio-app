@@ -18,13 +18,10 @@
 			<!--Navigation-->
 
 			<div class="col-span-1">
-				<!-- TODO: PERFORMANCE -->
-
 				<Navigation />
 			</div>
 
-			<!--Index Page-->
-			<div class="col-span-3 lg:px-12">
+			<div class="col-span-3">
 				{@render children()}
 			</div>
 		</div>
