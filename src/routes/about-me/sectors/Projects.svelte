@@ -109,8 +109,8 @@
 		<Paragraph><a href="/projects?openProject=portfolio">Odtwórz strone z opisem tej strony {"klimson.dev"}</a></Paragraph>
 	{/if}
 	
-	<Paragraph class="text-red-400">{"[Kliknij na kafelki poniżej cii]"}</Paragraph>
-	<div class="flex flex-col gap-3">
+	
+	<div class="flex flex-col mt-4 gap-3">
 		{#each projects as project}
 			<ProjectCard onClick={() => {
 				selectedId = project.id
