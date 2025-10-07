@@ -50,7 +50,7 @@
 		class="flex h-15 w-6xl items-center justify-between border-1 border-neutral-800/60 bg-neutral-900/60 backdrop-blur-sm lg:border-none lg:bg-transparent"
 	>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<h3 class="klimson-heading ml-10" onclick={() => goto('/')}>klimson.dev</h3>
+		<h3 class="klimson-heading ml-3 cursor-pointer" onclick={() => goto('/')}>klimson.dev</h3>
 		<div class="relative flex items-center justify-center">
 			<img
 				onclick={toggleMenu}
