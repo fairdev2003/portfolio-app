@@ -12,6 +12,7 @@
 	import { Search, X } from 'lucide-svelte';
 	import ProjectCard from '../routes/projects/(components)/ProjectCard.svelte';
 	import type { Attachment } from 'svelte/attachments';
+	import Caret from './typography/Caret.svelte';
 
 	function modalAnimation(): Attachment {
 		return (element: Element) => {
@@ -78,6 +79,8 @@
 		
 	}
 
+	
+
 	onMount(() => {
 		window.addEventListener('keydown', handleResize);
 		window.addEventListener('resize', handleResize);
@@ -98,11 +101,14 @@
 	>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<h3
-			class="klimson-heading ml-3 cursor-pointer bg-white px-2 text-black"
+			class="klimson-heading ml-3 flex items-center cursor-pointer bg-white px-2 text-black"
 			onclick={() => goto('/')}
-		>
-			klimson.dev
+		>	
+		
+			<span>klimson.dev</span>
 		</h3>
+		
+
 		<div class="relative flex items-center justify-center">
 			
 
@@ -189,10 +195,16 @@
 			closeModal()
 			goto(path);
 		}}
-		class="flex cursor-pointer flex-col items-start justify-start border border-neutral-800/60 p-5 hover:bg-neutral-800/60"
-	>
+		class="flex cursor-pointer items-center gap-4 justify-start border border-neutral-800/60 p-5 hover:bg-neutral-800/60"
+	>	
+	<div class="border size-10 flex items-center rounded-md justify-center border-neutral-800/60">
+		<Paragraph class="text-2xl text-white">#</Paragraph>
+	</div>
+	<div class="flex flex-col items-start">
 		<p class="text-[12px]">{title.toUpperCase()}</p>
-		<Paragraph class="text-md text-neutral-400">{description}</Paragraph>
+			<Paragraph class="text-md text-neutral-400">{description}</Paragraph>
+	</div>
+
 	</button>
 {/snippet}
 

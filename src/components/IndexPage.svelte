@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Box from './Document.svelte';
 	import SpotifyStatus from './SpotifyStatus.svelte';
+	import Caret from './typography/Caret.svelte';
 
 	import Heading from './typography/Heading.svelte';
 	import Paragraph from './typography/Paragraph.svelte';
@@ -10,7 +11,7 @@
 
 <div class="flex flex-col gap-6 lg:col-span-2">
 	<div>
-		<Heading>Index</Heading>
+		<Caret />
 		<SpotifyStatus />
 	</div>
 
