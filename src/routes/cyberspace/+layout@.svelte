@@ -3,7 +3,7 @@
 </script>
 
 <section>
-	<div>
+	<div class="h-[100vh] w-full bg-blue-700">
 		{@render children()}
 	</div>
 </section>

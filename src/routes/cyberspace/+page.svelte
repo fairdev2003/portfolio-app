@@ -1,0 +1,42 @@
+<script lang="ts">
+	import './cyberspace.css';
+	import Maniek2 from './assets/graphics/retro_maniek86.gif';
+	import Maniek1 from './assets/graphics/maniek.png';
+	import RetroButton from './components/RetroButton.svelte';
+</script>
+
+<div class="flex flex-col gap-5 p-5">
+	<p class="retro-p text-sm text-white">Cyber Space</p>
+	<div class="flex gap-2">
+		{@render Graphic1()}
+		{@render Graphic2()}
+	</div>
+
+	<RetroButton />
+</div>
+
+{#snippet Graphic1()}
+	<a href="https://maniek86.xyz">
+		<img src={Maniek1} alt="maniek" class="h-[31px] w-[88px]" />
+	</a>
+{/snippet}
+{#snippet Graphic2()}
+	<a href="https://maniek86.xyz">
+		<img src={Maniek2} alt="maniek" class="h-[31px] w-[88px]" />
+	</a>
+{/snippet}
+
+<style>
+	@font-face {
+		font-family: 'WindowsRegular';
+		src: url('/WindowsRegular.ttf') format('truetype');
+	}
+
+	p {
+		font-family: 'WindowsRegular';
+	}
+
+	:global(body) {
+		cursor: url('assets/graphics/Cursor79.png'), auto;
+	}
+</style>
