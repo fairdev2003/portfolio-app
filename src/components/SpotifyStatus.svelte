@@ -193,6 +193,14 @@
 	</div>
 {/snippet}
 
+<svelte:window
+	onkeydown={(a) => {
+		if (a.key === 'Escape') {
+			closeModal();
+		}
+	}}
+/>
+
 <style>
 	a {
 		color: white;

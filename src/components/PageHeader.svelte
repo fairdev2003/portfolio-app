@@ -13,11 +13,12 @@
 	import ProjectCard from '../routes/projects/(components)/ProjectCard.svelte';
 	import type { Attachment } from 'svelte/attachments';
 	import Caret from './typography/Caret.svelte';
+	import { hobbyContents, pageContents, shitpostContents, techContents } from '$lib/contents';
 
 	function modalAnimation(): Attachment {
 		return (element: Element) => {
-			gsap.fromTo(element, { scaleY: 0.2, scaleX: 0.2, transformOrigin: 'bottom', opacity: 0, onComplete: () => {
-				// inputEl.focus()
+			gsap.fromTo(element, { scaleY: 0.05, scaleX: 0.05, transformOrigin: 'bottom', opacity: 0, onComplete: () => {
+				inputEl.focus()
 			} },
 				{ scaleY: 1, scaleX: 1, duration: 0.4, opacity: 1, ease: 'power2.out' })
 				
@@ -127,7 +128,7 @@
 				onclick={() => {
 					openModal()
 				}}
-				class="mr-3 lg:flex hidden cursor-pointer items-center justify-between gap-2 rounded-md border border-neutral-800/60 bg-neutral-900/60 p-3 hover:bg-neutral-800/60"
+				class="mr-3 focus:outline-none lg:flex hidden cursor-pointer items-center justify-between gap-4 rounded-md border border-neutral-800/60 bg-neutral-900/60 p-3 hover:bg-neutral-800/60"
 			>
 				<div class="flex gap-2 text-neutral-400">
 					<Search />
@@ -167,20 +168,20 @@
 				}}
 				{@attach modalAnimation()}
 				bind:this={modalEl}
-				class="relative flex w-9/10 flex-col border border-neutral-800/60 bg-neutral-950 md:w-1/2 lg:w-1/2 lg:w-120 lg:bg-neutral-950"
+				class="relative flex w-9/10 flex-col border border-neutral-700/60 bg-neutral-950 md:w-1/2 lg:w-1/2 lg:w-120 lg:bg-neutral-950"
 			>
 				<!-- header -->
 				<div class="p-5">
 					<input 
 					bind:this={inputEl}
-					class="border-1 text-neutral-400 w-full focus:outline-none p-3 border-neutral-800/60"/>
+					class="border-1 text-neutral-400 w-full focus:outline-none p-3 border-neutral-700/60"/>
 				</div>
-				<div class="border-b-1 border-neutral-800/60"></div>
+				<div class="border-b-1 border-neutral-700/60"></div>
 				<!-- scrollable content -->
 				<div class="flex h-100 flex-col gap-3 overflow-y-auto p-5">
 					
 
-					{#each pageSections as { name, description, path }}
+					{#each [...pageSections, ...pageContents, ...techContents, ...hobbyContents, ...shitpostContents] as { name, description, path }}
 						{@render ModalItem(name, path, description)}
 					{/each}
 				</div>
@@ -195,14 +196,14 @@
 			closeModal()
 			goto(path);
 		}}
-		class="flex cursor-pointer items-center gap-4 justify-start border border-neutral-800/60 p-5 hover:bg-neutral-800/60"
+		class="flex cursor-pointer focus:outline-none items-center gap-4 justify-start border border-neutral-800/60 p-5 hover:bg-neutral-800/60"
 	>	
 	<div class="border size-10 flex items-center rounded-md justify-center border-neutral-800/60">
 		<Paragraph class="text-2xl text-white">#</Paragraph>
 	</div>
 	<div class="flex flex-col items-start">
 		<p class="text-[12px]">{title.toUpperCase()}</p>
-			<Paragraph class="text-md text-neutral-400">{description}</Paragraph>
+			<Paragraph class="text-md text-neutral-400 truncate">{description}</Paragraph>
 	</div>
 
 	</button>
@@ -281,9 +282,14 @@
 </style>
 
 <svelte:window onkeydown={a => {
+	a.preventDefault()
 	if (a.key === "Escape") {
 		closeModal()
 	} 
+	if (a.ctrlKey && a.key.toLowerCase() === 'k') {
+		a.preventDefault(); // zapobiega np. otwieraniu wyszukiwarki w przeglądarce
+		openModal();
+	}
 }}></svelte:window>
 
 
