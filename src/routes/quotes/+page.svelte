@@ -20,3 +20,6 @@
 		<QuoteBox quote={quote.quote} author={quote.author} path={quote.path} />
 	{/each}
 </div>
+
+<style>
+</style>
