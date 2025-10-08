@@ -16,7 +16,7 @@
 	function modalAnimation(): Attachment {
 		return (element: Element) => {
 			gsap.fromTo(element, { scaleY: 0.2, scaleX: 0.2, transformOrigin: 'bottom', opacity: 0, onComplete: () => {
-				inputEl.focus()
+				// inputEl.focus()
 			} },
 				{ scaleY: 1, scaleX: 1, duration: 0.4, opacity: 1, ease: 'power2.out' })
 				
@@ -27,7 +27,7 @@
 
 	let menu: HTMLElement | null = null;
 	let isOpen = false;
-	let modalOpened: boolean = $state(true);
+	let modalOpened: boolean = $state(false);
 
 	function toggleMenu() {
 		isOpen = !isOpen;
@@ -267,3 +267,11 @@
 		background-color: transparent;
 	}
 </style>
+
+<svelte:window onkeydown={a => {
+	if (a.key === "Escape") {
+		closeModal()
+	} 
+}}></svelte:window>
+
+
