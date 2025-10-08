@@ -25,7 +25,7 @@
 
 	button {
 		background: #c0c0c0;
-		padding: 4px 10px;
+		padding: 2px 10px;
 		border: none;
 		font-family: 'WindowsRegular';
 
