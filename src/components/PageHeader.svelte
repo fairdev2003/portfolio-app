@@ -13,7 +13,7 @@
 	import ProjectCard from '../routes/projects/(components)/ProjectCard.svelte';
 	import type { Attachment } from 'svelte/attachments';
 	import Caret from './typography/Caret.svelte';
-	import { hobbyContents, pageContents, shitpostContents, techContents } from '$lib/contents';
+	import { hobbyContents, pageContents, shitpostContents, techContents, type PageContentsType } from '$lib/contents';
 
 	function modalAnimation(): Attachment {
 		return (element: Element) => {
@@ -24,6 +24,20 @@
 				
 		}
 	}
+
+	const allItems = [
+		...pageSections,
+		...pageContents,
+		...techContents,
+		...hobbyContents,
+		...shitpostContents
+	];
+
+
+
+	
+
+
 	let inputEl: HTMLInputElement
 	let modalEl: HTMLDivElement
 
@@ -90,7 +104,12 @@
 			window.removeEventListener('resize', handleResize);
 			window.addEventListener('keydown', handleResize);
 		};
-	});
+		});
+
+	
+
+	
+	
 </script>
 
 <header
@@ -173,6 +192,7 @@
 				<!-- header -->
 				<div class="p-5">
 					<input 
+					
 					bind:this={inputEl}
 					class="border-1 text-neutral-400 w-full focus:outline-none p-3 border-neutral-700/60"/>
 				</div>
@@ -181,7 +201,7 @@
 				<div class="flex h-100 flex-col gap-3 overflow-y-auto p-5">
 					
 
-					{#each [...pageSections, ...pageContents, ...techContents, ...hobbyContents, ...shitpostContents] as { name, description, path }}
+					{#each allItems as { name, description, path }}
 						{@render ModalItem(name, path, description)}
 					{/each}
 				</div>
@@ -282,7 +302,6 @@
 </style>
 
 <svelte:window onkeydown={a => {
-	a.preventDefault()
 	if (a.key === "Escape") {
 		closeModal()
 	} 
