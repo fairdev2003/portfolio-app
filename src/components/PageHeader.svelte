@@ -7,9 +7,27 @@
 
 	import { goto } from '$app/navigation';
 	import RenovationAlert from '../routes/about-me/sectors/components/RenovationAlert.svelte';
+	import Paragraph from './typography/Paragraph.svelte';
+
+	import { Search, X } from 'lucide-svelte';
+	import ProjectCard from '../routes/projects/(components)/ProjectCard.svelte';
+	import type { Attachment } from 'svelte/attachments';
+
+	function modalAnimation(): Attachment {
+		return (element: Element) => {
+			gsap.fromTo(element, { scaleY: 0.2, scaleX: 0.2, transformOrigin: 'bottom', opacity: 0, onComplete: () => {
+				inputEl.focus()
+			} },
+				{ scaleY: 1, scaleX: 1, duration: 0.4, opacity: 1, ease: 'power2.out' })
+				
+		}
+	}
+	let inputEl: HTMLInputElement
+	let modalEl: HTMLDivElement
 
 	let menu: HTMLElement | null = null;
 	let isOpen = false;
+	let modalOpened: boolean = $state(true);
 
 	function toggleMenu() {
 		isOpen = !isOpen;
@@ -31,6 +49,35 @@
 		}
 	}
 
+	function closeModal() {
+		
+		if (modalEl) {
+			gsap.to(modalEl, {
+				scaleY: 0.2,
+				scaleX: 0.15,
+				opacity: 0,
+				transformOrigin: 'bottom',
+				duration: 0.3,
+				ease: 'power2.in',
+				onComplete: () => {
+					modalOpened = false;
+					document.body.style.overflow = 'auto';
+				}
+			});
+		} else {
+			
+			modalOpened = false;
+			document.body.style.overflow = 'auto';
+		}
+	}
+
+	function openModal() {
+		modalOpened = !modalOpened
+		
+		document.body.style.overflow = 'hidden';
+		
+	}
+
 	onMount(() => {
 		window.addEventListener('keydown', handleResize);
 		window.addEventListener('resize', handleResize);
@@ -50,27 +97,104 @@
 		class="flex h-15 w-6xl items-center justify-between border-1 border-neutral-800/60 bg-neutral-900/60 backdrop-blur-sm lg:border-none lg:bg-transparent"
 	>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<h3 class="klimson-heading ml-3 cursor-pointer" onclick={() => goto('/')}>klimson.dev</h3>
+		<h3
+			class="klimson-heading ml-3 cursor-pointer bg-white px-2 text-black"
+			onclick={() => goto('/')}
+		>
+			klimson.dev
+		</h3>
 		<div class="relative flex items-center justify-center">
-			<img
-				onclick={toggleMenu}
-				class="group peer mr-10 h-10 w-10 cursor-pointer p-2 lg:hidden"
-				alt="hamburger"
-				src="https://img.icons8.com/?size=100&id=8113&format=png&color=FFFFFF"
-			/>
+			
+
+			<Search onclick={openModal}
+				class="group peer mr-3 h-10 w-10 cursor-pointer p-2 lg:hidden"/>
 
 			<span
-				onclick={toggleMenu}
-				class="absolute right-5 -bottom-3 h-15 w-20 bg-transparent peer-hover:bg-white/50"
+				onclick={openModal}
+				class="absolute right-5 bg-red-500/50 -bottom-3 h-15 w-20 bg-transparent peer-hover:bg-white/50"
 			>
 			</span>
 		</div>
+
+
+			<button
+				onclick={() => {
+					openModal()
+				}}
+				class="mr-3 lg:flex hidden cursor-pointer items-center justify-between gap-2 rounded-md border border-neutral-800/60 bg-neutral-900/60 p-3 hover:bg-neutral-800/60"
+			>
+				<div class="flex gap-2 text-neutral-400">
+					<Search />
+					<div>
+						<p>SZUKAJ...</p>
+					</div>
+				</div>
+
+				<div class="rounded-full bg-neutral-700/60 p-1 px-2">
+					<p class="text-[14px] text-neutral-400">CTRL + K</p>
+				</div>
+			</button>
+
 	</div>
 </header>
 
 {#if isOpen}
 	<div class="overlay" onclick={toggleMenu}></div>
 {/if}
+
+{@render Modal()}
+
+{#snippet Modal()}
+	{#if modalOpened}
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div
+			onclick={() => {
+				
+				closeModal()
+			}}
+			class="fixed inset-0 z-10 flex items-center justify-center bg-black/50 text-white backdrop-blur-lg"
+		>
+			<div
+				onclick={(a) => {
+					a.stopPropagation();
+				}}
+				{@attach modalAnimation()}
+				bind:this={modalEl}
+				class="relative flex w-9/10 flex-col border border-neutral-800/60 bg-neutral-950 md:w-1/2 lg:w-1/2 lg:w-120 lg:bg-neutral-950"
+			>
+				<!-- header -->
+				<div class="p-5">
+					<input 
+					bind:this={inputEl}
+					class="border-1 text-neutral-400 w-full focus:outline-none p-3 border-neutral-800/60"/>
+				</div>
+				<div class="border-b-1 border-neutral-800/60"></div>
+				<!-- scrollable content -->
+				<div class="flex h-100 flex-col gap-3 overflow-y-auto p-5">
+					
+
+					{#each pageSections as { name, description, path }}
+						{@render ModalItem(name, path, description)}
+					{/each}
+				</div>
+			</div>
+		</div>
+	{/if}
+{/snippet}
+
+{#snippet ModalItem(title: string, path: string, description?: string)}
+	<button
+		onclick={() => {
+			closeModal()
+			goto(path);
+		}}
+		class="flex cursor-pointer flex-col items-start justify-start border border-neutral-800/60 p-5 hover:bg-neutral-800/60"
+	>
+		<p class="text-[12px]">{title.toUpperCase()}</p>
+		<Paragraph class="text-md text-neutral-400">{description}</Paragraph>
+	</button>
+{/snippet}
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->

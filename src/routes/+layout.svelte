@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '../app.css';
+	import '../theme.css';
 	import '../assets/georgia-2-webfont/style.css';
 	import Navigation from '../components/Navigation.svelte';
 	import Footer from '../components/Footer.svelte';

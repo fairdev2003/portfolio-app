@@ -27,6 +27,7 @@
 		]}
 	/>
 	<Heading padding id="Spis-treści">Spis treści.</Heading>
+	<div class="h-5"></div>
 	<Paragraph
 		>Jeżeli nie znalazłeś tego co potrzebujesz na mojej stronie w nawigacji, tutaj prawdopodobnie to
 		znajdziesz o ile nie ukrylem tego lub treść nie jest zablokowana dla przechodnych użytkowników.
