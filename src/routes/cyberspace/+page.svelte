@@ -14,11 +14,11 @@
 	});
 </script>
 
-<div class="flex flex-col justify-center gap-5 p-5">
+<div class="flex flex-col items-center justify-center gap-5 p-5">
 	{#if colored}
-		<h1 class="retro-p text-5xl text-red-500">Cyber Space</h1>
+		<h1 class="retro-p text-5xl text-red-500">Welcome to Cyber Space!</h1>
 	{:else}
-		<h1 class="retro-p text-5xl text-white">Cyber Space</h1>
+		<h1 class="retro-p text-5xl text-white">Welcome to Cyber Space!</h1>
 	{/if}
 	<div class="flex gap-2">
 		{@render Graphic1()}
@@ -40,7 +40,7 @@
 {/snippet}
 
 <svelte:head>
-	<title>Klimson | Retrospace</title>
+	<title>Retrospace | Klimson</title>
 	<meta name="description" content="Retro View!" />
 </svelte:head>
 

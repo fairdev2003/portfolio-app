@@ -2,8 +2,15 @@
 	let { children } = $props();
 </script>
 
-<section>
-	<div class="flex h-[100vh] w-full justify-center bg-cyan-800">
+<section class="h-screen w-screen">
+	<div class="container mx-auto flex h-full w-full items-center justify-center">
 		{@render children()}
 	</div>
 </section>
+
+<style>
+	.container {
+		background-image: url('https://anlucas.neocities.org/starsbg.gif');
+		width: full;
+	}
+</style>
