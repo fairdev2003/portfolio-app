@@ -33,7 +33,7 @@
 	});
 </script>
 
-<div class="flex font-mono text-3xl text-white">
+<div class="flex font-mono text-xl text-white lg:text-3xl">
 	<span bind:this={textEl}></span>
 	<span bind:this={caretEl} class="caret">|</span>
 </div>

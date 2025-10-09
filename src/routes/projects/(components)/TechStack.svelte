@@ -11,9 +11,9 @@
 <div class="flex flex-col gap-2 pt-5">
 	<p class="text-neutral-500">UŻYTE TECHNOLOGIE</p>
 	<div class="flex gap-2">
-		{#each stack as { name, iconUrl, docsUrl }}
+		{#each stack as { name, iconUrl, docsUrl, inverted }}
 			{#if docsUrl && iconUrl}
-				{@render Tech(name, iconUrl, docsUrl)}
+				{@render Tech(name, iconUrl, docsUrl, inverted)}
 			{:else}
 				{@render Tech(name, '', '')}
 			{/if}
@@ -21,7 +21,7 @@
 	</div>
 </div>
 
-{#snippet Tech(name: string, iconUrl: string, docsUrl: string)}
+{#snippet Tech(name: string, iconUrl: string, docsUrl: string, inverted?: boolean)}
 	<!-- svelte-ignore a11y_consider_explicit_label -->
 	<button
 		onclick={() => {
@@ -29,6 +29,6 @@
 		}}
 		class="size-10 cursor-pointer rounded-md border border-neutral-700/60 bg-neutral-800/60 p-2 transition-colors hover:bg-neutral-700/60"
 	>
-		<img src={iconUrl} alt="name" />
+		<img class:invert={inverted} src={iconUrl} alt="name" />
 	</button>
 {/snippet}

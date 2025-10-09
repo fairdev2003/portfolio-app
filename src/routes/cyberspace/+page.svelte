@@ -39,6 +39,11 @@
 	</a>
 {/snippet}
 
+<svelte:head>
+	<title>Retrospace</title>
+	<meta name="description" content="Retro View!" />
+</svelte:head>
+
 <style>
 	@font-face {
 		font-family: 'WindowsRegular';

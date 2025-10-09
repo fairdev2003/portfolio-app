@@ -14,6 +14,8 @@
 	import type { Attachment } from 'svelte/attachments';
 	import Caret from './typography/Caret.svelte';
 	import { hobbyContents, pageContents, shitpostContents, techContents, type PageContentsType } from '$lib/contents';
+	import Heading from './typography/Heading.svelte';
+
 
 	function modalAnimation(): Attachment {
 		return (element: Element) => {
@@ -117,15 +119,17 @@
 >
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<div
+		
 		class="flex h-15 w-6xl items-center justify-between border-1 border-neutral-800/60 bg-neutral-900/60 backdrop-blur-sm lg:border-none lg:bg-transparent"
 	>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<h3
+			
 			class="klimson-heading ml-3 flex items-center cursor-pointer bg-white px-2 text-black"
 			onclick={() => goto('/')}
 		>	
 		
-			<span>klimson.dev</span>
+			<span >klimson.dev</span>
 		</h3>
 		
 
@@ -187,8 +191,15 @@
 				}}
 				{@attach modalAnimation()}
 				bind:this={modalEl}
-				class="relative flex w-9/10 flex-col border border-neutral-700/60 bg-neutral-950 md:w-1/2 lg:w-1/2 lg:w-120 lg:bg-neutral-950"
-			>
+				class:red={!modalOpened}
+				class="relative flex w-9/10 flex-col border border-neutral-700/60 bg-neutral-950 md:w-4/6 lg:w-150 lg:bg-neutral-950"
+			>	
+
+				<div 
+				class:error={!openModal}
+				class="absolute backdrop-blur-md inset-0 hidden justify-center items-center bg-red-500/30 w-full h-full'">
+					<Heading>Erorr</Heading>
+				</div>
 				<!-- header -->
 				<div class="p-5">
 					<input 
@@ -250,6 +261,14 @@
 </nav>
 
 <style>
+	.error {
+		display: flex
+	}
+
+	.red {
+		border-color: red;
+	}
+
 	.klimson-heading {
 		font-family: 'DM Serif Display', serif;
 		font-weight: 600;

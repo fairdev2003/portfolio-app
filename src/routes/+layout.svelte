@@ -15,7 +15,7 @@
 </script>
 
 <section>
-	{#if page.url.pathname === '/cyberspace'}
+	{#if page.url.pathname.includes('/cyberspace')}
 		{@render children()}
 	{:else}
 		<div class="mx-auto max-w-6xl px-5 lg:px-10">

@@ -4,6 +4,7 @@ export type Tech = {
 	name: string;
 	iconUrl?: string;
 	docsUrl?: string;
+	inverted?: boolean;
 };
 
 export type ProjectLogo = {
