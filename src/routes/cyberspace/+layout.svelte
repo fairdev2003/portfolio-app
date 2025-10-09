@@ -3,7 +3,7 @@
 </script>
 
 <section class="h-screen w-full bg-black">
-	<div class="container mx-auto flex h-full w-full items-center justify-center">
+	<div class="container mx-auto flex h-full w-full items-center justify-center border-x-1">
 		{@render children()}
 	</div>
 </section>
