@@ -2,7 +2,7 @@
 	let { children } = $props();
 </script>
 
-<section class="h-screen w-screen">
+<section class="h-screen w-full bg-black">
 	<div class="container mx-auto flex h-full w-full items-center justify-center">
 		{@render children()}
 	</div>
