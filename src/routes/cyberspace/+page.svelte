@@ -27,9 +27,9 @@
 		{/if}
 		<p>Welcome to national place for web astrounauts. Keep eyes on aliens!</p>
 	</div>
-	<a class="cursor-pointer text-4xl" href="/cyberspace/index">
-		<p class="spacing">DIVE IN</p>
-	</a>
+	<div class="mt-3">
+		{@render Graphic3()}
+	</div>
 </div>
 
 <div class="relative">
@@ -41,6 +41,12 @@
 		<img src={Maniek1} alt="maniek" class="h-[31px] w-[88px]" />
 	</a>
 {/snippet}
+{#snippet Graphic3()}
+	<a href="/cyberspace/index">
+		<img src="https://anlucas.neocities.org/Navbentr.gif" alt="enter-button" class="scale-110" />
+	</a>
+{/snippet}
+
 {#snippet Graphic2()}
 	<a href="https://maniek86.xyz">
 		<img src={Maniek2} alt="maniek" class="h-[31px] w-[88px]" />
