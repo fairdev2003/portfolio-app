@@ -3,7 +3,7 @@
 </script>
 
 <section>
-	<div class="h-[100vh] w-full bg-cyan-800">
+	<div class="flex h-[100vh] w-full justify-center bg-cyan-800">
 		{@render children()}
 	</div>
 </section>

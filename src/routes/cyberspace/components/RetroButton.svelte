@@ -24,6 +24,8 @@
 	}
 
 	button {
+		color: black;
+		user-select: none;
 		background: #c0c0c0;
 		padding: 2px 10px;
 		border: none;
