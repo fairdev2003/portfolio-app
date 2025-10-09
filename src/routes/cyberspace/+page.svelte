@@ -32,6 +32,10 @@
 	</a>
 </div>
 
+<div class="relative">
+	<!-- svelte-ignore a11y_missing_attribute -->
+</div>
+
 {#snippet Graphic1()}
 	<a href="https://maniek86.xyz">
 		<img src={Maniek1} alt="maniek" class="h-[31px] w-[88px]" />
