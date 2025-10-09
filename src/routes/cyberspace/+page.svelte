@@ -60,6 +60,7 @@
 	h1,
 	p {
 		font-family: 'WindowsRegular';
+		text-align: center;
 	}
 
 	a {
