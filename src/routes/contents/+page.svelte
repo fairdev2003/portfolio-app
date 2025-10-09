@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { pageSections } from '$lib';
-	import { hobbyContents, pageContents, shitpostContents, techContents } from '$lib/contents';
+	import { funContents, hobbyContents, pageContents, techContents } from '$lib/contents';
 	import ContactForm from '../../components/ContactForm.svelte';
 	import Document from '../../components/Document.svelte';
 	import ContentLink from '../../components/typography/ContentLink.svelte';
@@ -38,7 +38,7 @@
 	<div class="flex flex-col">
 		{@render Contents(pageSections, 'Nawigacja')}
 		{@render Contents(hobbyContents, 'Hobby')}
-		{@render Contents(shitpostContents, 'Shitpost')}
+		{@render Contents(funContents, 'Shitpost')}
 		{@render Contents(techContents, 'Tech')}
 		{@render Contents(pageContents, 'Pozostałe')}
 	</div>

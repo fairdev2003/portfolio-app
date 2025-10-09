@@ -20,7 +20,7 @@ export const hobbyContents: PageContentsType[] = [
 	{ name: 'Programowanie', path: '/coding', description: 'Moja ulubiona muzyczka' }
 ];
 
-export const shitpostContents: PageContentsType[] = [
+export const funContents: PageContentsType[] = [
 	{ name: 'Index', path: '/shitpost', description: 'Moja ulubiona muzyczka' },
 	{ name: 'Cyberspace', path: '/cyberspace', description: 'Retro design' }
 ];

@@ -13,7 +13,7 @@
 	import ProjectCard from '../routes/projects/(components)/ProjectCard.svelte';
 	import type { Attachment } from 'svelte/attachments';
 	import Caret from './typography/Caret.svelte';
-	import { hobbyContents, pageContents, shitpostContents, techContents, type PageContentsType } from '$lib/contents';
+	import { funContents, hobbyContents, pageContents, techContents, type PageContentsType } from '$lib/contents';
 	import Heading from './typography/Heading.svelte';
 
 
@@ -32,7 +32,7 @@
 		...pageContents,
 		...techContents,
 		...hobbyContents,
-		...shitpostContents
+		...funContents
 	];
 
 
@@ -210,9 +210,25 @@
 				<div class="border-b-1 border-neutral-700/60"></div>
 				<!-- scrollable content -->
 				<div class="flex h-100 flex-col gap-3 overflow-y-auto p-5">
-					
 
-					{#each allItems as { name, description, path }}
+					<p class="text-neutral-400">⟹ NAWIGACJA</p>
+					{#each pageSections as { name, description, path }}
+						{@render ModalItem(name, path, description)}
+					{/each}
+					<p class="text-neutral-400">⟹ TECH</p>
+					{#each techContents as { name, description, path }}
+						{@render ModalItem(name, path, description)}
+					{/each}
+					<p class="text-neutral-400">⟹ HOBBY</p>
+					{#each hobbyContents as { name, description, path }}
+						{@render ModalItem(name, path, description)}
+					{/each}
+					<p class="text-neutral-400">⟹ FUN</p>
+					{#each funContents as { name, description, path }}
+						{@render ModalItem(name, path, description)}
+					{/each}
+					<p class="text-neutral-400">⟹ POZOSTAŁE</p>
+					{#each pageContents as { name, description, path }}
 						{@render ModalItem(name, path, description)}
 					{/each}
 				</div>
