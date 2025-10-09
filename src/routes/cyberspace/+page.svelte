@@ -27,12 +27,9 @@
 		{/if}
 		<p>Welcome to national place for web astrounauts. Keep eyes on aliens!</p>
 	</div>
-	<div class="flex gap-2">
-		{@render Graphic1()}
-		{@render Graphic2()}
-	</div>
-
-	<RetroButton />
+	<a class="cursor-pointer text-4xl" href="/cyberspace/index">
+		<p class="spacing">DIVE IN</p>
+	</a>
 </div>
 
 {#snippet Graphic1()}
@@ -61,6 +58,15 @@
 	p {
 		font-family: 'WindowsRegular';
 		text-align: center;
+	}
+
+	.spacing {
+		color: blue;
+		letter-spacing: 5px;
+	}
+
+	.spacing:hover {
+		text-decoration: underline blue;
 	}
 
 	a {
