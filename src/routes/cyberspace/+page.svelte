@@ -14,12 +14,19 @@
 	});
 </script>
 
-<div class="flex flex-col items-center justify-center gap-5 p-5">
-	{#if colored}
-		<h1 class="retro-p text-5xl text-red-500">Welcome to Cyber Space!</h1>
-	{:else}
-		<h1 class="retro-p text-5xl text-white">Welcome to Cyber Space!</h1>
-	{/if}
+<div class="flex scale-120 flex-col items-center justify-center gap-3 p-5">
+	<a href={'/'} class="flex gap-2">
+		<p>{'<---'}</p>
+		<p>Go back to future</p>
+	</a>
+	<div class="flex flex-col items-center justify-center gap-2">
+		{#if colored}
+			<h1 class="retro-p text-5xl text-red-500">Welcome to Cyber Space!</h1>
+		{:else}
+			<h1 class="retro-p text-5xl text-white">Welcome to Cyber Space!</h1>
+		{/if}
+		<p>Welcome to national place for web astrounauts. Keep eyes on aliens!</p>
+	</div>
 	<div class="flex gap-2">
 		{@render Graphic1()}
 		{@render Graphic2()}
@@ -50,8 +57,13 @@
 		src: url('/WindowsRegular.ttf') format('truetype');
 	}
 
-	h1 {
+	h1,
+	p {
 		font-family: 'WindowsRegular';
+	}
+
+	a {
+		color: white;
 	}
 
 	:global(body) {
