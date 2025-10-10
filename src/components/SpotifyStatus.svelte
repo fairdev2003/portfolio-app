@@ -16,6 +16,37 @@
 		}
 	});
 
+	function timeAgo(dateInput: string | Date): string {
+		const date = new Date(dateInput);
+		const now = new Date();
+		const diffMs = now.getTime() - date.getTime(); // różnica w milisekundach
+		const diffSec = Math.floor(diffMs / 1000);
+		const diffMin = Math.floor(diffSec / 60);
+		const diffHr = Math.floor(diffMin / 60);
+		const diffDay = Math.floor(diffHr / 24);
+
+		if (diffSec < 60) return 'kilka sekund temu';
+		if (diffMin < 60) return `${diffMin} ${plural(diffMin, 'minutę', 'minuty', 'minut')} temu`;
+		if (diffHr < 24) return `${diffHr} ${plural(diffHr, 'godzinę', 'godziny', 'godzin')} temu`;
+		if (diffDay === 1) return 'wczoraj';
+		if (diffDay < 30) return `${diffDay} ${plural(diffDay, 'dzień', 'dni', 'dni')} temu`;
+		if (diffDay < 365) {
+			const months = Math.floor(diffDay / 30);
+			return `${months} ${plural(months, 'miesiąc', 'miesiące', 'miesięcy')} temu`;
+		}
+
+		const years = Math.floor(diffDay / 365);
+		return `${years} ${plural(years, 'rok', 'lata', 'lat')} temu`;
+	}
+
+	function plural(value: number, one: string, few: string, many: string): string {
+		const mod10 = value % 10;
+		const mod100 = value % 100;
+		if (value === 1) return one;
+		if (mod10 >= 2 && mod10 <= 4 && !(mod100 >= 12 && mod100 <= 14)) return few;
+		return many;
+	}
+
 	type Props = {
 		responsiveState?: 'desktop' | 'mobile';
 	};
@@ -101,7 +132,7 @@
 {:else}
 	<Paragraph class="my-3 mt-6 text-green-500">▶ Czego słuchałem na Spotify wcześniej.</Paragraph>
 	<div
-		class={`mb-3 flex items-center gap-2 border border-neutral-700/60 bg-neutral-800/60 p-3 py-5 transition-colors`}
+		class={`mb-3 flex items-center gap-4 border border-neutral-700/60 bg-neutral-800/60 p-3 py-5 transition-colors`}
 	>
 		<img
 			class="h-14 w-14 rounded-lg"
@@ -115,7 +146,7 @@
 				<p class="text-[14px] font-semibold">Synthetic World - Sped Up</p>
 
 				<p class="text-[11px] text-white">MitroWave</p>
-				<p class="text-[11px] text-green-500">10 minut temu</p>
+				<p class="text-[11px] text-green-500">{timeAgo('2025/10/10 16:30:00')}</p>
 			</div>
 		</div>
 	</div>

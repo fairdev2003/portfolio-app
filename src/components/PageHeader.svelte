@@ -18,17 +18,19 @@
 	import { input } from 'framer-motion/client';
 
 
+
+
 	function modalAnimation(): Attachment {
 		return (element: Element) => {
-			gsap.fromTo(element, { scaleY: 0.05, scaleX: 0.05, transformOrigin: 'bottom', opacity: 0, onComplete: () => {
-				if (document.body.clientWidth > 1023) {
-					inputEl.focus()
-				}
-			} },
-				{ scaleY: 1, scaleX: 1, duration: 0.4, opacity: 1, ease: 'power2.out' })
-				
+				gsap.fromTo(element, { scaleY: 0.05, scaleX: 0.05, transformOrigin: 'bottom', opacity: 0, onComplete: () => {
+					if (document.body.clientWidth > 1023) {
+						inputEl.focus()
+					}
+				} },
+					{ scaleY: 1, scaleX: 1, duration: 0.4, opacity: 1, ease: 'power2.out' })
+					
+			}
 		}
-	}
 
 	const allItems = [
 		...pageSections,
