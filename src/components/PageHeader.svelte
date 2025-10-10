@@ -15,12 +15,15 @@
 	import Caret from './typography/Caret.svelte';
 	import { funContents, hobbyContents, pageContents, techContents, type PageContentsType } from '$lib/contents';
 	import Heading from './typography/Heading.svelte';
+	import { input } from 'framer-motion/client';
 
 
 	function modalAnimation(): Attachment {
 		return (element: Element) => {
 			gsap.fromTo(element, { scaleY: 0.05, scaleX: 0.05, transformOrigin: 'bottom', opacity: 0, onComplete: () => {
-				
+				if (document.body.clientWidth > 1023) {
+					inputEl.focus()
+				}
 			} },
 				{ scaleY: 1, scaleX: 1, duration: 0.4, opacity: 1, ease: 'power2.out' })
 				
@@ -94,6 +97,7 @@
 		
 		document.body.style.overflow = 'hidden';
 		
+		
 	}
 
 	
@@ -107,10 +111,6 @@
 			window.addEventListener('keydown', handleResize);
 		};
 		});
-
-	
-
-	
 	
 </script>
 
@@ -202,10 +202,11 @@
 				</div>
 				<!-- header -->
 				<div class="p-5">
-					<input 
-					
-					bind:this={inputEl}
-					class="border-1 text-neutral-400 w-full focus:outline-none p-3 border-neutral-700/60"/>
+					<input
+							bind:this={inputEl}
+							placeholder="Wpisz, aby wyszukać..."
+							class="border-1 text-neutral-400 w-full focus:outline-none p-3 border-neutral-700/60 rounded-md bg-neutral-900"
+						/>
 				</div>
 				<div class="border-b-1 border-neutral-700/60"></div>
 				<!-- scrollable content -->
@@ -341,7 +342,11 @@
 		closeModal()
 	} 
 	if (a.ctrlKey && a.key.toLowerCase() === 'k') {
-		a.preventDefault(); // zapobiega np. otwieraniu wyszukiwarki w przeglądarce
+		a.preventDefault();
+		if (modalOpened) {
+			closeModal()
+			return;
+		}	
 		openModal();
 	}
 }}></svelte:window>

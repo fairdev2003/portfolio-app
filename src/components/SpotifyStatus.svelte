@@ -68,10 +68,10 @@
 </script>
 
 {#if klimsonApp.spotify}
-	<Paragraph class="my-3 mt-6 text-green-500">▶ Słucham Spotify</Paragraph>
-{/if}
-{#if klimsonApp.spotify}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
+
+	<Paragraph class="my-3 mt-6 text-green-500">▶ Słucham teraz Spotify.</Paragraph>
+
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
 		onclick={() => {
@@ -95,6 +95,27 @@
 					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.progress)}</p>
 					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.duration)}</p>
 				</div>
+			</div>
+		</div>
+	</div>
+{:else}
+	<Paragraph class="my-3 mt-6 text-green-500">▶ Czego słuchałem na Spotify wcześniej.</Paragraph>
+	<div
+		class={`mb-3 flex items-center gap-2 border border-neutral-700/60 bg-neutral-800/60 p-3 py-5 transition-colors`}
+	>
+		<img
+			class="h-14 w-14 rounded-lg"
+			src="https://i.scdn.co/image/ab67616d0000b27317b0984b60de0904dab64787"
+			alt="Album cover"
+		/>
+		<div
+			class={`flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} w-full flex-col gap-0.5`}
+		>
+			<div class="flex flex-col">
+				<p class="text-[14px] font-semibold">Synthetic World - Sped Up</p>
+
+				<p class="text-[11px] text-white">MitroWave</p>
+				<p class="text-[11px] text-green-500">10 minut temu</p>
 			</div>
 		</div>
 	</div>

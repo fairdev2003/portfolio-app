@@ -38,7 +38,7 @@
 	<div class="flex flex-col">
 		{@render Contents(pageSections, 'Nawigacja')}
 		{@render Contents(hobbyContents, 'Hobby')}
-		{@render Contents(funContents, 'Shitpost')}
+		{@render Contents(funContents, 'Fun')}
 		{@render Contents(techContents, 'Tech')}
 		{@render Contents(pageContents, 'Pozostałe')}
 	</div>
@@ -59,8 +59,14 @@
 	<Heading id={name} padding class="mb-5">{name}</Heading>
 	<div class="flex flex-col gap-3">
 		{#each contents as content}
-			{#if content.path != '/contents'}
-				<ContentLink name={content.name} path={content.path} desc={content.description} />
+			{#if content.name !== 'Cyberspace'}
+				{#if content.path != '/contents'}
+					<ContentLink name={content.name} path={content.path} desc={content.description} />
+				{/if}
+			{:else}
+				<a class="cyberspace-special cursor-pointer px-2 py-3" href={content.path}>
+					<Paragraph class="text-white">CYBERSPACE</Paragraph>
+				</a>
 			{/if}
 		{/each}
 	</div>
@@ -71,5 +77,9 @@
 		color: white;
 		font-weight: bold;
 		background-color: transparent;
+	}
+
+	a {
+		background-color: blue;
 	}
 </style>

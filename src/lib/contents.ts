@@ -21,7 +21,7 @@ export const hobbyContents: PageContentsType[] = [
 ];
 
 export const funContents: PageContentsType[] = [
-	{ name: 'Index', path: '/shitpost', description: 'Moja ulubiona muzyczka' },
+	{ name: 'Shitpost', path: '/shitpost', description: 'Sekcja z ahh zdjęciami' },
 	{ name: 'Cyberspace', path: '/cyberspace', description: 'Retro design' }
 ];
 
