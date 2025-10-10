@@ -17,7 +17,7 @@
 <div class="flex scale-120 flex-col items-center justify-center gap-3 p-5">
 	<a href={'/'} class="flex gap-2">
 		<p>{'<---'}</p>
-		<p>Go back to future</p>
+		<p>GO BACK TO FUTURE</p>
 	</a>
 	<div class="flex flex-col items-center justify-center gap-2">
 		{#if colored}

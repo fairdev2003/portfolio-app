@@ -3,6 +3,7 @@
 	import { projects } from '../../projects';
 	import HarcQuiz from '../HarcQuiz.svelte';
 	import KlimsonServer from '../KlimsonServer.svelte';
+	import ObeyClanManager from '../ObeyClanManager.svelte';
 	import PortfolioApp from '../PortfolioApp.svelte';
 
 	type Props = {
@@ -25,5 +26,8 @@
 	{/if}
 	{#if id === 'harc-quiz'}
 		<HarcQuiz project={getProjectRecord(id)} />
+	{/if}
+	{#if id === 'clan-manager'}
+		<ObeyClanManager project={getProjectRecord(id)} />
 	{/if}
 </div>

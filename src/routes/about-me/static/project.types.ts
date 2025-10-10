@@ -18,6 +18,7 @@ export type ProjectLinkType = 'repo' | 'demo' | 'docs' | 'design';
 export type ProjectLink = {
 	type: ProjectLinkType;
 	url: string;
+	customLinkName?: string;
 };
 
 export type ProjectCategory = 'web' | 'mobile' | 'library' | 'tool';

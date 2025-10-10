@@ -55,8 +55,12 @@
 		</div>
 
 		<div class="mt-4 flex flex-col gap-2">
-			{#each project.links as { type, url }}
-				{@render Link(url, type)}
+			{#each project.links as { type, url, customLinkName }}
+				{#if customLinkName}
+					{@render Link(customLinkName, type)}
+				{:else}
+					{@render Link(url, type)}
+				{/if}
 			{/each}
 		</div>
 		<div class="mt-3">

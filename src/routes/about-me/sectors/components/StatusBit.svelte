@@ -14,7 +14,7 @@
 			case 'wip':
 				return 'bg-green-400/30 border border-green-400/0 text-white';
 			case 'archived':
-				return '';
+				return 'bg-neutral-700/60 border border-neutral-500/60';
 			case 'completed':
 				return 'bg-green-400/30 border border-green-400 text-white';
 		}
@@ -25,7 +25,7 @@
 			case 'wip':
 				return 'W TRAKCIE';
 			case 'archived':
-				return 'Zaarchiwizowany';
+				return 'Archiwalny';
 			case 'completed':
 				return 'Zakończony';
 		}

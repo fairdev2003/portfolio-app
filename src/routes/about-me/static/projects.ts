@@ -2,14 +2,6 @@ import type { Project } from './project.types';
 
 export const projects: Project[] = [
 	{
-		// { src: 'Svelte.svg', stack_name: 'Svelte', href: 'https://svelte.dev/' }
-		// { src: 'Tailwind-CSS.svg', stack_name: 'TailwindCSS', href: 'https://tailwindcss.com/' },
-		// 	{
-		// 	src: 'HTML5.svg',
-		// 	stack_name: 'HTML5',
-		// 	href: 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5'
-		// },
-		// { src: 'CSS3.svg', stack_name: 'CSS3', href: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
 		id: 'portfolio',
 		name: 'Portfolio',
 		description: 'Dzięki temu projektowi widzisz ten tekst',
@@ -61,6 +53,40 @@ export const projects: Project[] = [
 		},
 		screenshots: [],
 		startDate: '10.03.2025'
+	},
+	{
+		id: 'clan-manager',
+		name: 'Obey Clan Manager',
+		description: 'Bot do zarządzania ludźmi w klanie Obey w grze Pixel Gun 3D',
+		category: 'tool',
+		status: 'archived',
+		techStack: [
+			{
+				name: 'Python',
+				docsUrl: 'https://gsap.com/docs/v3/',
+				iconUrl: 'https://icon.icepanel.io/Technology/svg/Python.svg'
+			},
+			{
+				name: 'MySQL',
+				docsUrl: 'https://gsap.com/docs/v3/',
+				iconUrl: 'https://icon.icepanel.io/Technology/svg/MySQL.svg'
+			}
+		],
+		links: [
+			{ type: 'repo', url: 'https://github.com/fairdev2003/clan-management-bot-pg' },
+			{
+				type: 'demo',
+				url: 'https://discordapp.com/oauth2/authorize?client_id=1032359513673707591',
+				customLinkName: 'https://discordapp.com/oauth2/authorize'
+			}
+		],
+		logo: {
+			color: 'bg-yellow-800/30',
+			url: 'https://icon.icepanel.io/Technology/svg/Python.svg'
+		},
+		screenshots: [],
+		startDate: '18.03.2023',
+		endDate: '13.05.2023'
 	},
 	{
 		id: 'klimson-server',
