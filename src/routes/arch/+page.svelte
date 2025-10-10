@@ -5,6 +5,7 @@
 
 	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
 	import Paragraph from '../../components/typography/Paragraph.svelte';
+	import QuotationMark from '../../components/typography/QuotationMark.svelte';
 </script>
 
 <div class="gap col-span-2 flex flex-col">
@@ -25,6 +26,7 @@
 			dalej miał Windowsa 10. Po wielokrotnych namowach moich ziomków linuksiarzy zdecydowałem sie
 			na Archa. Jestem mega zadowolony. Archa mam zarówno na laptopie jak i komputerze głównym 😁
 		</Paragraph>
+		<QuotationMark>Tak swoją drogą używam archa</QuotationMark>
 	</div>
 	<div class="flex flex-col gap-4">
 		<Image

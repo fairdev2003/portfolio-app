@@ -1,5 +1,14 @@
 <script lang="ts">
+	import type { Attachment } from 'svelte/attachments';
+	import gsap from 'gsap';
+
 	let { children } = $props();
+
+	function descriptionAnimation(): Attachment {
+		return (element: Element) => {
+			gsap.fromTo(element, { scale: 0 }, { scale: 1, rotate: 360, delay: 0.5 });
+		};
+	}
 </script>
 
 <section class="relative h-screen w-full bg-black">
