@@ -14,6 +14,11 @@ export const pageContents: PageContentsType[] = [
 		name: 'FTB Skies Expert',
 		path: '/minecraft/ftb-skies-expert',
 		description: 'Moja przygoda z paczką FTB Skies Expert'
+	},
+	{
+		name: 'Minecraft',
+		path: '/minecraft',
+		description: 'Sekcja o grze Minecraft!'
 	}
 ];
 
