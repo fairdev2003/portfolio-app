@@ -6,6 +6,7 @@
 	import StatusBit from '../../sectors/components/StatusBit.svelte';
 	import type { Project, ProjectPage } from '../project.types';
 	import { projects } from '../projects';
+	import CommitHistory from './components/CommitHistory.svelte';
 	import ProjectGeneralInfo from './components/ProjectGeneralInfo.svelte';
 
 	type Props = {
@@ -18,6 +19,7 @@
 {#if project}
 	<div class="lg:px-5">
 		<ProjectGeneralInfo {...project} />
+		<CommitHistory author="fairdev2003" repo="clan-management-bot-pg" />
 		<TechStack stack={project.techStack} />
 		<div class="mt-5 flex flex-col gap-3">
 			<Heading idTrackingDisabled>Czym jest ten projekt?</Heading>
