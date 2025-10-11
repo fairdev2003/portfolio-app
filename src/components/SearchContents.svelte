@@ -21,7 +21,7 @@
 	let filteredPageContents: PageContentsType[] = $state([]);
 	let filteredHobbyContents: PageContentsType[] = $state([]);
 	let filteredTechContents: PageContentsType[] = $state([]);
-	let step: number = $state(0);
+	let step: number = $state(-1);
 	let selectedPath: string = $state('');
 	let itemRefs: HTMLButtonElement[] = [];
 
@@ -68,7 +68,9 @@
 		filteredHobbyContents = hobbyContents.filter((item) => searchStatement(item, 'Hobby'));
 		filteredTechContents = techContents.filter((item) => searchStatement(item, 'Technologia'));
 
-		step = 0;
+		if (document.body.clientWidth > 1023) {
+			step = 0;
+		}
 	});
 
 	$effect(() => {

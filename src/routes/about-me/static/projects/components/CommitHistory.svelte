@@ -4,7 +4,7 @@
 	import type { GitHubCommit } from './github.types';
 	import Paragraph from '../../../../../components/typography/Paragraph.svelte';
 	import { GitCommitHorizontal } from 'lucide-svelte';
-	import { Link } from '@lucide/svelte';
+	import { ArrowRight, Link } from '@lucide/svelte';
 
 	type Props = {
 		repo: string;
@@ -39,7 +39,7 @@
 			target="_blank"
 			class="cursor-pointer rounded-full p-3 text-neutral-400 transition-colors hover:bg-neutral-800/30 hover:text-green-500"
 		>
-			<Link />
+			<ArrowRight />
 		</a>
 	</div>
 {/if}
