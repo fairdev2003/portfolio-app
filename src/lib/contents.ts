@@ -10,8 +10,11 @@ export const pageContents: PageContentsType[] = [
 	{ name: 'Cytaty', path: '/quotes', description: 'Moje życiowe cytaty' },
 	{ name: 'Galeria', path: '/gallery', description: 'Moja ulubiona muzyczka' },
 	{ name: 'ADHD', path: '/adhd', description: 'Moja ulubiona muzyczka' },
-	{ name: 'Me', path: '/me', description: 'Moja ulubiona muzyczka' },
-	{ name: 'Fajerwerki', path: '/lore', description: 'Moja ulubiona muzyczka' }
+	{
+		name: 'FTB Skies Expert',
+		path: '/minecraft/ftb-skies-expert',
+		description: 'Moja przygoda z paczką FTB Skies Expert'
+	}
 ];
 
 export const hobbyContents: PageContentsType[] = [
