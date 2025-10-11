@@ -30,7 +30,16 @@
 
 <div {...props} class="flex flex-col items-center justify-center gap-3">
 	<div class={`image-wrapper w-full ${borderStatement} overflow-hidden rounded-lg`}>
-		<img alt={name ? name : 'no-image-name-provided'} {src} class={imgClasses} />
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+		<img
+			onclick={() => {
+				window.open(src, '_blank');
+			}}
+			alt={name ? name : 'no-image-name-provided'}
+			{src}
+			class={imgClasses}
+		/>
 	</div>
 	{#if description}
 		<div>
