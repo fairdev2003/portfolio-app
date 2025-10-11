@@ -178,7 +178,7 @@
 		</div>
 		<div class="flex flex-col items-start">
 			<p class="text-[12px]">{title.toUpperCase()}</p>
-			<Paragraph class="text-md truncate text-neutral-400">{description}</Paragraph>
+			<Paragraph class="text-md text-start text-neutral-400">{description}</Paragraph>
 		</div>
 	</button>
 {/snippet}

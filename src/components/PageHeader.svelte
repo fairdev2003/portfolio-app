@@ -86,6 +86,7 @@
 				onComplete: () => {
 					modalOpened = false;
 					document.body.style.overflow = 'auto';
+					value = ""
 				}
 			});
 		} else {
@@ -205,7 +206,12 @@
 				</div>
 				<!-- header -->
 				<div class="p-5">
+					<!-- svelte-ignore component_name_lowercase -->
 					<input	
+							oncontextmenu={(e) => {
+								e.preventDefault();
+								value = '';    
+							}}
 							bind:value={value}
 							bind:this={inputEl}
 							placeholder="Wpisz, aby wyszukać..."
