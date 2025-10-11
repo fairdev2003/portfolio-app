@@ -1,7 +1,7 @@
 <script lang="ts">
 	import axios, { type AxiosResponse } from 'axios';
 	import { onMount } from 'svelte';
-	import type { GitHubCommit } from './hithub.types';
+	import type { GitHubCommit } from './github.types';
 	import Paragraph from '../../../../../components/typography/Paragraph.svelte';
 	import { GitCommitHorizontal } from 'lucide-svelte';
 	import { Link } from '@lucide/svelte';
@@ -29,8 +29,9 @@
 		<div class="flex flex-col gap-1">
 			<span class="flex items-center gap-1 text-[12px] font-bold text-neutral-400"
 				><GitCommitHorizontal />
-				<p>OSTATNI COMMIT</p></span
-			>
+				<p>OSTATNI COMMIT</p>
+				<p>{'('}{new Date(response.data[0].commit.author.date).toLocaleString('pl-PL')}{')'}</p>
+			</span>
 			<p class="text-[14px]">{response.data[0].commit.message}</p>
 		</div>
 		<a
