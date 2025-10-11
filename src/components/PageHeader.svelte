@@ -16,6 +16,7 @@
 	import { funContents, hobbyContents, pageContents, techContents, type PageContentsType } from '$lib/contents';
 	import Heading from './typography/Heading.svelte';
 	import { input } from 'framer-motion/client';
+	import SearchContents from './SearchContents.svelte';
 
 
 
@@ -42,7 +43,7 @@
 
 
 
-	
+	let value: string = $state("")
 
 
 	let inputEl: HTMLInputElement
@@ -204,7 +205,8 @@
 				</div>
 				<!-- header -->
 				<div class="p-5">
-					<input
+					<input	
+							bind:value={value}
 							bind:this={inputEl}
 							placeholder="Wpisz, aby wyszukać..."
 							class="border-1 text-neutral-400 w-full focus:outline-none p-3 border-neutral-700/60 rounded-md bg-neutral-900"
@@ -212,29 +214,10 @@
 				</div>
 				<div class="border-b-1 border-neutral-700/60"></div>
 				<!-- scrollable content -->
-				<div class="flex h-100 flex-col gap-3 overflow-y-auto p-5">
-
-					<p class="text-neutral-400">⟹ NAWIGACJA</p>
-					{#each pageSections as { name, description, path }}
-						{@render ModalItem(name, path, description)}
-					{/each}
-					<p class="text-neutral-400">⟹ TECH</p>
-					{#each techContents as { name, description, path }}
-						{@render ModalItem(name, path, description)}
-					{/each}
-					<p class="text-neutral-400">⟹ HOBBY</p>
-					{#each hobbyContents as { name, description, path }}
-						{@render ModalItem(name, path, description)}
-					{/each}
-					<p class="text-neutral-400">⟹ FUN</p>
-					{#each funContents as { name, description, path }}
-						{@render ModalItem(name, path, description)}
-					{/each}
-					<p class="text-neutral-400">⟹ POZOSTAŁE</p>
-					{#each pageContents as { name, description, path }}
-						{@render ModalItem(name, path, description)}
-					{/each}
-				</div>
+				<SearchContents searchValue={value} onModalItemClicked={() => {
+					closeModal()
+					
+				}}/>
 			</div>
 		</div>
 	{/if}

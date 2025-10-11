@@ -69,6 +69,11 @@ export const projects: Project[] = [
 			{
 				name: 'MySQL',
 				docsUrl: 'https://gsap.com/docs/v3/',
+				iconUrl: 'https://www.svgrepo.com/show/353655/discord-icon.svg'
+			},
+			{
+				name: 'MySQL',
+				docsUrl: 'https://gsap.com/docs/v3/',
 				iconUrl: 'https://icon.icepanel.io/Technology/svg/MySQL.svg'
 			}
 		],
