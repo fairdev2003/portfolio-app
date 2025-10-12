@@ -24,7 +24,7 @@
 </script>
 
 {#await commitsPromise}
-	<div class="relative h-9 w-full overflow-hidden rounded bg-neutral-800/60">
+	<div class="relative h-9 w-full overflow-hidden bg-neutral-800/60">
 		<div
 			class="animate-shimmer absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-neutral-500/30 to-transparent"
 		></div>
