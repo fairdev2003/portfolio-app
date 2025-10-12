@@ -32,7 +32,7 @@
 {:then commits}
 	{#if commits.length > 0}
 		<div
-			class="flex h-18 items-center justify-between gap-1 border border-t-0 border-neutral-800/60 bg-neutral-900/60 p-3 px-5"
+			class="flex items-center justify-between gap-1 border border-t-0 border-neutral-800/60 bg-neutral-900/60 p-3 px-5"
 		>
 			<div class="flex flex-col gap-1">
 				<span class="flex items-center gap-1 text-[12px] font-bold text-neutral-400">
