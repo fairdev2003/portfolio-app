@@ -1,0 +1,14 @@
+NAME "Gregorius Master Pressing"
+
+EVERY 20 TICKS DO
+    INPUT *plate*,*sheet* FROM depot
+    OUTPUT TO chest
+        FORGET
+    INPUT FROM chest
+    OUTPUT TO pattern
+END
+
+EVERY 20 TICKS DO
+    INPUT FROM input_chest ROUND ROBIN BY BLOCK
+    OUTPUT retain 5 TO EACH depot
+END
