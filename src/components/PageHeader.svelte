@@ -118,6 +118,8 @@
 	
 </script>
 
+
+
 <header
 	class="sticky top-0 z-10 flex items-center gap-1 py-5 select-none lg:relative lg:bg-transparent"
 >

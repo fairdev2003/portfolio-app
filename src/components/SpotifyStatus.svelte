@@ -136,17 +136,17 @@
 	>
 		<img
 			class="h-14 w-14 rounded-lg"
-			src="https://i.scdn.co/image/ab67616d0000b27317b0984b60de0904dab64787"
+			src="https://i.scdn.co/image/ab67616d0000b2739e9f0c18102c3fbb2c27f314"
 			alt="Album cover"
 		/>
 		<div
 			class={`flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} w-full flex-col gap-0.5`}
 		>
 			<div class="flex flex-col">
-				<p class="text-[14px] font-semibold">Synthetic World - Sped Up</p>
+				<p class="text-[14px] font-semibold">ELECTRA</p>
 
-				<p class="text-[11px] text-white">MitroWave</p>
-				<p class="text-[11px] text-green-500">{timeAgo('2025/10/10 16:30:00')}</p>
+				<p class="text-[11px] text-white">Kukon, Zeppy Zep</p>
+				<p class="text-[11px] text-green-500">{timeAgo('2025/10/12 18:58:43')}</p>
 			</div>
 		</div>
 	</div>
