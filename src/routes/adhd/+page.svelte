@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Check } from 'lucide-svelte';
 	import Box from '../../components/Document.svelte';
 	import Heading from '../../components/typography/Heading.svelte';
 
@@ -14,7 +15,6 @@
 		]}
 	/>
 	<Heading>ADHD.</Heading>
-	<div class="mx-auto mt-10 flex">
-		<Paragraph>{'Tu nic nie ma :<'}</Paragraph>
-	</div>
+	<Paragraph white><span class="font-bold">Dane ogólne i powód zgłoszenia:</span> Pacjent</Paragraph
+	>
 </div>

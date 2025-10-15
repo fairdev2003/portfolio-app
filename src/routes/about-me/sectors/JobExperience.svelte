@@ -1,11 +1,22 @@
 <script>
+	import Timeline from '../../../components/timeline/Timeline.svelte';
 	import Heading from '../../../components/typography/Heading.svelte';
+	import ProjectCard from './components/ProjectCard.svelte';
 	import RenovationAlert from './components/RenovationAlert.svelte';
 </script>
 
 <div class="flex flex-col gap-5">
 	<Heading padding id="Doświadczenie-zawodowe">Doświadczenie zawodowe</Heading>
-	<RenovationAlert />
+	<ProjectCard
+		onClick={() => {}}
+		logo={{
+			url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDSg96PiqJPorUOvlY71C7D2HtuvxcjFsGzA&s',
+			color: 'bg-neutral-400/50',
+			style: 'bg-red-500'
+		}}
+		name="Contact Sales"
+		description="Marzec 2024 - Październik 2025"
+	/>
 </div>
 
 {#snippet JobExperienceSnippet()}

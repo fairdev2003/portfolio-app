@@ -1,34 +1,56 @@
 <script lang="ts">
-	let theme: 'light' | 'dark' = 'light';
-
-	// Sprawdź localStorage przy montowaniu komponentu
 	import { onMount } from 'svelte';
+
+	type ThemeMode = 'light' | 'dark' | 'system';
+	let theme: ThemeMode = 'system';
+
 	onMount(() => {
-		const storedTheme = localStorage.getItem('theme');
-		if (storedTheme === 'dark') {
-			theme = 'dark';
-			document.documentElement.classList.add('dark');
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+			const stored = localStorage.getItem('theme');
+			if (stored === 'system' || !stored) {
+				setTheme('system');
+			}
+		});
+
+		const stored = localStorage.getItem('theme') as ThemeMode | null;
+		if (stored) {
+			setTheme(stored);
 		} else {
-			theme = 'light';
-			document.documentElement.classList.remove('dark');
+			setTheme('system');
 		}
 	});
 
-	function toggleTheme() {
-		if (theme === 'light') {
-			theme = 'dark';
+	function setTheme(mode: ThemeMode) {
+		theme = mode;
+		localStorage.setItem('theme', mode);
+
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+		if (mode === 'dark' || (mode === 'system' && prefersDark)) {
 			document.documentElement.classList.add('dark');
 		} else {
-			theme = 'light';
 			document.documentElement.classList.remove('dark');
 		}
-		localStorage.setItem('theme', theme);
+	}
+
+	function handleChange(e: Event) {
+		const mode = (e.target as HTMLSelectElement).value as ThemeMode;
+		setTheme(mode);
 	}
 </script>
 
-<button
-	on:click={toggleTheme}
-	class="rounded-md border border-gray-400 bg-white px-4 py-2 text-gray-800 transition hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+<div
+	class="flex items-center gap-3 rounded-md border border-gray-400 bg-white p-3 text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
 >
-	{theme === 'light' ? '🌞 Light Mode' : '🌙 Dark Mode'}
-</button>
+	<label for="theme" class="text-sm">Tryb:</label>
+	<select
+		id="theme"
+		class="cursor-pointer rounded-md border border-gray-300 bg-white px-3 py-1 text-sm dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+		on:change={handleChange}
+		bind:value={theme}
+	>
+		<option value="system">🖥️ Systemowy</option>
+		<option value="light">🌞 Jasny</option>
+		<option value="dark">🌙 Ciemny</option>
+	</select>
+</div>

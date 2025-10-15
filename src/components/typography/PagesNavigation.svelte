@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Dot } from 'lucide-svelte';
+	import Paragraph from './Paragraph.svelte';
 
 	type Pages = {
 		name: string;
@@ -19,9 +20,16 @@
 
 <div class="my-3 flex items-center">
 	{#each pages as { name, route }, i}
-		<p class="text-sm text-neutral-500">{name}</p>
+		<a class="cursor-pointer" href={route}>{name}</a>
 		{#if i != pages.length - 1}
 			<Dot color="gray"></Dot>
 		{/if}
 	{/each}
 </div>
+
+<style>
+	a {
+		color: #737373;
+		font-size: 14px;
+	}
+</style>

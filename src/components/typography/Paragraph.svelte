@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '../../assets/georgia-2-webfont/style.css';
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 
@@ -19,7 +20,6 @@
 
 <style>
 	p {
-		font-family: Georgia, 'Times New Roman', Times, serif;
-		font-weight: 500;
+		font-family: 'Georgia', serif;
 	}
 </style>

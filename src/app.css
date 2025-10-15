@@ -9,6 +9,8 @@ body {
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+
+
 .box {
     @apply bg-neutral-800/60
 }
