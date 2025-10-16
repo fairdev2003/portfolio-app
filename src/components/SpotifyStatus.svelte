@@ -95,6 +95,8 @@
 		);
 	}
 
+	onMount(() => {});
+
 	const { responsiveState = 'desktop' }: Props = $props();
 </script>
 
@@ -108,8 +110,9 @@
 		onclick={() => {
 			openModal();
 		}}
-		class={`mb-3 flex cursor-pointer items-center gap-2 border border-neutral-700/60 bg-neutral-800/60 p-3 py-5 transition-colors select-none hover:bg-neutral-700`}
+		class={`relative mb-3 flex cursor-pointer items-center gap-2 overflow-hidden border border-neutral-700/60 bg-neutral-800/60 p-3 py-5 transition-colors select-none hover:bg-neutral-700/60`}
 	>
+		<img class="absolute -z-1 blur" src={klimsonApp.getAlbumCover()} alt="alum" />
 		<img class="h-14 w-14 rounded-lg" src={klimsonApp.spotify?.album_art_url} alt="Album cover" />
 		<div
 			class={`flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} w-full flex-col gap-0.5`}
@@ -132,7 +135,7 @@
 {:else}
 	<Paragraph class="my-3 mt-6 text-green-500">▶ Czego słuchałem na Spotify wcześniej.</Paragraph>
 	<div
-		class={`mb-3 flex items-center gap-4 border border-neutral-700/60 bg-neutral-800/60 p-3 py-5 transition-colors`}
+		class={`relative mb-3 flex items-center gap-4 border border-neutral-700/60 bg-neutral-800/60 p-3 py-5 transition-colors`}
 	>
 		<img
 			class="h-14 w-14 rounded-lg"
