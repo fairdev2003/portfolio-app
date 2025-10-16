@@ -8,8 +8,8 @@ export type PageContentsType = {
 
 export const pageContents: PageContentsType[] = [
 	{ name: 'Cytaty', path: '/quotes', description: 'Moje życiowe cytaty' },
-	{ name: 'Galeria', path: '/gallery', description: 'Moja ulubiona muzyczka' },
-	{ name: 'ADHD', path: '/adhd', description: 'Moja ulubiona muzyczka' },
+	{ name: 'Galeria', path: '/gallery', description: 'Galeria moich ulubionych zdjęć!' },
+	{ name: 'ADHD', path: '/adhd', description: 'Moja historia z tym zaburzeniem' },
 	{
 		name: 'FTB Skies Expert',
 		path: '/minecraft/ftb-skies-expert',
@@ -24,8 +24,8 @@ export const pageContents: PageContentsType[] = [
 
 export const hobbyContents: PageContentsType[] = [
 	{ name: 'Muzyka', path: '/music', description: 'Moja ulubiona muzyczka' },
-	{ name: 'Gry', path: '/games', description: 'Moja ulubiona muzyczka' },
-	{ name: 'Programowanie', path: '/coding', description: 'Moja ulubiona muzyczka' }
+	{ name: 'Gry', path: '/games', description: 'Moja ulubione gry w które gram' },
+	{ name: 'Programowanie', path: '/coding', description: 'Programowanie to moja pasja.' }
 ];
 
 export const funContents: PageContentsType[] = [
@@ -34,6 +34,6 @@ export const funContents: PageContentsType[] = [
 ];
 
 export const techContents: PageContentsType[] = [
-	{ name: 'i use arch btw', path: '/arch', description: 'Moja ulubiona muzyczka' },
+	{ name: 'i use arch btw', path: '/arch', description: 'Używam archa tak swoją drogą :)' },
 	{ name: 'Ustawienia VSC', path: '/vsc', description: 'Jak wygląda mój setup w VSC' }
 ];

@@ -38,7 +38,7 @@
 			{/each}
 		</div>
 	</div>
-	<ThemeSwitch />
+	<!-- <ThemeSwitch /> -->
 	<p class="footer-text text-white/80">@ Klimson 2025. All rights reserved.</p>
 </footer>
 

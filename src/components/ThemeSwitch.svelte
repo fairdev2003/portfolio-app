@@ -4,7 +4,7 @@
 	type ThemeMode = 'light' | 'dark' | 'system';
 	let theme: ThemeMode = 'system';
 
-	onMount(() => {
+	$effect(() => {
 		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
 			const stored = localStorage.getItem('theme');
 			if (stored === 'system' || !stored) {

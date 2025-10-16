@@ -1,24 +1,26 @@
 <script>
 	import PageNavigator from '../(components)/PageNavigator.svelte';
 	import ResponsiveContainer from '../../../components/responsive/ResponsiveContainer.svelte';
+	import Heading from '../../../components/typography/Heading.svelte';
+	import Paragraph from '../../../components/typography/Paragraph.svelte';
 	import SfmCodeArea from './(components)/SFMCodeArea.svelte';
 
 	const { data } = $props();
 </script>
 
 <ResponsiveContainer cols={2} className="flex flex-col gap-y-3 col-span-2">
-	<h2>🧠 Super Factory Manager</h2>
+	<Heading>🧠 Super Factory Manager</Heading>
 
-	<p>
+	<Paragraph white>
 		<strong>Super Factory Manager</strong> to nowoczesny mod logistyczny do Minecrafta, który umożliwia
 		tworzenie zaawansowanych systemów transportu i przetwarzania zasobów za pomocą prostego, przyjemnego
 		języka programowania.
-	</p>
-	<p>
+	</Paragraph>
+	<Paragraph white>
 		Zaprojektowany z myślą o <strong>czytelności, elastyczności i zabawie</strong>, mod pozwala
 		graczom tworzyć własne "programy logistyczne", które kontrolują przepływ przedmiotów, płynów,
 		energii i innych zasobów w świecie gry
-	</p>
+	</Paragraph>
 
 	<h2>✨ Główne cechy:</h2>
 	<ul class="space-y-2 text-sm text-slate-200">
@@ -75,6 +77,6 @@
 <style>
 	@import 'tailwindcss';
 	strong {
-		color: #ce9178;
+		text-decoration: underline;
 	}
 </style>

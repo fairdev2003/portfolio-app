@@ -6,6 +6,7 @@
 	import { onMount, tick } from 'svelte';
 	import type { Attachment } from 'svelte/attachments';
 	import gsap from 'gsap';
+	import { ApiInstance } from '$lib/api/api';
 
 	let colored: boolean = $state(false);
 
@@ -45,6 +46,11 @@
 			colored = !colored;
 		}, 500);
 	});
+
+	onMount(async() => {
+		const response = await ApiInstance.get("/")
+		console.log(response)
+	})
 </script>
 
 <div class="flex scale-120 flex-col items-center justify-center gap-3 p-5">

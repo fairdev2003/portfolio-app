@@ -18,7 +18,7 @@
 	{#if page.url.pathname.includes('/cyberspace')}
 		{@render children()}
 	{:else}
-		<div class="mx-auto max-w-6xl px-5 lg:px-10">
+		<div class="dark mx-auto max-w-6xl px-5 lg:px-10">
 			<PageHeader />
 			<div class="w-full md:flex md:flex-col md:justify-center lg:grid lg:grid-cols-4">
 				<!--Navigation-->
