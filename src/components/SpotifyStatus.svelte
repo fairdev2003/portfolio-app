@@ -184,6 +184,9 @@
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
+			onclick={(e) => {
+				e.stopPropagation();
+			}}
 			bind:this={modalEl}
 			class="white w-11/12 border border-neutral-700/60 bg-neutral-800/60 bg-gradient-to-r shadow-2xl backdrop-blur-3xl sm:w-3/4 md:w-1/2 lg:w-1/3"
 		>
