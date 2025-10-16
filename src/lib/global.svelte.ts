@@ -4,7 +4,6 @@ import type {
 	DiscordUser,
 	SpotifyActivity
 } from '../types/discord_status.types';
-import { ApiInstance } from './api/api';
 
 class KlimsonApp {
 	private readonly apiRoute = 'https://api.lanyard.rest/v1/users/424502321800675328';
