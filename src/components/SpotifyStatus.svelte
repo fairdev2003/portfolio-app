@@ -2,8 +2,10 @@
 	import { klimsonApp } from '$lib';
 	import { gsap } from 'gsap';
 	import { onMount, tick } from 'svelte';
-	import SpotifySVG from '../assets/spotify.png';
+	import SpotifySVG from '../assets/spotify-2.svg';
+	import SpotifyPNG from '../assets/spotify.png';
 	import Paragraph from './typography/Paragraph.svelte';
+	import { Headphones, HeadphonesIcon } from 'lucide-svelte';
 
 	onMount(async () => {
 		await klimsonApp.zamontujKurwe();
@@ -110,7 +112,7 @@
 		onclick={() => {
 			openModal();
 		}}
-		class={`0 relative mx-auto mb-3 flex cursor-pointer items-center gap-2 overflow-hidden border border-neutral-700/60 bg-neutral-800/30 object-center transition-all select-none 	hover:bg-neutral-700/70 active:bg-neutral-700/70 md:w-3/4 lg:w-full`}
+		class={`relative mx-auto mb-3 flex cursor-pointer items-center gap-2 overflow-hidden rounded-3xl border border-neutral-700/60 bg-neutral-800/30 object-center transition-all select-none 	hover:bg-neutral-700/70 active:bg-neutral-700/70 md:w-3/4 lg:w-full`}
 	>
 		<img class="absolute -z-1 scale-100" src={klimsonApp.getAlbumCover()} alt="alum" />
 		<!-- <img class="absolute -z-3 scale-50 blur-xl" src={klimsonApp.getAlbumCover()} alt="alum" /> -->
@@ -119,11 +121,18 @@
 			class={`flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} w-full flex-col gap-0.5`}
 		>
 			<div class="m-5 my-7 flex flex-col">
+				<div class="mb-4 flex justify-between">
+					<img class="top-16 -left-9 size-6" src={SpotifySVG} alt="spotify" />
+					<!-- <div class="flex items-center gap-1 rounded-lg bg-white/30 px-2 py-1 text-black/80">
+						<HeadphonesIcon size={12} />
+						<p class="font-md text-[11px]">WH-CH720N</p>
+					</div> -->
+				</div>
 				<p class="text-[15px] font-semibold">{klimsonApp.spotify?.song}</p>
 				<p class="text-[13px] text-white">{klimsonApp.spotify?.artist.replaceAll(';', ', ')}</p>
 				<div class="mt-1 flex items-center gap-3">
 					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.progress)}</p>
-					{@render ProgressBar('w-full w-full')}
+					{@render ProgressBar('w-ful	l w-full')}
 					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.duration)}</p>
 				</div>
 				<div
@@ -210,7 +219,7 @@
 				{/if}
 				<div class="relative flex w-full flex-col">
 					{#if klimsonApp.spotify?.song}
-						<img class="absolute top-16 -left-9 size-6" src={SpotifySVG} alt="spotify" />
+						<img class="absolute top-16 -left-9 size-6" src={SpotifyPNG} alt="spotify" />
 					{/if}
 					<!-- svelte-ignore a11y_missing_attribute -->
 					{#if klimsonApp.spotify?.song}
