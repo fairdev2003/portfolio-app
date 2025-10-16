@@ -110,25 +110,25 @@
 		onclick={() => {
 			openModal();
 		}}
-		class={`relative mb-3 flex cursor-pointer items-center gap-2 overflow-hidden border border-neutral-700/60 bg-neutral-800/60 p-3 py-5 transition-colors select-none hover:bg-neutral-700/60`}
+		class={`0 relative mx-auto mb-3 flex cursor-pointer items-center gap-2 overflow-hidden border border-neutral-700/60 bg-neutral-800/30 object-center transition-all select-none 	hover:bg-neutral-700/70 active:bg-neutral-700/70 md:w-3/4 lg:w-full`}
 	>
-		<img class="absolute -z-1 blur" src={klimsonApp.getAlbumCover()} alt="alum" />
-		<img class="h-14 w-14 rounded-lg" src={klimsonApp.spotify?.album_art_url} alt="Album cover" />
+		<img class="absolute -z-1 scale-100" src={klimsonApp.getAlbumCover()} alt="alum" />
+		<!-- <img class="absolute -z-3 scale-50 blur-xl" src={klimsonApp.getAlbumCover()} alt="alum" /> -->
+
 		<div
 			class={`flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} w-full flex-col gap-0.5`}
 		>
-			<div class="flex flex-col">
-				<p class="text-[14px] font-semibold">{klimsonApp.spotify?.song}</p>
-				<p class="text-[11px] text-white">{klimsonApp.spotify?.artist.replaceAll(';', ', ')}</p>
-				<div class={responsiveState == 'desktop' ? 'w-full' : 'w-full'}>
-					{@render ProgressBar()}
+			<div class="m-5 my-7 flex flex-col">
+				<p class="text-[15px] font-semibold">{klimsonApp.spotify?.song}</p>
+				<p class="text-[13px] text-white">{klimsonApp.spotify?.artist.replaceAll(';', ', ')}</p>
+				<div class="mt-1 flex items-center gap-3">
+					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.progress)}</p>
+					{@render ProgressBar('w-full w-full')}
+					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.duration)}</p>
 				</div>
 				<div
 					class={`mt-1 flex ${responsiveState == 'desktop' ? 'w-full' : 'w-full'} justify-between font-semibold`}
-				>
-					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.progress)}</p>
-					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.duration)}</p>
-				</div>
+				></div>
 			</div>
 		</div>
 	</div>
@@ -161,7 +161,7 @@
 
 {#snippet ProgressBar(className?: string)}
 	{#if klimsonApp.duration > 0}
-		<div class={`mt-1 h-1 rounded-full bg-white/30 ${className}`}>
+		<div class={`h-1 w-auto rounded-full bg-white/30 ${className}`}>
 			<div
 				class="h-full rounded-full bg-green-400 transition-all duration-500 ease-linear"
 				style="width: {(klimsonApp.progress / klimsonApp.duration) * 100}%"

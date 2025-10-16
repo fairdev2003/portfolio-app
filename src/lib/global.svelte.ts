@@ -39,7 +39,7 @@ class KlimsonApp {
 		try {
 			const res = await axios.get<DiscordPresenceResponse>(this.apiRoute);
 			// const res = await ApiInstance.get<DiscordPresenceResponse>('/spotify');
-			console.log(res.data);
+
 			const data = res.data;
 
 			if (data.success && data.data.listening_to_spotify) {
