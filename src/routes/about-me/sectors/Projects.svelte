@@ -21,6 +21,8 @@
 	let contentEl: HTMLDivElement
 	// svelte-ignore non_reactive_update
 	let modalEl: HTMLDivElement
+	
+	let backgroundEl: HTMLDivElement
 
 	let copySucess: boolean = $state(false)
 
@@ -31,6 +33,14 @@
 
 	function closeModal() {
 		
+		
+		if (backgroundEl) {
+			gsap.to(backgroundEl, {
+				backdropFilter: "blur(0px)",
+				duration: 0.3,
+			})
+		}
+
 		if (modalEl) {
 			gsap.to(modalEl, {
 				scaleY: 0.2,
@@ -61,13 +71,19 @@
 		return (element: Element) => {
 			gsap.fromTo(element, { scaleY: 0.2, scaleX: 0.15, transformOrigin: 'bottom', opacity: 0 },
 				{ scaleY: 1, scaleX: 1, duration: 0.4, opacity: 1, ease: 'power2.out' })
-				
+		}
+	}
+
+	function backgroundAnimation(): Attachment {
+		return (element: Element) => {
+			
 		}
 	}
 
 	function modalMount(): Attachment {
 		return (element: Element) => {
-			gsap.fromTo(element, {opacity: 0}, {opacity: 1, duration: 0.1})
+			gsap.fromTo(element, { backdropFilter: "blur(0px)" },
+				{ backdropFilter: "blur(15px)" })
 
 			const url = new URL(window.location.href);
 				if (url.searchParams.has('openProject')) {
@@ -130,7 +146,7 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 {#snippet Modal(id: string)}
 	{#if modalOpened}
-		<div {@attach modalMount()} onclick={(a) => {
+		<div bind:this={backgroundEl} {@attach modalMount()} onclick={(a) => {
 					a.stopPropagation()
 					closeModal()
 				}} class="fixed lg:backdrop-blur-lg md:backdrop-blur-lg inset-0 z-50 flex items-center justify-center bg-black/50 text-white">
