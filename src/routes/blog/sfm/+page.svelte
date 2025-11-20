@@ -27,24 +27,24 @@
 		<li class="flex items-start gap-2">
 			<span class="text-lg">📦</span>
 			<p>
-				<strong>Programowalna logistyka</strong> – twórz skrypty, które kontrolują zachowanie maszyn
+				<strong>Programowalna logistyka</strong> - twórz skrypty, które kontrolują zachowanie maszyn
 				i zasobów.
 			</p>
 		</li>
 		<li class="flex items-start gap-2">
 			<span class="text-lg">💡</span>
 			<p>
-				<strong>Intuicyjna składnia</strong> – prosty język inspirowany LUA sprawia, że pisanie kodu
+				<strong>Intuicyjna składnia</strong> - prosty język inspirowany LUA sprawia, że pisanie kodu
 				to przyjemność.
 			</p>
 		</li>
 		<li class="flex items-start gap-2">
 			<span class="text-lg">⚡</span>
-			<p><strong>Wydajność</strong> – lekka implementacja nie obciąża świata gry.</p>
+			<p><strong>Wydajność</strong> - lekka implementacja nie obciąża świata gry.</p>
 		</li>
 		<li class="flex items-start gap-2">
 			<span class="text-lg">🧩</span>
-			<p><strong>Modularność</strong> – idealnie współpracuje z innymi modami technicznymi.</p>
+			<p><strong>Modularność</strong> - idealnie współpracuje z innymi modami technicznymi.</p>
 		</li>
 		<li class="flex items-start gap-2">
 			<span class="text-lg">🖥️</span>

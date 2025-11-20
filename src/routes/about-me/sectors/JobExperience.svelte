@@ -15,7 +15,17 @@
 			style: 'bg-red-500'
 		}}
 		name="Contact Sales"
-		description="Marzec 2024 - Październik 2025"
+		description="Junior Sales Specialist | Marzec 2024 - Październik 2025"
+	/>
+	<ProjectCard
+		onClick={() => {}}
+		logo={{
+			url: 'https://www.gowork.pl/media/cache/company_logo_profile_large_webp/uploads/company_profile_image/2/4/c/24c7fac5839f18d7df0f1c5f40493d7b.png',
+			color: 'bg-neutral-400/50',
+			style: 'bg-red-500'
+		}}
+		name="Forteam"
+		description="Doradca klienta | Październik 2025 - Teraz"
 	/>
 </div>
 

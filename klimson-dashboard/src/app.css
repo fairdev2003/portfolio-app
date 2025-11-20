@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--color-background: #181c14;
+	--color-foreground: #3c3d37;
+	--color-secondary: #697565;
+	--color-text: #ecdfcc;
+
+	--container-8xl: 90rem;
+}

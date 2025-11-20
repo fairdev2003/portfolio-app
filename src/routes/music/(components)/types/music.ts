@@ -4,6 +4,7 @@ export type MusicType = {
 	song_artist: string;
 	song_image: string;
 	song_link?: string;
+	song_element?: HTMLAudioElement;
 };
 
 export type MusicGroupType = {

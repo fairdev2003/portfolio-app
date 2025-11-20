@@ -1,1 +1,13 @@
-<div class="flex scale-120 flex-col items-center justify-center gap-3 p-5">Index Page</div>
+<p class="scale-150 gap-3 p-5">Page for astronauts</p>
+
+<style>
+	@font-face {
+		font-family: 'WindowsRegular';
+		src: url('/WindowsRegular.ttf') format('truetype');
+	}
+
+	p {
+		font-family: 'WindowsRegular';
+		text-align: center;
+	}
+</style>

@@ -7,5 +7,5 @@
 
 <svelte:head>
 	<title>Klimson</title>
-	<meta name="description" content="Strona glowna mojej strony" />
+	<meta name="description" content="Strona gowna mojej strony" />
 </svelte:head>

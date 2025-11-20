@@ -54,6 +54,7 @@
 		"framer-motion": "^12.5.0",
 		"gsap": "^3.12.7",
 		"lucide-svelte": "^0.525.0",
+		"node-vibrant": "^4.0.3",
 		"svelte-icons": "^2.1.0"
 	}
 }

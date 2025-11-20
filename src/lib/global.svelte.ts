@@ -4,11 +4,13 @@ import type {
 	DiscordUser,
 	SpotifyActivity
 } from '../types/discord_status.types';
+import { Vibrant } from 'node-vibrant/browser';
 
 class KlimsonApp {
 	private readonly apiRoute = 'https://api.lanyard.rest/v1/users/424502321800675328';
 	private pollingInterval = 4000;
 	private progressInterval = 1000;
+	public gradient: string = $state('');
 
 	public spotify: SpotifyActivity | null = $state(null);
 	public discord: DiscordUser | null = null;
@@ -66,7 +68,6 @@ class KlimsonApp {
 	private startPolling() {
 		const loop = async () => {
 			await this.fetchData();
-
 			this.pollingTimer = setTimeout(loop, this.pollingInterval);
 		};
 

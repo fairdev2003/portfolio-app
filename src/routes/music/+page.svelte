@@ -1,7 +1,7 @@
 <script lang="ts">
 	import MusicGroup from './(components)/MusicGroup.svelte';
 	import Paragraph from '../../components/typography/Paragraph.svelte';
-	import { playlistBorder } from './(components)/static';
+	import { blackMusic, playlistBorder } from './(components)/static';
 
 	import Heading from '../../components/typography/Heading.svelte';
 	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
@@ -31,6 +31,11 @@
 		groupDesc={playlistBorder.groupDesc}
 		groupName={playlistBorder.groupName}
 		musicList={playlistBorder.musicList}
+	/>
+	<MusicGroup
+		groupDesc={blackMusic.groupDesc}
+		groupName={blackMusic.groupName}
+		musicList={blackMusic.musicList}
 	/>
 
 	<div class="h-5"></div>

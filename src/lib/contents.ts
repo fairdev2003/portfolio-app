@@ -9,7 +9,7 @@ export type PageContentsType = {
 export const pageContents: PageContentsType[] = [
 	{ name: 'Cytaty', path: '/quotes', description: 'Moje życiowe cytaty' },
 	{ name: 'Galeria', path: '/gallery', description: 'Galeria moich ulubionych zdjęć!' },
-	{ name: 'ADHD', path: '/adhd', description: 'Moja historia z tym zaburzeniem' },
+	{ name: 'ADHD', path: '/adhd', description: 'tung tung sahur' },
 	{
 		name: 'FTB Skies Expert',
 		path: '/minecraft/ftb-skies-expert',

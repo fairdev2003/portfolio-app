@@ -1,4 +1,5 @@
 <script lang="ts">
+	import TopMusicPlayer from '../routes/music/(components)/TopMusicPlayer.svelte';
 	import Box from './Document.svelte';
 	import SpotifyStatus from './SpotifyStatus.svelte';
 	import Caret from './typography/Caret.svelte';
@@ -15,7 +16,8 @@
 		<SpotifyStatus />
 	</div>
 
-	<div></div>
+	<!-- <TopMusicPlayer /> -->
+
 	<Heading>Newsy</Heading>
 	<Box customPaging="1/2">
 		<Paragraph white>🚧 W trakcie remontu <a href="/about-me">Zobacz</a>.</Paragraph>

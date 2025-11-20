@@ -6,8 +6,6 @@
 	import Footer from '../components/Footer.svelte';
 	import PageHeader from '../components/PageHeader.svelte';
 	import '../scrollbar.css';
-	import SpotifyStatus from '../components/SpotifyStatus.svelte';
-	import { onMount } from 'svelte';
 	import HotlineWebring from '../components/HotlineWebring.svelte';
 	import { page } from '$app/state';
 

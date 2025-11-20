@@ -5,7 +5,6 @@
 	import SpotifySVG from '../assets/spotify-2.svg';
 	import SpotifyPNG from '../assets/spotify.png';
 	import Paragraph from './typography/Paragraph.svelte';
-	import { Headphones, HeadphonesIcon } from 'lucide-svelte';
 
 	onMount(async () => {
 		await klimsonApp.zamontujKurwe();
@@ -97,8 +96,6 @@
 		);
 	}
 
-	onMount(() => {});
-
 	const { responsiveState = 'desktop' }: Props = $props();
 </script>
 
@@ -112,7 +109,7 @@
 		onclick={() => {
 			openModal();
 		}}
-		class={`relative mx-auto mb-3 flex cursor-pointer items-center gap-2 overflow-hidden rounded-3xl border border-neutral-700/60 bg-neutral-800/30 object-center transition-all select-none 	hover:bg-neutral-700/70 active:bg-neutral-700/70 md:w-3/4 lg:w-full`}
+		class={`relative mx-auto mb-3 flex cursor-pointer items-center gap-2 overflow-hidden rounded-3xl border border-neutral-700/60 object-center transition-all select-none 	hover:bg-neutral-700/70 active:bg-neutral-700/70 md:w-3/4 lg:w-full`}
 	>
 		<img class="absolute -z-1 scale-100" src={klimsonApp.getAlbumCover()} alt="alum" />
 		<!-- <img class="absolute -z-3 scale-50 blur-xl" src={klimsonApp.getAlbumCover()} alt="alum" /> -->
@@ -123,10 +120,6 @@
 			<div class="m-5 my-7 flex flex-col">
 				<div class="mb-4 flex justify-between">
 					<img class="top-16 -left-9 size-6" src={SpotifySVG} alt="spotify" />
-					<!-- <div class="flex items-center gap-1 rounded-lg bg-white/30 px-2 py-1 text-black/80">
-						<HeadphonesIcon size={12} />
-						<p class="font-md text-[11px]">WH-CH720N</p>
-					</div> -->
 				</div>
 				<p class="text-[15px] font-semibold">{klimsonApp.spotify?.song}</p>
 				<p class="text-[13px] text-white">{klimsonApp.spotify?.artist.replaceAll(';', ', ')}</p>
