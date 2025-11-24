@@ -3,4 +3,6 @@ name = "portfolio-app"
 account_id = "dcc164701ab884183a7be8681ba49017"
 workers_dev = true
 
-main = "build/index.js"
+main = "build/index.js"      
+
+assets.directory = "build"
