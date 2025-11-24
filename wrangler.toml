@@ -4,9 +4,9 @@ account_id = "dcc164701ab884183a7be8681ba49017"
 workers_dev = true
 
 main = "build/index.js"
+compatibility_date = "2025-11-24"
 
 [assets]
 directory = "build"
 binding = "ASSETS"
 
-compatibility_date = "2025-11-24"
