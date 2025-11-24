@@ -1,0 +1,9 @@
+name = "portfolio-app"
+type = "typescript"
+
+account_id = "dcc164701ab884183a7be8681ba49017"
+workers_dev = true
+
+[site]
+bucket = "build"
+entry-point = "workers-site"
