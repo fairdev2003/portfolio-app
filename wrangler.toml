@@ -3,7 +3,4 @@ name = "portfolio-app"
 account_id = "dcc164701ab884183a7be8681ba49017"
 workers_dev = true
 
-main = "build/index.js"   # <- plik Worker wygenerowany przez SvelteKit + adapter-cloudflare
-
-[site]
-bucket = "build"          # folder z plikami statycznymi wygenerowany przez SvelteKit
+main = "build/index.js"
