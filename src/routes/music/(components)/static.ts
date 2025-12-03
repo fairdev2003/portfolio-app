@@ -78,9 +78,8 @@ export const playlistBorder: MusicGroupType = {
 };
 
 export const blackMusic: MusicGroupType = {
-	groupName: 'Border Mood.',
-	groupDesc:
-		'Tej muzyki słucham gdy mój mózg potrzebuje czegoś mrocznego. Mega wczuwam sie w muzyka Mareuxa. Jest mega klimatyczna i powoduje ze czuje sie w jakims mrocznym świecie',
+	groupName: 'Czarna muzyka',
+	groupDesc: 'Czarnuchyyyyyyyyy',
 	musicList: [
 		{
 			id: 1,

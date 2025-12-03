@@ -18,15 +18,6 @@
 <footer
 	class="flex flex-col items-center justify-center gap-4 border-1 bg-neutral-200 px-5 py-20 pt-10 text-start dark:border-neutral-800/60 dark:bg-neutral-900/60"
 >
-	<div
-		class={`box relative flex flex-col border bg-red-500 px-4 py-2 dark:border-neutral-700/60 dark:bg-neutral-900/60`}
-	>
-		<CodeLine disabledHighlight
-			><span class="text-blue-500/70">{'[klimson@klimson-arch ~]$'}</span>
-			{easterEgg} <span></span></CodeLine
-		>
-	</div>
-
 	<div>
 		<div class="flex justify-start gap-3 lg:flex lg:flex-row">
 			{#each pageSections as pageSection}
