@@ -141,17 +141,17 @@
 	>
 		<img
 			class="h-14 w-14 rounded-lg"
-			src="http://i.scdn.co/image/ab67616d0000b2731968eb05231a8bf78eaf1e99"
+			src="https://i.scdn.co/image/ab67616d0000b2737fc8e0f4ddf8eaefbd2a0f7e"
 			alt="Album cover"
 		/>
 		<div
 			class={`flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} w-full flex-col gap-0.5`}
 		>
 			<div class="flex flex-col">
-				<p class="text-[14px] font-semibold">come back</p>
+				<p class="text-[14px] font-semibold">JAKI PROBLEM</p>
 
-				<p class="text-[11px] text-white">leave tomorrow, c152</p>
-				<p class="text-[11px] text-green-500">{timeAgo('2025/10/16 22:06:10')}</p>
+				<p class="text-[11px] text-white">Guzior</p>
+				<p class="text-[11px] text-green-500">{timeAgo('2025/12/03 11:15:00')}</p>
 			</div>
 		</div>
 	</div>
