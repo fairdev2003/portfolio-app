@@ -1,10 +1,11 @@
-import axios from 'axios';
+import axios, { type AxiosResponse } from 'axios';
 import type {
 	DiscordPresenceResponse,
 	DiscordUser,
 	SpotifyActivity
 } from '../types/discord_status.types';
 import { Vibrant } from 'node-vibrant/browser';
+import type { LastFmRecentTracksResponse, Track } from '../types/recent_music.types';
 
 class KlimsonApp {
 	private readonly apiRoute = 'https://api.lanyard.rest/v1/users/424502321800675328';
@@ -17,6 +18,7 @@ class KlimsonApp {
 	public progress: number = $state(0);
 	public duration: number = $state(0);
 	public isLoading: boolean = true;
+	public recent_tracks: Track[] = $state([]);
 
 	private pollingTimer: ReturnType<typeof setTimeout> | null = null;
 	private progressTimer: ReturnType<typeof setInterval> | null = null;
@@ -24,6 +26,12 @@ class KlimsonApp {
 	constructor() {}
 
 	private async init() {
+		const response: AxiosResponse<LastFmRecentTracksResponse> = await axios.get(
+			'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Cweleq&api_key=ae03ab500ce45f598ee05467195b113f&format=json&limit=50'
+		);
+
+		this.recent_tracks = response.data.recenttracks.track;
+
 		await this.fetchData();
 		this.startPolling();
 		this.startProgressUpdater();

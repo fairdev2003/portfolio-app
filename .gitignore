@@ -8,6 +8,7 @@ todo.txt
 .wrangler
 /.svelte-kit
 /build
+/dist
 
 # OS
 .DS_Store

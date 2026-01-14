@@ -5,6 +5,13 @@
 	import SpotifySVG from '../assets/spotify-2.svg';
 	import SpotifyPNG from '../assets/spotify.png';
 	import Paragraph from './typography/Paragraph.svelte';
+	import type { Attachment } from 'svelte/attachments';
+	import type {
+		LastFmRecentTracksResponse,
+		RecentTracks,
+		Track
+	} from '../types/recent_music.types';
+	import axios, { type AxiosResponse } from 'axios';
 
 	onMount(async () => {
 		await klimsonApp.zamontujKurwe();
@@ -19,13 +26,19 @@
 
 	function timeAgo(dateInput: string | Date): string {
 		const date = new Date(dateInput);
+
+		// Dodajemy dokładnie jedną godzinę do daty wejściowej
+		date.setHours(date.getHours() + 1);
+
 		const now = new Date();
-		const diffMs = now.getTime() - date.getTime(); // różnica w milisekundach
+		const diffMs = now.getTime() - date.getTime();
+
 		const diffSec = Math.floor(diffMs / 1000);
 		const diffMin = Math.floor(diffSec / 60);
 		const diffHr = Math.floor(diffMin / 60);
 		const diffDay = Math.floor(diffHr / 24);
 
+		if (diffSec < 0) return 'przed chwilą'; // Zabezpieczenie, jeśli czas po zmianie wyjdzie w przyszłości
 		if (diffSec < 60) return 'kilka sekund temu';
 		if (diffMin < 60) return `${diffMin} ${plural(diffMin, 'minutę', 'minuty', 'minut')} temu`;
 		if (diffHr < 24) return `${diffHr} ${plural(diffHr, 'godzinę', 'godziny', 'godzin')} temu`;
@@ -134,24 +147,30 @@
 			</div>
 		</div>
 	</div>
-{:else}
+{:else if klimsonApp.recent_tracks.length > 0}
 	<Paragraph class="my-3 mt-6 text-green-500">▶ Czego słuchałem na Spotify wcześniej.</Paragraph>
 	<div
 		class={`relative mb-3 flex items-center gap-4 border border-neutral-700/60 bg-neutral-800/60 p-3 py-5 transition-colors`}
 	>
 		<img
 			class="h-14 w-14 rounded-lg"
-			src="https://i.scdn.co/image/ab67616d0000b2737fc8e0f4ddf8eaefbd2a0f7e"
+			src={klimsonApp.recent_tracks[0].image[2]['#text']}
 			alt="Album cover"
 		/>
 		<div
 			class={`flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} w-full flex-col gap-0.5`}
 		>
 			<div class="flex flex-col">
-				<p class="text-[14px] font-semibold">JAKI PROBLEM</p>
+				<p class="text-[14px] font-semibold">{klimsonApp.recent_tracks[0].name}</p>
 
-				<p class="text-[11px] text-white">Guzior</p>
-				<p class="text-[11px] text-green-500">{timeAgo('2025/12/03 11:15:00')}</p>
+				<p class="text-[11px] text-white">{klimsonApp.recent_tracks[0].artist['#text']}</p>
+				{#if klimsonApp.recent_tracks[0].date}
+					<p class="text-[11px] text-green-500">
+						{timeAgo(klimsonApp.recent_tracks[0].date?.['#text'])}
+					</p>
+				{/if}
+
+				<!-- <p class="text-[11px] text-green-500">{timeAgo('2025/12/03 11:15:00')}</p> -->
 			</div>
 		</div>
 	</div>
