@@ -5,13 +5,6 @@
 	import SpotifySVG from '../assets/spotify-2.svg';
 	import SpotifyPNG from '../assets/spotify.png';
 	import Paragraph from './typography/Paragraph.svelte';
-	import type { Attachment } from 'svelte/attachments';
-	import type {
-		LastFmRecentTracksResponse,
-		RecentTracks,
-		Track
-	} from '../types/recent_music.types';
-	import axios, { type AxiosResponse } from 'axios';
 
 	onMount(async () => {
 		await klimsonApp.zamontujKurwe();
@@ -23,6 +16,8 @@
 			closeModal();
 		}
 	});
+
+	let playing: boolean = $state(false);
 
 	function timeAgo(dateInput: string | Date): string {
 		const date = new Date(dateInput);
@@ -149,30 +144,34 @@
 	</div>
 {:else if klimsonApp.recent_tracks.length > 0}
 	<Paragraph class="my-3 mt-6 text-green-500">▶ Czego słuchałem na Spotify wcześniej.</Paragraph>
-	<div
-		class={`relative mb-3 flex items-center gap-4 border border-neutral-700/60 bg-neutral-800/60 p-3 py-5 transition-colors`}
-	>
-		<img
-			class="h-14 w-14 rounded-lg"
-			src={klimsonApp.recent_tracks[0].image[2]['#text']}
-			alt="Album cover"
-		/>
-		<div
-			class={`flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} w-full flex-col gap-0.5`}
-		>
-			<div class="flex flex-col">
-				<p class="text-[14px] font-semibold">{klimsonApp.recent_tracks[0].name}</p>
+	<div class="h-[400px] overflow-y-scroll">
+		{#each klimsonApp.recent_tracks as recent_track}
+			{#if recent_track.date?.['#text']}
+				<div
+					class={`relative mb-3 flex items-center gap-4 border border-neutral-700/60 bg-neutral-800/60 p-3 py-5 transition-colors`}
+				>
+					<img
+						class="h-14 w-14 rounded-lg"
+						src={recent_track.image[2]['#text']}
+						alt="Album cover"
+					/>
+					<div
+						class={`flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} w-full flex-col gap-0.5`}
+					>
+						<div class="flex flex-col">
+							<p class="text-[14px] font-semibold">{recent_track.name}</p>
 
-				<p class="text-[11px] text-white">{klimsonApp.recent_tracks[0].artist['#text']}</p>
-				{#if klimsonApp.recent_tracks[0].date}
-					<p class="text-[11px] text-green-500">
-						{timeAgo(klimsonApp.recent_tracks[0].date?.['#text'])}
-					</p>
-				{/if}
-
-				<!-- <p class="text-[11px] text-green-500">{timeAgo('2025/12/03 11:15:00')}</p> -->
-			</div>
-		</div>
+							<p class="text-[11px] text-white">{recent_track.artist['#text']}</p>
+							{#if recent_track.date}
+								<p class="text-[11px] text-green-500">
+									{timeAgo(recent_track.date?.['#text'])}
+								</p>
+							{/if}
+						</div>
+					</div>
+				</div>
+			{/if}
+		{/each}
 	</div>
 {/if}
 
