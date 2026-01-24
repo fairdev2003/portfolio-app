@@ -7,15 +7,6 @@
 	<h2>Algorytm</h2>
 
 	<p>
-		Na pewnym etapie analizowania sobie co bylo przez ten caly czas nie tak - uswiadomilem sobie jak
-		bardzo automatycznie byly moje reakcje, ktore mna kierowaly i moimi decyzjami. Mam wrazenie ze
-		teraz wiem jak bardzo dzialalem wedlug "autopilota", ktory chcial mnie prawdopodobnie chronic
-		(czego nie jestem pewien dlatego taka kwestie uwzglednie przy terapii). Niemniej jednak
-		doslownie czuje teraz jak bardzo to przypomina jakis zaprogrowamany algorytm ktory mowi "Tutaj
-		zachowaj sie tak i mnie to nie obchodzi ze czujesz sie zle"
-	</p>
-
-	<p>
 		Wiec generalnie pozwole sobie teraz odejsc troche od tematu grupki znajomych i poruszyc tez
 		mysle ze wazny watek - czyli samo technikum i chroniczna samotnosc z nim zwiazana. Jakbym mogl
 		okreslic ten okres mojego zycia jednym slowem smialo moge powiedziec - <span class="font-bold"

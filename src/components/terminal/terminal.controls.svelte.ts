@@ -15,12 +15,12 @@ class _TerminalContext {
 		if (this.TerminalReference && this.TerminalContent) {
 			gsap.fromTo(
 				this.TerminalReference,
-				{ scaleY: 0, transformOrigin: 'top' },
-				{ scaleY: 1, duration: 0.4, delay: 0.1, ease: 'power2.out' }
+				{ scale: 0.9 },
+				{ scale: 1, duration: 0.4, delay: 0.1, ease: 'power2.out' }
 			);
 			gsap.to(this.TerminalContent, {
 				opacity: 1,
-				delay: 0.4
+				delay: 0.2
 			});
 		}
 	}
@@ -32,16 +32,18 @@ class _TerminalContext {
 				opacity: 0
 			});
 
-			gsap.to(this.TerminalReference, {
-				scaleY: 0,
-				duration: 0.4,
-				delay: 0.4,
-				transformOrigin: 'top',
-				onComplete: () => {
-					this.terminalOpenState = false;
-					document.body.style.overflow = '';
+			gsap.fromTo(
+				this.TerminalReference,
+				{ scale: 1 },
+				{
+					scale: 0.9,
+					duration: 0.4,
+					onComplete: () => {
+						this.terminalOpenState = false;
+						document.body.style.overflow = '';
+					}
 				}
-			});
+			);
 		}
 	}
 

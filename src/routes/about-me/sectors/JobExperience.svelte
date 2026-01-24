@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
 	import Timeline from '../../../components/timeline/Timeline.svelte';
 	import Heading from '../../../components/typography/Heading.svelte';
+	import HarcQuiz from '../static/projects/HarcQuiz.svelte';
 	import ProjectCard from './components/ProjectCard.svelte';
 	import RenovationAlert from './components/RenovationAlert.svelte';
 </script>
@@ -25,7 +26,17 @@
 			style: 'bg-red-500'
 		}}
 		name="Forteam"
-		description="Doradca klienta | Październik 2025 - Teraz"
+		description="Doradca klienta | Październik 2025 - Styczeń 2026"
+	/>
+	<ProjectCard
+		onClick={() => {}}
+		logo={{
+			url: 'https://impel.pl/blog/wp-content/uploads/2020/12/cropped-impel_group-logo-sygnet.jpg',
+			color: 'bg-neutral-400/50',
+			style: 'bg-red-500'
+		}}
+		name="IMPEL"
+		description="Ochrona / Recepcja | Styczeń 2026 - Teraz"
 	/>
 </div>
 

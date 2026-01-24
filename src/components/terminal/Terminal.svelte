@@ -12,48 +12,72 @@
 
 {#if TerminalContext.terminalOpenState}
 	<div
-		class={`fixed inset-0 z-100 flex flex-col items-center justify-center overflow-hidden bg-black/80 `}
+		onclick={(e) => {
+			TerminalContext.CloseTerminal();
+		}}
+		class={`fixed inset-0 z-100 flex w-full flex-col items-center justify-center overflow-hidden bg-black/80 `}
 	>
-		<!-- Topbar -->
-		<div
-			class="flex h-12 w-9/10 items-center justify-between rounded-t-2xl bg-neutral-800 px-2 backdrop-brightness-75 lg:w-6/10"
-		>
-			<button class="flex size-6 items-center justify-center rounded-lg hover:bg-neutral-700/60"
-				><Search size={13} /></button
-			>
-
-			<p>klimson@klimson-arch:~</p>
-			<!-- Close Button -->
-			<div class="flex gap-2">
-				<button
-					class="flex size-6 items-center justify-center rounded-full bg-neutral-700 hover:bg-neutral-700/60"
-					onclick={(e) => {
-						e.stopPropagation();
-						TerminalContext.CloseTerminal();
-					}}>_</button
-				>
-				<button
-					class="flex size-6 items-center justify-center rounded-full bg-neutral-700 hover:bg-neutral-700/60"
-					onclick={(e) => {
-						e.stopPropagation();
-						TerminalContext.CloseTerminal();
-					}}><X size={20} /></button
-				>
-			</div>
-		</div>
-
 		<div
 			bind:this={TerminalContext.TerminalReference}
-			class="b-10 h-6/10 w-9/10 overflow-scroll rounded-b-2xl border-1 border-neutral-800 bg-neutral-950 p-3 lg:w-6/10"
+			class="md:9/10 flex h-9/10 w-[98%] flex-col items-center justify-center lg:w-9/10"
 		>
-			<div class="flex flex-col opacity-0" bind:this={TerminalContext.TerminalContent}>
-				{#if children}
-					{@render children()}
-				{/if}
+			<!-- Topbar -->
+			<div
+				onclick={(e) => {
+					e.stopPropagation();
+				}}
+				class="flex h-12 w-full items-center justify-between bg-neutral-800 px-2 backdrop-brightness-75"
+			>
+				<button class="flex size-6 items-center justify-center rounded-lg hover:bg-neutral-700/60"
+					><Search size={13} /></button
+				>
+
+				<p>klimson@klimson-arch:~</p>
+				<!-- Close Button -->
+				<div class="flex gap-2">
+					<button
+						class="flex size-6 items-center justify-center rounded-full bg-neutral-700 hover:bg-neutral-700/60"
+						onclick={(e) => {
+							e.stopPropagation();
+							TerminalContext.CloseTerminal();
+						}}>_</button
+					>
+					<button
+						class="flex size-6 items-center justify-center rounded-full bg-neutral-700 hover:bg-neutral-700/60"
+						onclick={(e) => {
+							e.stopPropagation();
+							TerminalContext.CloseTerminal();
+						}}><X size={20} /></button
+					>
+				</div>
+			</div>
+
+			<div
+				class="b-10 h-full w-full overflow-scroll border-1 border-neutral-800 bg-neutral-950 p-3"
+			>
+				<div
+					onclick={(e) => {
+						e.stopPropagation();
+					}}
+					class="flex w-full flex-col"
+					bind:this={TerminalContext.TerminalContent}
+				>
+					{#if children}
+						{@render children()}
+					{/if}
+				</div>
 			</div>
 		</div>
 	</div>
 {/if}
+
+<svelte:document
+	onkeydown={(e) => {
+		if (e.key === 'Escape') {
+			TerminalContext.CloseTerminal();
+		}
+	}}
+/>
 
 <style>
 	::-webkit-scrollbar {

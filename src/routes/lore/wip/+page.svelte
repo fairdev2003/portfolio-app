@@ -1,8 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import ResponsiveContainer from '../../../components/responsive/ResponsiveContainer.svelte';
-	import PageNavigator from '../../blog/(components)/PageNavigator.svelte';
-	import SectorButton from '../../blog/(components)/SectorButton.svelte';
 
 	const goBack = () => {
 		history.back();
