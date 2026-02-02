@@ -21,7 +21,7 @@
 >
 	<div class="flex-shrink-0">
 		<div class={`flex size-18 items-center justify-center rounded-md ${logo?.color}`}>
-			<img alt="svelte" class="size-10" src={logo?.url} />
+			<img alt={name} class="size-10" src={logo?.url} />
 		</div>
 	</div>
 	<div class="flex flex-col">
