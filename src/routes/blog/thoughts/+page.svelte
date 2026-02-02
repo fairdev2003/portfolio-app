@@ -6,7 +6,7 @@
 	<h2>Moje przemyślenia</h2>
 
 	<div>
-		<span class="text-xs text-neutral-300">02.02.2026r. 12:38</span>
+		<span class="text-xs text-neutral-200">02.02.2026r. 12:38</span>
 	</div>
 
 	<p class="text-sm">
