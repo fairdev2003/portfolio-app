@@ -1,4 +1,10 @@
-<p class="scale-150 gap-3 p-5">Page for astronauts</p>
+<script>
+	import RetroButton from '../components/RetroButton.svelte';
+</script>
+
+<p class="gap-3 p-5">
+	<RetroButton />
+</p>
 
 <style>
 	@font-face {
