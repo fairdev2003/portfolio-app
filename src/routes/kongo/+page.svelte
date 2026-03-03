@@ -6,7 +6,7 @@
 	let list: { files: string[] } = $state({ files: [] });
 
 	onMount(async () => {
-		const response = await axios.get('http://robert248.mikrus.xyz:30248/list/kongo/zoo');
+		const response = await axios.get('https://api.klimson.dev/list/kongo/zoo');
 		list = response.data;
 		console.log(list.files);
 	});
@@ -17,7 +17,7 @@
 	{#if list.files.length > 0}
 		{#each list.files as item}
 			<img
-				src={`http://robert248.mikrus.xyz:30248/interface/bucket/kongo/zoo/${item}`}
+				src={`https://api.klimson.dev/interface/bucket/kongo/zoo/${item}`}
 				alt="Kongo Zoo Image"
 			/>
 		{/each}
