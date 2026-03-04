@@ -2,12 +2,14 @@
 	import { onMount } from 'svelte';
 	import Heading from '../../components/typography/Heading.svelte';
 	import axios from 'axios';
+	import { api } from '$lib/api/api';
 
 	let list: { files: string[] } = $state({ files: [] });
 
 	onMount(async () => {
-		const response = await axios.get('https://api.klimson.dev/list/kongo/zoo');
+		const response = await api.api.get('list/kongo/zoo');
 		list = response.data;
+
 		console.log(list.files);
 	});
 </script>

@@ -50,6 +50,11 @@
 				disabledBorder
 				src={'https://res.cloudinary.com/dzaslaxhw/image/upload/v1759795049/portfolio/e1a7fb2d-d2fd-4636-a7d0-4ca524b78bfc.png'}
 			/>
+			<Heading idTrackingDisabled padding>Backend</Heading>
+			<Paragraph>
+				Ostatnio zaimplementowałem serwer, którego bede wykorzystywal do tej strony oraz moich
+				prywatnych rzeczy
+			</Paragraph>
 		</div>
 
 		<Heading idTrackingDisabled padding>Galeria.</Heading>
