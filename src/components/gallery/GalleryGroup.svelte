@@ -52,10 +52,10 @@
 	</div>
 
 	<div class="grid grid-cols-2 gap-2">
-		{#each imageList as listItem, i}
+		{#each imageList.slice(0, 3) as listItem, i}
 			<div
 				class="h-24 overflow-hidden rounded border border-neutral-700 bg-black/20 md:h-30
-                {i === 2 && imageList.length === 3 ? 'col-span-2' : 'col-span-1'}"
+                {i === 2 ? 'col-span-2' : 'col-span-1'}"
 			>
 				<img src={listItem.url} alt="Galeria" class="h-full w-full object-cover" />
 			</div>
