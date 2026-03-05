@@ -17,9 +17,13 @@
 		programy, szczególnie gdy masz ich wiele w użyciu.
 	</p>
 	<h3>🔤 Składnia:</h3>
-	<SfmCodeArea program_link={'/sfm/name/01-name.sfm'} />
+	<SfmCodeArea
+		program_link={'https://api.klimson.dev/storage/file/klimson.dev/sfm/name/01-name.sfm'}
+	/>
 	<h3>📌 Przykład:</h3>
-	<SfmCodeArea program_link={'/sfm/name/02-name.sfm'} />
+	<SfmCodeArea
+		program_link={'https://api.klimson.dev/storage/file/klimson.dev/sfm/name/02-name.sfm'}
+	/>
 	<h2>📝 Uwagi:</h2>
 	<ul class="space-y-2 text-sm text-slate-200">
 		<li class="flex items-center gap-2">
@@ -63,8 +67,12 @@
 
 		<h3 class="mt-5">✅ Dobry zwyczaj:</h3>
 		<p>Używaj nazw opisujących działanie programu, np.:</p>
-		<SfmCodeArea program_link={'/sfm/name/03-name.sfm'} />
-		<SfmCodeArea program_link={'/sfm/name/04-name.sfm'} />
+		<SfmCodeArea
+			program_link={'https://api.klimson.dev/storage/file/klimson.dev/sfm/name/03-name.sfm'}
+		/>
+		<SfmCodeArea
+			program_link={'https://api.klimson.dev/storage/file/klimson.dev/sfm/name/04-name.sfm'}
+		/>
 	</ul>
 
 	<div class="mt-5 flex justify-between">

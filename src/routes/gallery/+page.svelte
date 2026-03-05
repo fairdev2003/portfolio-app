@@ -2,9 +2,11 @@
 	import { api } from '$lib/api/api';
 	import Gallery from '../../components/gallery/Gallery.svelte';
 	import GalleryGroup from '../../components/gallery/GalleryGroup.svelte';
+	import MovingTooltip from '../../components/MovingTooltip.svelte';
 	import Heading from '../../components/typography/Heading.svelte';
 
 	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
+	import Paragraph from '../../components/typography/Paragraph.svelte';
 	import type { ImageListItem } from '../../types/storage.types';
 
 	const kongoZooItems: ImageListItem[] = [
@@ -73,4 +75,28 @@
 		description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia eum dolores libero asperiores aliquam numquam voluptatem consequatur consequuntur, voluptas explicabo rerum reiciendis aperiam nemo! Dolorum voluptatibus enim quam at aut."
 		imageList={roblox}
 	/>
+
+	<MovingTooltip>
+		{#snippet tooltipContent()}
+			<div class="flex items-center gap-2">
+				<img
+					class="size-10"
+					alt="sfm"
+					src="https://api.klimson.dev/storage/file/klimson.dev/sfm/sfm.png"
+				/>
+				<Paragraph>Super Factory Manager</Paragraph>
+			</div>
+		{/snippet}
+		{#snippet children()}
+			<div
+				class="flex size-15 max-w-[200px] items-center justify-center border-1 border-neutral-800/60 bg-neutral-900 transition-colors hover:bg-neutral-700/60"
+			>
+				<img
+					class="size-10"
+					alt="sfm"
+					src="https://api.klimson.dev/storage/file/klimson.dev/sfm/sfm.png"
+				/>
+			</div>
+		{/snippet}
+	</MovingTooltip>
 </div>
