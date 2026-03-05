@@ -18,8 +18,8 @@
 			url: 'https://api.klimson.dev/storage/file/kongo/zoo/kasztelan.jpg'
 		},
 		{
-			name: 'Kasztelanik i bacardi',
-			description: 'Wizualizacja menelni, którą stworzyliśmy',
+			name: 'Oooo',
+			description: 'My na tle Wawelu',
 			url: 'https://api.klimson.dev/storage/file/kongo/zoo/ooo.jpg'
 		}
 	];
