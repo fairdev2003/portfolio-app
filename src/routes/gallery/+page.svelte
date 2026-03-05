@@ -1,9 +1,28 @@
 <script lang="ts">
-	import Box from '../../components/Document.svelte';
+	import { api } from '$lib/api/api';
+	import GalleryGroup from '../../components/gallery/GalleryGroup.svelte';
 	import Heading from '../../components/typography/Heading.svelte';
 
 	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
-	import Paragraph from '../../components/typography/Paragraph.svelte';
+	import type { ImageListItem } from '../../types/storage.types';
+
+	const kongoZooItems: ImageListItem[] = [
+		{
+			name: 'Iphone XR',
+			description: 'Kolega sprawdza jak bardzo dobry jest Iphone XR!',
+			url: 'https://api.klimson.dev/storage/file/kongo/zoo/xr.jpg'
+		},
+		{
+			name: 'Kasztelanik i bacardi',
+			description: 'Wizualizacja menelni, którą stworzyliśmy',
+			url: 'https://api.klimson.dev/storage/file/kongo/zoo/kasztelan.jpg'
+		},
+		{
+			name: 'Kasztelanik i bacardi',
+			description: 'Wizualizacja menelni, którą stworzyliśmy',
+			url: 'https://api.klimson.dev/storage/file/kongo/zoo/ooo.jpg'
+		}
+	];
 </script>
 
 <div class="col-span-2 flex flex-col gap-y-5">
@@ -14,7 +33,10 @@
 		]}
 	/>
 	<Heading>Galeria.</Heading>
-	<div class="mx-auto mt-10 flex">
-		<Paragraph>{'Tu nic nie ma :<'}</Paragraph>
-	</div>
+	<GalleryGroup
+		heading="Ekipa Kongo!!"
+		description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia eum dolores libero asperiores aliquam numquam voluptatem consequatur consequuntur, voluptas explicabo rerum reiciendis aperiam nemo! Dolorum voluptatibus enim quam at aut.
+"
+		imageList={kongoZooItems}
+	/>
 </div>

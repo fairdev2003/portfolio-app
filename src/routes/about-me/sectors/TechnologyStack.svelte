@@ -17,7 +17,7 @@
 	</div>
 	<!--Stack items-->
 
-	<RenovationAlert />
+	{@render StackSector()}
 </div>
 
 {#snippet StackSector()}

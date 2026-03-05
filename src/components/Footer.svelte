@@ -1,18 +1,7 @@
 <script>
 	import { pageSections } from '$lib';
-	import CodeLine from '../routes/blog/sfm/(components)/CodeLine.svelte';
-	import ThemeSwitch from './ThemeSwitch.svelte';
+
 	import Paragraph from './typography/Paragraph.svelte';
-
-	const texts = [
-		'Update README.md',
-		'Create data.json',
-		'Update bot.py',
-		'Update .env',
-		'Update data.json'
-	];
-
-	const easterEgg = texts[Math.floor(Math.random() * texts.length)];
 </script>
 
 <footer
@@ -30,7 +19,7 @@
 		</div>
 	</div>
 	<!-- <ThemeSwitch /> -->
-	<p class="footer-text text-white/80">@ Klimson 2025. All rights reserved.</p>
+	<p class="footer-text text-white/80">@ Klimson 2026. All rights reserved.</p>
 </footer>
 
 <style>
