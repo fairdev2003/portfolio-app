@@ -44,8 +44,8 @@
 				projekty trzeba pisać w React. Dałem jednak szansę Sveltowi - i nie żałuję. Stan aplikacji
 				można przechowywać bezpośrednio w zmiennych JavaScriptowych (let), a składnia przypomina
 				Reacta, od którego zaczynałem. Dodatkowo, niezwykle wygodne jest to, że style CSS można
-				pisać bezpośrednio w pliku .svelte.</Paragraph
-			>
+				pisać bezpośrednio w pliku .svelte.
+			</Paragraph>
 			<Image
 				disabledBorder
 				src={'https://res.cloudinary.com/dzaslaxhw/image/upload/v1759795049/portfolio/e1a7fb2d-d2fd-4636-a7d0-4ca524b78bfc.png'}
