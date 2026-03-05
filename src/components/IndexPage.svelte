@@ -1,13 +1,20 @@
 <script lang="ts">
-	import TopMusicPlayer from '../routes/music/(components)/TopMusicPlayer.svelte';
-	import Box from './Document.svelte';
+	import { onMount } from 'svelte';
 	import SpotifyStatus from './SpotifyStatus.svelte';
 	import Caret from './typography/Caret.svelte';
-
-	import Heading from './typography/Heading.svelte';
 	import Paragraph from './typography/Paragraph.svelte';
+	import { api } from '$lib/api/api';
+	import { dev } from '$app/environment';
 
-	let loaded = false;
+	let entries: number = $state(0);
+
+	onMount(async () => {
+		if (!dev) {
+			const patchResponse = await api.api.patch('/klimson/entries');
+		}
+		const response = await api.api.get('/klimson/entries');
+		entries = response.data.entries;
+	});
 </script>
 
 <div class="flex flex-col gap-6 lg:col-span-2">
@@ -15,33 +22,5 @@
 		<Caret />
 		<SpotifyStatus />
 	</div>
-
-	<!-- <TopMusicPlayer /> -->
-
-	<Heading>Newsy</Heading>
-	<Box customPaging="1/2">
-		<Paragraph white>🚧 W trakcie remontu <a href="/about-me">Zobacz</a>.</Paragraph>
-	</Box>
-	<Box customPaging="2/2">
-		<Paragraph white
-			>🎵 Czarnuchyy <a
-				target="_blank"
-				href="https://suno.com/song/cb4ad69a-d418-4410-bd02-ca948a9c04a1">here</a
-			></Paragraph
-		>
-	</Box>
-
-	<Heading id="Plany">Plany</Heading>
-
-	<Box customPaging="1/2">
-		<Paragraph white
-			>⏯️ Stworzyć playliste z trzema najlepszymi utworami z mojego albumu na Spotify.</Paragraph
-		>
-	</Box>
-	<Box customPaging="2/2">
-		<Paragraph white>🟢 Dodać komponent, który pokazuje czy jestem aktywny na Discordzie.</Paragraph
-		>
-	</Box>
-
-	<div class="h-[100px]"></div>
+	<Paragraph>Wejscia na stronke: {entries}</Paragraph>
 </div>

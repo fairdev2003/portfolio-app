@@ -20,7 +20,6 @@ import type {
 	Diary,
 	RolePrivileges,
 	SpotifyActivity,
-	User,
 	UserRoles
 } from '../types/discord_status.types';
 import { Compiler } from '../routes/blog/sfm/(components)/compiler/sfm.compiler';
@@ -36,7 +35,6 @@ export type {
 	Diary,
 	RolePrivileges,
 	SpotifyActivity,
-	User,
 	UserRoles
 };
 

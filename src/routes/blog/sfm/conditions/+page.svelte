@@ -23,7 +23,7 @@
 	<SfmCodeArea program_link="/sfm/if/01-basic-if.sfm" />
 
 	<h3>🔠 Składnia:</h3>
-	<SfmCodeArea program_link="/sfm/if/02-syntax.sfm" />
+	<SfmCodeArea program_link={'/sfm/if/02-syntax.sfm'} />
 
 	<h3>🔍 Działanie słowa <span class="bg-gray-800 p-0.5 text-gray-400">IF</span>:</h3>
 	<p>Instrukcja warunkowa ma postać:</p>

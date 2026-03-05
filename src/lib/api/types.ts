@@ -44,12 +44,9 @@ export type BackendResponse = {
 };
 
 export type ApiConfig = {
-	dev_server: string;
-	prod_server: string;
-	version: string;
-	prefix: string;
-	host: string;
-	baseURL: string;
+	server: string;
+	storage_prefix: string;
+	storage_path: string;
 };
 
 export type ImageKey = 'quiz' | 'question' | 'blog' | 'hero' | 'static';

@@ -3,6 +3,14 @@ import axios, { type AxiosInstance } from 'axios';
 import type { ApiClassParams, ApiConfig } from './types';
 import { FileStorage } from './requests/file_storage';
 
+export class ApiStatic {
+	protected server = 'https://api.klimson.dev';
+
+	protected storage_prefix = '/interface/bucket';
+
+	protected storage_path = this.server + this.storage_prefix;
+}
+
 /**
  * Klasa bazowa definiujÄ…ca konfiguracjÄ™ API.
  *
@@ -14,7 +22,7 @@ import { FileStorage } from './requests/file_storage';
  * GĹ‚Ăłwna klasa API, rozszerzajÄ…ca konfiguracjÄ™ bazowÄ… (`ApiStatic`)
  * i inicjalizujÄ…ca instancjÄ™ klienta `axios`.
  */
-export class Api {
+export class Api extends ApiStatic {
 	/** Instancja Axios skonfigurowana dla aktualnego Ĺ›rodowiska */
 	public api: AxiosInstance;
 
@@ -35,12 +43,21 @@ export class Api {
 	 * ```
 	 */
 	constructor(params?: ApiClassParams) {
+		super();
 		this.api = axios.create({
-			baseURL: 'https://api.klimson.dev',
+			baseURL: this.server,
 			headers: {
 				Accept: 'application/json'
 			}
 		});
+	}
+
+	public get config(): ApiConfig {
+		return {
+			server: this.server,
+			storage_prefix: this.storage_prefix,
+			storage_path: this.storage_path
+		};
 	}
 
 	public get file_storage() {
