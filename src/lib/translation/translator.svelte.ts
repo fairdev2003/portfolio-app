@@ -7,9 +7,11 @@ class Translator {
 	public t(key: keyof (typeof languages)['pl'], ...args: (string | number)[]): string {
 		let text = languages['pl'][key] || key;
 
-		args.forEach((arg) => {
-			text = text.replace('%s', String(arg));
-		});
+		if (args) {
+			args.forEach((arg) => {
+				text = text.replace('%s', String(arg));
+			});
+		}
 
 		return text;
 	}
