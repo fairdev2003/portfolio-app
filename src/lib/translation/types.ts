@@ -1,0 +1,1 @@
+type LangCode = 'pl' | 'en';

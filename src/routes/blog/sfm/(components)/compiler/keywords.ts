@@ -12,7 +12,7 @@ export enum Keywords {
 	TO = 'to',
 	IF = 'if',
 	LABEL = 'label',
-	TICKS = 'ticks',
+	TIME = 'time',
 	VARIABLE = 'variable',
 	DIRECTION = 'direction',
 	OPERATOR = 'operator',

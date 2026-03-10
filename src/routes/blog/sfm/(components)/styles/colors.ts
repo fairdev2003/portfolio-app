@@ -20,11 +20,12 @@ export type VSCThemeColorKey = keyof typeof VSCThemeColor;
 export const KeywordColor = {
 	[Keywords.EVERY]: VSCThemeColor.MainPurple,
 	[Keywords.NUMBER]: VSCThemeColor.NumberYellow,
-	[Keywords.TICKS]: VSCThemeColor.VariableOrange,
+	[Keywords.TIME]: VSCThemeColor.VariableOrange,
 	[Keywords.COMMENT]: VSCThemeColor.StringGreen,
 	[Keywords.VARIABLE]: VSCThemeColor.VariableBlue,
 	[Keywords.DIRECTION]: VSCThemeColor.NumberYellow,
 	[Keywords.OPERATOR]: VSCThemeColor.NumberYellow,
 	[Keywords.STRING]: VSCThemeColor.StringGreen,
-	[Keywords.REDSTONE]: VSCThemeColor.RedRedstone
+	[Keywords.REDSTONE]: VSCThemeColor.RedRedstone,
+	[Keywords.TIME_TYPE]: VSCThemeColor.VariableOrange
 };

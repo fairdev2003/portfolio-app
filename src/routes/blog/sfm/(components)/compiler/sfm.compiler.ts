@@ -1,5 +1,5 @@
 import axios, { type AxiosResponse } from 'axios';
-import { KeywordColor } from '../styles/colors';
+import { KeywordColor, VSCThemeColor } from '../styles/colors';
 
 class Compiler {
 	public sfm_program_content: string = '';
@@ -82,14 +82,15 @@ class Compiler {
 		code = code
 			.replace(
 				/\b(NAME|SLOTS|EVERY|SOME|OVERALL|ONE|LONE|INPUT|OUTPUT|FROM|TO|END|DO|FORGET|ROUND ROBIN BY|EACH|SIDE|HAS|IF|THEN|WITH|EXCEPT|RETAIN|PULSE|ELSE)\b/gi,
-				(match) => `<span class="${KeywordColor.every}">${match}</span>`
+
+				(match) => `<span class="relative group ${KeywordColor.every}">${match}</span>`
 			)
 			.replace(/\b(\d+)\b/g, (match) => `<span class="${KeywordColor.number}">${match}</span>`)
 			.replace(/::/g, `<span class="text-cyan-300">::</span>`)
 			.replace(/,/g, `<span class="text-slate-400">,</span>`)
 			.replace(
 				/\b(TICKS|SECONDS|MINUTES|HOURS)\b/gi,
-				(match) => `<span class="${KeywordColor.ticks}">${match}</span>`
+				(match) => `<span class="${KeywordColor.time}">${match}</span>`
 			)
 			.replace(
 				/\b(TOP|BOTTOM|NORTH|SOUTH|EAST|WEST|FRONT|BACK|LEFT|RIGHT)\b/gi,
@@ -116,7 +117,7 @@ class Compiler {
 
 		code = code.replace(
 			/__NAME_STRING__/g,
-			`<span class="${KeywordColor.ticks}">"${name_string}"</span>`
+			`<span class="${KeywordColor.time}">"${name_string}"</span>`
 		);
 
 		return code;

@@ -23,13 +23,7 @@
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<!-- svelte-ignore event_directive_deprecated -->
-	<ProjectCard
-		name="Moje przemyślenia"
-		description="Brak opisu"
-		onClick={() => {
-			goto('/blog/thoughts');
-		}}
-	/>
+
 	<ProjectCard
 		name="Super Factory Manager (deprecated design)"
 		description="Super Factory Manager to nowoczesny mod logistyczny do Minecrafta..."

@@ -1,15 +1,29 @@
 <script>
 	import PageNavigator from '../(components)/PageNavigator.svelte';
+	import BlogHeading from '../../../components/blog/BlogHeading.svelte';
 	import ResponsiveContainer from '../../../components/responsive/ResponsiveContainer.svelte';
 	import Heading from '../../../components/typography/Heading.svelte';
 	import Paragraph from '../../../components/typography/Paragraph.svelte';
 	import SfmCodeArea from './(components)/SFMCodeArea.svelte';
+	import Klimson from '../../../assets/klimson.jpeg';
+	import Translator from '$lib/translation/translator.svelte';
+
+	const translator = new Translator();
+
+	const t = translator.t;
 
 	const { data } = $props();
 </script>
 
 <ResponsiveContainer cols={2} className="flex flex-col gap-y-3 col-span-2">
-	<Heading>🧠 Super Factory Manager</Heading>
+	<BlogHeading
+		readingTime={1}
+		title={t('welcome', 'Klimson')}
+		author="Klimson"
+		publishDate={new Date('09-03-2026')}
+		tags={['minecraft', 'modding', 'sfm', 'programowanie']}
+		authorImageUrl={Klimson}
+	/>
 
 	<Paragraph white>
 		<strong>Super Factory Manager</strong> to nowoczesny mod logistyczny do Minecrafta, który umożliwia
