@@ -2,11 +2,22 @@
 	import SfmCodeArea from '../(components)/SFMCodeArea.svelte';
 	import SectorButton from '../../(components)/SectorButton.svelte';
 	import ResponsiveContainer from '../../../../components/responsive/ResponsiveContainer.svelte';
+	import Klimson from '../../../../assets/klimson.jpeg';
+	import BlogHeading from '../../../../components/blog/BlogHeading.svelte';
 
 	const { data } = $props();
 </script>
 
 <ResponsiveContainer cols={2} className="col-span-2 flex flex-col gap-y-3">
+	<BlogHeading
+		readingTime={5}
+		title="Warunki logiczne"
+		author="Klimson"
+		publishDate={new Date('09-03-2026')}
+		tags={['minecraft', 'modding', 'sfm', 'programowanie']}
+		authorImageUrl={Klimson}
+	/>
+
 	<h2>Warunki logiczne <span class="text-sm text-gray-400">(IF, ELSE IF, ELSE)</span></h2>
 
 	<p>

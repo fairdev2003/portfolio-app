@@ -1,14 +1,22 @@
 <script>
 	import SfmCodeArea from '../(components)/SFMCodeArea.svelte';
-	import CodeSpan from '../../(components)/CodeSpan.svelte';
 	import SectorButton from '../../(components)/SectorButton.svelte';
+	import BlogHeading from '../../../../components/blog/BlogHeading.svelte';
 	import ResponsiveContainer from '../../../../components/responsive/ResponsiveContainer.svelte';
+	import Klimson from '../../../../assets/klimson.jpeg';
 
 	const { data } = $props();
 </script>
 
 <ResponsiveContainer cols={2} className="flex flex-col gap-y-3 col-span-2">
-	<h2>Zaczynamy</h2>
+	<BlogHeading
+		readingTime={5}
+		title={'Name Keyword'}
+		author="Klimson"
+		publishDate={new Date('09-03-2026')}
+		tags={['minecraft', 'modding', 'sfm', 'programowanie']}
+		authorImageUrl={Klimson}
+	/>
 
 	<h3><span class="bg-gray-700 p-0.5 text-gray-400">NAME</span> - nadawanie nazyw programowi</h3>
 	<p>

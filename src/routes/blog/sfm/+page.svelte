@@ -18,7 +18,7 @@
 <ResponsiveContainer cols={2} className="flex flex-col gap-y-3 col-span-2">
 	<BlogHeading
 		readingTime={1}
-		title={t('welcome', 'Klimson')}
+		title={t('heading')}
 		author="Klimson"
 		publishDate={new Date('09-03-2026')}
 		tags={['minecraft', 'modding', 'sfm', 'programowanie']}
