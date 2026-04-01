@@ -151,6 +151,11 @@ const quotes: QuoteProps[] = [
 		quote: 'Lepiej mieć makowca w garści niż kolege na wolności',
 		author: 'Fredi Kamionka',
 		path: 'makowiec'
+	},
+	{
+		quote: 'Ja mam wyjebane w to co mam ważne że jest dobrze a chuj z tego z jakiego powodu',
+		author: 'W',
+		path: 'jest-dobrze-i-chuj'
 	}
 ];
 
