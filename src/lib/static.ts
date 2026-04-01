@@ -154,7 +154,7 @@ const quotes: QuoteProps[] = [
 	},
 	{
 		quote: 'Ja mam wyjebane w to co mam ważne że jest dobrze a chuj z tego z jakiego powodu',
-		author: 'W',
+		author: 'WS',
 		path: 'jest-dobrze-i-chuj'
 	}
 ];
