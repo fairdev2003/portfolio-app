@@ -93,6 +93,16 @@
         } 
     }
 
+    async function closeModal() {
+
+        if (modalEl) {
+            gsap.to(modalEl, {y: 900, duration: 0.3, onComplete: () => {
+                storyGroupOpened = false;
+            }})
+        }
+
+    }
+
     async function previousStory() {
         if (currentStoryVisibleIndex > 0) {
             await progress.set($progress, { duration: 0 });
@@ -140,7 +150,7 @@
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
 		onclick={(e) => {
-			storyGroupOpened = false;
+			closeModal()
             e.stopPropagation()
 		}}
        
@@ -148,7 +158,7 @@
 	>
 		<div onclick={(e) => {
             e.stopPropagation()
-        }} {@attach modalAnimation()} class="relative flex w-xl lg:p-0 px-4 flex-col justify-center">
+        }} {@attach modalAnimation()} bind:this={modalEl} class="relative flex w-xl lg:p-0 px-4 flex-col justify-center">
             {@render TimeLines()}
             {@render StoryHeader()}
             <div class="relative flex flex-col z-50">
@@ -192,7 +202,7 @@
                     <Icon icon="tabler:dots-filled" width="30" height="30" />
                 </button>
                 <button onclick={() => {
-                    storyGroupOpened = false;
+                    closeModal()
                 }} class="cursor-pointer text-neutral-400 hover:text-white">
                     <Icon icon="material-symbols:close" width="30" height="30" />
                 </button>
