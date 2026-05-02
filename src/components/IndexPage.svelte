@@ -6,6 +6,7 @@
 	import { api } from '$lib/api/api';
 	import { dev } from '$app/environment';
 	import FAQList from './FAQList.svelte';
+	import StoryWrapper from './story/StoryWrapper.svelte';
 
 	let entries: number = $state(0);
 
@@ -23,6 +24,7 @@
 		<Caret />
 		<SpotifyStatus />
 	</div>
+	<StoryWrapper/>
 	<Paragraph>Wejscia na stronke: {entries}</Paragraph>
 	<FAQList section_name="Kim jestem?">
 		<Paragraph

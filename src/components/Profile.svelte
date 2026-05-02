@@ -8,8 +8,10 @@
 <div
 	class="sticky top-0 col-span-1 flex flex-col items-center gap-5 p-5 md:flex md:flex-row lg:mt-0 lg:flex-col"
 >
-	<div class="h-48 w-48 overflow-hidden rounded-full border-1 border-neutral-700/60">
-		<img src={Klimson} alt="Example" class="h-full w-full object-center" />
+	<div
+		class="flex h-48 w-48 flex-col justify-center overflow-hidden rounded-full border-1 border-neutral-700/60"
+	>
+		<img src={Klimson} alt="Example" class="size-150 h-5/8 w-full scale-140" />
 	</div>
 	<Heading idTrackingDisabled>klimson</Heading>
 	<div class="flex flex-col gap-3">
