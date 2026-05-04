@@ -174,15 +174,10 @@
         }} {@attach modalAnimation()} bind:this={modalEl} class="relative flex w-xl lg:p-0 px-4 flex-col justify-center">
             {@render TimeLines()}
             {@render StoryHeader()}
-            <div class="relative flex flex-col z-50 w-[576px] h-[768px] rounded-xl overflow-hidden bg-neutral-950">
-                <div class="h-full w-1/3 absolute left-0 z-[100] cursor-pointer" onclick={previousStory}></div>
-                <div class="h-full w-1/3 absolute right-0 z-[100] cursor-pointer" onclick={nextStory}></div>
-
-                <img 
-                    src={stories[currentStoryVisibleIndex].media} 
-                    class="w-full h-full object-contain" 
-                    alt="story"
-                />
+            <div class="relative flex flex-col z-50">
+                <div class="h-full w-50 absolute right left-0 z-100 cursor-pointer {debugStoryPageClick && "bg-red-500/50"}" onclick={previousStory}></div>
+			    <img src={stories[currentStoryVisibleIndex].media} class="rounded-xl"/>
+                <div class="h-full w-50 absolute right right-0 z-100 cursor-pointer {debugStoryPageClick && "bg-red-500/50"}" onclick={nextStory}></div>
             </div>
 		</div>
     
