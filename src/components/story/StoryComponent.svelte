@@ -7,6 +7,8 @@
 	import { linear } from 'svelte/easing';
 	import { easeInOut } from 'framer-motion';
     import Klimson from '../../assets/klimson.jpeg';
+    import ExploreMorePic from '../../assets/explore_more.png';
+
     import Icon from "@iconify/svelte";
 
 
@@ -17,7 +19,7 @@
 	let modalEl: HTMLDivElement;
     let currentStoryVisibleIndex: number = $state(0)
     let debugStoryPageClick: boolean = $state(false)
-
+    let summaryStoryPageActive: boolean = $state(false)
 
     const progress = tweened(0, {
         duration: 5000, // 3 sekundy na jedno zdjęcie
@@ -35,7 +37,6 @@
     function timeAgo(dateInput: string | Date): string {
 		const date = new Date(dateInput);
 
-		// Dodajemy dokładnie jedną godzinę do daty wejściowej
 		date.setHours(date.getHours() + 1);
 
 		const now = new Date();
@@ -46,7 +47,7 @@
 		const diffHr = Math.floor(diffMin / 60);
 		const diffDay = Math.floor(diffHr / 24);
 
-		if (diffSec < 0) return 'przed chwilą'; // Zabezpieczenie, jeśli czas po zmianie wyjdzie w przyszłości
+		if (diffSec < 0) return 'przed chwilą'; 
 		if (diffSec < 60) return 'kilka sekund temu';
 		if (diffMin < 60) return `${diffMin} ${plural(diffMin, 'minutę', 'minuty', 'minut')} temu`;
 		if (diffHr < 24) return `${diffHr} ${plural(diffHr, 'godzinę', 'godziny', 'godzin')} temu`;
@@ -74,15 +75,13 @@
         progress.set(0, { duration: 0 });
 
         progress.set(100).then(() => {
-        // Logika po zakończeniu animacji
         if (currentStoryVisibleIndex < stories.length - 1) {
             currentStoryVisibleIndex++;
         } else {
             
         }
     }).catch(() => {
-        // Tutaj trafimy, jeśli animacja zostanie przerwana (np. przez nextStory)
-        // Możemy to zostawić puste
+        
     });
     });
 
@@ -90,10 +89,14 @@
         if (currentStoryVisibleIndex + 1 < stories.length) {
             await progress.set($progress, { duration: 0 }); 
             currentStoryVisibleIndex++;
+            return;
         } 
+        summaryStoryPageActive = true
     }
 
     async function closeModal() {
+
+        
 
         if (modalEl) {
             gsap.to(modalEl, {y: 900, duration: 0.3, onComplete: () => {
@@ -104,13 +107,20 @@
     }
 
     async function previousStory() {
-        if (currentStoryVisibleIndex > 0) {
+
+        async function progress_set(p: number) {
             await progress.set($progress, { duration: 0 });
-            currentStoryVisibleIndex--;
+        }
+
+        if (currentStoryVisibleIndex > 0) {
+            await progress_set($progress)
+            currentStoryVisibleIndex--; 
+            return;
         }
     }
 
 	function modalAnimation(): Attachment {
+        
 		return (element: Element) => {
 			gsap.fromTo(element, { y: 500  }, { y: 0, duration: 0.3 });
 		};
@@ -155,8 +165,11 @@
 		}}
        
 		class="fixed inset-0 z-10 flex items-center justify-center bg-black text-white transition-all"
-	>
-		<div onclick={(e) => {
+	>   
+    {#if summaryStoryPageActive}
+        {@render SummaryStoryPage()}
+    {:else}
+        <div onclick={(e) => {
             e.stopPropagation()
         }} {@attach modalAnimation()} bind:this={modalEl} class="relative flex w-xl lg:p-0 px-4 flex-col justify-center">
             {@render TimeLines()}
@@ -166,9 +179,10 @@
 			    <img src={stories[currentStoryVisibleIndex].media} class="rounded-xl"/>
                 <div class="h-full w-50 absolute right right-0 z-100 cursor-pointer {debugStoryPageClick && "bg-red-500/50"}" onclick={nextStory}></div>
             </div>
-
-
 		</div>
+    
+    {/if}
+		
 	</div>
 {/snippet}
 
@@ -207,6 +221,19 @@
                     <Icon icon="material-symbols:close" width="30" height="30" />
                 </button>
             </div>
+        </div>
+    </div>
+{/snippet}
+
+{#snippet SummaryStoryPage()}
+    <div class="to-blue-950 bg-red-500 relative rounded-xl from-purple-700 bg-gradient-to-l w-xl h-9/10">
+        <div class="h-full w-50 absolute right left-0 z-100 cursor-pointer {debugStoryPageClick && "bg-red-500/50"}" onclick={() => {
+            summaryStoryPageActive = false
+            previousStory()
+        }}></div>
+        <div class="flex justify-center items-center h-full w-full flex-col gap-4">
+            <img src={ExploreMorePic} alt="explore_more_picture" class="size-25 rounded-full">
+            <p class="font-bold text-xl">Odkryj więcej</p>        
         </div>
     </div>
 {/snippet}

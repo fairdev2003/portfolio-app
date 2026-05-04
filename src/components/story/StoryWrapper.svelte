@@ -34,6 +34,17 @@
 					media: 'https://api.klimson.dev/storage/interface/kongo/trip/wloch.jpg'
 				}
 			]
+		},
+		{
+			name: 'border',
+			created_at: new Date('05.04.2026 15:29'),
+			stories: [
+				{
+					created_at: new Date('05.04.2026 10:35'),
+					media: 'https://api.klimson.dev/interface/bucket/kongo/bacardi/bacardi_1.png',
+					name: '"Tylko by żarła i rozpierdalała kocyk"'
+				}
+			]
 		}
 	];
 </script>
