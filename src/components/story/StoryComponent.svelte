@@ -167,17 +167,22 @@
 		class="fixed inset-0 z-10 flex items-center justify-center bg-black text-white transition-all"
 	>   
     {#if summaryStoryPageActive}
-        {@render SummaryStoryPage()}
+        {@render ExploreMorePage()}
     {:else}
         <div onclick={(e) => {
             e.stopPropagation()
         }} {@attach modalAnimation()} bind:this={modalEl} class="relative flex w-xl lg:p-0 px-4 flex-col justify-center">
             {@render TimeLines()}
             {@render StoryHeader()}
-            <div class="relative flex flex-col z-50">
-                <div class="h-full w-50 absolute right left-0 z-100 cursor-pointer {debugStoryPageClick && "bg-red-500/50"}" onclick={previousStory}></div>
-			    <img src={stories[currentStoryVisibleIndex].media} class="rounded-xl"/>
-                <div class="h-full w-50 absolute right right-0 z-100 cursor-pointer {debugStoryPageClick && "bg-red-500/50"}" onclick={nextStory}></div>
+            <div class="relative flex flex-col justify-center z-50 w-[576px] h-[768px] bg-black rounded-xl overflow-hidden">
+                <div class="h-full w-1/3 absolute left-0 z-[100] cursor-pointer" onclick={previousStory}></div>
+                <div class="h-full w-1/3 absolute right-0 z-[100] cursor-pointer" onclick={nextStory}></div>
+
+                <img 
+                    src={stories[currentStoryVisibleIndex].media} 
+                    class="w-full h-full object-contain" 
+                    alt="story"
+                />
             </div>
 		</div>
     
@@ -225,8 +230,8 @@
     </div>
 {/snippet}
 
-{#snippet SummaryStoryPage()}
-    <div class="to-blue-950 bg-red-500 relative rounded-xl from-purple-700 bg-gradient-to-l w-xl h-9/10">
+{#snippet ExploreMorePage()}
+    <div class="to-blue-950 bg-red-500 relative rounded-xl lg:mx-0 py-4 mx-4 from-purple-700 bg-gradient-to-l w-full lg:w-xl h-full">
         <div class="h-full w-50 absolute right left-0 z-100 cursor-pointer {debugStoryPageClick && "bg-red-500/50"}" onclick={() => {
             summaryStoryPageActive = false
             previousStory()

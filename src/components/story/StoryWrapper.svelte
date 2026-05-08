@@ -3,53 +3,118 @@
 	import type { Timeline } from './story.types';
 	import StoryComponent from './StoryComponent.svelte';
 
+	const may_day = [
+		{
+			created_at: new Date('05-01-2026 16:05'),
+			name: 'Cypis',
+			media: 'https://api.klimson.dev/storage/interface/kongo/trip/cypis.jpg'
+		},
+		{
+			created_at: new Date('05-01-2026 16:37'),
+			name: 'Wyspa Epsteina themed koc',
+			media: 'https://api.klimson.dev/storage/interface/kongo/trip/epstein_jew.jpg'
+		},
+		{
+			created_at: new Date('05-01-2026 16:38'),
+			name: 'Nudny spokojny widok dla spragnionej duszy',
+			media: 'https://api.klimson.dev/storage/interface/kongo/trip/widok-1.jpg'
+		},
+		{
+			created_at: new Date('05-01-2026 17:11'),
+			name: 'Kolejny nudny widok z niestabilnymi dziewczynami psychicznie w tle',
+			media: 'https://api.klimson.dev/storage/interface/kongo/trip/widok-2.jpg'
+		},
+		{
+			created_at: new Date('05-02-2026 01:22'),
+			name: 'Wloch farmi aure',
+			media: 'https://api.klimson.dev/storage/interface/kongo/trip/wloch.jpg'
+		}
+	];
+
+	const bacardi = [
+		{
+			created_at: new Date('05.04.2026 10:35'),
+			media: 'https://api.klimson.dev/interface/bucket/kongo/bacardi/bacardi_1.png',
+			name: '"Tylko by żarła i rozpierdalała kocyk"'
+		},
+		{
+			created_at: new Date('05.04.2026 10:35'),
+			media: 'https://api.klimson.dev/storage/interface/kongo/bacardi/baca_1.jpg',
+			name: 'Bacardi'
+		}
+	];
+
+	const blackout_age = [
+		{
+			created_at: new Date('05.04.2026 10:35'),
+			media: 'https://api.klimson.dev/interface/bucket/kongo/bacardi/bacardi_1.png',
+			name: '"Tylko by żarła i rozpierdalała kocyk"'
+		},
+		{
+			created_at: new Date('05.04.2026 10:35'),
+			media: 'https://api.klimson.dev/storage/interface/kongo/bacardi/baca_1.jpg',
+			name: 'Bacardi'
+		}
+	];
+
+	const italy_convoy = [
+		{
+			created_at: new Date('05.07.2026 15:16'),
+			media: 'https://api.klimson.dev/interface/bucket/kongo/italy/1.jpg',
+			name: ''
+		},
+		{
+			created_at: new Date('05.07.2026 15:17'),
+			media: 'https://api.klimson.dev/interface/bucket/kongo/italy/2.jpg',
+			name: ''
+		},
+		{
+			created_at: new Date('05.07.2026 15:19'),
+			media: 'https://api.klimson.dev/interface/bucket/kongo/italy/3.jpg',
+			name: ''
+		},
+		{
+			created_at: new Date('05.07.2026 15:22'),
+			media: 'https://api.klimson.dev/interface/bucket/kongo/italy/4.jpg',
+			name: ''
+		},
+		{
+			created_at: new Date('05.07.2026 15:40'),
+			media: 'https://api.klimson.dev/interface/bucket/kongo/italy/5.jpg',
+			name: ''
+		},
+		{
+			created_at: new Date('05.07.2026 16:47'),
+			media: 'https://api.klimson.dev/interface/bucket/kongo/italy/6.jpg',
+			name: ''
+		},
+		{
+			created_at: new Date('05.07.2026 16:51'),
+			media: 'https://api.klimson.dev/interface/bucket/kongo/italy/7.jpg',
+			name: ''
+		}
+	];
+
 	const temp_stories: Timeline = [
 		{
 			name: '☀️',
 			created_at: new Date('01-05-2026'),
-			stories: [
-				{
-					created_at: new Date('05-01-2026 16:05'),
-					name: 'Cypis',
-					media: 'https://api.klimson.dev/storage/interface/kongo/trip/cypis.jpg'
-				},
-				{
-					created_at: new Date('05-01-2026 16:37'),
-					name: 'Wyspa Epsteina themed koc',
-					media: 'https://api.klimson.dev/storage/interface/kongo/trip/epstein_jew.jpg'
-				},
-				{
-					created_at: new Date('05-01-2026 16:38'),
-					name: 'Nudny spokojny widok dla spragnionej duszy',
-					media: 'https://api.klimson.dev/storage/interface/kongo/trip/widok-1.jpg'
-				},
-				{
-					created_at: new Date('05-01-2026 17:11'),
-					name: 'Kolejny nudny widok z niestabilnymi dziewczynami psychicznie w tle',
-					media: 'https://api.klimson.dev/storage/interface/kongo/trip/widok-2.jpg'
-				},
-				{
-					created_at: new Date('05-02-2026 01:22'),
-					name: 'Wloch farmi aure',
-					media: 'https://api.klimson.dev/storage/interface/kongo/trip/wloch.jpg'
-				}
-			]
+			stories: may_day
 		},
 		{
 			name: 'border',
 			created_at: new Date('05.04.2026 15:29'),
-			stories: [
-				{
-					created_at: new Date('05.04.2026 10:35'),
-					media: 'https://api.klimson.dev/interface/bucket/kongo/bacardi/bacardi_1.png',
-					name: '"Tylko by żarła i rozpierdalała kocyk"'
-				},
-				{
-					created_at: new Date('05.04.2026 10:35'),
-					media: 'https://api.klimson.dev/storage/interface/kongo/bacardi/baca_1.jpg',
-					name: 'Bacardi'
-				}
-			]
+			stories: bacardi
+		},
+		{
+			name: '🇮🇹',
+			created_at: new Date('05.04.2026 15:29'),
+			stories: italy_convoy
+		},
+		{
+			name: 'blkt',
+			created_at: new Date('05.04.2026 15:29'),
+			stories: blackout_age
 		}
 	];
 </script>
