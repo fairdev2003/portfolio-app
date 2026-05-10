@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { tick } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import type { Story, StoryGroup } from './story.types';
 	import gsap from 'gsap';
 	import type { Attachment } from 'svelte/attachments';
@@ -10,7 +10,11 @@
     import ExploreMorePic from '../../assets/explore_more.png';
 
     import Icon from "@iconify/svelte";
+	import axios, { type AxiosResponse } from 'axios';
+	import type { DeezerTrackResponse } from './deezer.types';
+	import { samp } from 'framer-motion/client';
 
+    
 
 	type Props = StoryGroup & {};
 
@@ -20,6 +24,25 @@
     let currentStoryVisibleIndex: number = $state(0)
     let debugStoryPageClick: boolean = $state(false)
     let summaryStoryPageActive: boolean = $state(false)
+    let sample_audio: HTMLAudioElement | undefined = $state();
+
+    async function FetchMusicSampleIfExist(): Promise<void> {  
+        const src = stories[currentStoryVisibleIndex].music?.src
+
+        if (!src) {
+            return
+        }
+
+        const deezer_response: AxiosResponse<DeezerTrackResponse> = await axios.get(src)
+
+        sample_audio = new Audio(deezer_response.data.preview)
+        sample_audio.play()
+        
+    }
+
+    $effect(async () => {
+        await FetchMusicSampleIfExist()
+    })
 
     const progress = tweened(0, {
         duration: 5000, 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Heading from '../typography/Heading.svelte';
-	import type { Timeline } from './story.types';
+	import type { Story, Timeline } from './story.types';
 	import StoryComponent from './StoryComponent.svelte';
 
 	const may_day = [
@@ -57,11 +57,16 @@
 		}
 	];
 
-	const italy_convoy = [
+	const italy_convoy: Story[] = [
 		{
 			created_at: new Date('05.07.2026 15:16'),
 			media: 'https://api.klimson.dev/interface/bucket/kongo/italy/1.jpg',
-			name: ''
+			name: '',
+			music: {
+				name: 'Party All The Time',
+				author: 'Eddie Murphy',
+				src: 'https://api.deezer.com/track/5404532'
+			}
 		},
 		{
 			created_at: new Date('05.07.2026 15:17'),

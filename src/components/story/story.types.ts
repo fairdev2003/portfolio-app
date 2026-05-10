@@ -2,7 +2,7 @@ export type Story = {
 	name: string;
 	created_at: Date;
 	media: string; // link to photo or video
-	music?: string; // link
+	music?: MusicSample; // link
 };
 
 export type StoryGroup = {
@@ -10,5 +10,13 @@ export type StoryGroup = {
 	stories: Story[];
 	created_at: Date;
 };
+
+export type MusicSample = {
+	name: string;
+	author: string;
+	src: string;
+};
+
+export type DeezerResponse = {};
 
 export type Timeline = StoryGroup[];
