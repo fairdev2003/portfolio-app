@@ -174,7 +174,7 @@
         }} {@attach modalAnimation()} bind:this={modalEl} class="relative flex w-xl lg:p-0 px-4 flex-col justify-center">
             {@render TimeLines()}
             {@render StoryHeader()}
-            <div class="relative flex flex-col justify-center z-50 w-[576px] h-[768px] bg-black rounded-xl overflow-hidden">
+            <div class="relative flex flex-col justify-center z-50  bg-black rounded-xl overflow-hidden">
                 <div class="h-full w-1/3 absolute left-0 z-[100] cursor-pointer" onclick={previousStory}></div>
                 <div class="h-full w-1/3 absolute right-0 z-[100] cursor-pointer" onclick={nextStory}></div>
 

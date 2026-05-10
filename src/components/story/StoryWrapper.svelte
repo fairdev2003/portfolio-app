@@ -130,4 +130,8 @@
 			/>
 		{/each}
 	</div>
+	<audio
+		controls
+		src="https://cdnt-preview.dzcdn.net/api/1/1/b/8/a/0/b8a60b93e1755f2501f97bc30d6dc176.mp3?hdnea=exp=1778417929~acl=/api/1/1/b/8/a/0/b8a60b93e1755f2501f97bc30d6dc176.mp3*~data=user_id=0,application_id=42~hmac=8c50c2d70ad829384f5d9efa39b7580bc50b00d87cd530c311be0ab019adeb69"
+	></audio>
 </div>
