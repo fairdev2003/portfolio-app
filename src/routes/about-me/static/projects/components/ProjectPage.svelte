@@ -20,7 +20,7 @@
 	{#if id === 'portfolio'}
 		<PortfolioApp project={getProjectRecord(id)} />
 	{/if}
-	{#if id === 'klimson-server'}
+	{#if id === 'klimson-dashboard'}
 		<KlimsonServer project={getProjectRecord(id)} />
 	{/if}
 	{#if id === 'clan-manager'}

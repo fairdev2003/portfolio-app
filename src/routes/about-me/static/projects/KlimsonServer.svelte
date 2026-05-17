@@ -3,6 +3,7 @@
 	import StatusBit from '../../sectors/components/StatusBit.svelte';
 	import type { Project, ProjectPage } from '../project.types';
 	import { projects } from '../projects';
+	import CommitHistory from './components/CommitHistory.svelte';
 	import ProjectGeneralInfo from './components/ProjectGeneralInfo.svelte';
 
 	type Props = {
@@ -15,5 +16,6 @@
 {#if project}
 	<div class="lg:px-5">
 		<ProjectGeneralInfo {...project} />
+		<CommitHistory repo="klimson-dashboard" author="fairdev2003" />
 	</div>
 {/if}

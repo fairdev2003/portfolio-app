@@ -104,19 +104,19 @@ export const projects: Project[] = [
 		endDate: '13.05.2023'
 	},
 	{
-		id: 'klimson-server',
-		name: 'Klimson Server',
+		id: 'klimson-dashboard',
+		name: 'Klimson Dashboard',
 		description: 'Moge sprawnie zarządzać strukturą moich plików i serwisów',
 		category: 'web',
 		status: 'wip',
 		techStack: [{ name: 'Svelte' }],
-		links: [],
+		links: [{ type: 'repo', url: 'https://github.com/fairdev2003/klimson-dashboard' }],
 		logo: {
 			color: 'bg-cyan-500/20',
 			url: 'https://icon.icepanel.io/Technology/svg/Go.svg'
 		},
 		screenshots: [],
-		startDate: '10.03.2025'
+		startDate: '13.05.2026'
 	}
 ];
 
