@@ -30,6 +30,7 @@ export const hobbyContents: PageContentsType[] = [
 
 export const funContents: PageContentsType[] = [
 	{ name: 'Kongo', path: '/kongo', description: 'Kongo Zoo' },
+	{ name: 'Pixel Gun 3D', path: '/pg3d', description: 'Sekcje gry pixel gun 3d' },
 	{ name: 'Shitpost', path: '/shitpost', description: 'Sekcja z ahh zdjęciami' },
 	{ name: 'Cyberspace', path: '/cyberspace', description: 'Retro design' }
 ];

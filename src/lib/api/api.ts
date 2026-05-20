@@ -2,6 +2,7 @@ import { dev } from '$app/environment';
 import axios, { type AxiosInstance } from 'axios';
 import type { ApiClassParams, ApiConfig } from './types';
 import { FileStorage } from './requests/file_storage';
+import { PG3D } from './requests/pg3d';
 
 export class ApiStatic {
 	protected server = 'https://api.klimson.dev';
@@ -62,6 +63,10 @@ export class Api extends ApiStatic {
 
 	public get file_storage() {
 		return new FileStorage(this.api);
+	}
+
+	public get pg3d() {
+		return new PG3D(this.api);
 	}
 }
 
