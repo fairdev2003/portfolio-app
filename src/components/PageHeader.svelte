@@ -3,7 +3,6 @@
 	import { onMount } from 'svelte';
 	import { pageSections } from '$lib/static';
 	import DiscordActivityPill from './discord/DiscordActivityPill.svelte';
-	import SpotifyStatus from './SpotifyStatus.svelte';
 
 	import { goto } from '$app/navigation';
 	import RenovationAlert from '../routes/about-me/sectors/components/RenovationAlert.svelte';

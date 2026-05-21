@@ -7,7 +7,7 @@
 	import PagesNavigation from '../../components/typography/PagesNavigation.svelte';
 	import RenovationAlert from '../about-me/sectors/components/RenovationAlert.svelte';
 	import TopMusicPlayer from './(components)/TopMusicPlayer.svelte';
-	import SpotifyStatus from '../../components/SpotifyStatus.svelte';
+	import SpotifyStatus from '../../components/spotify/SpotifyStatus.svelte';
 </script>
 
 <div class="flex flex-col gap-3">

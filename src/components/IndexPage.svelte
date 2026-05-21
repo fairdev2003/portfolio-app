@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import SpotifyStatus from './SpotifyStatus.svelte';
 	import Caret from './typography/Caret.svelte';
 	import Paragraph from './typography/Paragraph.svelte';
 	import { api } from '$lib/api/api';
 	import { dev } from '$app/environment';
 	import FAQList from './FAQList.svelte';
 	import StoryWrapper from './story/StoryWrapper.svelte';
+	import SpotifyStatus from './spotify/SpotifyStatus.svelte';
 
 	let entries: number = $state(0);
 
@@ -24,7 +24,7 @@
 		<Caret />
 		<SpotifyStatus />
 	</div>
-	<StoryWrapper/>
+	<StoryWrapper />
 	<Paragraph>Wejscia na stronke: {entries}</Paragraph>
 	<FAQList section_name="Kim jestem?">
 		<Paragraph

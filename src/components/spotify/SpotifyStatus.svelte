@@ -1,17 +1,15 @@
 <script lang="ts">
-	import { klimsonApp } from '$lib';
 	import { gsap } from 'gsap';
 	import { onMount, tick } from 'svelte';
-	import SpotifySVG from '../assets/spotify-2.svg';
-	import SpotifyPNG from '../assets/spotify.png';
-	import Paragraph from './typography/Paragraph.svelte';
+	import { spotifyApp } from './spotify.svelte';
+	import Icon from '@iconify/svelte';
 
 	onMount(async () => {
-		await klimsonApp.zamontujKurwe();
+		await spotifyApp.zamontujKurwe();
 	});
 
 	$effect(() => {
-		const spotifySong = klimsonApp.spotify;
+		const spotifySong = spotifyApp.spotify;
 		if (!spotifySong && modalEl) {
 			closeModal();
 		}
@@ -107,71 +105,44 @@
 	const { responsiveState = 'desktop' }: Props = $props();
 </script>
 
-{#if klimsonApp.spotify}
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-
-	<Paragraph class="my-3 mt-6 text-green-500">▶ Słucham teraz Spotify.</Paragraph>
-
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
+{#if spotifyApp.spotify && spotifyApp.getSong()}
+	<p class="my-3 mt-6 text-green-500">▶ Słucham teraz Spotify.</p>
+	{@const album_cover = spotifyApp.spotify.item?.album.images[0].url}
 	<div
 		onclick={() => {
 			openModal();
 		}}
-		class={`relative mx-auto mb-3 flex cursor-pointer items-center gap-2 overflow-hidden rounded-3xl border border-neutral-700/60 object-center transition-all select-none 	hover:bg-neutral-700/70 active:bg-neutral-700/70 md:w-3/4 lg:w-full`}
+		class={`relative mx-auto mb-3 flex cursor-pointer items-center gap-2 overflow-hidden rounded-3xl border border-neutral-700/60 object-center transition-all select-none hover:bg-neutral-700/70 active:bg-neutral-700/70 md:w-3/4 lg:w-full`}
 	>
-		<img class="absolute -z-1 scale-100" src={klimsonApp.getAlbumCover()} alt="alum" />
-		<!-- <img class="absolute -z-3 scale-50 blur-xl" src={klimsonApp.getAlbumCover()} alt="alum" /> -->
+		<img class="absolute inset-0 h-full w-full object-cover" src={album_cover} alt="album" />
+
+		<div class="absolute inset-0 bg-black/50"></div>
 
 		<div
-			class={`flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} w-full flex-col gap-0.5`}
+			class={`relative ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} z-10 w-full flex-col gap-0.5`}
 		>
 			<div class="m-5 my-7 flex flex-col">
 				<div class="mb-4 flex justify-between">
-					<img class="top-16 -left-9 size-6" src={SpotifySVG} alt="spotify" />
+					<span class="size-6 text-green-500">
+						<Icon icon="mdi:spotify" width="27" height="27" />
+					</span>
+					<span class="flex gap-1 rounded-md bg-green-700 p-1 px-2">
+						<Icon icon="ic:round-smartphone" width="15" height="15" />
+						<p class="text-xs text-neutral-200">{spotifyApp.spotify.device.name}</p>
+					</span>
 				</div>
-				<p class="text-[15px] font-semibold">{klimsonApp.spotify?.song}</p>
-				<p class="text-[13px] text-white">{klimsonApp.spotify?.artist.replaceAll(';', ', ')}</p>
+				<p class="text-[15px] font-semibold text-white">{spotifyApp.getSong()}</p>
+				<p class="text-[13px] text-gray-200">{spotifyApp.getArtist()?.replaceAll(';', ', ')}</p>
 				<div class="mt-1 flex items-center gap-3">
-					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.progress)}</p>
-					{@render ProgressBar('w-ful	l w-full')}
-					<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.duration)}</p>
+					<p class="text-[11px] text-white">{spotifyApp.formatMs(spotifyApp.progress)}</p>
+					{@render ProgressBar('w-full')}
+					<p class="text-[11px] text-white">{spotifyApp.formatMs(spotifyApp.duration)}</p>
 				</div>
 				<div
 					class={`mt-1 flex ${responsiveState == 'desktop' ? 'w-full' : 'w-full'} justify-between font-semibold`}
 				></div>
 			</div>
 		</div>
-	</div>
-{:else if klimsonApp.recent_tracks.length > 0}
-	<Paragraph class="my-3 mt-6 text-green-500">▶ Czego słuchałem na Spotify wcześniej.</Paragraph>
-	<div class="h-[400px] overflow-y-scroll">
-		{#each klimsonApp.recent_tracks as recent_track}
-			{#if recent_track.date?.['#text']}
-				<div
-					class={`relative mb-3 flex items-center gap-4 border border-neutral-700/60 bg-neutral-800/60 p-3 py-5 transition-colors`}
-				>
-					<img
-						class="h-14 w-14 rounded-lg"
-						src={recent_track.image[2]['#text']}
-						alt="Album cover"
-					/>
-					<div
-						class={`flex ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} w-full flex-col gap-0.5`}
-					>
-						<div class="flex flex-col">
-							<p class="text-[14px] font-semibold">{recent_track.name}</p>
-
-							<p class="text-[11px] text-white">{recent_track.artist['#text']}</p>
-							{#if recent_track.date}
-								<p class="text-[11px] text-green-500">
-									{timeAgo(recent_track.date?.['#text'])}
-								</p>
-							{/if}
-						</div>
-					</div>
-				</div>
-			{/if}
-		{/each}
 	</div>
 {/if}
 
@@ -180,32 +151,21 @@
 {/if}
 
 {#snippet ProgressBar(className?: string)}
-	{#if klimsonApp.duration > 0}
+	{#if spotifyApp.duration > 0}
 		<div class={`h-1 w-auto rounded-full bg-white/30 ${className}`}>
 			<div
 				class="h-full rounded-full bg-green-400 transition-all duration-500 ease-linear"
-				style="width: {(klimsonApp.progress / klimsonApp.duration) * 100}%"
+				style="width: {(spotifyApp.progress / spotifyApp.duration) * 100}%"
 			></div>
 		</div>
 	{/if}
 {/snippet}
 
-<!-- svelte-ignore a11y_click_events_have_key_events -->
 {#snippet Modal()}
-	<script lang="ts">
-	</script>
-
-	<!-- Modal backdrop -->
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-
 	<div
 		onclick={() => closeModal()}
 		class={`fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-neutral-950/90 backdrop-blur-md ${responsiveState === 'mobile' && 'pb-10'}`}
 	>
-		<!-- Modal content -->
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
 			onclick={(e) => {
 				e.stopPropagation();
@@ -213,60 +173,39 @@
 			bind:this={modalEl}
 			class="white w-11/12 border border-neutral-700/60 bg-neutral-800/60 bg-gradient-to-r shadow-2xl backdrop-blur-3xl sm:w-3/4 md:w-1/2 lg:w-1/3"
 		>
-			<!-- Header -->
-
-			<!-- Body -->
-
 			<div
 				bind:this={modalContentEl}
 				class="modal-content relative flex w-full gap-5 p-6 text-white"
 			>
-				{#if klimsonApp.spotify?.song}
-					<img
-						class="size-20 rounded-lg"
-						src={klimsonApp.spotify?.album_art_url}
-						alt="Album cover"
-					/>
+				{#if spotifyApp.getSong() && spotifyApp.getAlbumCover()}
+					<img class="size-20 rounded-lg" src={spotifyApp.getAlbumCover()!} alt="Album cover" />
 				{/if}
 				<div class="relative flex w-full flex-col">
-					{#if klimsonApp.spotify?.song}
-						<img class="absolute top-16 -left-9 size-6" src={SpotifyPNG} alt="spotify" />
-					{/if}
-					<!-- svelte-ignore a11y_missing_attribute -->
-					{#if klimsonApp.spotify?.song}
+					{#if spotifyApp.getSong()}{/if}
+					{#if spotifyApp.getSong()}
 						<a class="flex cursor-pointer items-center gap-1 font-bold">
-							{klimsonApp.getSong()}
+							{spotifyApp.getSong()}
 						</a>
 					{/if}
 
-					{#if klimsonApp.spotify?.song}
+					{#if spotifyApp.getSong()}
 						<p class="font-sm mb-1 text-sm text-gray-400">
-							{klimsonApp.getArtist()?.replaceAll(';', ',')}
+							{spotifyApp.getArtist()?.replaceAll(';', ',')}
 						</p>
 					{/if}
-					{#if klimsonApp.spotify?.song}
+					{#if spotifyApp.getSong()}
 						<div>
 							{@render ProgressBar()}
 						</div>
 					{/if}
-					{#if klimsonApp.spotify?.song}
+					{#if spotifyApp.getSong()}
 						<div class="mt-1 flex justify-between font-semibold">
-							<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.progress)}</p>
-							<p class="text-[11px]">{klimsonApp.formatMs(klimsonApp.duration)}</p>
+							<p class="text-[11px]">{spotifyApp.formatMs(spotifyApp.progress)}</p>
+							<p class="text-[11px]">{spotifyApp.formatMs(spotifyApp.duration)}</p>
 						</div>
 					{/if}
 				</div>
-				<!-- {#if klimsonApp.spotify?.song}
-					<div
-						onclick={() => closeModal()}
-						class="absolute top-5 right-4 cursor-pointer rounded-full p-1 transition-colors hover:bg-white/30"
-					>
-						<X className="" />
-					</div>
-				{/if} -->
 			</div>
-
-			<!-- Footer -->
 		</div>
 	</div>
 {/snippet}
@@ -283,6 +222,6 @@
 	a {
 		color: white;
 		background-color: transparent;
-		padding: 0 0 0 0;
+		padding: 0;
 	}
 </style>
