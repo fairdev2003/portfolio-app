@@ -119,7 +119,7 @@
 		<div class="absolute inset-0 bg-black/50"></div>
 
 		<div
-			class={`relative ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} z-10 w-full flex-col gap-0.5`}
+			class={`relative ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} z-3 w-full flex-col gap-0.5`}
 		>
 			<div class="m-5 my-7 flex flex-col">
 				<div class="mb-4 flex justify-between">
