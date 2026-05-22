@@ -3,6 +3,10 @@
 	import { onMount, tick } from 'svelte';
 	import { spotifyApp } from './spotify.svelte';
 	import Icon from '@iconify/svelte';
+	import { api } from '$lib/api/api';
+	import type { ServerResponse } from '$lib/api/types';
+	import ColorBlob from './ColorBlob.svelte';
+	import { hex_color } from './color.store';
 
 	onMount(async () => {
 		await spotifyApp.zamontujKurwe();
@@ -17,6 +21,7 @@
 
 	let svgPathEl = $state<HTMLOrSVGElement | null>(null);
 	let flashBorderEl = $state<HTMLDivElement | null>(null);
+	let hex = $state<string>('');
 
 	let currentTrackId = $state<string | null>(null);
 
@@ -64,10 +69,19 @@
 		});
 	}
 
-	$effect(() => {
+	$effect(async () => {
 		const trackId = spotifyApp.spotify?.item?.id || spotifyApp.getSong();
 
 		if (trackId && trackId !== currentTrackId && svgPathEl) {
+			const hex_response: ServerResponse<{ hex: string }> = await api.api.post(
+				'/most_common_image_color',
+				{
+					image_url: spotifyApp.spotify.item?.album.images[0].url
+				}
+			);
+
+			$hex_color = hex_response.data.hex;
+
 			currentTrackId = trackId;
 			startGlowAnimation();
 		}
@@ -167,7 +181,7 @@
 		onclick={() => {
 			openModal();
 		}}
-		class="relative mx-auto mb-3 flex cursor-pointer items-center gap-2 overflow-visible rounded-3xl object-center transition-all select-none hover:bg-neutral-700/70 active:bg-neutral-700/70 md:w-3/4 lg:w-full"
+		class="relative mx-auto mb-3 flex cursor-pointer items-center items-center gap-2 overflow-visible rounded-3xl object-center transition-all select-none hover:bg-neutral-700/70 active:bg-neutral-700/70 md:w-3/4 lg:w-full"
 	>
 		<img
 			class="absolute inset-0 z-2 h-full w-full rounded-3xl object-cover"
