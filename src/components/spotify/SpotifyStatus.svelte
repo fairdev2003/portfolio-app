@@ -15,12 +15,66 @@
 		}
 	});
 
-	let playing: boolean = $state(false);
+	let svgPathEl = $state<HTMLOrSVGElement | null>(null);
+	let flashBorderEl = $state<HTMLDivElement | null>(null);
+
+	let currentTrackId = $state<string | null>(null);
+
+	function startGlowAnimation() {
+		requestAnimationFrame(() => {
+			if (!svgPathEl || !flashBorderEl) return;
+
+			const pathLength = (svgPathEl as any).getTotalLength();
+
+			gsap.killTweensOf([svgPathEl, flashBorderEl]);
+
+			gsap.set(svgPathEl, {
+				strokeDasharray: pathLength,
+				strokeDashoffset: pathLength,
+				opacity: 1
+			});
+			gsap.set(flashBorderEl, { opacity: 0, scale: 1 });
+
+			const tl = gsap.timeline();
+
+			tl.to(svgPathEl, {
+				strokeDashoffset: 0,
+				duration: 1.4,
+				ease: 'linear'
+			})
+				.to(
+					flashBorderEl,
+					{
+						opacity: 1,
+						scale: 1.005,
+						duration: 0.1,
+						repeat: 3,
+						yoyo: true,
+						ease: 'sine.inOut'
+					},
+					'-=0.1'
+				)
+				.to(svgPathEl, {
+					opacity: 0,
+					duration: 0.3,
+					onComplete: () => {
+						gsap.set(flashBorderEl, { opacity: 0, scale: 1 });
+					}
+				});
+		});
+	}
+
+	$effect(() => {
+		const trackId = spotifyApp.spotify?.item?.id || spotifyApp.getSong();
+
+		if (trackId && trackId !== currentTrackId && svgPathEl) {
+			currentTrackId = trackId;
+			startGlowAnimation();
+		}
+	});
 
 	function timeAgo(dateInput: string | Date): string {
 		const date = new Date(dateInput);
-
-		// Dodajemy dokładnie jedną godzinę do daty wejściowej
 		date.setHours(date.getHours() + 1);
 
 		const now = new Date();
@@ -31,7 +85,7 @@
 		const diffHr = Math.floor(diffMin / 60);
 		const diffDay = Math.floor(diffHr / 24);
 
-		if (diffSec < 0) return 'przed chwilą'; // Zabezpieczenie, jeśli czas po zmianie wyjdzie w przyszłości
+		if (diffSec < 0) return 'przed chwilą';
 		if (diffSec < 60) return 'kilka sekund temu';
 		if (diffMin < 60) return `${diffMin} ${plural(diffMin, 'minutę', 'minuty', 'minut')} temu`;
 		if (diffHr < 24) return `${diffHr} ${plural(diffHr, 'godzinę', 'godziny', 'godzin')} temu`;
@@ -108,39 +162,72 @@
 {#if spotifyApp.spotify && spotifyApp.getSong()}
 	<p class="my-3 mt-6 text-green-500">▶ Słucham teraz Spotify.</p>
 	{@const album_cover = spotifyApp.spotify.item?.album.images[0].url}
+
 	<div
 		onclick={() => {
 			openModal();
 		}}
-		class={`relative mx-auto mb-3 flex cursor-pointer items-center gap-2 overflow-hidden rounded-3xl border border-neutral-700/60 object-center transition-all select-none hover:bg-neutral-700/70 active:bg-neutral-700/70 md:w-3/4 lg:w-full`}
+		class="relative mx-auto mb-3 flex cursor-pointer items-center gap-2 overflow-visible rounded-3xl object-center transition-all select-none hover:bg-neutral-700/70 active:bg-neutral-700/70 md:w-3/4 lg:w-full"
 	>
-		<img class="absolute inset-0 h-full w-full object-cover" src={album_cover} alt="album" />
+		<img
+			class="absolute inset-0 z-2 h-full w-full rounded-3xl object-cover"
+			src={album_cover}
+			alt="album"
+		/>
+		<div class="absolute inset-0 -z-20 rounded-3xl bg-black/50"></div>
 
-		<div class="absolute inset-0 bg-black/50"></div>
+		<svg
+			class="pointer-events-none absolute inset-0 z-20 size-full overflow-visible"
+			width="100%"
+			height="100%"
+		>
+			<rect
+				x="1"
+				y="1"
+				width="calc(100% - 2px)"
+				height="calc(100% - 2px)"
+				rx="24"
+				ry="24"
+				class="fill-none stroke-neutral-700/60 stroke-[1px]"
+			/>
+
+			<rect
+				bind:this={svgPathEl}
+				x="1"
+				y="1"
+				width="calc(100% - 2px)"
+				height="calc(100% - 2px)"
+				rx="24"
+				ry="24"
+				class="fill-none stroke-green-500 stroke-[2px] opacity-0 [filter:drop-shadow(0_0_4px_#22c55e)_drop-shadow(0_0_8px_#22c55e)] [stroke-linecap:round]"
+			/>
+		</svg>
 
 		<div
-			class={`relative ${responsiveState == 'desktop' ? 'w-9/10' : 'w-full'} z-3 w-full flex-col gap-0.5`}
-		>
+			bind:this={flashBorderEl}
+			class="pointer-events-none absolute inset-0 z-30 rounded-3xl border-2 border-green-500 opacity-0 [box-shadow:0_0_20px_rgba(34,197,94,0.5)]"
+		></div>
+
+		<div class="relative z-10 flex w-full flex-col gap-0.5">
 			<div class="m-5 my-7 flex flex-col">
-				<div class="mb-4 flex justify-between">
+				<div class="mb-4 flex items-center justify-between">
 					<span class="size-6 text-green-500">
 						<Icon icon="mdi:spotify" width="27" height="27" />
 					</span>
-					<span class="flex gap-1 rounded-md bg-green-700 p-1 px-2">
+					<span class="flex items-center gap-1 rounded-md bg-green-700 p-1 px-2">
 						<Icon icon="ic:round-smartphone" width="15" height="15" />
 						<p class="text-xs text-neutral-200">{spotifyApp.spotify.device.name}</p>
 					</span>
 				</div>
+
 				<p class="text-[15px] font-semibold text-white">{spotifyApp.getSong()}</p>
 				<p class="text-[13px] text-gray-200">{spotifyApp.getArtist()?.replaceAll(';', ', ')}</p>
+
 				<div class="mt-1 flex items-center gap-3">
 					<p class="text-[11px] text-white">{spotifyApp.formatMs(spotifyApp.progress)}</p>
 					{@render ProgressBar('w-full')}
 					<p class="text-[11px] text-white">{spotifyApp.formatMs(spotifyApp.duration)}</p>
 				</div>
-				<div
-					class={`mt-1 flex ${responsiveState == 'desktop' ? 'w-full' : 'w-full'} justify-between font-semibold`}
-				></div>
 			</div>
 		</div>
 	</div>
