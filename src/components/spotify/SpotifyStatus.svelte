@@ -39,7 +39,7 @@
 
 			tl.to(svgPathEl, {
 				strokeDashoffset: 0,
-				duration: 1.4,
+				duration: 0.8,
 				ease: 'linear'
 			})
 				.to(
@@ -182,10 +182,10 @@
 			height="100%"
 		>
 			<rect
-				x="1"
-				y="1"
-				width="calc(100% - 2px)"
-				height="calc(100% - 2px)"
+				x="2"
+				y="2"
+				width="calc(100% - 3px)"
+				height="calc(100% - 3px)"
 				rx="24"
 				ry="24"
 				class="fill-none stroke-neutral-700/60 stroke-[1px]"
