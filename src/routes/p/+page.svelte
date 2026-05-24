@@ -6,9 +6,9 @@
 	const a = [
 		'Problemy z koncentracją i poprawnym formułowaniem zdań.',
 		'Trudności ze zrozumieniem wypowiedzi innych osób (zdarzało mi się przytakiwać, nie rozumiejąc treści, co skutkowało utratą pracy).',
-		'Wycofanie społeczne – kontakty z ludźmi są męczące.',
+		'Wycofanie społeczne - kontakty z ludźmi są męczące.',
 		'Poczucie wstydu z powodu własnego istnienia, trudności w nawiązywaniu rozmów.',
-		'Agonia – brak przyjemności z czynności, które wcześniej sprawiały radość (programowanie, gry, spotkania).',
+		'Agonia - brak przyjemności z czynności, które wcześniej sprawiały radość (programowanie, gry, spotkania).',
 		'Częste wyręczanie się innymi w codziennych obowiązkach z braku sił.',
 		'Poczucie bycia "życiową porażką".',
 		'Kompulsywne zachowania seksualne (masturbacja 3-4 razy dziennie) jako desperacka próba dostarczenia mózgowi dopaminy.'
