@@ -5,7 +5,6 @@
 	import Icon from '@iconify/svelte';
 	import { api } from '$lib/api/api';
 	import type { ServerResponse } from '$lib/api/types';
-	import ColorBlob from './ColorBlob.svelte';
 	import { hex_color } from './color.store';
 
 	onMount(async () => {
