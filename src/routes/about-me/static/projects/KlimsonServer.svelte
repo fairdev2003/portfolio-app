@@ -1,4 +1,5 @@
 <script lang="ts">
+	import MarkdownRenderer from '../../../../components/blog/MarkdownRenderer.svelte';
 	import Heading from '../../../../components/typography/Heading.svelte';
 	import StatusBit from '../../sectors/components/StatusBit.svelte';
 	import type { Project, ProjectPage } from '../project.types';
@@ -17,5 +18,11 @@
 	<div class="lg:px-5">
 		<ProjectGeneralInfo {...project} />
 		<CommitHistory repo="klimson-dashboard" author="fairdev2003" />
+	</div>
+
+	<div class="p-5">
+		<MarkdownRenderer
+			markdown="https://api.klimson.dev/interface/bucket/klimson.dev/projects/dashboard/dashboard.md"
+		/>
 	</div>
 {/if}
