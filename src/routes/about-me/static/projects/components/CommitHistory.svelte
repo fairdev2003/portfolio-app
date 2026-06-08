@@ -21,6 +21,10 @@
 		const response = await axios.get<GitHubCommit[]>(baseLink);
 		return response.data;
 	}
+
+	async function render_commit_message(message: string) {
+		return message;
+	}
 </script>
 
 {#await commitsPromise}
@@ -34,13 +38,13 @@
 		<div
 			class="flex items-center justify-between gap-1 border border-t-0 border-neutral-800/60 bg-neutral-900/60 p-3 px-5"
 		>
-			<div class="flex flex-col gap-1">
+			<div class="flex min-w-0 flex-col gap-1">
 				<span class="flex items-center gap-1 text-[12px] font-bold text-neutral-400">
 					<GitCommitHorizontal />
 					<p>OSTATNI COMMIT</p>
 					<p>({new Date(commits[0].commit.author.date).toLocaleString('pl-PL')})</p>
 				</span>
-				<p class="text-[14px]">{commits[0].commit.message}</p>
+				<p class="truncate text-[14px]">{commits[0].commit.message}</p>
 			</div>
 			<a
 				href={commits[0].html_url}
