@@ -49,7 +49,7 @@
 			<a
 				href={commits[0].html_url}
 				target="_blank"
-				class="cursor-pointer rounded-full p-3 text-neutral-400 transition-colors hover:bg-neutral-800/30 hover:text-green-500"
+				class=" cursor-pointer rounded-full p-3 text-neutral-400 transition-colors hover:bg-neutral-800/30 hover:text-green-500"
 			>
 				<ArrowRight />
 			</a>

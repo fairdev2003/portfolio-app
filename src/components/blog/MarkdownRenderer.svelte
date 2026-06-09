@@ -48,6 +48,6 @@
 	}
 
 	.article {
-		@apply prose-a:text-blue-500 prose-a:text-[17px] prose-pre:bg-transparent prose-code:bg-neutral-900 prose-code:shadow-2xl;
+		@apply prose-a:text-blue-500 prose-img:border-1 prose-img:border-neutral-700 prose-a:text-[17px] prose-pre:bg-transparent prose-code:bg-neutral-900 prose-code:shadow-2xl;
 	}
 </style>
