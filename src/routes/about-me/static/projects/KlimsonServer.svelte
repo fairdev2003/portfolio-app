@@ -22,7 +22,7 @@
 
 	<div class="p-5">
 		<MarkdownRenderer
-			markdown="https://api.klimson.dev/interface/bucket/klimson.dev/projects/dashboard/dashboard.md"
+			markdown="https://raw.githubusercontent.com/fairdev2003/klimson-dashboard/refs/heads/master/README.md"
 		/>
 	</div>
 {/if}
