@@ -1,7 +1,9 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import Heading from '../typography/Heading.svelte';
 	import type { Story, Timeline } from './story.types';
 	import StoryComponent from './StoryComponent.svelte';
+	import { editMode } from '$lib/cms/persist.svelte';
 
 	const may_day = [
 		{
@@ -134,5 +136,16 @@
 				stories={story_group.stories}
 			/>
 		{/each}
+		{#if $editMode}
+			<div
+				class="group h-20 w-15 cursor-pointer items-center justify-center rounded-lg border-2 border-neutral-700 p-1 transition-colors hover:border-neutral-600"
+			>
+				<div
+					class=" h-full w-full rounded-md flex justify-center items-center bg-neutral-700 group-hover:bg-neutral-600"
+				>
+					<Icon icon="ic:baseline-plus" />
+				</div>
+			</div>
+		{/if}
 	</div>
 </div>
