@@ -16,6 +16,7 @@
 	import Heading from './typography/Heading.svelte';
 	import { input } from 'framer-motion/client';
 	import SearchContents from './SearchContents.svelte';
+	import CMSHeader from './CMSHeader.svelte';
 
 
 
@@ -114,64 +115,75 @@
 			window.addEventListener('keydown', handleResize);
 		};
 		});
-	
+		
+	type Props = {
+		data: {
+			serverData: {
+				access: boolean
+			}
+		}
+	}	
+	let {data}: Props = $props()
 </script>
 
 
+<div class="">
+	
 
 <header
-	class="sticky top-0 z-10 flex items-center gap-1 py-5 select-none lg:relative lg:bg-transparent"
+    class="sticky top-0 px-3 md:px-5 z-10 flex flex-col w-full items-center gap-2 py-3 md:py-5 select-none lg:relative lg:bg-transparent"
 >
-	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-	<div
-		
-		class="flex h-15 w-6xl items-center justify-between border-1 border-neutral-800/60 bg-neutral-900/60 backdrop-blur-sm lg:border-none lg:bg-transparent"
-	>
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<h3
-			
-			class="klimson-heading ml-3 flex items-center cursor-pointer bg-white px-2 text-black"
-			onclick={() => goto('/')}
-		>	
-		
-			<span >klimson.dev</span>
-		</h3>
-		
+    <div class="flex flex-col w-full items-center gap-2 max-w-6xl">
+        {#if data.serverData?.access}
+            <div class="w-full">
+                <CMSHeader />
+            </div>
+        {/if}
 
-		<div class="relative flex items-center justify-center">
-			
+        <div
+            class="flex h-15 w-full items-center justify-between border border-neutral-800/60 bg-neutral-900/60 backdrop-blur-sm lg:border-none lg:bg-transparent px-3 md:px-4 rounded-xl lg:rounded-none"
+        >
+            <h3
+                class="klimson-heading flex items-center cursor-pointer bg-white px-2 text-black text-xl md:text-2xl"
+                onclick={() => goto('/')}
+            >   
+                <span>klimson.dev</span>
+            </h3>
+            
+            <!-- Mobile Search Icon -->
+            <div class="relative flex items-center justify-center lg:hidden">
+                <button 
+                    onclick={openModal}
+                    class="flex items-center justify-center focus:outline-none p-1"
+                    aria-label="Szukaj"
+                >
+                    <Search class="h-6 w-6 text-white"/>
+                </button>
+            </div>
 
-			<Search onclick={openModal}
-				class="group peer mr-3 h-10 w-10 cursor-pointer p-2 lg:hidden"/>
+            <!-- Desktop Search Button -->
+            <button
+                onclick={() => {
+                    openModal()
+                }}
+                class="focus:outline-none lg:flex hidden cursor-pointer items-center justify-between gap-4 rounded-md border border-neutral-800/60 bg-neutral-900/60 p-3 hover:bg-neutral-800/60"
+            >
+                <div class="flex gap-2 text-neutral-400">
+                    <Search />
+                    <div>
+                        <p>SZUKAJ...</p>
+                    </div>
+                </div>
 
-			<span
-				onclick={openModal}
-				class="absolute right-5 bg-red-500/50 -bottom-3 h-15 w-20 bg-transparent peer-hover:bg-white/50"
-			>
-			</span>
-		</div>
-
-
-			<button
-				onclick={() => {
-					openModal()
-				}}
-				class="mr-3 focus:outline-none lg:flex hidden cursor-pointer items-center justify-between gap-4 rounded-md border border-neutral-800/60 bg-neutral-900/60 p-3 hover:bg-neutral-800/60"
-			>
-				<div class="flex gap-2 text-neutral-400">
-					<Search />
-					<div>
-						<p>SZUKAJ...</p>
-					</div>
-				</div>
-
-				<div class="rounded-full bg-neutral-700/60 p-1 px-2">
-					<p class="text-[14px] text-neutral-400">CTRL + K</p>
-				</div>
-			</button>
-
-	</div>
+                <div class="rounded-full bg-neutral-700/60 p-1 px-2">
+                    <p class="text-[14px] text-neutral-400">CTRL + K</p>
+                </div>
+            </button>
+        </div>
+    </div>
 </header>
+</div>
+
 
 {#if isOpen}
 	<div class="overlay" onclick={toggleMenu}></div>

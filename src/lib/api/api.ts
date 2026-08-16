@@ -5,7 +5,7 @@ import { FileStorage } from './requests/file_storage';
 import { PG3D } from './requests/pg3d';
 
 export class ApiStatic {
-	protected server = 'https://api.klimson.dev';
+	protected server = dev ? 'http://localhost:8090' : 'https://api.klimson.dev';
 
 	protected storage_prefix = '/interface/bucket';
 
@@ -49,7 +49,8 @@ export class Api extends ApiStatic {
 			baseURL: this.server,
 			headers: {
 				Accept: 'application/json'
-			}
+			},
+			withCredentials: true
 		});
 	}
 

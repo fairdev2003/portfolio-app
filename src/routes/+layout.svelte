@@ -8,16 +8,20 @@
 	import '../scrollbar.css';
 	import HotlineWebring from '../components/HotlineWebring.svelte';
 	import { page } from '$app/state';
+	import { onMount } from 'svelte';
+	import { api } from '$lib/api/api';
+	import axios from 'axios';
+	import CMSHeader from '../components/CMSHeader.svelte';
 
-	let { children } = $props();
+	let { children, data } = $props();
 </script>
 
 <section>
 	{#if page.url.pathname.includes('/cyberspace')}
 		{@render children()}
 	{:else}
-		<div class="dark mx-auto max-w-6xl px-5 lg:px-10">
-			<PageHeader />
+		<div class="dark mx-auto max-w-6xl lg:px-10">
+			<PageHeader {data} />
 			<div class="w-full md:flex md:flex-col md:justify-center lg:grid lg:grid-cols-4">
 				<!--Navigation-->
 
@@ -25,7 +29,7 @@
 					<Navigation />
 				</div>
 
-				<div class="col-span-3">
+				<div class="col-span-3 px-5">
 					{@render children()}
 				</div>
 			</div>
