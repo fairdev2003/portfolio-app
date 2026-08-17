@@ -7,6 +7,7 @@
 	import FAQList from './FAQList.svelte';
 	import StoryWrapper from './story/StoryWrapper.svelte';
 	import SpotifyStatus from './spotify/SpotifyStatus.svelte';
+	import SpotifyStatusV2 from './spotify/SpotifyStatusV2.svelte';
 
 	let entries: number = $state(0);
 
@@ -22,7 +23,7 @@
 <div class="flex flex-col gap-6 lg:col-span-2">
 	<div>
 		<Caret />
-		<SpotifyStatus />
+		<SpotifyStatusV2 />
 	</div>
 	<StoryWrapper />
 	<Paragraph>Wejscia na stronke: {entries}</Paragraph>

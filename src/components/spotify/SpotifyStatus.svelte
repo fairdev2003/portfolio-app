@@ -86,6 +86,23 @@
 		}
 	});
 
+	onMount(async () => {
+		const trackId = spotifyApp.spotify?.item?.id || spotifyApp.getSong();
+
+		if (trackId && trackId !== currentTrackId && svgPathEl) {
+			const hex_response: ServerResponse<{ hex: string }> = await api.api.post(
+				'/most_common_image_color',
+				{
+					image_url: spotifyApp.spotify.item?.album.images[0].url
+				}
+			);
+
+			$hex_color = hex_response.data.hex;
+
+			currentTrackId = trackId;
+		}
+	});
+
 	function timeAgo(dateInput: string | Date): string {
 		const date = new Date(dateInput);
 		date.setHours(date.getHours() + 1);

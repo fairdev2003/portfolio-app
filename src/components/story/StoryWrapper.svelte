@@ -4,6 +4,7 @@
 	import type { Story, Timeline } from './story.types';
 	import StoryComponent from './StoryComponent.svelte';
 	import { editMode } from '$lib/cms/persist.svelte';
+	import { blur } from 'svelte/transition';
 
 	const may_day = [
 		{
@@ -138,6 +139,7 @@
 		{/each}
 		{#if $editMode}
 			<div
+				transition:blur={{ duration: 150 }}
 				class="group h-20 w-15 cursor-pointer items-center justify-center rounded-lg border-2 border-neutral-700 p-1 transition-colors hover:border-neutral-600"
 			>
 				<div
