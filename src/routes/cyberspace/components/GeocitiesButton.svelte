@@ -1,0 +1,1 @@
+<img width="88" height="31" alt="button" src="https://cyber.dabamos.de/88x31/brave.gif"/>

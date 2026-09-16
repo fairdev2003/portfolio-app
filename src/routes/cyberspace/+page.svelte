@@ -10,33 +10,31 @@
 
 	let colored: boolean = $state(false);
 
-	let descript: HTMLParagraphElement
+	let descript: HTMLParagraphElement;
 
 	function headingAnimation(): Attachment {
-	return (element: Element) => {
-		gsap.fromTo(
-			element,
-			{ scale: 0.85 },
-			{
-				scale: 1.05,
-				duration: 0.8,
-				repeat: -1,
-				yoyo: true, 
-				ease: "sine.inOut"
-			}
-		);
-	};
-}
-
-
+		return (element: Element) => {
+			gsap.fromTo(
+				element,
+				{ scale: 0.85 },
+				{
+					scale: 1.05,
+					duration: 0.8,
+					repeat: -1,
+					yoyo: true,
+					ease: 'sine.inOut'
+				}
+			);
+		};
+	}
 
 	function descriptionAnimation(): Attachment {
-	return (element: Element) => {
-		gsap.set(element, { scale: 0, opacity: 0 });
-		gsap.fromTo(
-			element,
-			{ rotate: 0 },
-			{ scale: 1, opacity: 1, rotate: 360, delay: 0.5, duration: 0.8 }
+		return (element: Element) => {
+			gsap.set(element, { scale: 0, opacity: 0 });
+			gsap.fromTo(
+				element,
+				{ rotate: 0 },
+				{ scale: 1, opacity: 1, rotate: 360, delay: 0.5, duration: 0.8 }
 			);
 		};
 	}
@@ -59,11 +57,19 @@
 		{:else}
 			<h1 class="retro-p text-5xl text-white">Welcome to Cyber Space!</h1>
 		{/if} -->
-		<h1 {@attach headingAnimation()} class="text-red-500 retro-p text-5xl ">Welcome to Cyber Space!</h1>
-		<p style="opacity: 0; transform: scale(0);" {@attach descriptionAnimation()} bind:this={descript}>Welcome to national place for web astrounauts. Keep eyes on aliens!</p>
+		<h1 {@attach headingAnimation()} class="text-red-500 retro-p text-5xl">
+			Welcome to Cyber Space!
+		</h1>
+		<p
+			style="opacity: 0; transform: scale(0);"
+			{@attach descriptionAnimation()}
+			bind:this={descript}
+		>
+			Welcome to national place for web astrounauts. Keep eyes on aliens!
+		</p>
 	</div>
 	<div class="mt-3">
-		{@render Graphic3()}
+		{@render Graphic1()}
 	</div>
 </div>
 

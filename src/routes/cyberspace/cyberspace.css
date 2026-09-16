@@ -1,0 +1,14 @@
+p,
+.windows,
+h1,
+h2,
+h3 {
+    font-family: 'WindowsRegular';
+}
+
+
+
+@font-face {
+    font-family: 'WindowsRegular';
+    src: url('/WindowsRegular.ttf') format('truetype');
+}
