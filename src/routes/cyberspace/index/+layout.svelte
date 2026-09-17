@@ -5,7 +5,7 @@
 	let { children } = $props();
 </script>
 
-<div class="flex flex-col h-dvh p-5 overflow-hidden windows">
+<div class="flex flex-col h-dvh p-5 overflow-hidden windows w-full">
 	<div class="border flex flex-col border-blue-900 items-start p-2 bg-neutral-900/50 shrink-0">
 		<p class="font-bold text-2xl text-start">Cyber Klimson</p>
 
@@ -19,7 +19,7 @@
 		</div>
 	</div>
 
-	<div class="grid grid-cols-8 text-start w-5xl flex-1 min-h-0">
+	<div class="grid grid-cols-8 text-start flex-1 min-h-0">
 		<section
 			class="col-span-2 bg-neutral-900/50 border-blue-900 border border-t-0 border-b-0 h-full overflow-y-auto"
 		>
@@ -34,12 +34,12 @@
 
 	<div class="border flex p-2 justify-center border-blue-900 bg-neutral-900/50">
 		<div class="flex gap-1 items-center">
-			<a href="">
+			<a href="https://webring.dinhe.net/prev/https://klimson.dev/cyberspace/index">
 				<img src="https://gifcities.org/static/gifsearch/arrowleft.gif" alt="" class="size-8" />
 			</a>
 
 			<p>Retronaut Webring</p>
-			<a href="">
+			<a href="https://webring.dinhe.net/next/https://klimson.dev/cyberspace/index">
 				<img src="https://gifcities.org/static/gifsearch/arrowright.gif" alt="" class="size-8" />
 			</a>
 		</div>
