@@ -9,19 +9,13 @@
 	</p>
 	<ul class="mt-4">
 		<li>
-			<a href="">Season 1</a>
+			<a href="https://api.klimson.dev/public-drive/download/kwadratowa_masakra/km1.zip">Season 1</a
+			>
 		</li>
 		<li>
-			<a href="">Season 2</a>
-		</li>
-		<li>
-			<a href="">Season 3</a>
-		</li>
-		<li>
-			<a href="">Season 4</a>
-		</li>
-		<li>
-			<a href="">Season 5</a>
+			<a href="https://api.klimson.dev/public-drive/download/kwadratowa_masakra/km2.zip"
+				>Season 2 (map downloader)</a
+			>
 		</li>
 	</ul>
 </div>
