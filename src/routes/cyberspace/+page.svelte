@@ -69,7 +69,7 @@
 		</p>
 	</div>
 	<div class="mt-3">
-		{@render Graphic1()}
+		{@render Graphic3()}
 	</div>
 </div>
 
@@ -90,7 +90,11 @@
 
 {#snippet Graphic2()}
 	<a href="https://maniek86.xyz">
-		<img src={Maniek2} alt="maniek" class="h-[31px] w-[88px]" />
+		<img
+			src="https://api.klimson.dev/interface/bucket/klimson.dev/cyberspace/retro_maniek86.gif"
+			alt="maniek"
+			class="h-[31px] w-[88px]"
+		/>
 	</a>
 {/snippet}
 

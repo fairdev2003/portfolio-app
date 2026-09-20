@@ -14,7 +14,7 @@
 
 <section class="relative h-screen text-start w-full bg-black">
 	<div
-		class="relative container mx-auto flex h-full w-full items-center justify-center p-5 md:border-1 lg:border-1"
+		class="relative container mx-auto flex h-full w-full items-center justify-center md:border-1 lg:border-1"
 	>
 		{@render children()}
 	</div>
