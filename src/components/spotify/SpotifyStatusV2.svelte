@@ -275,7 +275,7 @@
 			></div>
 			<div class="flex gap-2 w-full items-center">
 				<div class="relative size-12 shrink-0 shadow-lg">
-					<span class="text-green-500 rounded-full absolute bg-neutral-800 -bottom-1 -right-1 z-10">
+					<span class="text-green-500 rounded-full absolute bg-neutral-800 -bottom-1 -right-1 z-5">
 						<Icon icon="mdi:spotify" width="24" height="24" />
 					</span>
 					<img
