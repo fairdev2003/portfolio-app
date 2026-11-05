@@ -21,8 +21,9 @@
 </section>
 
 <style>
+	@import 'tailwindcss';
+
 	.container {
-		background-image: url('https://anlucas.neocities.org/starsbg.gif');
-		width: full;
+		@apply bg-slate-800;
 	}
 </style>

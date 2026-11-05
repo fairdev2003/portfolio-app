@@ -47,19 +47,6 @@
 		}
 	];
 
-	const blackout_age = [
-		{
-			created_at: new Date('05.04.2026 10:35'),
-			media: 'https://api.klimson.dev/interface/bucket/kongo/bacardi/bacardi_1.png',
-			name: '"Tylko by żarła i rozpierdalała kocyk"'
-		},
-		{
-			created_at: new Date('05.04.2026 10:35'),
-			media: 'https://api.klimson.dev/storage/interface/kongo/bacardi/baca_1.jpg',
-			name: 'Bacardi'
-		}
-	];
-
 	const italy_convoy: Story[] = [
 		{
 			created_at: new Date('05.07.2026 15:16'),
@@ -118,11 +105,6 @@
 			name: '🇮🇹',
 			created_at: new Date('05.04.2026 15:29'),
 			stories: italy_convoy
-		},
-		{
-			name: 'blkt',
-			created_at: new Date('05.04.2026 15:29'),
-			stories: blackout_age
 		}
 	];
 </script>

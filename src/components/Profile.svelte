@@ -11,7 +11,11 @@
 	<div
 		class="flex h-48 w-48 flex-col justify-center overflow-hidden rounded-full border-1 border-neutral-700/60"
 	>
-		<img src={Klimson} alt="Example" class="size-150 h-5/8 w-full scale-140" />
+		<img
+			src="https://api.klimson.dev/interface/bucket/random/klimson_koszula.jpeg"
+			alt="Example"
+			class="w-full"
+		/>
 	</div>
 	<Heading idTrackingDisabled>klimson</Heading>
 	<div class="flex flex-col gap-3">
